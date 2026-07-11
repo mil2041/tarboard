@@ -294,6 +294,19 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
 .claude-brief-btn:disabled{opacity:.7;cursor:wait}
 .claude-brief{font-size:14.5px;line-height:1.55;color:var(--ink);margin-top:9px;white-space:pre-wrap}
 .claude-brief:empty{display:none}
+.claude-tools{display:flex;flex-wrap:wrap;gap:7px;margin-top:9px}
+.claude-tools .claude-brief-btn{width:auto;flex:1 1 auto;margin-top:0;min-width:118px;font-size:13px;padding:8px 9px}
+.claude-brief.aims:empty,.claude-comp:empty{display:none}
+.claude-brief.aims{background:var(--paper-2);border:1px solid var(--line);border-radius:9px;padding:10px 12px}
+.claude-brief.aims:not(:empty)::before{content:"AI-generated skeleton — revise before use";display:block;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-faint);font-weight:600;margin-bottom:6px}
+.claude-comp{margin-top:9px;font-size:14px}
+.rep-h{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:6px}
+.rep-item{padding:6px 0;border-top:1px solid var(--line)}
+.rep-item:first-of-type{border-top:none}
+.rep-item a{font-weight:600;color:var(--teal);text-decoration:none;font-size:14px}
+.rep-item a:hover{text-decoration:underline}
+.rep-meta{font-size:12.5px;color:var(--ink-faint);font-family:var(--mono);margin-top:2px}
+.comp-out{margin-top:8px}
 .cursor{display:inline-block;width:7px;height:15px;background:var(--teal);vertical-align:text-bottom;animation:blink 1s steps(2) infinite;border-radius:1px}
 @keyframes blink{50%{opacity:0}}
 .claude-elig{margin-top:8px;font-size:14px}
@@ -790,7 +803,7 @@ async function claudeRerank(tok){
         focusAreas:(g.focusAreas||[]).join(", "),
         amount:g.awardAmount||"",deadline:g.deadlineInfo||g.closeDate||"",
         desc:String(g.description||g.relevanceToUser||"").slice(0,250)}));
-      const out=await claudeJSON({model:CONFIG.model,max_tokens:1600,system:RERANK_SYSTEM,
+      const out=await claudeJSON({model:CONFIG.fastModel,max_tokens:1600,system:RERANK_SYSTEM,
         messages:[{role:"user",content:RERANK_PROMPT(profileSummary(),payload)}],schema:RERANK_SCHEMA,timeoutMs:90000});
       ranked=(out.rankings||[]).filter(r=>idset.has(r.id));   // drop any invented ids
       state.rrCache[key]=ranked;
@@ -835,6 +848,80 @@ async function claudeEligibility(text,el){
       +(o.quotedClause?'<p class="quoted">“'+esc(o.quotedClause)+'”</p>':'')
       +(o.note?'<p>'+esc(o.note)+'</p>':'');
   }catch(e){ el.innerHTML='<span style="color:var(--crimson)">Claude unavailable — verify on the funder page.</span>'; }
+}
+
+/* ---- NIH RePORTER: real similar-funded projects, competitiveness & collaborators ---- */
+// RePORTER blocks direct browser calls (CORS), so this goes through the same proxy as Claude.
+async function reporterSearch(text,limit){
+  const base=(claudeCfg().workerUrl||"").replace(/\/+$/,"");
+  if(!base) throw new Error("no-proxy");
+  const c=claudeCfg();
+  const body={criteria:{advanced_text_search:{operator:"and",search_field:"projecttitle,terms,abstracttext",search_text:text}},
+    include_fields:["ProjectTitle","Organization","FiscalYear","AwardAmount","ContactPiName","ProjectNum"],
+    offset:0,limit:limit||8,sort_field:"fiscal_year",sort_order:"desc"};
+  const ac=new AbortController(),tm=setTimeout(()=>ac.abort(),30000);
+  try{
+    const r=await fetch(base+"/reporter",{method:"POST",signal:ac.signal,
+      headers:{"Content-Type":"application/json",...(c.demoToken?{"x-demo-token":c.demoToken}:{})},body:JSON.stringify(body)});
+    if(!r.ok) throw new Error("reporter http "+r.status);
+    const j=await r.json();
+    return (j.results||[]).map(x=>({title:x.project_title,pi:x.contact_pi_name,org:(x.organization||{}).org_name,fy:x.fiscal_year,amount:x.award_amount,num:x.project_num}));
+  } finally { clearTimeout(tm); }
+}
+const COMP_SCHEMA={type:"object",additionalProperties:false,required:["competitiveness","collaborators","gaps"],properties:{
+  competitiveness:{type:"string"},collaborators:{type:"array",items:{type:"string"}},gaps:{type:"string"}}};
+const COMP_SYSTEM="You assess how competitive an applicant is, using a list of REAL recently NIH-funded projects in the same space. competitiveness: 1-2 sentences on how crowded/feasible the space is and where the applicant stands. collaborators: up to 3 principal-investigator names to reach out to — copy them VERBATIM from the provided contact_pi list; never invent a name. gaps: the complementary expertise the applicant should add to be competitive. Return via emit.";
+function COMP_PROMPT(g,projects){
+  const rows=projects.map(p=>({pi:p.pi,org:p.org,fy:p.fy,amount:p.amount,title:(p.title||"").slice(0,90)}));
+  return "Applicant:\n"+profileSummary()+"\n\nTarget grant: "+(g.name||"")+" — "+(g.funder||"")+" (focus: "+((g.focusAreas||[]).join(", "))+")"
+    +"\n\nReal recently NIH-funded projects in this space (contact_pi, org, FY, amount, title):\n"+JSON.stringify(rows)
+    +"\n\nAssess competitiveness, pick collaborators ONLY from the contact_pi names above, and name the expertise gap.";
+}
+async function claudeCompetitiveness(g,el){
+  el.innerHTML='<span class="cursor"></span> searching NIH RePORTER…';
+  // keep it to a few clean key terms — RePORTER's "and" operator needs every word to match
+  const qText=([state.field,(state.topics||[]).slice(0,3).join(" ")].filter(Boolean).join(" ")||"cancer research")
+    .replace(/[^\w\s-]/g," ").split(/\s+/).filter(w=>w.length>2).slice(0,6).join(" ")||"cancer research";
+  let projects=[];
+  try{ projects=await reporterSearch(qText,8); }
+  catch(e){ el.innerHTML='<span style="color:var(--ink-faint)">'+(String(e.message)==="no-proxy"?"NIH RePORTER needs the Worker/bridge proxy — connect via ⚙ (Worker URL), not paste-key mode.":"Couldn’t reach NIH RePORTER — try again.")+'</span>'; return; }
+  if(!projects.length){ el.innerHTML='<span style="color:var(--ink-faint)">No closely-matching funded NIH projects found for your profile.</span>'; return; }
+  const list=projects.slice(0,6).map(p=>`<div class="rep-item"><a href="https://reporter.nih.gov/search/${esc(p.num||"")}" target="_blank" rel="noopener">${esc((p.title||"Untitled").slice(0,86))}</a><div class="rep-meta">${esc(p.pi||"—")} · ${esc(p.org||"")} · FY${esc(String(p.fy||""))}${p.amount?(" · $"+Number(p.amount).toLocaleString()):""}</div></div>`).join("");
+  el.innerHTML=`<div class="rep-h">Real NIH-funded work in your space <span class="src-label">(RePORTER, ${projects.length} found)</span></div>${list}<div class="comp-out"></div>`;
+  const out=el.querySelector(".comp-out");
+  if(!claudeReady()) return;
+  out.innerHTML='<span class="cursor"></span>';
+  try{
+    const o=await claudeJSON({model:CONFIG.fastModel,max_tokens:700,system:COMP_SYSTEM,
+      messages:[{role:"user",content:COMP_PROMPT(g,projects)}],schema:COMP_SCHEMA,timeoutMs:45000});
+    out.innerHTML=`<div class="fit-row"><span class="fit-k">Competitiveness</span><span>${esc(o.competitiveness||"")}</span></div>`
+      +((o.collaborators&&o.collaborators.length)?`<div class="fit-row"><span class="fit-k">Reach out to</span><span>${o.collaborators.slice(0,3).map(c=>`<span class="mk">${esc(c)}</span>`).join(" ")}</span></div>`:"")
+      +(o.gaps?`<div class="fit-row"><span class="fit-k">Strengthen with</span><span>${esc(o.gaps)}</span></div>`:"");
+  }catch(e){ out.innerHTML=""; }
+}
+
+/* ---- Specific-aims skeleton drafter (streamed; a starting point to rewrite) ---- */
+const AIMS_SYSTEM="You draft a Specific Aims SKELETON for a scientist applying to a specific funder, grounded ONLY in their CV. Output: a one-line working title; a 2-sentence significance/innovation framing; then 'Aim 1:', 'Aim 2:', 'Aim 3:' each one sentence (question + approach) built from the applicant's ACTUAL methods. This is a starting skeleton the applicant must rewrite — do NOT fabricate preliminary results or data. ~180 words, plain text with the Aim labels.";
+function AIMS_PROMPT(g,desc){
+  return "Applicant CV (excerpt):\n"+String(state.cvText||"").slice(0,4000)
+    +"\nResearch topics: "+(state.topics||[]).join(", ")
+    +"\n\nFunder: "+(g.name||"")+" — "+(g.funder||"")+"\nFunder focus: "+((g.focusAreas||[]).join(", "))
+    +"\nFunder description: "+String(desc||"").slice(0,700)
+    +"\n\nDraft the Specific Aims skeleton.";
+}
+async function claudeAims(g,el){
+  if(!claudeReady()){ toast("Connect Claude first (⚙ top-right)"); return; }
+  const key="aims:"+hashStr((g.id||g.name||"")+"|"+profileSummary());
+  state.aimsCache=state.aimsCache||{};
+  if(state.aimsCache[key]){ el.textContent=state.aimsCache[key]; return; }
+  el.innerHTML='<span class="cursor"></span>';
+  let desc=g.description||g.relevanceToUser||"";
+  if(g._live&&g._oppId){ try{ const d=await fetchFederalDetail(g._oppId); if(d&&d.description) desc=d.description; }catch(e){} }
+  try{ el.textContent="";
+    const full=await claudeStream({model:CONFIG.model,max_tokens:700,system:AIMS_SYSTEM,
+      messages:[{role:"user",content:AIMS_PROMPT(g,desc)}], onToken:tx=>{ el.textContent+=tx; }});
+    state.aimsCache[key]=full;
+  }catch(e){ el.innerHTML='<span style="color:var(--ink-faint)">Claude unavailable.</span>'; }
 }
 
 /* ============================================================
@@ -1431,8 +1518,14 @@ function suggestFor(g){
     ${evidence.length?`<div class="fit-row"><span class="fit-k">From your CV</span><span>${evidence.map(x=>`<span class="fit-ev">${esc(x)}</span>`).join("")}</span></div>`:""}
     <div class="fit-row"><span class="fit-k">How to pitch</span><span>${esc(angle)}</span></div>
     ${watch.length?`<div class="fit-row"><span class="fit-k">Watch-outs</span><span>${watch.map(w=>esc(w)).join(" ")}</span></div>`:""}
-    <button class="claude-brief-btn" data-fit="${esc(g.id)}">✦ Draft my pitch angle — Claude</button>
+    <div class="claude-tools">
+      <button class="claude-brief-btn" data-fit="${esc(g.id)}">✦ Pitch angle</button>
+      <button class="claude-brief-btn" data-aims="${esc(g.id)}">✦ Specific aims skeleton</button>
+      <button class="claude-brief-btn" data-comp="${esc(g.id)}">✦ Competitiveness &amp; collaborators</button>
+    </div>
     <div class="claude-brief" data-brief="${esc(g.id)}"></div>
+    <div class="claude-brief aims" data-aimsout="${esc(g.id)}"></div>
+    <div class="claude-comp" data-compout="${esc(g.id)}"></div>
   </div>`;
 }
 function cardHTML(g,maxScore,idx,showFit){
@@ -1578,7 +1671,19 @@ function wireCards(){
     const id=b.dataset.fit;
     const g=[...state.saved,...state.results].find(x=>String(x.id)===id);
     const el=$(`.claude-brief[data-brief="${CSS.escape(id)}"]`);
-    if(g&&el){ b.disabled=true; b.textContent="✦ Claude is drafting…"; claudeFitBrief(g,el).finally(()=>{b.style.display="none";}); }
+    if(g&&el){ b.disabled=true; b.textContent="✦ Claude is drafting…"; claudeFitBrief(g,el).finally(()=>{b.disabled=false;b.textContent="✦ Pitch angle";}); }
+  });
+  $$("[data-aims]").forEach(b=>b.onclick=()=>{
+    const id=b.dataset.aims;
+    const g=[...state.saved,...state.results].find(x=>String(x.id)===id);
+    const el=$(`.claude-brief[data-aimsout="${CSS.escape(id)}"]`);
+    if(g&&el){ b.disabled=true; b.textContent="✦ Drafting aims…"; claudeAims(g,el).finally(()=>{b.disabled=false;b.textContent="✦ Specific aims skeleton";}); }
+  });
+  $$("[data-comp]").forEach(b=>b.onclick=()=>{
+    const id=b.dataset.comp;
+    const g=[...state.saved,...state.results].find(x=>String(x.id)===id);
+    const el=$(`.claude-comp[data-compout="${CSS.escape(id)}"]`);
+    if(g&&el){ b.disabled=true; b.textContent="✦ Searching…"; claudeCompetitiveness(g,el).finally(()=>{b.disabled=false;b.textContent="✦ Competitiveness & collaborators";}); }
   });
   const toggleExpand=async(b)=>{
     const card=b.closest(".gcard");

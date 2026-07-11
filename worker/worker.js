@@ -47,6 +47,14 @@ export default {
     try { body = await request.json(); }
     catch { return json({ error: "invalid JSON body" }, 400, ch); }
 
+    // ---- NIH RePORTER passthrough (public data; here only to add CORS) ----
+    if (new URL(request.url).pathname.replace(/\/+$/, "").endsWith("/reporter")) {
+      const up = await fetch("https://api.reporter.nih.gov/v2/projects/search", {
+        method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body),
+      });
+      return new Response(up.body, { status: up.status, headers: { "Content-Type": "application/json", ...ch } });
+    }
+
     // ---- allowlist / clamp ----
     if (!ALLOWED_MODELS.has(body.model))
       return json({ error: "model not allowed", allowed: [...ALLOWED_MODELS] }, 400, ch);

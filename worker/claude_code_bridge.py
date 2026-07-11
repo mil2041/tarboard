@@ -20,8 +20,10 @@ Notes:
   use the Cloudflare Worker (worker/worker.js) instead.
 - Each call spawns a Claude Code turn, so it's slower than the raw API.
 """
-import json, os, re, shutil, subprocess
+import json, os, re, shutil, subprocess, urllib.request
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+
+REPORTER_URL = "https://api.reporter.nih.gov/v2/projects/search"
 
 PORT   = int(os.environ.get("BRIDGE_PORT", "8788"))
 CLAUDE = shutil.which("claude") or "claude"
@@ -92,6 +94,21 @@ class Handler(BaseHTTPRequestHandler):
             body = json.loads(self.rfile.read(n) or "{}")
         except Exception:
             return self._json(400, {"error": "bad json body"})
+
+        # NIH RePORTER passthrough (public data; the proxy only adds CORS)
+        if self.path.rstrip("/").endswith("/reporter"):
+            try:
+                req = urllib.request.Request(REPORTER_URL, data=json.dumps(body).encode(),
+                                             headers={"Content-Type": "application/json"})
+                with urllib.request.urlopen(req, timeout=25) as r:
+                    data = r.read()
+                self.send_response(200); self._cors()
+                self.send_header("Content-Type", "application/json"); self.end_headers()
+                try: self.wfile.write(data)
+                except BrokenPipeError: pass
+            except Exception as e:
+                return self._json(502, {"error": "reporter: " + str(e)[:200]})
+            return
 
         system  = body.get("system") or ""
         prompt  = user_text(body.get("messages"))
