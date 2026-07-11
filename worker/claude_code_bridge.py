@@ -81,6 +81,10 @@ class Handler(BaseHTTPRequestHandler):
     def do_OPTIONS(self):
         self.send_response(204); self._cors(); self.end_headers()
 
+    def do_GET(self):
+        # health check so the app can auto-detect the bridge on load
+        self._json(200, {"ok": True, "service": "grantboard-claude-bridge"})
+
     def _json(self, code, obj):
         data = json.dumps(obj).encode()
         self.send_response(code); self._cors()
@@ -114,7 +118,12 @@ class Handler(BaseHTTPRequestHandler):
                 return self._json(502, {"error": "reporter: " + str(e)[:200]})
             return
 
-        system  = body.get("system") or ""
+        # system may be a string OR an array of content blocks (with cache_control) — normalize to text
+        _sys = body.get("system")
+        if isinstance(_sys, list):
+            system = "\n\n".join(b.get("text", "") for b in _sys if isinstance(b, dict) and b.get("type") == "text")
+        else:
+            system = _sys or ""
         prompt  = user_text(body.get("messages"))
         model   = body.get("model")
         tools   = body.get("tools")

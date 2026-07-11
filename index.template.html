@@ -349,9 +349,9 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
 <header class="masthead">
   <div class="masthead-inner">
     <div class="brand">
-      <span class="kicker">Career Development Funding Intelligence</span>
+      <span class="kicker">Eligibility-first funding copilot · hematology–oncology</span>
       <h1>Grant<span class="amp">·</span>board</h1>
-      <span class="tag">Matching researchers to U.S. grants in AI, computational oncology &amp; blood cancer</span>
+      <span class="tag">Only the grants you can actually win — eligibility decided by rules, fit judged by Claude</span>
     </div>
     <div class="masthead-spacer"></div>
     <div class="masthead-meta">
@@ -422,6 +422,10 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
           <button class="mini-link" id="pasteToggle" style="color:var(--ink-faint)">paste text</button>
         </div>
         <textarea id="cvPaste" placeholder="…or paste your CV / research statement text here" style="display:none;margin-top:10px"></textarea>
+        <div class="ex-swap" style="margin-top:11px">
+          <div class="suglabel" style="margin:0 0 5px">Swap the CV → watch eligibility change (same grants)</div>
+          <div class="chips" id="exChips"></div>
+        </div>
         <div id="cvKw"></div>
       </div>
     </section>
@@ -518,7 +522,7 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
 
 <footer class="foot">
   <p><b>Grantboard</b> matches your CV and research topics against U.S. funding opportunities. Federal opportunities (NIH, NSF, DOD/CDMRP, ARPA-H) are searched <b>live from the official Grants.gov API</b>. Foundation, society &amp; industry programs come from a curated database plus the <b>Johns Hopkins Research Development</b> cancer/oncology opportunity lists. <b>Always verify current deadlines, amounts &amp; eligibility on the funder's own page before applying</b> — figures shown are best-effort and change frequently. Not affiliated with any funder. Data snapshot compiled 2026.</p>
-  <p style="margin-top:7px"><b>How it works:</b> a deterministic engine decides eligibility (rules — auditable, never hallucinated); <b>Claude</b> reads your CV, re-ranks matches with reasons, and drafts fit briefs. Connect Claude with the ⚙ button. Built with Claude Code.</p>
+  <p style="margin-top:7px"><b>How it works:</b> a deterministic engine decides eligibility (rules — free, auditable, can't hallucinate a deadline or amount); <b>Claude</b> reads your CV, re-ranks matches with reasons, and drafts fit briefs. Claude's re-ranking for the demo corpus is <b>precomputed &amp; cached</b> (110 grants) — real reasoning, instant, works offline; live sessions run ~15–25¢. The verified 165-grant eligibility corpus is the moat. Connect Claude with the ⚙ button. Built with Claude Code.</p>
 </footer>
 
 <div class="cfg-modal" id="cfgModal" hidden>
@@ -595,6 +599,7 @@ const state = {
   focus:new Set(), subtypes:new Set(), funder:new Set(["federal","foundation","society","industry"]),
   sources:new Set(["federal","curated","jhu"]),
   eligStage:true, showBlocked:false, showWindow:false,
+  show_cit:false, show_other:false, show_faculty:false, show_gated:false,   // per-bucket reveal (each pill toggles its own)
   citizenship:"any", phdYear:null, prMonth:"", nationality:"",
   results:[], view:"all", sort:"deadline",
   isDemo:false,   // true after "Load example" → allows seeding the precomputed Claude reasoning cache
@@ -718,10 +723,9 @@ async function claudeJSON({system,messages,schema,model,max_tokens=1024,timeoutM
     return tu.input;
   } finally { clearTimeout(t); }
 }
-// Streaming text out. onToken(chunk) fires as tokens arrive; returns the full string.
-// Send the (repeated) system prompt as a cached block so Anthropic prompt-caching kicks in across calls.
-// The local claude-code bridge doesn't hit the API (no caching there) and wants a plain string, so only
-// the real Worker/API path gets the cache_control block form.
+// Marks the system prompt cacheable on the real Worker/API path (a no-op unless the prefix exceeds
+// Anthropic's minimum cacheable length; the primary "cache" is the precomputed re-rank response cache).
+// The local claude-code bridge doesn't hit the API and wants a plain string.
 function cachedSystem(system){
   const wu=(claudeCfg().workerUrl||"");
   if(/(?:localhost|127\.0\.0\.1):8788/.test(wu)) return String(system);
@@ -1152,6 +1156,9 @@ function stageMatch(gStages,mine){
 function citizenshipReq(g){
   if(g.citizenshipReq) return g.citizenshipReq;   // web-verified field (JHU-updated data)
   const t=((g.eligibility||"")+" "+(g.description||"")).toLowerCase();
+  // Explicit NEGATION first — "no citizenship requirement / restriction", "regardless of citizenship",
+  // "citizens and non-citizens" all mean NONE (the word "citizen" alone must not imply a restriction).
+  if(/no\s+(?:u\.?s\.?\s+)?citizenship\s+(?:requirement|restriction)|no\s+citizenship\s+is\s+required|citizenship\s+(?:is\s+)?not\s+required|regardless\s+of\s+citizenship|no\s+geographic\s+or\s+citizenship|open\s+to\s+(?:all|any)\s+(?:nationalit|citizen)|non-?citizens?\s+(?:are\s+)?eligible|international\s+applicants?\s+(?:are\s+)?eligible/.test(t)) return "none";
   if(!/citizen|permanent resident|[redacted]|\bnationals?\b/.test(t)) return "none";
   // A [redacted] does NOT help only when the award is explicitly citizens-only with no PR pathway.
   if(/citizens?\s+only|only\s+u\.?s\.?\s+citizens|citizens?\s+of\s+the\s+united\s+states\s+only/.test(t) && !/permanent resident|[redacted]/.test(t)) return "citizen-only";
@@ -1504,12 +1511,14 @@ function baseFilter(list){
 // citizenship selector (a non-U.S. applicant with no [redacted] can't get citizen/PR awards),
 // unless "Show citizenship-blocked" is on. Past-PhD-window awards hide only when that toggle is on.
 function eligFilter(list){
+  const all=state.showBlocked;   // master reveal (filter-panel toggle)
   return list.filter(g=>{
     const e=eligibility(g);
-    // hide anything you can't apply to right now: hard-blocked, PR-gated, or faculty-stage-only.
-    // "Show citizenship-locked" reveals them.
-    if((e.blocked||e.gated||e.facultyBlocked) && !state.showBlocked) return false;
-    if(e.windowExceeded && !state.showWindow) return false;   // past your PhD-year window → not applicable, hidden by default
+    // SAME precedence the summary tally uses, so each pill reveals EXACTLY its count.
+    if(e.blocked) return (e.blockedCitizenship?state.show_cit:state.show_other)||all;
+    if(e.facultyBlocked) return state.show_faculty||all;
+    if(e.gated) return state.show_gated||all;
+    if(e.windowExceeded) return state.showWindow||all;
     return true;
   });
 }
@@ -1557,8 +1566,16 @@ function localDetailHTML(g){
   if(g.status) rows.push(["Status",g.status]);
   if(g.confidence) rows.push(["Data confidence",g.confidence]);
   let h=`<div class="dgrid">`+rows.map(([k,v])=>`<div><div class="k">${esc(k)}</div><div class="v" style="font-family:var(--sans);font-weight:600;color:var(--ink)">${esc(v)}</div></div>`).join("")+`</div>`;
-  if(g.auditReason) h+=`<p style="background:var(--crimson-wash);color:var(--crimson);padding:8px 10px;border-radius:8px;font-weight:600">⚠ Likely not eligible for you: ${esc(g.auditReason)}</p>`;
-  else{ const _e=eligibility(g); if(_e.blocked||_e.windowExceeded||_e.facultyBlocked){ h+=`<p style="background:var(--amber-wash);color:var(--amber);padding:8px 10px;border-radius:8px;font-weight:600">⚠ Eligibility inferred by rule from the funder's text (${esc(_e.flags.filter(f=>f.t==="blk"||f.t==="warn").map(f=>f.x).join("; ")||"see above")}) — not verified; confirm on the funder page.</p>`; } }
+  // Eligibility caution — shown ONLY when THIS profile is actually ineligible (never contradicts the card,
+  // and never leaks the example applicant's personal window prose to a different user).
+  { const _e=eligibility(g);
+    if(_e.blocked||_e.windowExceeded||_e.facultyBlocked){
+      const flagTxt=_e.flags.filter(f=>f.t==="blk"||f.t==="warn").map(f=>f.x).join("; ")||"see above";
+      // the pre-computed audit reason is only safe to quote for profile-independent rules (degree/nationality/stage), not the window prose
+      const safe=g.auditReason && !_e.windowExceeded && ["md_physician_only","finishing_phd_student_only","nationality_restricted","faculty_or_independent_required"].includes(g.auditCode);
+      h+=`<p style="background:var(--crimson-wash);color:var(--crimson);padding:8px 10px;border-radius:8px;font-weight:600">⚠ Likely not eligible for you — ${esc(flagTxt)}${safe?": "+esc(g.auditReason):""}. Inferred from the funder's stated rules; confirm on the funder page.</p>`;
+    }
+  }
   if(g.eligibility) h+=`<p><b style="color:var(--ink)">Eligibility:</b> ${esc(g.eligibility)}</p>`;
   if(g.relevanceToUser) h+=`<p><b style="color:var(--ink)">Why it fits you:</b> ${esc(g.relevanceToUser)}</p>`;
   const links=[];
@@ -1700,7 +1717,13 @@ function render(){
   const base=baseFilter(state.results);
   // eligibility tallies over the base set (before hiding), so the summary can report what's excluded
   let openNow=0,gc=0,blk=0,other=0,faculty=0,winX=0;
-  base.forEach(g=>{const e=eligibility(g);if(e.windowExceeded)winX++;if(e.blocked){e.blockedCitizenship?blk++:other++;}else if(e.facultyBlocked)faculty++;else if(e.gated)gc++;else if(!e.windowExceeded)openNow++;});
+  // mutually-exclusive buckets, in the SAME precedence eligFilter hides by, so each pill reveals exactly its count
+  base.forEach(g=>{const e=eligibility(g);
+    if(e.blocked){e.blockedCitizenship?blk++:other++;}
+    else if(e.facultyBlocked)faculty++;
+    else if(e.gated)gc++;
+    else if(e.windowExceeded)winX++;
+    else openNow++;});
   const sorted=sortList(eligFilter(base));
   const maxScore=state.maxScore||Math.max(...sorted.map(g=>g._score),1);
   $("#resHead").textContent=`${sorted.length} matching ${sorted.length===1?"opportunity":"opportunities"}`;
@@ -1725,10 +1748,10 @@ function renderEligSummary(c){
   const pill=(cls,n,label,flag)=>{const on=state[flag];return `<span class="pill ${cls}${on?" revealed":""}" data-reveal="${flag}" title="${on?"Hide":"Show"} these — they appear greyed with the reason">`+
     `<span class="d"></span>${n} ${esc(label)}${on?" · shown":" (hidden)"}</span>`;};
   const p=[`<span class="pill open"><span class="d"></span>${c.openNow} open to you now</span>`];
-  if(state.citizenship==="pending"&&c.gc) p.push(pill("gc",c.gc,"with permanent residence","showBlocked"));
-  if(c.blk) p.push(pill("blk",c.blk,"need US citizenship","showBlocked"));
-  if(c.other) p.push(pill("blk",c.other,"not eligible for you","showBlocked"));
-  if(c.faculty) p.push(pill("gc",c.faculty,"for faculty stage","showBlocked"));
+  if(state.citizenship==="pending"&&c.gc) p.push(pill("gc",c.gc,"with permanent residence","show_gated"));
+  if(c.blk) p.push(pill("blk",c.blk,"need US citizenship","show_cit"));
+  if(c.other) p.push(pill("blk",c.other,"not eligible for you","show_other"));
+  if(c.faculty) p.push(pill("gc",c.faculty,"for faculty stage","show_faculty"));
   if(c.winX) p.push(pill("blk",c.winX,"past PhD-year window","showWindow"));
   el.innerHTML=p.join("");
   $$("#eligSummary .pill[data-reveal]").forEach(b=>b.onclick=()=>{const f=b.dataset.reveal;state[f]=!state[f];render();});
@@ -1831,6 +1854,48 @@ function exportCSV(){
   state.saved.forEach(s=>rows.push([s.name,s.funder,s.funderType,s.awardAmount,s.deadlineInfo,(s.focusAreas||[]).join("; "),s.applyUrl]));
   const csv=rows.map(r=>r.map(c=>`"${String(c==null?"":c).replace(/"/g,'""')}"`).join(",")).join("\n");
   download("grantboard-shortlist.csv",csv,"text/csv");toast("Exported CSV");
+}
+
+/* ============================================================
+   Example profiles — the "swap the CV, watch eligibility change" demo.
+   Same 268 grants; a different applicant → a different eligible set. That's the moat, made visible.
+   ============================================================ */
+const EXAMPLES = [
+  { key:"eric", label:"Eric · PhD, senior postdoc", get:()=>({ ...DEMO_PROFILE, isDemo:true }) },
+  { key:"md", label:"Dr. Chen · MD physician-scientist", get:()=>({
+      name:"Maria Chen, MD", careerStage:"physician-scientist", citizenship:"us", phdYear:2016, prMonth:"", nationality:"",
+      topics:["Lymphoma","CAR-T therapy","Immunotherapy","Clinical trials"],
+      focus:["blood cancer/hematology","cancer immunology","clinical/translational","oncology"],
+      subtypes:["B-cell lymphoma"],
+      cvText:"Maria Chen, MD. Instructor / Assistant Professor, Division of Hematology-Oncology. MD 2016; Internal Medicine residency 2016-2019; Hematology & Medical Oncology clinical fellowship 2019-2022, ABIM board-eligible. Physician-scientist: 80% research effort plus clinical service in a lymphoma clinic. Research on CAR-T cell therapy and immunotherapy resistance in diffuse large B-cell lymphoma (DLBCL); correlative studies from investigator-initiated clinical trials." }) },
+  { key:"junior", label:"Dr. Park · PhD, 2nd-yr postdoc", get:()=>({
+      name:"Jun Park", careerStage:"postdoc", citizenship:"pending", phdYear:2024, prMonth:"[redacted]", nationality:"",
+      topics:["Acute myeloid leukemia (AML)","Machine learning","Single-cell RNA-seq","Deep learning"],
+      focus:["blood cancer/hematology","AI/computational","genomics/omics","oncology"],
+      subtypes:["AML (acute myeloid)"],
+      cvText:"Jun Park. Postdoctoral researcher (2nd year). PhD in Computer Science conferred 2024. Develops machine-learning and deep-learning methods, applied to single-cell RNA-seq of acute myeloid leukemia (AML). Skills: Python, PyTorch, deep learning, genomics, statistical modeling." }) },
+];
+function applyProfile(p, autorun){
+  $("#applicantName").value=p.name||"";
+  $("#careerStage").value=p.careerStage||"postdoc";
+  $("#citizenship").value=p.citizenship||"any";
+  $("#phdYear").value=p.phdYear||"";
+  $("#prMonth").value=p.prMonth||"";
+  state.nationality=p.nationality||"";
+  state.focus=new Set(); state.subtypes=new Set(); state.topics=[];
+  if(window.__syncElig) window.__syncElig();
+  state.isDemo=!!p.isDemo;
+  ingestCV(p.cvText||"","Example CV — "+(p.name||""));         // deterministic parse → a reliable, fast swap on stage
+  state.topics=[...(p.topics||[])]; renderTopicChips();
+  (p.focus||[]).forEach(f=>state.focus.add(f)); renderFocusFilters();
+  (p.subtypes||[]).forEach(s=>state.subtypes.add(s)); renderSubtypeFilters();
+  saveProfile();
+  if(autorun) runSearch();
+}
+function renderExamples(){
+  const el=$("#exChips"); if(!el) return;
+  el.innerHTML=EXAMPLES.map(e=>`<span class="chip add" data-ex="${esc(e.key)}">${esc(e.label)}</span>`).join("");
+  $$("#exChips .chip").forEach(c=>c.onclick=()=>{const e=EXAMPLES.find(x=>x.key===c.dataset.ex); if(e){ applyProfile(e.get(), true); toast("Loaded "+e.label.split(" · ")[0]+" — eligibility recomputed"); } });
 }
 
 /* ============================================================
@@ -1949,7 +2014,7 @@ function wireUI(){
   syncElig();
   loadProfile();   // restore the user's own saved profile if present (overrides demo defaults)
 
-  renderTopicChips();renderSuggest();renderFocusFilters();renderSubtypeFilters();renderFunderFilters();renderSourceFilters();
+  renderTopicChips();renderSuggest();renderFocusFilters();renderSubtypeFilters();renderFunderFilters();renderSourceFilters();renderExamples();
   $("#savedCount").textContent=state.saved.length;
   render();
 }
