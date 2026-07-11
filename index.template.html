@@ -79,6 +79,9 @@ button{font-family:inherit;cursor:pointer}
 .eligsum .pill.open .d{background:var(--green)}
 .eligsum .pill.gc .d{background:var(--amber)}
 .eligsum .pill.blk .d{background:var(--crimson)}
+.eligsum .pill[data-reveal]{cursor:pointer;transition:.12s}
+.eligsum .pill[data-reveal]:hover{border-color:var(--ink);transform:translateY(-1px)}
+.eligsum .pill.revealed{background:var(--ink);color:var(--paper-2);border-color:var(--ink)}
 @media(max-width:720px){.eligsum{margin-left:0;width:100%}}
 
 /* eligibility chips on cards */
@@ -548,6 +551,7 @@ const DEMO_PROFILE = /*__DEMO__*/{};
 const CURATED_DATA = /*__CURATED__*/[];
 const JHU_DATA     = /*__JHU__*/[];
 const FEDERAL_SEED = /*__FEDSEED__*/[];   // real Grants.gov oppHits, used only if the live API is unreachable
+const CLAUDE_CACHE = /*__CLAUDECACHE__*/{};   // precomputed Claude fit reasoning for the demo profile, keyed by grant id
 
 /* ============================================================
    LEXICON + focus-area vocabulary
@@ -593,6 +597,7 @@ const state = {
   eligStage:true, showBlocked:false, showWindow:false,
   citizenship:"any", phdYear:null, prMonth:"", nationality:"",
   results:[], view:"all", sort:"deadline",
+  isDemo:false,   // true after "Load example" → allows seeding the precomputed Claude reasoning cache
   saved:JSON.parse(localStorage.getItem("gb_saved")||"[]"),
   detailCache:{}
 };
@@ -670,6 +675,23 @@ function claudeCfg(){
 }
 function saveClaudeCfg(patch){ localStorage.setItem("gb_claude_cfg",JSON.stringify({...claudeCfg(),...patch})); }
 function claudeReady(){ const c=claudeCfg(); return !!(c.workerUrl||c.userKey); }
+// Zero-config demo: if the local `claude_code_bridge` (worker/claude_code_bridge.py) is running,
+// auto-connect to it so the Claude path is ON by default — no gear-clicking, no key.
+async function probeBridge(){
+  if(!/^(localhost|127\.0\.0\.1|)$/.test(location.hostname) && location.protocol!=="file:") return null;
+  for(const u of ["http://localhost:8788","http://127.0.0.1:8788"]){
+    try{ const ac=new AbortController(); const t=setTimeout(()=>ac.abort(),1200);
+      await fetch(u+"/health",{method:"GET",mode:"no-cors",signal:ac.signal}); clearTimeout(t); return u;
+    }catch(e){}
+  }
+  return null;
+}
+async function autoConnectClaude(){
+  if(claudeReady()) return;                       // user already set a Worker/key — respect it
+  const u=await probeBridge();
+  if(u){ saveClaudeCfg({workerUrl:u}); const s=$("#cfgStatus"); if(s)s.textContent="✓ Connected via local Claude bridge.";
+    renderSrcBar({}); toast("Claude connected — local bridge detected"); }
+}
 
 async function claudeFetch(payload,signal){
   const c=claudeCfg();
@@ -698,7 +720,13 @@ async function claudeJSON({system,messages,schema,model,max_tokens=1024,timeoutM
 }
 // Streaming text out. onToken(chunk) fires as tokens arrive; returns the full string.
 // Send the (repeated) system prompt as a cached block so Anthropic prompt-caching kicks in across calls.
-function cachedSystem(system){ return [{type:"text",text:String(system),cache_control:{type:"ephemeral"}}]; }
+// The local claude-code bridge doesn't hit the API (no caching there) and wants a plain string, so only
+// the real Worker/API path gets the cache_control block form.
+function cachedSystem(system){
+  const wu=(claudeCfg().workerUrl||"");
+  if(/(?:localhost|127\.0\.0\.1):8788/.test(wu)) return String(system);
+  return [{type:"text",text:String(system),cache_control:{type:"ephemeral"}}];
+}
 async function claudeStream({system,messages,model,max_tokens=1024,onToken}){
   const r=await claudeFetch({model:model||CONFIG.model,max_tokens,stream:true,...(system?{system:cachedSystem(system)}:{}),messages});
   if(!r.ok||!r.body) throw new Error("claude http "+(r.status||"nobody"));
@@ -800,6 +828,18 @@ function applyClaudeProfile(prof,label){
     stat.innerHTML=claudeCheck(esc(label)+" · Claude found "+kws.length+" expertise areas"+(state.claudeQueries.length?(" · "+state.claudeQueries.length+" federal queries"):"")); }
   saveProfile();
   if(state.outOfDomain) toast("CV is outside hematology/oncology — showing broader + live-federal matches");
+}
+
+/* ---- Precomputed reasoning cache: seed the "Claude fit" callout instantly for the demo profile ---- */
+function seedClaudeCache(){
+  if(!state.isDemo || !CLAUDE_CACHE) return 0;
+  let hit=0;
+  for(const g of state.results){
+    const c=CLAUDE_CACHE[g.id];
+    if(c && g._claudeScore==null){ g._claudeScore=c.fitScore; g._claudeWhy=c.why; hit++; }
+  }
+  if(hit){ state.claudeRanked=true; if(state.sort==="deadline"){ state.sort="claude"; const ss=$("#sortSel"); if(ss) ss.value="claude"; } }
+  return hit;
 }
 
 /* ---- Claude re-rank of the lexical top-20 (Claude in the core loop) ---- */
@@ -1033,6 +1073,7 @@ async function handleFile(file){
     if(/\.pdf$/i.test(file.name)) text=await readPDF(file);
     else text=await file.text();
     if(!text.trim()) throw new Error("empty");
+    state.isDemo=false;   // a real uploaded CV — the demo reasoning cache no longer applies
     await ingestCVSmart(text,file.name);
     toast(claudeReady()?"CV read by Claude":"CV parsed — keywords extracted");
   }catch(e){
@@ -1372,10 +1413,13 @@ async function runSearch(){
   // 1) score + render the local (curated + JHU) pool IMMEDIATELY — the feed never blocks on the network
   const local=dedupePool(localPool()).map(g=>{const sc=scoreGrant(g,terms);return {...g,_score:sc.score,_matched:sc.matched,_fa:sc.faOverlap,_deadlineDate:grantDeadlineDate(g)};});
   state.results=[...local];
+  seedClaudeCache();   // demo profile: instant precomputed Claude reasoning, no wait
   state.maxScore=Math.max(1,...state.results.map(g=>g._score||0));
   state.fedStatus={loading:state.sources.has("federal"),err:false};
   btn.disabled=false;
   render();
+  // the whole curated+JHU pool is pre-reasoned for the demo, so skip the live re-rank there
+  const useCache=state.isDemo && CLAUDE_CACHE && Object.keys(CLAUDE_CACHE).length>0;
   // 2) federal streams in asynchronously (with a cached-snapshot fallback), then Claude re-ranks
   if(state.sources.has("federal")){
     fetchFederalSafe().then(({items,ok,total,seed})=>{
@@ -1383,12 +1427,13 @@ async function runSearch(){
       const fed=items.map(g=>{const sc=scoreGrant(g,terms);return {...g,_score:sc.score,_matched:sc.matched,_fa:sc.faOverlap,_deadlineDate:grantDeadlineDate(g)};});
       state.fedStatus={ok,total,err:false,seed,loading:false};
       state.results=[...fed,...local];
+      seedClaudeCache();
       state.maxScore=Math.max(1,...state.results.map(g=>g._score||0));
       render();
-      claudeRerank(tok);
+      if(!useCache) claudeRerank(tok);
     });
   } else {
-    claudeRerank(tok);
+    if(!useCache) claudeRerank(tok);
   }
 }
 
@@ -1513,6 +1558,7 @@ function localDetailHTML(g){
   if(g.confidence) rows.push(["Data confidence",g.confidence]);
   let h=`<div class="dgrid">`+rows.map(([k,v])=>`<div><div class="k">${esc(k)}</div><div class="v" style="font-family:var(--sans);font-weight:600;color:var(--ink)">${esc(v)}</div></div>`).join("")+`</div>`;
   if(g.auditReason) h+=`<p style="background:var(--crimson-wash);color:var(--crimson);padding:8px 10px;border-radius:8px;font-weight:600">⚠ Likely not eligible for you: ${esc(g.auditReason)}</p>`;
+  else{ const _e=eligibility(g); if(_e.blocked||_e.windowExceeded||_e.facultyBlocked){ h+=`<p style="background:var(--amber-wash);color:var(--amber);padding:8px 10px;border-radius:8px;font-weight:600">⚠ Eligibility inferred by rule from the funder's text (${esc(_e.flags.filter(f=>f.t==="blk"||f.t==="warn").map(f=>f.x).join("; ")||"see above")}) — not verified; confirm on the funder page.</p>`; } }
   if(g.eligibility) h+=`<p><b style="color:var(--ink)">Eligibility:</b> ${esc(g.eligibility)}</p>`;
   if(g.relevanceToUser) h+=`<p><b style="color:var(--ink)">Why it fits you:</b> ${esc(g.relevanceToUser)}</p>`;
   const links=[];
@@ -1588,7 +1634,7 @@ function cardHTML(g,maxScore,idx,showFit){
   const expand=g._live
     ? `<button class="expandbtn" data-opp="${esc(g._oppId)}" data-id="${esc(g.id)}">▾ View full synopsis, award ceiling &amp; eligibility <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></button>`
     : `<button class="expandbtn" data-id="${esc(g.id)}">▾ More details &amp; eligibility <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></button>`;
-  return `<article class="gcard${e.blocked?" inelig":""}" data-id="${esc(g.id)}" style="animation-delay:${delay}ms">
+  return `<article class="gcard${(e.blocked||e.gated||e.windowExceeded||e.facultyBlocked)?" inelig":""}" data-id="${esc(g.id)}" style="animation-delay:${delay}ms">
     <div class="gc-main">
       <div class="gc-body">
         <h3 class="gc-title"><a href="${esc(bestUrl(g))}" target="_blank" rel="noopener">${esc(g.name)}</a></h3>
@@ -1674,13 +1720,18 @@ function render(){
 function renderEligSummary(c){
   const el=$("#eligSummary");if(!el)return;
   if(!c){el.innerHTML="";return;}
+  // Each excluded bucket is a CLICKABLE pill: click to reveal those grants (shown greyed, each with its
+  // reason) — nothing is silently removed; you can always see what was filtered and why.
+  const pill=(cls,n,label,flag)=>{const on=state[flag];return `<span class="pill ${cls}${on?" revealed":""}" data-reveal="${flag}" title="${on?"Hide":"Show"} these — they appear greyed with the reason">`+
+    `<span class="d"></span>${n} ${esc(label)}${on?" · shown":" (hidden)"}</span>`;};
   const p=[`<span class="pill open"><span class="d"></span>${c.openNow} open to you now</span>`];
-  if(state.citizenship==="pending"&&c.gc) p.push(`<span class="pill gc"><span class="d"></span>${c.gc} with permanent residence${state.showBlocked?"":" (hidden)"}</span>`);
-  if(c.blk) p.push(`<span class="pill blk"><span class="d"></span>${c.blk} need US citizenship${state.showBlocked?"":" (hidden)"}</span>`);
-  if(c.other) p.push(`<span class="pill blk"><span class="d"></span>${c.other} not eligible for you${state.showBlocked?"":" (hidden)"}</span>`);
-  if(c.faculty) p.push(`<span class="pill gc"><span class="d"></span>${c.faculty} for faculty stage${state.showBlocked?"":" (hidden)"}</span>`);
-  if(c.winX) p.push(`<span class="pill blk"><span class="d"></span>${c.winX} past PhD-year window${state.showWindow?"":" (hidden)"}</span>`);
+  if(state.citizenship==="pending"&&c.gc) p.push(pill("gc",c.gc,"with permanent residence","showBlocked"));
+  if(c.blk) p.push(pill("blk",c.blk,"need US citizenship","showBlocked"));
+  if(c.other) p.push(pill("blk",c.other,"not eligible for you","showBlocked"));
+  if(c.faculty) p.push(pill("gc",c.faculty,"for faculty stage","showBlocked"));
+  if(c.winX) p.push(pill("blk",c.winX,"past PhD-year window","showWindow"));
   el.innerHTML=p.join("");
+  $$("#eligSummary .pill[data-reveal]").forEach(b=>b.onclick=()=>{const f=b.dataset.reveal;state[f]=!state[f];render();});
 }
 function emptyHTML(t,s){
   return `<div class="empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><div class="t">${esc(t)}</div><div class="s">${esc(s)}</div></div>`;
@@ -1814,6 +1865,7 @@ function wireUI(){
     }catch(e){ $("#cfgStatus").textContent="Couldn't reach Claude — check the URL/key. (The app still works offline.)"; }
     renderSrcBar({});
   };
+  autoConnectClaude();   // zero-config: connect the local Claude bridge if it's running
   // keep the sticky sidebar anchored below the (variable-height) masthead so it can scroll fully
   const mh=document.querySelector(".masthead");
   const setMastheadH=()=>document.documentElement.style.setProperty("--masthead-h",mh.offsetHeight+"px");
@@ -1846,7 +1898,7 @@ function wireUI(){
   drop.addEventListener("drop",e=>{if(e.dataTransfer.files[0])handleFile(e.dataTransfer.files[0]);});
   // paste
   $("#pasteToggle").onclick=()=>{const t=$("#cvPaste");t.style.display=t.style.display==="none"?"block":"none";if(t.style.display==="block")t.focus();};
-  let pasteT; $("#cvPaste").addEventListener("input",e=>{const v=e.target.value;clearTimeout(pasteT);pasteT=setTimeout(()=>{if(v.trim().length>60)ingestCVSmart(v,"Pasted text");},900);});
+  let pasteT; $("#cvPaste").addEventListener("input",e=>{const v=e.target.value;clearTimeout(pasteT);pasteT=setTimeout(()=>{if(v.trim().length>60){state.isDemo=false;ingestCVSmart(v,"Pasted text");}},900);});
   // example
   $("#loadExample").onclick=()=>{
     $("#applicantName").value=DEMO_PROFILE.name||"";
@@ -1857,6 +1909,7 @@ function wireUI(){
     state.nationality=DEMO_PROFILE.nationality||"";
     syncElig();
     // when Claude is connected, the example exercises the real CV-reading path (judges see "Claude is reading your CV…")
+    state.isDemo=true;   // example profile → the precomputed Claude reasoning cache applies
     (claudeReady()?ingestCVSmart:ingestCV)(DEMO_PROFILE.cvText||"","Example CV — "+(DEMO_PROFILE.name||""));
     state.topics=[...(DEMO_PROFILE.topics||[])];renderTopicChips();
     (DEMO_PROFILE.focus||[]).forEach(f=>state.focus.add(f));renderFocusFilters();
