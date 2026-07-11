@@ -13,8 +13,8 @@ these speaker notes on-screen (they mirror this file). Aim ~30s per slide.
 ## Slide 1 — Title  (~25s)
 > "Hi — I'm building **Grantboard**, a grant-fit copilot for scientists. As a computational-oncology postdoc
 > at [redacted], I spent **100+ hours** on proposals — and routinely chased grants I turned out to be **ineligible**
-> for. So I built the tool I wished I had: it reads your **CV** and returns only the funding you can actually
-> **win** — ranked, reasoned, ready to apply. Built with Claude Code."
+> for. So I built the tool I wished I had: it reads your **CV** and returns a calm, evidence-backed shortlist
+> of funding worth your **time** — ranked, reasoned, and ready to check. Built with Claude Code."
 
 ## Slide 2 — The problem: fragmentation  (~35s)
 **On screen:** the shattered-bar figure (Federal = one block; Beyond-federal = 111 shards).
@@ -36,11 +36,11 @@ these speaker notes on-screen (they mirror this file). Aim ~30s per slide.
 
 ## Slide 4 — It works (proof)  (~30s)
 **On screen:** recreated 88/100 result card + eligibility bar.
-> "And it works — my own CV, live. **73 matches** I'm actually eligible for, each with a cited reason. This
-> card is the money shot: **88/100** Claude fit, and it tells me *why* it suits me — my NK/T-cell lymphoma
-> work, my stage — grounded in my real record. The eligibility engine did the gatekeeping: 73 open, 25 ruled
-> out, each with a reason. Precomputed, so it's instant on stage; live it's ~15 cents. And because Claude
-> parses any CV, the same engine generalizes to any field."
+> "And it works — my own CV, live. **73 apply-now matches**, each with a cited reason. This card is the money
+> shot: **88/100** fit score, and it tells me *why* it suits me — my NK/T-cell lymphoma work, my stage —
+> grounded in my real record. The eligibility engine did the gatekeeping: 73 open, 25 ruled out or moved to
+> future targets, each with a reason. Precomputed, so it's instant on stage; live it's ~15 cents. And because
+> Claude parses any CV, the same architecture can expand to more fields."
 
 ## Slide 5 — Why it's hard to copy (moat)  (~25s)
 **On screen:** 3 pillars + flywheel figure.
@@ -52,10 +52,10 @@ these speaker notes on-screen (they mirror this file). Aim ~30s per slide.
 
 ## Slide 6 — Vision & the ask  (~25s)
 **On screen:** cost figure (~15¢ vs $300–500/hr) + the ask.
-> "So the vision: **every scientist deserves a fundraising strategist** — for the price of a coffee, not a
-> $500 consultant. Grantboard reads your record, surfaces only what you can **win**, and tells you **how**.
+> "So the vision: **every scientist deserves a fundraising strategist** — for cents per search, not a $500
+> consultant. Grantboard reads your record, surfaces what is worth your **time**, and tells you **why**.
 > My ask: **try the live demo**, and I'm looking for **early users and a collaborator** to take it across
-> every field of science. Thank you."
+> more fields of science. Thank you."
 
 ---
 

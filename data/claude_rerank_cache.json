@@ -1,132 +1,1060 @@
 {
 "eric": {
-"jhu-lymphoma-scientific-research-mentoring-program-l": {
-"fitScore": 88,
-"why": "The Lab/Translational Track is open to postdoctoral fellows up to 8 years post-PhD, so at ~7 years Eric clears the window that shuts him out of most 5-year-capped lymphoma fellowships. His T-cell lymphoma and computational focus fits the translational track, and eligibility runs on a valid US work visa rather than citizenship. It layers structured mentorship and a scholar grant on top of funding, useful for building lymphoma domain credibility."
-},
-"cur-ash-scholar-award-fellow-fellow-to-faculty-and-j": {
-"fitScore": 88,
-"why": "PhD holders (not only MDs) are eligible, and at ~7 years post-PhD Eric maps onto the Fellow-to-Faculty level (6-11 years) built specifically for the postdoc-to-faculty transition he is in. Computational and outcomes projects on leukemia/lymphoma/myeloma all qualify, and visa or permanent-resident holders conducting research in the US are eligible. It requires ASH membership and a hematologic (not solid-tumor) focus, both of which suit his program."
-},
 "cur-evansmds-young-investigator-award-eyia-edward-p-": {
-"fitScore": 86,
-"why": "A transition-to-independence award for MDS researchers within ~9 years of their last graduate degree who are still in non-tenure-track positions, which is a clean fit for a ~7-years-out senior postdoc. There is no citizenship requirement (US nonprofit institution), and computational/ML work on MDS biology, genomics, or prognosis qualifies when paired with an established MDS mentor. Successful awardees also gain a fast track into the larger Discovery Research Grant."
-},
-"cur-hanna-h-gray-fellows-program-howard-hughes-medic": {
-"fitScore": 84,
-"why": "A field-agnostic HHMI postdoc-to-faculty bridge open to non-US citizens at eligible US institutions like [redacted], designed to launch an independent lab, so a computational blood-cancer program is fully in scope. The key caveat is that it caps postdoctoral experience at 7 years, and at ~7 years Eric sits right at the eligibility boundary and should confirm his exact count. Prestige and the salary-plus-startup structure make it worth pursuing if he still qualifies."
-},
-"cur-hope-funds-for-cancer-research-postdoctoral-fell": {
-"fitScore": 84,
-"why": "Open to PhD holders (unlike the physician-only oncology awards), and the funded scope explicitly names rare leukemias, lymphomas, and MDS, matching his blood-cancer focus. Eligibility hinges on time in the current sponsor's lab (no more than ~2 years) rather than a hard post-PhD cap, so his ~7-years-out status is less of an obstacle than for most fellowships. No citizenship requirement, though the work must be at a US nonprofit institution."
-},
-"cur-aamdsif-research-grants-program-aplastic-anemia-": {
-"fitScore": 84,
-"why": "One of the few funders centered squarely on MDS and bone-marrow-failure syndromes, with a New Investigator track explicitly open to postdoctoral fellows and no stated citizenship restriction. It fits his interest in MDS/clonal-hematopoiesis modeling and bone-marrow transcriptomic analysis, and the two-year seed size suits a focused computational pilot. It requires an LOI and a project on aplastic anemia, MDS, or PNH."
-},
-"cur-peer-reviewed-cancer-research-program-prcrp-idea": {
-"fitScore": 82,
-"why": "The new Early Career Investigator Option targets researchers within 7 years of their last postdoctoral position with limited prior funding, and Blood, Lymphoma, and Myeloma are explicit topic areas, making this both a structural and thematic fit. There is no citizenship requirement and no preliminary data needed, which suits a novel ML concept in T-cell lymphoma or MDS. He should confirm whether the ECI option presumes an independent appointment before relying on it."
-},
-"cur-mds-foundation-young-investigator-grant-the-myel": {
-"fitScore": 82,
-"why": "Open to investigators within 10 years of their terminal degree who have not held an R01-level award, so Eric qualifies at ~7 years, and the scope explicitly includes molecular biology, cytogenetics, and prognosis, all amenable to ML. It is open to US or international investigators, so his citizenship is not a barrier. Note the requirement to be a dues-paying MDS Foundation professional member before the application will be reviewed."
-},
-"cur-nlm-research-grants-advancing-bioinformatics-tra": {
-"fitScore": 80,
-"why": "This R01 directly funds AI/ML methods for computational biology and omics, including single-cell and spatial data, mapping cleanly onto his cancer-genomics and multi-omics blood-cancer modeling. The PI need not be a US citizen and there is no early-stage-investigator restriction, so citizenship is not an obstacle. The main caveat is that it requires PI (faculty) status, making it a target for his transition off the postdoc."
-},
-"cur-bone-marrow-failure-research-program-bmfrp-idea-": {
-"fitScore": 80,
-"why": "Directly targets his MDS/bone-marrow-failure interest, with no citizenship requirement and no preliminary data needed, which is ideal for a novel ML approach to BMF disease mechanisms or clonal-evolution modeling. The Early-Career Investigator track is written for newly independent faculty, so it fits his near-term trajectory more than his current postdoc status. Both foreign and domestic organizations are eligible."
-},
-"cur-informatics-technology-for-cancer-research-itcr-": {
-"fitScore": 79,
-"why": "The single most on-target NCI mechanism for a stats/ML lab building reusable cancer-informatics software, with RFAs that explicitly welcome novel ML/DL methods and an early-stage U01 suited to prototyping tools for leukemia/lymphoma/MDS data. There is no citizenship requirement for the PI. Because it needs an eligible PI appointment, it is most actionable as he moves toward independence rather than as a postdoc."
-},
-"cur-mmrf-research-scholars-program-scholars-award-mu": {
-"fitScore": 78,
-"why": "This flagship early-career myeloma award is open to anyone holding no title higher than assistant professor at a US institution, which includes a senior postdoc, with no explicit citizenship gate. His multi-omic ML methods map directly onto MMRF's CoMMpass dataset for progression modeling from MGUS/smoldering myeloma. The scope is basic/translational myeloma, a step away from his primary T-cell lymphoma focus."
-},
-"cur-new-investigator-research-grant-program-leukemia": {
-"fitScore": 78,
-"why": "Leukemia/MDS-specific and methodology-agnostic, so computational and AI/ML approaches qualify, and it is explicitly open to non-US citizens and international institutions, removing his citizenship concern. The caveat is that it requires holding an independent faculty appointment within 7 years of its start, so it is a target for his post-transition phase rather than his current postdoc. It is run by the Leukemia (not Lymphoma) Research Foundation."
-},
-"cur-evansmds-discovery-research-grant-drg-edward-p-e": {
-"fitScore": 78,
-"why": "The official RFA explicitly names machine learning for MDS and novel pathology/imaging algorithms as topics of interest, making it one of the most on-target computational-MDS grants available. The caveat is that it requires an independent faculty (assistant professor or above) appointment, so it is a forward-looking target as Eric transitions off the postdoc. Non-US investigators may apply subject to a US-equivalency determination."
-},
-"cur-mds-research-fund-early-career-established-inves": {
-"fitScore": 76,
-"why": "The Early Career tier covers investigators within 10 years of their terminal degree with no prior R01 and only requires being based at a research institution, so a [redacted] senior postdoc plausibly qualifies. MDS-directed computational work (basic, translational, or clinical) fits, while AML/MPN-only projects are excluded. There is no stated citizenship barrier."
-},
-"cur-bone-marrow-failure-research-program-bmfrp-resou": {
-"fitScore": 76,
-"why": "Unusually for a DoD mechanism, it funds building datasets, computational tools, and shared infrastructure rather than a single hypothesis, a natural match for a data-science lab producing a curated multi-omic BMF/MDS resource or ML benchmark. There is no citizenship requirement. It is aimed at independent investigators, so it becomes most actionable once he is faculty."
-},
-"cur-peer-reviewed-cancer-research-program-prcrp-care": {
-"fitScore": 76,
-"why": "A mentored career-development award pairing a newly independent early-career PI (within 7 years of their terminal degree) with a senior hematologic-oncology Career Guide who need not be at the same institution, with Blood/Lymphoma/Myeloma as qualifying topics and no citizenship requirement. This structure suits a stats/ML PI leaning on a clinical mentor. The caveat is that postdocs are explicitly ineligible, so it applies once Eric holds an independent appointment."
-},
-"cur-ims-career-development-award-international-myelo": {
-"fitScore": 74,
-"why": "A myeloma career-development award open to PhD holders who are not yet independent and have never received NIH funding, criteria that fit a senior postdoc without prior R01 support. There is no citizenship restriction for a US-based researcher and computational/ML myeloma projects are in scope, but it requires IMS membership and a myeloma (rather than lymphoma) focus. The salary support can directly fund his project."
+"fitScore": 42,
+"why": "Of this batch, EvansMDS is the eligibility sweet spot: it accepts PhD scientists within 9 years of their last graduate degree in a non-tenure-track/late-postdoc role, which fits Eric (PhD 2019, ~7 years out, senior postdoc at [redacted]) with no stated citizenship bar. His blood-cancer genomics work at [redacted] (WES/WGS/RNA-seq/ATAC-seq pipelines) transfers to MDS biology, though the award is specifically about myelodysplastic syndromes rather than his primary T-cell lymphoma focus, so he'd need to reorient toward MDS pathogenesis."
 },
 "cur-cri-immuno-informatics-postdoctoral-fellowship-c": {
-"fitScore": 74,
-"why": "Purpose-built for computational scientists deepening into cancer immunology with no citizenship restriction, an ideal thematic match for immune profiling of lymphoma. The significant caveat is that it requires fewer than 5 years of postdoctoral experience, so at ~7 years post-PhD this window has likely closed for him unless he can document a qualifying interruption. It also requires an explicit immunology angle to the computational work."
+"fitScore": 36,
+"why": "Topically this is his single best match in the batch: it explicitly funds computational biologists deepening immunology, and Eric's TCR-seq/single-cell immune-repertoire work on anti-KLRG1 (mAb208) NK/T-cell lymphoma therapy and melanoma immunotherapy-response scRNA-seq is exactly this immuno-informatics profile, with no citizenship restriction. The hard caveat is timing: eligibility caps mentored research at under 5 years, and Eric has been a postdoc since 2020 (~6 years), so he is likely just past the window."
 },
-"cur-ai2050-early-career-fellowship-schmidt-sciences-": {
-"fitScore": 74,
-"why": "An AI-for-science fellowship open to postdocs and pre-tenure researchers worldwide with no citizenship restriction, rewarding bold ML methods including biological and medical AI, which fits his computational-oncology methods program at his current stage. The caveat is that selection is by closed nomination, so he cannot self-apply and would need to cultivate nominators. Postdoc eligibility is what keeps it usable now rather than only post-transition."
+"cur-postdoctoral-fellowship-pf-american-cancer-socie": {
+"fitScore": 18,
+"why": "ACS explicitly funds AI/computational and in-silico cancer methods, so his machine-learning risk-stratification and multi-omics work would qualify scientifically, and non-US citizens with valid visas are eligible. However the PF requires the terminal degree within 3 years and 3 or fewer years of postdoc training at the deadline; Eric is ~7 years post-PhD, so the timing rule blocks him."
 },
-"cur-break-through-cancer-teamlabs-incl-aml-teamlab-a": {
-"fitScore": 74,
-"why": "Thematically ideal, combining an AML TeamLab with a dedicated Data Science Hub (generative-AI pathology, spatial transcriptomics, computational diagnostics) that matches his exact methods on blood cancer. Because [redacted]'s Koch Institute is a member institution, participation is realistically accessible through internal [redacted] channels rather than an open call. It is not an individual-applicant grant, so access depends on joining a team."
+"cur-emerging-leader-award-the-mark-foundation-for-ca": {
+"fitScore": 16,
+"why": "The Mark Foundation is one of the most AI/computational-friendly cancer funders with no citizenship restriction, so his ML/multi-omics oncology program is thematically on-target. But this is an early-career faculty award requiring an independent lab established 3-8 years with PI grant authority and dedicated space; Eric is still a mentored postdoc, so he is not yet eligible."
 },
-"cur-pershing-square-sohn-prize-for-young-investigato": {
-"fitScore": 74,
-"why": "Now expanded to all US institutions, it explicitly welcomes technological and computational applications, requires no prior cancer-research pedigree, and allows non-US citizens with a valid visa, all well-matched to his methods-first profile. The caveat is that it requires 2-6 years of running an independent lab, so it is a target once he is a faculty PI rather than a postdoc. It would fund bold computational-oncology work on blood cancers."
+"cur-bone-marrow-failure-research-program-bmfrp-inves": {
+"fitScore": 15,
+"why": "The DoD BMFRP IIRA has no citizenship restriction, which removes Eric's usual green-card barrier, and bone-marrow-failure research is hematology-adjacent to his blood-cancer computational work. However the IIRA is for independent investigators with strong preliminary data, not mentored postdocs, and bone marrow failure is outside his T-cell-lymphoma/immuno-oncology focus."
 },
-"cur-nih-director-s-new-innovator-award-dp2-nih-commo": {
-"fitScore": 74,
-"why": "A High-Risk/High-Reward award rewarding bold, unconventional ML methods with no preliminary data or disease-specific framing required, ideal for launching an AI-for-blood-cancer lab. Eligibility runs through Early Stage Investigator status (within 10 years of the terminal degree) and requires an independent US position, so it is a first-year-faculty target. There is no stated citizenship requirement, unlike the NIH K awards."
+"cur-alsf-young-investigator-grant-alex-s-lemonade-st": {
+"fitScore": 15,
+"why": "ALSF's Young Investigator grant supports mentored postdocs and welcomes computational and blood-cancer work, which overlaps with his single-cell and genomics skills. But it is strictly pediatric/childhood-cancer research, whereas Eric's projects are adult cancers (T-cell lymphoma, breast, melanoma, thyroid), and the years-from-degree limit may exclude someone ~7 years past PhD."
 },
-"cur-mmrf-research-fellowship-program-multiple-myelom": {
-"fitScore": 73,
-"why": "A lower-barrier, one-year mentored myeloma fellowship for postdocs working under a qualified myeloma mentor, a realistic entry point for Eric to fund a computational myeloma project at his current stage. It is less aligned with his core T-cell lymphoma interest and requires pairing with a myeloma-focused mentor. Current terms should be verified on the RFA."
+"cur-aacr-novocure-career-development-award-for-cance": {
+"fitScore": 15,
+"why": "The award welcomes computational and mechanistic-modeling approaches, and postdocs are eligible, so his modeling skill set is a structural fit. The problem is scope: it funds Tumor Treating Fields (TTFields) mechanism-of-action research, a topic entirely absent from Eric's CV of genomics, single-cell, and immuno-oncology work."
 },
-"cur-single-cell-biology-data-insights-rfa-chan-zucke": {
-"fitScore": 72,
-"why": "Squarely in his wheelhouse, funding computational/ML methods for large single-cell datasets applicable to leukemia/lymphoma/MDS and bone-marrow atlases, and the RFA explicitly welcomes computational experts and foreign institutions. The caveat is that the most recent cycle series has closed, so this is one to monitor for a successor rather than apply to today. Early-career investigators are strongly encouraged when it runs."
+"jhu-general-rfp-young-investigator-award-melanoma-re": {
+"fitScore": 14,
+"why": "There is a genuine topical thread here: Eric did single-cell RNA-seq on mitochondrial-DNA mutations shaping immunotherapy response in melanoma at MSK, and MRA accepts applicants worldwide with no citizenship bar. But the Young Investigator Award requires being within 5 years of a first academic faculty appointment, and Eric is still a postdoc without a faculty position."
 },
-"jhu-hollis-brownstein-research-grants-program-leukem": {
-"fitScore": 72,
-"why": "A blood-cancer New Investigator grant open to independent faculty within 7 years of their first appointment, with no citizenship requirement and projects from outside the US eligible, so his status is not a barrier. His leukemia/MDS computational work fits, but eligibility requires the faculty position he does not yet hold, making it a post-transition target. It is a two-stage LOI/full-application program on ProposalCentral."
+"jhu-damon-runyon-rachleff-innovation-award-damon-run": {
+"fitScore": 14,
+"why": "The Innovation Award rewards high-risk/high-reward cancer ideas with little preliminary data, which suits his novel-methods orientation (e.g., the CNCDriver algorithm). But its categories require tenure-track assistant professors, clinical instructors, or Distinguished Fellows with dedicated lab space and independence, so a mentored postdoc generally does not qualify."
 },
-"cur-damon-runyon-rachleff-innovation-award-damon-run": {
-"fitScore": 72,
-"why": "Supports high-risk/high-reward ideas lacking preliminary data across all scientific disciplines, so a novel ML approach to blood cancers qualifies, and non-US citizens are eligible if research is conducted at a US institution. The caveat is that it requires a tenure-track assistant professor appointment in the first 5 years, making it a post-transition target rather than a postdoc mechanism. Its methods-development framing fits his profile well."
+"cur-arpa-h-biomedical-data-fabric-bdf-toolbox-advanc": {
+"fitScore": 13,
+"why": "Eric's experience building HPC/cloud (DNAnexus) NGS pipelines and integrating heterogeneous multi-omics data speaks directly to BDF's data-harmonization and interoperability goals. But the program is closed and was aimed at established R&D performer teams and institutions, not an individual mentored postdoc."
 },
-"cur-mds-pilot-research-grants-the-taub-foundation-fo": {
-"fitScore": 72,
-"why": "A high-risk/high-reward MDS pilot intentionally structured to fund bold ideas without preliminary data, which is friendly to a novel computational method. Neither citizenship nor a visa is required, but it needs a faculty position at instructor level or above, so it applies once he is independent. Clinical studies and AML/MPN-focused projects are excluded."
+"jhu-emerging-leader-award-the-mark-foundation-for-ca": {
+"fitScore": 13,
+"why": "This 2026 Mark Foundation cycle removed geography/citizenship restrictions, which would help Eric's pending-PR status, and the funder is computationally friendly. But it requires an independent lab established 3-8 years (single PI, no co-investigators), and Eric is a postdoc, not an independent faculty member; the LOI window is also noted as closed."
+},
+"cur-nlm-institutional-grants-for-research-training-i": {
+"fitScore": 12,
+"why": "Scientifically Eric is a textbook fit for NLM's biomedical-informatics/AI-ML training scope, and [redacted]/Harvard host such T15 programs. But this is an institutional grant, not an individual award, and appointed trainees must be US citizens or permanent residents, which Eric is not until his [redacted] ([redacted])."
+},
+"cur-beckman-young-investigator-byi-program-arnold-an": {
+"fitScore": 9,
+"why": "BYI supports high-risk new methods and tools in the life sciences, which aligns with his algorithm-development bent. But it is doubly blocked for Eric: it requires being a tenure-track faculty member within the first 4 years of an independent appointment, and it requires US citizenship or permanent residency before the interview, neither of which he currently meets."
+},
+"cur-w-m-keck-foundation-research-program-medical-res": {
+"fitScore": 8,
+"why": "Keck funds high-risk, paradigm-challenging fundamental science and novel methods, which is compatible with his computational approach. However applications are limited institutional submissions routed through [redacted]'s designated Keck liaison, not individual applications, and Eric as a postdoc cannot apply directly."
+},
+"cur-career-development-program-cdp-scholar-in-clinic": {
+"fitScore": 8,
+"why": "LLS's blood-cancer mission overlaps with Eric's T-cell lymphoma and hematologic-malignancy work. But the Scholar in Clinical Research track requires an independent, faculty-level investigator running patient-based clinical trials; Eric is neither faculty nor a clinical investigator, so he is not eligible."
+},
+"cur-packard-fellowships-for-science-and-engineering-": {
+"fitScore": 8,
+"why": "[redacted] is an invited Packard institution and the fellowship covers computational fields, so the science is in scope. But it is restricted to faculty in the first 3 years of a first tenure-track appointment and requires a presidential nomination; Eric is a postdoc, not tenure-track faculty."
+},
+"cur-paula-and-rodger-riney-foundation-direct-investi": {
+"fitScore": 8,
+"why": "The Riney Foundation funds genomic and immunotherapy work in blood cancer, adjacent to his hematologic-oncology computational skills. But its direct grants go to established multiple-myeloma investigators and institutions, and Eric is neither established nor focused on multiple myeloma (his focus is T-cell lymphoma)."
+},
+"cur-nci-predoctoral-to-postdoctoral-fellow-transitio": {
+"fitScore": 4,
+"why": "The cancer-research scope fits his field, but the F99/K00 is for advanced PhD candidates 1-2 years from completing their dissertation, bridging into a postdoc. Eric finished his PhD in 2019 and is a senior postdoc, so he is far past this transition stage, and the award also requires US citizenship/PR."
+},
+"cur-nrsa-individual-predoctoral-fellowship-for-md-ph": {
+"fitScore": 3,
+"why": "This F30 is only for enrolled MD/PhD (or other dual clinical-research doctoral) students who matriculated within 48 months, and requires US citizenship or permanent residency. Eric is a PhD-only graduate, not a current dual-degree student, so he is triply ineligible regardless of the blood-cancer topical overlap."
+},
+"cur-career-awards-for-medical-scientists-cams-burrou": {
+"fitScore": 3,
+"why": "CAMS requires a clinical doctorate (MD, DO, DDS, DVM); PhD-only candidates are explicitly ineligible. Eric holds a PhD, not a clinical degree, so despite the strong biomedical-research framing he cannot apply."
+},
+"jhu-prostate-cancer-research-program-pcrp-physician-": {
+"fitScore": 3,
+"why": "The PCRP Physician Research Award is for clinician-investigators (physicians) in residency/fellowship or early faculty, and centers on prostate cancer. Eric is a PhD, not a physician, and does not work on prostate cancer, so this is a hard mismatch on both degree and topic."
+},
+"jhu-damon-runyon-physician-scientist-training-award-": {
+"fitScore": 2,
+"why": "This award is open only to MD or DO degree holders and explicitly excludes MD/PhDs and anyone pursuing a PhD. Eric is a PhD scientist, so he is categorically ineligible despite the strong cancer-research alignment."
+},
+"jhu-research-grant-funding-oncology-nursing-society-": {
+"fitScore": 2,
+"why": "The Oncology Nursing Foundation research grant requires the PI to be a doctorally-prepared registered oncology nurse involved in patient care. Eric is a computational scientist, not a nurse, so he does not meet the core professional eligibility requirement."
+},
+"jhu-residents-fellows-in-radiation-oncology-research": {
+"fitScore": 2,
+"why": "This ASTRO seed grant requires enrollment in a US radiation oncology residency or fellowship. Eric is a computational postdoc, not a radiation-oncology clinical trainee, so he is ineligible and radiation oncology is outside his research focus."
+},
+"cur-mds-foundation-young-investigator-grant-the-myel": {
+"fitScore": 42,
+"why": "Eligibility actually works here: postdocs within 10 years of the terminal degree qualify (Eric's PhD is 2019), and the award is open to international investigators with no US citizenship/PR requirement, so his pending green-card status is not a blocker. The catch is disease scope: it funds MDS and myeloid neoplasms, whereas Eric's hematology work centers on NK/T-cell lymphoma (mAb208/anti-KLRG1) rather than myeloid disease, though his single-cell and multi-omics prognosis/risk-stratification skills map cleanly onto the award's stated 'prognosis' aim."
+},
+"jhu-research-grants-prevent-cancer-foundation": {
+"fitScore": 36,
+"why": "This is one of the few here open to postdocs at a US institution (Eric is at [redacted]) with no stated citizenship restriction, so he is genuinely eligible now. The thematic fit is only moderate: the Foundation emphasizes prevention and early detection, but his CNCDriver whole-genome cancer-driver inference and risk-stratification/ML work can be framed toward early-detection biomarkers. Modest budget ($50K/yr) and a prevention framing he'd need to build toward."
+},
+"cur-theorylab-collaborative-tlc-grant-american-cance": {
+"fitScore": 32,
+"why": "Career stage is open ('any') and the AI/computational + cancer-immunology scope matches Eric's ML methods and his immunotherapy-resistance work (anti-PD-1 breast model, mtDNA-mutation effects on melanoma immunotherapy response). The real barrier is the entry requirement: it seeds collaborations between two people already inside the ACS ecosystem (former grantees, reviewers, mentors), a relationship Eric does not appear to have; it's also a small $61K one-year pilot."
+},
+"cur-bone-marrow-failure-research-program-bmfrp-resou": {
+"fitScore": 30,
+"why": "A strong plus is no citizenship restriction, removing Eric's biggest recurring barrier, and the Resource Development Award rewards building datasets/tools/pipelines - exactly his strength (NGS pipelines on HPC/DNAnexus, multi-omics integration). Two caveats: it targets independent investigators and Eric is still a postdoc, and the disease area is bone marrow failure rather than the T-cell lymphoma/cancer biology where his track record sits."
+},
+"cur-cri-irvington-postdoctoral-fellowship-cancer-res": {
+"fitScore": 26,
+"why": "Scientifically this is an excellent match - CRI funds tumor/cancer immunology and Eric has directly relevant work (single-cell TCR-seq on anti-KLRG1 NK/T-cell lymphoma therapy, mtDNA-mutation impact on melanoma immunotherapy), with no citizenship restriction. The decisive block is timing: eligibility caps mentored postdoc experience at under 5 years, and Eric is ~7 years post-PhD, so he is past the window."
+},
+"jhu-cri-irvington-postdoctoral-fellowship-program-ca": {
+"fitScore": 26,
+"why": "Same program as the other CRI Irvington listing and same verdict: his cancer-immunology portfolio (TCR-seq immune-repertoire analysis, immunotherapy-response modeling) fits the immunology-relevant-to-cancer mandate perfectly, and international applicants are welcome. But the under-5-years-of-postdoc eligibility cap rules him out at ~7 years post-PhD."
+},
+"cur-nci-pathway-to-independence-award-including-earl": {
+"fitScore": 24,
+"why": "The Cancer Data Science track (AI/ML, informatics, genomics) is a textbook fit for Eric's computational-oncology program, and notably there is no citizenship requirement. However, the Early K99 targets ≤2 years of postdoc experience and even standard K99 caps at 4 years; at ~7 years post-PhD Eric is well past any K99 eligibility window, so this is effectively closed to him despite the topical alignment."
+},
+"cur-ruth-l-kirschstein-nrsa-individual-postdoctoral-": {
+"fitScore": 22,
+"why": "This is a postdoc fellowship and NCI funds computational/quantitative cancer F32s, matching Eric's genomics and ML training. Two problems: it requires US citizenship, national, or permanent-resident status at time of award, and Eric's [redacted] is not expected until [redacted], so he is ineligible now; at ~7 years post-PhD he is also senior for a mentored training fellowship."
+},
+"cur-nlm-career-development-award-in-biomedical-infor": {
+"fitScore": 20,
+"why": "The scientific scope - biomedical informatics and data science - is arguably the single best topical match here for Eric's pipeline-building and ML methods work. But the K01 is designed for junior faculty in the first ~2 years of an assistant professorship (Eric is a postdoc) and generally requires US citizenship/PR, which he does not yet hold, making it a double eligibility miss right now."
+},
+"cur-aspire-award-aspire-i-and-aspire-ii-the-mark-fou": {
+"fitScore": 19,
+"why": "The Mark Foundation's 'Innovative Technologies' domain integrating new technology with cancer biology suits Eric's multi-modal integration work (spatial metabolomics + multiplexed IF), and there is no citizenship restriction. The blocker is that the PI must be an independent researcher at their institution; as a postdoc without an independent lab, Eric does not meet the core eligibility."
+},
+"cur-research-scholar-grant-rsg-american-cancer-socie": {
+"fitScore": 18,
+"why": "AI/ML methodologies are explicitly eligible and the cancer-research-continuum scope fits his portfolio well. But the RSG is strictly for independent full-time faculty appointed within the last 8 years; Eric is a postdoc, not yet an independent PI, so he is not eligible until he lands a faculty position."
+},
+"cur-alsf-innovation-grant-alex-s-lemonade-stand-foun": {
+"fitScore": 15,
+"why": "There is no citizenship restriction and the high-risk/high-reward computational framing could suit his methods, but the award is for independent/established investigators (Eric is a postdoc) and is confined to pediatric oncology, which is outside his T-cell lymphoma/adult solid-tumor and blood-cancer experience."
+},
+"cur-translational-research-program-trp-the-leukemia-": {
+"fitScore": 15,
+"why": "Disease fit is strong - LLS funds hematologic malignancies and Eric works directly in NK/T-cell lymphoma - but the TRP requires an independent investigator with dedicated lab space and 3+ years in a faculty position (or a qualifying Co-PI). As a postdoc without an independent lab, Eric is not eligible on his own."
+},
+"jhu-young-investigator-award-yia-children-s-tumor-fo": {
+"fitScore": 14,
+"why": "This is postdoc-eligible with no citizenship requirement, which fits Eric's stage and status, but it is dedicated to neurofibromatosis research - a disease area absent from his cancer-genomics/lymphoma CV - and the 2026 cycle has already closed. His computational skills would transfer, but the topical mismatch is large."
+},
+"jhu-aacr-career-development-awards-for-translational": {
+"fitScore": 13,
+"why": "Eric does have some breast-cancer experience (anti-PD-1 resistance mouse model, spatial metabolomics), but this CDA is restricted to faculty within 6 years of their first independent appointment; as a postdoc he is not eligible, and the award is narrowly scoped to translational breast cancer rather than his broader computational-oncology focus."
+},
+"cur-arpa-h-sbir-sttr-fy2026-topics-advanced-research": {
+"fitScore": 12,
+"why": "The AI/predictive-model health themes align with Eric's ML expertise, but SBIR/STTR primes must be US small businesses that are majority US-citizen-owned with all work performed in the US; academic labs like his can only participate as subawardees, not as PI, so this is not a direct funding path for him."
+},
+"cur-clinical-scientist-development-award-csda-doris-": {
+"fitScore": 6,
+"why": "The computational/genomics focus areas overlap his interests, but this award requires an MD, DO, or MD/PhD at the assistant-professor level pursuing patient-oriented clinical research. Eric is a PhD (not a physician) and a postdoc, so he fails the two central eligibility criteria; the no-animal-work restriction is moot given the mismatch."
+},
+"cur-aacr-astrazeneca-career-development-award-for-ph": {
+"fitScore": 6,
+"why": "Despite the cancer AI/computational scope matching his methods, this award is explicitly for physician-scientists conducting cancer research. Eric holds a PhD, not an MD, so he does not meet the fundamental physician-scientist eligibility requirement."
+},
+"cur-young-investigator-award-yia-general-competition": {
+"fitScore": 6,
+"why": "The research area is open and could accommodate data-driven oncology projects, but eligibility requires being a physician (MD/DO or equivalent) within two years of oncology subspecialty fellowship, with an active medical license. Eric is a PhD computational scientist, not a clinician, so he is ineligible."
+},
+"jhu-career-development-award-american-society-for-cl": {
+"fitScore": 6,
+"why": "This ASCO/Conquer Cancer CDA requires an MD/DO with an active medical license in the 1st-4th year of a clinical faculty appointment. Eric is neither a physician nor faculty, so he does not qualify despite the oncology relevance of his work."
+},
+"cur-postdoctoral-diversity-enrichment-program-pdep-b": {
+"fitScore": 5,
+"why": "It is a postdoc award, matching his stage, but eligibility is limited to US or Canadian citizens who are members of specific underrepresented groups (American Indian/Alaska Native, Black, Hispanic, or Native Hawaiian/Pacific Islander). Eric is a [redacted] national without US citizenship and does not fall in the listed groups, so he is ineligible."
+},
+"cur-targeted-grants-in-mathematics-and-physical-scie": {
+"fitScore": 5,
+"why": "This Simons program supports high-risk theoretical mathematics, physics, and computer science and requires tenured/tenure-track PIs. Eric is a postdoc doing applied computational biology rather than pure theory, so he matches neither the career-stage nor the disciplinary scope."
+},
+"jhu-pancreatic-cancer-research-program-pcarp-idea-de": {
+"fitScore": 5,
+"why": "The Early-Career Partnering PI option offers a career-development pairing, but the mechanism funds independent investigators in pancreatic cancer and requires preliminary data. Pancreatic cancer is outside Eric's disease portfolio, and as a postdoc without an independent position he is not well-placed as the Partnering PI."
+},
+"jhu-heart-disease-cancer-and-aids-research-program-w": {
+"fitScore": 4,
+"why": "Cancer is an eligible focus area, but funding is hard-restricted to investigators at institutions in the greater Philadelphia five-county region or Camden, NJ. Eric is at [redacted] in Boston, so he is geographically ineligible regardless of scientific fit."
 },
 "jhu-career-development-program-special-fellow-blood-": {
 "fitScore": 70,
-"why": "A senior-postdoc transition award open to non-US citizens at institutions worldwide, with research needing only to be relevant to hematologic malignancies, so ML applied to leukemia/lymphoma fits. The caveat is that it targets postdocs with 3-5 years of training, so at ~7 years post-PhD Eric may be past the window and should confirm his eligibility. It provides stipend support aimed at those closest to independence."
+"why": "Blood Cancer United (LLS) explicitly funds hematologic-malignancy research and states no citizenship requirement, so Eric's [redacted]/work-visa status is not a blocker. His [redacted] T-cell lymphoma pipelines (WES/WGS, scRNA-seq, TCR-seq for anti-KLRG1 mAb208 in NK/T-cell lymphoma) map directly onto the Special Fellow's hematologic-malignancy scope. Caveat: the track targets 3-5 years of postdoc training, and having started his postdoc in 2020 he is at the upper edge (~6 years), so timing is a mild stretch."
+},
+"cur-lrf-lymphoma-scientific-research-mentoring-progr": {
+"fitScore": 66,
+"why": "LRF's lymphoma program is a near-perfect disease match for Eric's T-cell lymphoma work at [redacted] (bulk/single-cell RNA-seq, ATAC-seq, CUT&RUN, TCR-seq), and eligibility allows a valid work visa rather than requiring U.S. citizenship, so his pending [redacted] is not disqualifying. The named scholar tracks (follicular, CLL/SLL, AYA) skew toward B-cell/other subtypes rather than his T-cell/NK focus, which slightly narrows fit."
 },
 "cur-aacr-hematologic-malignancies-research-fellowshi": {
-"fitScore": 70,
-"why": "The single best-targeted blood-cancer postdoc fellowship, dedicated exclusively to leukemia/lymphoma/myeloma/MDS, with computational/AI projects qualifying as basic or translational and only a legal right to work required rather than citizenship. The caveat is that it is limited to fellows within 5 years of the doctoral degree, so at ~7 years post-PhD this window has likely closed for him. It also requires AACR membership."
+"fitScore": 42,
+"why": "AACR's blood-cancer fellowship fits Eric's computational hematologic-malignancy profile squarely, and it needs only legal right to work (his visa qualifies), not U.S. citizenship. The hard limit is timing: it requires being within 5 years of the doctoral degree, and with his PhD conferred in 2019 (~7 years out) he is past that window."
+},
+"cur-nih-exploratory-developmental-research-grant-par": {
+"fitScore": 38,
+"why": "The Parent R21 has no citizenship requirement and is ideal for proof-of-concept method development like his CNCDriver-style algorithms and multi-omics integration pipelines, needing no strong preliminary data. The practical barrier is that it carries R01-level institutional eligibility (PI must be an independent investigator), and as a postdoc Eric would generally need faculty/independent status or a sponsoring PI to apply."
+},
+"jhu-young-investigator-awards-prostate-cancer-founda": {
+"fitScore": 35,
+"why": "PCF's Young Investigator Award explicitly welcomes bioinformaticians and postdocs with a mentor and states no citizenship restriction, so Eric's stage and visa status fit. However, the award is disease-specific to prostate cancer, which is outside his T-cell lymphoma / blood-cancer and breast/melanoma track record, so he would need a substantial pivot."
+},
+"cur-rally-foundation-research-grants-postdoctoral-cl": {
+"fitScore": 34,
+"why": "Rally's postdoctoral track accepts PhD holders and encourages data-utilization projects, which suits Eric's ML/multi-omics skill set, with no citizenship barrier. The core mismatch is scope: Rally funds childhood/pediatric cancer, whereas his experience is in adult T-cell lymphoma, breast, melanoma and thyroid cancer."
+},
+"jhu-familial-runx1-research-grant-alex-s-lemonade-st": {
+"fitScore": 33,
+"why": "ALSF's RUNX1 program touches hematologic predisposition (familial platelet disorder progressing to AML/MDS) and allows non-U.S. citizens at U.S./Canada institutions, with a postdoc-accessible Exploration track. It is only adjacent to Eric's T-cell lymphoma focus and centers on inherited RUNX1 biology rather than the computational oncology and immune-repertoire work that defines his CV."
+},
+"cur-nih-bridge-to-artificial-intelligence-bridge2ai-": {
+"fitScore": 28,
+"why": "Bridge2AI is topically aligned with Eric's core strength in AI/ML for biomedical data and his HPC/cloud (DNAnexus) pipeline experience. But it funds large multidisciplinary team U54/OT2 awards to build AI-ready datasets, not single-PI or training grants, so he could join a team but cannot realistically be the applicant."
+},
+"jhu-young-investigator-award-bladder-cancer-advocacy": {
+"fitScore": 25,
+"why": "BCAN's Young Investigator Award has no explicit citizenship requirement and accepts senior postdocs, and it welcomes translational/bioengineering work. It is limited both by disease (bladder cancer, absent from his CV) and by its 'within 6 years of degree' window, which his ~7-years-post-PhD timing likely exceeds."
+},
+"jhu-mentored-investigator-award-ovarian-cancer-resea": {
+"fitScore": 22,
+"why": "OCRA's Mentored Investigator grant is open to PhD postdocs internationally with no citizenship barrier, matching Eric's stage. The decisive limitation is disease scope: it funds ovarian/gynecologic cancer research, which is unrelated to his lymphoma, breast, melanoma and thyroid portfolio."
+},
+"cur-ruth-l-kirschstein-nrsa-institutional-research-t": {
+"fitScore": 18,
+"why": "Cancer/data-science T32s are topically relevant to Eric's computational oncology training, but the statutory NRSA rule requires U.S. citizenship, non-citizen national, or permanent-resident status at appointment, which he will not hold until his [redacted] ([redacted]). Additionally, individuals do not apply directly; they must be appointed to a slot on a T32 the institution already holds."
+},
+"cur-postdoctoral-enrichment-program-pdep-burroughs-w": {
+"fitScore": 15,
+"why": "PDEP is a postdoc career-enrichment supplement, but it caps eligibility at no more than 48 months of postdoc and 5 years from PhD; Eric is ~6 years into his postdoc and ~7 years post-PhD, so he is past both limits. The program also targets groups underrepresented in U.S. biomedical science, adding a further eligibility question."
+},
+"cur-acs-fanconi-cancer-foundation-discovery-boost-gr": {
+"fitScore": 12,
+"why": "This RFA requires an independent full-time faculty appointment, which Eric (a postdoc) does not hold, and it is narrowly scoped to Fanconi anemia-related / FA-BRCA DNA-repair-defective tumors. That disease niche sits outside his T-cell lymphoma and multi-omics work despite the shared genomics/computational framing."
+},
+"cur-st-baldrick-s-research-grant-st-baldrick-s-found": {
+"fitScore": 11,
+"why": "St. Baldrick's Research Grants are restricted to independent investigators proposing childhood-cancer studies, neither of which fits Eric: he is a postdoc rather than an independent PI, and his research is in adult cancers. The computational angle does not overcome the stage and pediatric-scope mismatch."
+},
+"cur-mathematical-sciences-postdoctoral-research-fell": {
+"fitScore": 9,
+"why": "NSF MSPRF requires U.S. citizenship, national, or permanent-resident status, which Eric lacks until ~2027, and caps eligibility at 2 years past the doctorate versus his ~7. The award is also centered on mathematics/statistics research rather than his applied cancer-genomics focus, so it is a triple mismatch."
+},
+"cur-ash-bridge-grant-american-society-of-hematology-": {
+"fitScore": 8,
+"why": "The ASH Bridge Grant requires being a faculty PI/co-PI who submitted a hematology R01 to NIH within the past 18 months and did not get funded. Eric is a postdoc with no R01 history, so despite the strong hematology topical alignment he does not meet the fundamental eligibility."
+},
+"cur-stand-up-to-cancer-su2c-innovative-research-gran": {
+"fitScore": 8,
+"why": "SU2C IRGs are aimed at tenure-track independent early-career faculty and explicitly exclude postdocs and researchers-in-training, so Eric is ineligible at his current stage. His AI/computational and blood-cancer topics fit the science, but the career-stage restriction is disqualifying."
+},
+"cur-kavli-foundation-funding-programs-incl-ai-for-sc": {
+"fitScore": 7,
+"why": "Kavli funds astrophysics, nanoscience, neuroscience and science-and-society, largely via institute affiliation or invitation, and has no open cancer/oncology call; its AI-for-Science postdoc pilot was neuroscience-focused. Eric's oncology work falls outside Kavli's funded fields despite the AI overlap."
+},
+"jhu-ovarian-cancer-research-program-ovarian-cancer-a": {
+"fitScore": 7,
+"why": "The DoD OCRP Academy award targets early-career independent ovarian-cancer investigators with a designated mentor and preliminary data. Eric is a postdoc, not early-career faculty, and ovarian cancer is outside his research portfolio, so both stage and disease misalign."
+},
+"cur-damon-runyon-clinical-investigator-award-damon-r": {
+"fitScore": 5,
+"why": "This award requires an MD, DO, or MD/PhD with a clinical license and an Assistant Professor appointment doing patient-oriented research. Eric is a PhD-only computational scientist and a postdoc, so he fails both the degree and career-stage requirements outright."
+},
+"cur-v-foundation-all-star-grant-the-v-foundation-for": {
+"fitScore": 3,
+"why": "The All-Star Grant is invitation-only and restricted to prior V Foundation (V Scholar/Translational/Game-Changer) awardees with established track records. Eric has no prior V Foundation funding and is a postdoc, so he is categorically ineligible."
+},
+"cur-nhlbi-outstanding-investigator-award-oia-r35-nat": {
+"fitScore": 3,
+"why": "The NHLBI R35 OIA requires an established investigator with at least four consecutive years of active NHLBI R01-equivalent funding. Eric, as a postdoc with no independent R01 history, does not remotely meet this senior-investigator threshold despite the blood/computational topical overlap."
+},
+"cur-single-cell-biology-data-insights-rfa-chan-zucke": {
+"fitScore": 82,
+"why": "This is Eric's sharpest fit: CZI explicitly welcomes computational experts from outside single-cell biology and funds AI/ML methods and multimodal/multiscale integration on large single-cell datasets — exactly his scRNA-seq, single-cell TCR-seq, and multi-omics integration work from [redacted] and [redacted]. No citizenship requirement removes his main barrier, and 'early-career (0-6 yr independent)' investigators are encouraged. The one caveat is that applicants must be PIs, so he would need to apply through his [redacted] institution (up to 3 PIs allowed)."
+},
+"cur-career-transition-award-k22-e-g-nci-transition-c": {
+"fitScore": 50,
+"why": "The K22 window (2-8 years mentored post-doctorate) fits Eric almost perfectly at ~7 years past his 2019 PhD, and its blood-cancer/AI/oncology scope maps onto his T-cell lymphoma and computational-oncology program. However, the NCI K22 requires U.S. citizenship, non-citizen national, or permanent residency, which blocks him now as a [redacted] national with a [redacted] not expected until [redacted] — a hard eligibility caveat rather than a fit problem."
+},
+"cur-lrf-postdoctoral-fellowship-grant-lymphoma-resea": {
+"fitScore": 42,
+"why": "Topically this is a bullseye — an LRF lymphoma fellowship for exactly the T-cell/NK-cell lymphoma research Eric did at [redacted] (WES/WGS/RNA-seq/ATAC-seq pipelines, single-cell TCR-seq, anti-KLRG1 mAb208 study), and a valid work visa satisfies its citizenship rule. The blocker is timing: it caps PhD fellows at <5 years of postdoctoral work, and Eric is ~7 years post-PhD, so he is past the eligibility window."
+},
+"cur-ash-fellow-to-faculty-scholar-award-american-soc": {
+"fitScore": 40,
+"why": "The timing works well — this ASH transition award targets PhDs 6 to <11 years post-degree preparing for a first independent position, and Eric at ~7 years post-PhD with a hematology/lymphoma track record fits that senior-postdoc profile. The hard blocker is citizenship: the award is restricted to citizens of the USA or Canada, and Eric is a [redacted] national without PR until ~2027."
+},
+"cur-nih-research-project-grant-parent-r01-nih-nation": {
+"fitScore": 35,
+"why": "The Parent R01 has no PI citizenship requirement and its NCI/NHLBI blood-cancer, AI/computational, and oncology scope aligns strongly with Eric's methods work — a natural long-term target. The gating issue is that it requires an independent faculty/PI appointment, which Eric does not yet hold as a postdoc, so it is aspirational until he transitions to a faculty position."
+},
+"cur-request-for-proposals-global-health-and-wellbein": {
+"fitScore": 30,
+"why": "With no career-stage restriction and an explicit AI-plus-health-R&D remit, Eric's machine-learning and computational-oncology expertise could plausibly connect to this Coefficient Giving RFP, and lack of citizenship gating is favorable. Fit is only moderate because the RFP centers on transformative-AI global health and biopharma pipeline questions rather than his specific cancer-genomics/single-cell methods niche."
 },
 "cur-career-awards-at-the-scientific-interface-casi-b": {
-"fitScore": 66,
-"why": "Thematically the most tailored award available, purpose-built for computational/quantitative scientists transitioning into biomedical research and open to visa holders at US institutions. The serious caveat is that it caps postdoctoral experience at 60 months, and at ~7 years (roughly 84 months) post-PhD Eric has almost certainly aged out of the window. It is included because the intent matches his profile exactly, even though eligibility is the obstacle."
+"fitScore": 28,
+"why": "CASI is designed for exactly Eric's profile — a quantitatively trained scientist (his PhD spanned biophysics/systems biology with heavy statistical algorithm work like CNCDriver) moving into biomedical research and toward faculty. But its 12-60 month postdoctoral window disqualifies him at ~7 years (roughly 84 months) post-PhD, so despite the topical match he is past the eligibility cutoff."
+},
+"cur-ash-amos-medical-faculty-development-program-ash": {
+"fitScore": 24,
+"why": "The hematology faculty-development focus overlaps with Eric's T-cell lymphoma work and it accepts PhDs working in a medical setting, but two barriers apply: it requires U.S. citizenship or permanent residency (which he lacks until ~2027) and it targets applicants from historically underrepresented/marginalized backgrounds in hematology, a criterion his profile does not clearly meet."
+},
+"cur-damon-runyon-rachleff-innovation-award-damon-run": {
+"fitScore": 22,
+"why": "The high-risk/high-reward, all-disciplines-welcome design and non-US-citizen eligibility would suit Eric's novel computational methods, but the award requires a tenure-track Assistant Professor appointment (or senior clinical fellow), and he is still a postdoc — so he is not eligible until he starts an independent faculty lab."
+},
+"cur-discovery-boost-grant-dbg-american-cancer-societ": {
+"fitScore": 18,
+"why": "The DBG's high-risk/high-reward remit for developing new methodologies is a good conceptual match for Eric's AI/computational-oncology approaches, but it requires an independent full-time faculty appointment, which he does not hold as a postdoc. The program was also paused, compounding the barrier."
+},
+"cur-v-foundation-translational-grant-the-v-foundatio": {
+"fitScore": 18,
+"why": "Translational cancer research using his multi-omics and computational tools is thematically relevant, but this grant requires a faculty investigator at an invited/nominating institution and generally U.S. citizenship or permanent residency — two constraints Eric does not meet as a non-PR postdoc without an independent appointment."
+},
+"cur-niddk-hematology-program-kuh-cooperative-centers": {
+"fitScore": 16,
+"why": "Although labeled hematology and open to postdocs with no citizenship bar, this NIDDK/KUH program funds NON-malignant hematology (marrow failure, red-cell biology, iron metabolism), whereas Eric's work is in malignant hematology — T-cell/NK-cell lymphoma and blood cancer — so the disease scope does not align with his research."
+},
+"cur-helen-hay-whitney-foundation-postdoctoral-resear": {
+"fitScore": 15,
+"why": "Foreign citizens in U.S. labs are eligible and the basic-biomedical scope would accommodate his cancer research, but this is an early-postdoctoral fellowship requiring a PhD within the past 2 years and under 1 year in the postdoc lab. At ~7 years post-PhD, Eric is well past the window."
+},
+"cur-pershing-square-sohn-prize-for-young-investigato": {
+"fitScore": 15,
+"why": "The prize welcomes computational/technological cancer research aligned with Eric's methods, but it requires a faculty appointment (Assistant/Associate Professor) running an independent lab for 2-6 years. As a postdoc without his own lab, he does not meet the core eligibility."
+},
+"jhu-damon-runyon-fellowship-award-damon-runyon-cance": {
+"fitScore": 14,
+"why": "This cancer-focused postdoctoral fellowship has no citizenship requirement (foreign nationals may work at U.S. institutions), which suits Eric, but it is restricted to scientists whose PhD was conferred within ~18 months of the deadline with <1 year in the sponsor's lab. At ~7 years post-PhD he is far outside the early-postdoc window."
+},
+"jhu-st-baldrick-s-scholars-st-baldrick-s-foundation": {
+"fitScore": 9,
+"why": "The St. Baldrick's Scholar award requires a full-time faculty position and a project directly relevant to pediatric cancer. Eric is a postdoc (not faculty) and works on adult T-cell lymphoma, melanoma, and breast cancer, not childhood cancer, so both the career-stage and disease criteria are unmet."
+},
+"cur-st-baldrick-s-fellowship-award-st-baldrick-s-fou": {
+"fitScore": 8,
+"why": "This training award is for clinical trainees in their 2nd or 3rd year of a pediatric-oncology fellowship. Eric is a computational PhD, not a pediatric-oncology clinical fellow, and his research is in adult hematologic and solid tumors, so the fellowship's clinical and disease requirements do not apply to him."
+},
+"cur-nih-director-s-early-independence-award-dp5-nih-": {
+"fitScore": 6,
+"why": "The DP5 lets exceptional new PhDs skip the postdoc, requiring applicants to be within ~16 months of their terminal degree. At ~7 years post-PhD and already a senior postdoc, Eric is far past this window despite strong topical alignment with its high-risk/high-reward computational scope."
+},
+"jhu-research-grant-desmoid-tumor-research-foundation": {
+"fitScore": 9,
+"why": "DTRF funds desmoid (soft-tissue) tumor research with no citizenship barrier, but Eric's work is in hematologic malignancies, melanoma, breast, and thyroid cancer — not desmoid tumors — so the disease focus does not match his expertise even though the career stage is open."
+},
+"jhu-fellowship-jane-coffin-childs-memorial-fund-for-": {
+"fitScore": 10,
+"why": "Citizens of any country are eligible (in U.S.-based labs), which fits Eric, but the fellowship requires a PhD conferred no more than 18 months before the deadline and under 1 year of prior postdoc experience. As a ~7-year postdoc he is well outside the early-training window."
+},
+"jhu-endocrine-section-pilot-grants-american-head-and": {
+"fitScore": 11,
+"why": "Eric's past work characterizing subtypes of a rare thyroid cancer touches the endocrine/thyroid theme, but these AHNS pilot grants require AHNS membership, U.S./Canada residency, and a head-and-neck surgical/clinical orientation. As a computational PhD who is not an AHNS member or head-and-neck clinician, he does not fit the program's community."
+},
+"jhu-ahns-pilot-grant-american-head-neck-society-ahns": {
+"fitScore": 5,
+"why": "The AHNS Pilot Grant is restricted to medical students, residents, or MD faculty who are AHNS members doing head-and-neck oncology. Eric is a computational PhD (not an MD or AHNS member) and does not work in head-and-neck cancer, so he is ineligible on multiple counts."
+},
+"jhu-young-investigator-award-yia-american-society-fo": {
+"fitScore": 5,
+"why": "Conquer Cancer's YIA is a mentored award for physicians within 10 years of their medical degree who have completed subspecialty clinical training and hold a medical license. Eric is a PhD scientist, not an MD, so he does not meet the core physician-investigator eligibility despite the oncology theme."
+},
+"cur-nsf-graduate-research-fellowship-program-grfp-na": {
+"fitScore": 3,
+"why": "The NSF GRFP is only for early-stage U.S. citizen/national/permanent-resident graduate students with under one year of grad study. Eric is a ~7-years-post-PhD postdoc and a non-PR [redacted] national, so he is ineligible on career stage, citizenship, and degree status simultaneously."
+},
+"cur-aacr-anna-d-barker-basic-cancer-research-fellows": {
+"fitScore": 70,
+"why": "This postdoctoral fellowship explicitly welcomes basic/quantitative and computational-biology projects, matching Eric's core work in cancer genomics, single-cell RNA-seq, and multi-omics integration (CNCDriver, TCR-seq, spatial multi-omics). No post-PhD year cap or citizenship restriction is stated, so his ~7-year timing and pending PR do not obviously block him; he would need to become an AACR member and frame the project as mentored basic cancer research."
+},
+"cur-nlm-research-grants-advancing-bioinformatics-tra": {
+"fitScore": 58,
+"why": "The topical fit is exceptional: this NLM R01 targets exactly Eric's toolkit — novel AI/ML methods, single-cell and spatial omics, and biomarker/target discovery — and explicitly allows non-US-citizen PIs, sidestepping his pending [redacted]. The real caveat is career stage: an R01 requires being an independent PI, and as a postdoc he typically cannot hold one until he secures a faculty or equivalent independent appointment."
+},
+"cur-su2c-convergence-research-teams-dream-team-grant": {
+"fitScore": 52,
+"why": "SU2C Convergence teams deliberately embed ML/AI and data scientists, and Eric's profile as a computational oncologist spanning genomics, immunology, and single-cell analysis is a natural co-investigator fit. Career stage is not a hard block since teams accept postdocs, but he would join an existing multi-institution team rather than lead — this is a team role, not a solo award for him right now."
+},
+"jhu-scholar-in-training-awards-annual-meeting-americ": {
+"fitScore": 48,
+"why": "This AACR Annual Meeting travel award is accessible to postdocs who submit a meritorious first-author abstract, with no citizenship or post-PhD-window barrier, so Eric is genuinely eligible if he presents his T-cell lymphoma or multi-omics work. It is a modest travel/recognition grant rather than research funding, so it complements but does not substitute for a project award."
+},
+"cur-arpa-h-open-baa-mission-office-innovative-soluti": {
+"fitScore": 46,
+"why": "ARPA-H's always-open ISOs invite self-pitched high-risk AI/health concepts from any responsible source including non-US and individuals, so neither his pending PR nor PhD-not-MD status blocks him, and his ML diagnostics/risk-stratification focus fits Health Science Futures. In practice awards go to teams with institutional (SAM.gov/UEI) backing, so he would realistically need [redacted] sponsorship and a PI structure rather than applying alone."
+},
+"cur-aamdsif-research-grants-program-aplastic-anemia-": {
+"fitScore": 40,
+"why": "Eric qualifies on career stage (New Investigator postdoc) with no citizenship restriction, and his NGS, single-cell, and multi-omics pipelines transfer cleanly to bone-marrow-failure genomics. The main gap is disease focus: this grant is restricted to aplastic anemia, MDS, and PNH, which sits adjacent to but outside his T-cell lymphoma and immunotherapy work, so he'd need to pivot the project's disease context."
+},
+"cur-ims-and-paula-and-rodger-riney-foundation-transl": {
+"fitScore": 33,
+"why": "The award explicitly courts computational/AI experts from outside plasma-cell malignancies, which suits Eric's methods, but it requires being an established faculty researcher and an IMS-member PI/Co-I. As a postdoc who is not yet independent and whose disease focus is lymphoma rather than myeloma, he would fit only as a computational co-investigator on someone else's myeloma team."
+},
+"cur-career-development-program-cdp-fellow-the-leukem": {
+"fitScore": 28,
+"why": "The disease and method fit is outstanding — LLS funds mentored blood-cancer research and Eric's T-cell/NK-cell lymphoma pipelines (mAb208/anti-KLRG1, TCR-seq) are squarely on point, and it is open to non-citizens. The blocker is timing: it caps eligibility at 3 years or less of postdoc training, and having started his postdoc in 2020 he is roughly 6 years in, past the window."
+},
+"cur-nci-method-to-extend-research-in-time-merit-awar": {
+"fitScore": 15,
+"why": "The R37/MERIT is an honorific conversion of a high-scoring ESI R01 and cannot be applied for directly; it presupposes an independent faculty investigator who already holds a fundable NCI R01. Eric is a postdoc with no independent NIH award, so despite strong oncology/AI topical alignment he is not eligible at this stage."
+},
+"cur-mission-boost-grant-mbg-american-cancer-society": {
+"fitScore": 15,
+"why": "Topically the Mission Boost Grant aligns well with Eric's translational blood-cancer and AI interests, but it requires a full-time faculty appointment (or equivalent) to de-risk discoveries toward clinical testing. As an [redacted] postdoc he does not meet the faculty career-stage requirement, so it is out of reach until he is independent."
+},
+"jhu-aacr-sontag-foundation-brain-cancer-research-fel": {
+"fitScore": 18,
+"why": "Although the RFA encourages researchers from other cancer areas to apply ideas to brain cancer, it requires the doctoral degree completed within the past 5 years, and Eric's 2019 PhD (~7 years out) falls outside that window. Combined with brain cancer being far from his hematologic/immuno-oncology focus, the fit is low."
+},
+"jhu-kidney-cancer-research-program-academy-of-kidney": {
+"fitScore": 14,
+"why": "This DoD KCRP award requires that the applicant no longer be in a postdoc at the deadline, and Eric is still an [redacted] postdoc, so he is ineligible on career stage even though there is no citizenship bar. The kidney-cancer disease focus is also outside his T-cell lymphoma and immuno-oncology expertise."
+},
+"cur-ash-award-for-research-careers-in-hematology-arc": {
+"fitScore": 13,
+"why": "The hematology subject is a bullseye for Eric's blood-cancer work, but ARCH is a mid-career/established award requiring the terminal degree more than 13 years prior; at ~7 years post-PhD he is far too junior. It also requires ASH membership and US/Mexican/Canadian citizenship, and his pending PR would additionally block him."
+},
+"jhu-pcf-pfizer-challenge-awards-prostate-cancer-foun": {
+"fitScore": 12,
+"why": "This is a prostate-cancer team-science award requiring at least three investigators and centered on early-career faculty, neither of which matches Eric's postdoc status or his T-cell lymphoma focus. He could at most contribute computational expertise to a team, but the disease and career-stage mismatch make it a poor fit."
+},
+"cur-st-baldrick-s-robert-j-arceci-innovation-award-s": {
+"fitScore": 12,
+"why": "The Arceci award funds creative pediatric (childhood) cancer research by early- to mid-career independent scientists, whereas Eric works on adult hematologic malignancies as a postdoc. Both the pediatric disease scope and the independent-investigator expectation put this well outside his current fit."
+},
+"jhu-research-grant-awards-skin-cancer-foundation": {
+"fitScore": 10,
+"why": "This grant is restricted to dermatology residents/fellows or investigators within a US dermatology department, and the project must be conducted in a dermatology setting. Eric is a computational oncologist focused on blood cancer with no dermatology affiliation, so despite the PhD eligibility the departmental and disease requirements exclude him."
+},
+"cur-pew-scholars-program-in-the-biomedical-sciences-": {
+"fitScore": 10,
+"why": "The Pew Biomedical Scholars award requires a full-time tenure-track assistant professor appointment running an independent lab, which Eric, an [redacted] postdoc, does not hold. His research would be competitive on creativity, but the newly-independent-faculty requirement makes him ineligible now."
+},
+"jhu-distinguished-scientist-awards-sontag-foundation": {
+"fitScore": 10,
+"why": "The Sontag Distinguished Scientist Award is for early-career faculty in their first independent appointment doing brain-tumor research. Eric is a postdoc, not faculty, and his focus is hematologic/immuno-oncology rather than brain cancer, so both career stage and disease area exclude him."
+},
+"cur-nhlbi-emerging-investigator-award-eia-r35-nation": {
+"fitScore": 8,
+"why": "The NHLBI EIA R35 requires an existing NHLBI-funded ESI award and four consecutive years of NHLBI support as an independent single-PI investigator. Eric is a postdoc with no NHLBI or independent NIH funding, so he cannot qualify despite the AI/hematology topical overlap."
+},
+"cur-cise-graduate-fellowships-csgrad4us-national-sci": {
+"fitScore": 4,
+"why": "CSGrad4US is for people returning from the workforce to begin a CS research PhD and requires US citizenship, nationality, or permanent residency. Eric already holds a 2019 PhD and his [redacted] is not expected until [redacted], so he is disqualified on both degree stage and citizenship."
+},
+"cur-damon-runyon-physician-scientist-training-award-": {
+"fitScore": 3,
+"why": "This award is restricted to MD or DO holders only and explicitly excludes MD/PhDs; it is a mentored launch grant for newly trained physicians. Eric is a PhD scientist, not a physician, so he is categorically ineligible regardless of his strong computational cancer-research record."
 },
 "cur-mentored-quantitative-research-career-developmen": {
+"fitScore": 62,
+"why": "The K25 is purpose-built for exactly Eric's profile: a quantitative PhD (his training is ML/statistics under Devavrat Shah's EECS lab and Ekta Khurana's CNCDriver algorithm work) transitioning deeper into biomedical/cancer research. The hard blocker is eligibility: it requires U.S. citizenship, national status, or permanent residency at time of award, and Eric's [redacted] is not expected until [redacted], so he cannot apply now. His T-cell lymphoma and multi-omics domain work would otherwise make him a compelling candidate once PR lands."
+},
+"jhu-rare-cancers-research-program-idea-development-a": {
+"fitScore": 55,
+"why": "This DoD CDMRP Idea Development Award is open to independent investigators at ALL career levels with no U.S. citizenship requirement and foreign/domestic institutions eligible, which sidesteps Eric's PR-pending status. It aligns well with his rare-cancer experience: consensus clustering to nominate subtypes in a rare thyroid cancer and single-cell TCR-seq in rare NK/T-cell lymphoma. The main caveat is 'independent investigator' status, which a postdoc typically must document through institutional standing rather than a faculty appointment."
+},
+"cur-smart-health-and-biomedical-research-in-the-era-": {
+"fitScore": 54,
+"why": "NSF/NIH SCH is a near-perfect topical match for Eric's core identity: transformative AI and data-science methods making fundamental contributions to both CS/ML and biomedicine, exactly the multi-modal pipeline and statistical-inference work he built (MALDI + immunofluorescence integration, CNCDriver). It has no PI citizenship restriction, an advantage given his pending status. The practical limit is that NSF awards go to the institution with a faculty-level PI, so a postdoc usually cannot serve as lead PI without a sponsoring faculty member."
+},
+"cur-wellcome-leap-health-breakthrough-programs-perfo": {
+"fitScore": 46,
+"why": "Wellcome Leap's AI/ML- and data-science-heavy moonshots (e.g., Delta Tissue predicting disease-state transitions from multimodal data) fit Eric's multi-omics integration and risk-stratification methods well, and the program is open globally with no citizenship bar. It funds academic, nonprofit, or for-profit performers on milestone contracts. The catch is that performers are typically PI-led teams/institutions, so his role would be as part of a funded team rather than an individual awardee."
+},
+"cur-leukemia-exploration-and-prevention-leap-grant-p": {
+"fitScore": 42,
+"why": "This ACS LEAP RFA is blood-cancer-specific (AML/RUNX1-FPD) and explicitly welcomes computational and systems approaches, which suits Eric's hematologic-malignancy and genomics focus. However, it requires a full-time INDEPENDENT investigator, and as a postdoc Eric is not yet independent. The narrow RUNX1-FPD scope is also a step away from his T-cell lymphoma work, though his WES/WGS/single-cell pipeline skills would transfer."
+},
+"cur-mds-research-fund-early-career-established-inves": {
+"fitScore": 41,
+"why": "The MDS Research Fund Early Career tier accepts PhD holders within 10 years of terminal degree (Eric's 2019 PhD qualifies) with no prior R01, and MDS is a hematologic malignancy squarely in his blood-cancer wheelhouse. The friction is career stage: it targets early-career faculty/independent investigators, and Eric is still a postdoc without an independent lab. His single-cell and multi-omics stratification methods would be a strong scientific fit if he reaches independence."
+},
+"cur-momentum-and-postdoctoral-fellowships-the-mark-f": {
+"fitScore": 33,
+"why": "The Mark Foundation targets promising cancer researchers at the postdoc stage, which matches Eric's level and his AI/computational-oncology focus. But the Momentum track is nomination-only with no direct application, and the postdoctoral route runs through partner organizations, with the flagship EACR-Mark fellowship being Europe-based. The lack of a direct U.S. application path makes this hard to pursue actively despite the topical alignment."
+},
+"cur-cri-clinic-and-laboratory-integration-program-cl": {
+"fitScore": 31,
+"why": "CRI CLIP is a strong topical match for Eric's cancer-immunology work (anti-PD-1 resistance modeling, anti-KLRG1/mAb208 NK/T-cell lymphoma immunotherapy, single-cell TCR-seq) and notably has no citizenship restriction. The disqualifier is career stage: it requires a tenure-track Assistant Professor or higher at award activation, and Eric is a postdoc, not yet faculty. It would become a compelling target once he holds an independent appointment."
+},
+"jhu-innovative-testing-research-earlier-org-friends-": {
+"fitScore": 30,
+"why": "This Earlier.org seed grant funds novel early breast-cancer detection with interest in biological/immunologic methods, and Eric does have relevant breast-cancer experience (anti-PD-1-resistant breast cancer mouse model with spatial metabolomics and immune profiling). The fit is partial: the program centers on early-detection assay development rather than his risk-stratification and multi-omics methods, and it is a small pilot award. Career-stage and citizenship requirements are unstated, so eligibility is uncertain."
+},
+"cur-nih-director-s-pioneer-award-dp1-nih-common-fund": {
+"fitScore": 28,
+"why": "The DP1 is nominally open to any career stage and rewards creative, paradigm-shifting directions, which could suit an ambitious ML-for-oncology vision from Eric. In practice it demands an outstanding independent track record and a single PD/PI committing >=51% effort, which strongly favors established investigators over a postdoc without an independent lab. Standard NIH PI expectations also make his pending-PR status a practical concern for this high-bar mechanism."
+},
+"jhu-lung-cancer-research-program-idea-development-aw": {
+"fitScore": 25,
+"why": "This DoD CDMRP mechanism is attractively open, with no U.S. citizenship requirement and eligibility for independent investigators at all levels, which suits Eric's status. The mismatch is scientific: it is lung-cancer-specific, whereas Eric's disease focus is T-cell lymphoma, blood cancer, and rare tumors, with no lung-cancer track record in his CV. His computational pipelines could adapt, but the topical distance and independent-investigator expectation lower the fit."
+},
+"cur-specialized-center-of-research-program-scor-the-": {
+"fitScore": 22,
+"why": "LLS SCOR funds blood-cancer team science, and Eric's hematology/lymphoma computational expertise could make him a valuable Project or Core contributor within such a center. However, SCOR is explicitly for teams of ESTABLISHED investigators organized under a Program Leader with 3-5 Projects, and each PI must be an independent faculty-level scientist. As a postdoc, Eric cannot lead or serve as a named PI, so it is not an individual award he can pursue now."
+},
+"cur-google-research-scholar-program-status-uncertain": {
+"fitScore": 20,
+"why": "The AI focus fits Eric's machine-learning core, and there is no citizenship barrier since it is open to institutions worldwide. But the program is restricted to professors (assistant/associate) within 7 years of PhD, and Eric is a postdoc, not faculty, so he is ineligible on career stage. The open call also appears to be winding down in favor of Google Academic Research Awards, further limiting this route."
+},
+"cur-peer-reviewed-cancer-research-program-prcrp-care": {
+"fitScore": 20,
+"why": "PRCRP CDA-SO offers generous cancer-research funding with no citizenship requirement (a plus for Eric), but it explicitly excludes postdoctoral fellows: the Scholar must be an independent early-career investigator with their own lab space committing >=25% effort. Eric is still a postdoc without independence, so he is ineligible now. His cancer-genomics profile would fit the science once he is a newly independent PI within 7 years of his 2019 PhD."
+},
+"cur-freeman-hrabowski-scholars-program-howard-hughes": {
+"fitScore": 15,
+"why": "This HHMI program funds outstanding early-career FACULTY who have led an independent lab for no more than 7 years, and Eric is a postdoc without an independent lab, so he does not meet the basic eligibility. While his research excellence in computational oncology is real, this awards independent investigators as people rather than projects. It could become relevant only after he establishes his own faculty lab."
+},
+"jhu-young-investigator-grant-alex-s-lemonade-stand-f": {
+"fitScore": 14,
+"why": "ALSF's Young Investigator Grant caps PhD applicants at within 4 years of their terminal degree, but Eric is ~7 years past his 2019 PhD, so he is outside the eligibility window. It is also pediatric-cancer-focused, which does not match his adult T-cell lymphoma and blood-cancer work. Both the timing and disease-focus mismatches make this a poor fit."
+},
+"jhu-clinician-scientist-development-grant-csdg-ameri": {
+"fitScore": 9,
+"why": "The ACS CSDG is restricted to full-time faculty clinician-scientists who hold an active clinical license and provide patient care, and Eric is a PhD computational scientist, not a clinician or faculty member. He therefore does not meet the core eligibility on multiple counts. The award's clinical-transition purpose does not align with his methods-development trajectory."
+},
+"jhu-clinical-investigator-career-development-award-l": {
+"fitScore": 8,
+"why": "This LRF award is lymphoma-focused, which overlaps Eric's T-cell lymphoma expertise, but it is limited to licensed clinical physicians in ACGME-accredited specialties conducting clinical human-subjects research. Eric is a PhD, not an MD/clinician, so he is categorically ineligible. The clinical-observation requirement is also outside his computational, data-analysis role."
+},
+"cur-aacr-conquer-cancer-the-asco-foundation-young-in": {
+"fitScore": 6,
+"why": "This AACR-Conquer Cancer YIA requires a medical degree (MD, DO, or MD/PhD) and applicants in the last two years of subspecialty clinical training with an active medical license. Eric holds a PhD only and is a computational postdoc, so he does not qualify. Although the translational cancer-research scope is broad, the physician-scientist restriction is a hard blocker."
+},
+"cur-alsf-pediatric-oncology-student-training-post-gr": {
+"fitScore": 5,
+"why": "The ALSF POST grant is limited to students (including graduate students) doing mentored pediatric-oncology research, and Eric is a postdoc, well past student status, so he is ineligible on career stage. It is also pediatric-focused, unlike his adult blood-cancer work. This is a seed award for trainees at an earlier stage than Eric."
+},
+"cur-nci-individual-predoctoral-md-phd-fellowship-f30": {
+"fitScore": 4,
+"why": "The NCI F30 is a predoctoral fellowship for students enrolled in an MD/PhD dual-degree program, and it additionally requires U.S. citizenship or permanent residency at award. Eric already holds his PhD (2019), is not in a dual-degree program, and his PR is pending, so he fails eligibility on every axis. This mechanism targets a career stage many years behind his."
+},
+"cur-informatics-technology-for-cancer-research-itcr-": {
+"fitScore": 58,
+"why": "His strongest topical match: ITCR funds cancer informatics tools, and Eric literally built and released statistical-inference software (CNCDriver for coding/non-coding cancer drivers) plus NGS pipelines on HPC/DNAnexus for WES/WGS/RNA-seq/ATAC-seq/CUT&RUN in T-cell lymphoma. NIH U01/U24 carry no citizenship gate, so his pending PR is not blocking. The real caveat is career stage: the U01/U24 PD/PI is expected to be an independent investigator, which as a mentored [redacted] postdoc he is not yet, so he'd need a faculty/PI arrangement."
+},
+"cur-career-development-program-cdp-special-fellow-th": {
+"fitScore": 55,
+"why": "Topically excellent: LLS/Blood Cancer United funds blood-cancer research, matching his [redacted] single-cell TCR-seq and mAb208 anti-KLRG1 work in NK/T-cell lymphoma, and the non-profit-worldwide scope means no US citizenship requirement. However the Special Fellow track targets ~3-5 years of postdoctoral training, and at ~7 years post-PhD (postdoc since 2020) he sits at or beyond the upper edge of that window, which is a timing caveat. His current [redacted] EECS focus would also need to be framed with a direct blood-cancer research direction."
+},
+"cur-nlm-research-grants-in-clinical-informatics-r01-": {
+"fitScore": 38,
+"why": "NLM explicitly states the R01 PI need not be a US citizen, removing his PR concern, and the call's domain-independent, scalable computational-methods framing aligns with his ML/statistics and multi-omics integration background. The gap is that R01 PIs must be independent investigators (early-career faculty or above), which he is not as a postdoc, and the emphasis on EHR/clinical-notes/imaging clinical data is a step away from his genomics/single-cell core."
+},
+"jhu-career-transition-award-susan-g-komen-breast-can": {
+"fitScore": 36,
+"why": "No US citizenship/PR requirement (unlike the NIH K22), and he does have relevant breast-cancer experience — his [redacted] pipeline integrating spatial metabolomics (MALDI) and multiplexed immunofluorescence characterized anti-PD-1 treatment resistance in a breast cancer mouse model. But this is a limited institutional nomination for senior postdocs with no more than ~5 years of postdoc experience transitioning to faculty, and at postdoc-since-2020 he likely exceeds that window; breast cancer is only a secondary thread in his work."
+},
+"cur-igor-intelligent-generator-of-research-advanced-": {
+"fitScore": 32,
+"why": "The AI/ML-for-biomedicine theme fits his machine-learning and computational-oncology expertise, and he could plausibly contribute to a computational-biology team. However IGoR is a team/institutional ARPA-H program built around AI orchestration and lab automation, not an individual postdoc award, and it is led by multi-sector teams (academia, non-profit, industry) rather than a mentored trainee — so it is not something he applies to on his own at his current stage."
+},
+"cur-ims-career-development-award-international-myelo": {
+"fitScore": 30,
+"why": "Open to PhD holders who are not yet independent and carry no explicit US citizenship gate, which fits his stage, and it welcomes computational work. But the award is strictly for plasma cell dyscrasias (multiple myeloma), whereas his disease focus is T-cell lymphoma and NK/T-cell malignancies — so he would need to pivot into myeloma research, which his CV does not currently support. The never-received-NIH-funding rule he plausibly meets."
+},
+"cur-aacr-st-baldrick-s-foundation-pediatric-cancer-r": {
+"fitScore": 25,
+"why": "Postdocs are eligible and there is blood-cancer overlap (pediatric leukemia/lymphoma), which touches his hematologic-malignancy and single-cell expertise. But this is a dedicated pediatric-cancer career-development grant, and his work is on adult T-cell lymphoma, breast/melanoma/thyroid — pediatric oncology is not his focus, making this a weak fit despite the eligible career stage."
+},
+"cur-national-artificial-intelligence-ai-research-ins": {
+"fitScore": 18,
+"why": "His AI/ML methods work is thematically adjacent, but these are large multi-institution center awards led by senior faculty PIs, not an individual postdoc opportunity. Crucially, the most recent solicitation (NSF 23-610) dropped health/biomedical themes, so his cancer-genomics application would not fit the current round even setting aside his non-faculty stage."
+},
+"jhu-nci-pathway-to-independence-award-for-outstandin": {
+"fitScore": 16,
+"why": "The computational-oncology topic is an ideal match and the K99/R00 notably has no citizenship requirement, so his pending PR would not block it. The disqualifier is timing: K99 requires only limited (roughly <=4 years) postdoctoral experience, and at ~7 years post-PhD (postdoc since 2020) he is well past that window, so he is not eligible."
+},
+"cur-damon-runyon-st-jude-pediatric-cancer-research-f": {
+"fitScore": 15,
+"why": "A postdoctoral fellowship in his broad oncology space, but Damon Runyon fellowships enforce a short early-postdoc eligibility window that he has long exceeded at ~7 years post-PhD. The pediatric-cancer focus (with St. Jude) also does not match his adult T-cell lymphoma and blood-cancer work, compounding the mismatch."
+},
+"cur-searle-scholars-program-kinship-foundation-searl": {
+"fitScore": 15,
+"why": "The biomedical scope (including immunology and computation) suits his interests, but the Searle Scholars Program requires a first tenure-track assistant-professor appointment begun within a narrow recent window. As a mentored [redacted] postdoc he holds no faculty appointment, so he is not eligible until he starts an independent lab."
+},
+"cur-aacr-trailblazer-cancer-research-grants-early-st": {
+"fitScore": 14,
+"why": "His innovative computational-oncology program would be topically welcome, but both AACR Trailblazer tracks require an independent faculty appointment (first assistant professor within 6 years with confirmed lab space, or a tenured associate professor with an R01). As a postdoc without an independent lab, he does not meet the eligibility bar."
+},
+"cur-nigms-maximizing-investigators-research-award-mi": {
+"fitScore": 12,
+"why": "MIRA (R35) requires an established or early-stage independent NIGMS-funded investigator (holding an R01-equivalent or an ESI faculty appointment), which he is not as a postdoc. NIGMS also funds basic, non-disease-specific science, whereas his research is explicitly cancer-focused, so the mission alignment is poor even apart from career stage."
+},
+"cur-gabrielle-s-angel-foundation-medical-research-aw": {
+"fitScore": 11,
+"why": "The leukemia/lymphoma translational focus overlaps his T-cell lymphoma work, but this award is invitation-only through NCI-designated cancer centers nominating their faculty (typically Assistant Professors). As a mentored postdoc he is not a nominatable independent investigator, so it is effectively closed to him now."
+},
+"jhu-career-development-program-sarcoma-alliance-for-": {
+"fitScore": 10,
+"why": "Postdocs in a final fellowship year can qualify and there is no citizenship gate, but the award is dedicated to sarcoma research, which does not appear anywhere in his hematologic/breast/melanoma portfolio, and the SARC program is currently paused with no posted deadline. Topic mismatch plus suspension make it a poor fit."
+},
+"cur-doris-duke-clinical-scientist-development-award-": {
+"fitScore": 8,
+"why": "This is a physician-scientist award restricted to MD/DO faculty who have completed clinical training and hold an active US medical license and an Assistant Professor appointment. Eric is a PhD (not an MD) and a postdoc, so he is categorically ineligible despite the strong oncology relevance."
+},
+"cur-su2c-phillip-a-sharp-innovation-in-collaboration": {
+"fitScore": 8,
+"why": "These seed grants are restricted to scientists already inside funded SU2C Dream Teams proposing new cross-team collaborations. Eric is not part of any SU2C team, so he cannot apply as an outside investigator regardless of his collaborative multi-omics track record."
+},
+"jhu-collaborative-research-development-grant-ovarian": {
+"fitScore": 7,
+"why": "OCRA's collaborative grant requires full-time faculty appointments and funds ovarian/gynecologic cancer research. Eric is a postdoc, not faculty, and ovarian cancer is not in his portfolio, so both the eligibility and topic are off."
+},
+"cur-ash-graduate-hematology-award-american-society-o": {
+"fitScore": 6,
+"why": "Although hematology is exactly his disease area, this award is restricted to PhD students within the first three years of a graduate program. Eric completed his PhD in 2019 and is a senior postdoc, so he is far past the eligible stage."
+},
+"jhu-aga-caroline-craig-augustyn-damian-augustyn-awar": {
+"fitScore": 6,
+"why": "This supplemental award requires an early-career faculty member who already holds an NIH K-series or equivalent career-development award and works on digestive (GI) cancer. Eric is a postdoc with no K-award and no digestive-cancer work, so he meets neither the eligibility nor the topical requirement."
+},
+"jhu-ash-research-training-award-for-fellows-rtaf-ame": {
+"fitScore": 5,
+"why": "RTAF is limited to MD or MD/PhD physicians 0-4 years out of residency to protect clinical research time. Eric holds a PhD (not an MD) and has no residency, so he is categorically ineligible despite his strong hematology/blood-cancer research fit."
+},
+"cur-ruth-l-kirschstein-nrsa-individual-predoctoral-f": {
+"fitScore": 4,
+"why": "The F31 is a predoctoral fellowship for enrolled PhD students at the dissertation stage, and Eric is a postdoc who finished his PhD in 2019 — plus the NRSA statute requires US citizenship, national, or permanent-resident status, which his pending PR does not satisfy. Two independent disqualifiers make this a non-fit."
+},
+"cur-schmidt-science-fellows-schmidt-sciences-schmidt": {
+"fitScore": 4,
+"why": "Schmidt Science Fellows requires completing the PhD between May 2026 and June 2027; Eric's PhD was conferred in 2019, so he is years outside the eligibility window. Even though [redacted] is a nominating partner and interdisciplinary pivots suit him, the graduation-date rule closes it out."
+},
+"jhu-international-research-fellowship-program-americ": {
+"fitScore": 3,
+"why": "The American-Italian Cancer Foundation program targets young Italian scientists (and requires an advanced degree within three years of the deadline). Eric is [redacted] and ~7 years post-PhD, so he fails both the nationality target and the recency requirement."
+},
+"cur-nci-research-specialist-award-r50-national-cance": {
+"fitScore": 70,
+"why": "This is Eric's single strongest match: the R50 explicitly targets advanced-degree data scientists who contribute long-term to cancer research without seeking independent-PI status, exactly his computational-oncology profile (WES/WGS/RNA-seq/ATAC/CUT&RUN pipelines, single-cell and TCR-seq analysis, CNCDriver algorithm). As an R-series award it carries no U.S. citizenship requirement, so his pending-PR status is not a bar. The main caveat is he must be devoting >=50% time to an NCI-funded program and be willing to forgo independence."
+},
+"jhu-postdoctoral-fellowship-hope-funds-for-cancer-re": {
+"fitScore": 52,
+"why": "Open to PhD postdocs with no citizenship requirement, and it funds highly innovative work on rare and difficult-to-treat cancers, which aligns with his NK/T-cell lymphoma pipelines and his consensus-clustering subtyping of a rare thyroid cancer. He started at [redacted] in April 2026, so he sits within the 'within 2 years in the sponsor's lab' rule. Fit is genuine, though it is a stipend-level fellowship rather than independent research support."
+},
+"jhu-immuno-informatics-postdoctoral-fellowship-cance": {
+"fitScore": 38,
+"why": "Topically this is almost a perfect description of Eric: a postdoc fellowship for scientists building dual immunology + data-science expertise, matching his single-cell immune-repertoire (TCR-seq) work, anti-KLRG1 mAb208 NK/T-cell lymphoma study, and melanoma immunotherapy-response analyses, with no citizenship restriction. The hard caveat is timing: CRI's postdoc fellowships use a ~5-year-post-PhD window and Eric is ~7 years out from his 2019 PhD, so he is likely past eligibility."
+},
+"cur-bone-marrow-failure-research-program-bmfrp-idea-": {
+"fitScore": 30,
+"why": "This DoD/CDMRP award requires no U.S. citizenship, which removes his usual eligibility blocker, and it welcomes computational/idea-driven proposals in hematology. However its disease scope is inherited/acquired bone marrow failure (aplastic anemia, MDS, Fanconi), which is adjacent to but not his T-cell-lymphoma focus, and both PI tracks (Established Investigator and Early-Career/Assistant Professor) presume an independent faculty appointment he does not yet hold as a postdoc."
+},
+"cur-nih-pathway-to-independence-award-parent-k99-r00": {
+"fitScore": 26,
+"why": "The NLM/informatics-and-data-science flavor of K99/R00 is an ideal topical and career vehicle for his ML/bioinformatics cancer work, and the K99 phase notably does not require U.S. citizenship. The disqualifier is timing: K99 caps applicants at <=4 years of postdoc experience, and at ~7 years past his 2019 PhD Eric is well beyond that window even with the temporary extension, so he is not eligible."
+},
+"cur-career-development-program-cdp-scholar-the-leuke": {
+"fitScore": 24,
+"why": "The disease and methods fit is excellent, since LLS's Scholar award funds computational and model-system blood-cancer research directly on point with his T-cell lymphoma and hematology pipelines. The blocker is career stage: it requires an independent, tenure-track faculty investigator with substantial national funding, whereas Eric is a postdoc, so he would not be eligible until he starts a faculty position."
+},
+"jhu-postdoctoral-fellowships-american-cancer-society": {
+"fitScore": 22,
+"why": "This ACS fellowship is postdoc-stage, open to any area of cancer research, and explicitly allows non-U.S. citizens, so citizenship is not the issue. The problem is the window: it requires the doctoral degree to be held 3 years or less and <=3 years of postdoc training, and Eric is ~7 years past his 2019 PhD, placing him well outside eligibility despite the strong oncology-topic match."
+},
+"jhu-team-science-awards-melanoma-research-alliance-m": {
+"fitScore": 22,
+"why": "His MSK melanoma work (single-cell RNA-seq of mitochondrial-DNA mutations affecting immunotherapy response, plus anti-PD-1-resistance spatial multi-omics) is directly relevant to MRA's melanoma mission, and MRA accepts applicants worldwide with no citizenship bar. The limitation is that Team Science Awards fund multi-investigator teams led by established/early-career faculty; as a postdoc he could contribute to a team but not lead one."
+},
+"cur-aacr-nextgen-grants-for-transformative-cancer-re": {
+"fitScore": 19,
+"why": "AACR NextGen rewards transformative, high-risk methodological and computational cancer research, which suits his novel algorithm development (e.g., CNCDriver, multi-modal metabolomics-imaging integration). But eligibility requires a tenure-track assistant-professor appointment at grant start, and Eric is a postdoc, so he cannot apply until he transitions to independent faculty."
+},
+"cur-rita-allen-foundation-scholars-rita-allen-founda": {
+"fitScore": 18,
+"why": "Cancer and immunology are two of Rita Allen's three core focus areas, aligning with his cancer-immunology and computational work. However it is an early-career-faculty award requiring a faculty appointment plus an institutional nomination from an invited participating institution, so as a non-faculty postdoc he is not eligible at this stage."
+},
+"cur-ims-young-investigator-award-travel-grant-for-ex": {
+"fitScore": 16,
+"why": "This is a small travel grant tied to presenting a selected abstract at the IMS Annual Meeting, open across career stages, so mechanically a postdoc could win it. But it is myeloma-specific rather than his T-cell-lymphoma focus, and its age <=35 requirement is likely a problem given he earned his PhD in 2019; it is at most a minor conference perk, not research funding."
+},
+"cur-evansmds-discovery-research-grant-drg-edward-p-e": {
+"fitScore": 15,
+"why": "His hematologic-malignancy computational skills are relevant to MDS research, and non-U.S. investigators can apply, so citizenship is not the barrier. The blocker is career stage: EvansMDS requires an independent investigator at assistant-professor level or above, which Eric as a postdoc is not, and the program prioritizes projects examining MDS directly rather than his T-cell-lymphoma work."
+},
+"cur-mathematical-and-physical-sciences-ascending-pos": {
+"fitScore": 14,
+"why": "His ML and statistical-inference methods could sit within an MPS/DMS-statistics scope, and it is a postdoc fellowship. But MPS-Ascend hard-requires U.S. citizen, national, or permanent-resident status, and Eric's [redacted] is not expected until [redacted], so he is currently ineligible; the program's broadening-participation intent adds further mismatch."
+},
+"jhu-individual-rising-star-grant-the-honorable-tina-": {
+"fitScore": 11,
+"why": "Tina's Wish targets early detection and prevention of ovarian cancer, which is outside his blood-cancer and cancer-immunology focus, and PhD applicants must be within 3 years of the degree, whereas Eric is ~7 years past his 2019 PhD. Both the disease scope and the timing window make this a poor fit despite no citizenship requirement."
+},
+"cur-adapt-advanced-analysis-for-precision-cancer-the": {
+"fitScore": 11,
+"why": "The technical vision (multi-modal data fusion, adaptive therapy from evolving tumor DNA/RNA/protein) genuinely overlaps his integrative multi-omics work, but ADAPT is now closed to new proposals and was structured for large established academic/industry teams. As a postdoc without an independent team he could not lead a proposal even if it were open."
+},
+"cur-alsf-a-award-alex-s-lemonade-stand-foundation-al": {
+"fitScore": 10,
+"why": "This ALSF award requires early-independent faculty (assistant professor, within ~5 years of first appointment) and a pediatric-oncology project. Eric is a postdoc, not faculty, and his focus is adult hematologic and solid tumors rather than childhood cancer, so both career stage and disease scope exclude him."
+},
+"jhu-a-award-alex-s-lemonade-stand-foundation": {
+"fitScore": 10,
+"why": "Like ALSF's other 'A' Award, this funds early-career independent faculty within 10 years of terminal degree and 5 years of a first assistant-professor appointment, and it is dedicated to pediatric oncology. As a postdoc working on adult T-cell lymphoma and immunology, Eric matches neither the faculty-stage nor the pediatric-cancer requirement."
+},
+"jhu-prostate-cancer-research-program-pcrp-early-inve": {
+"fitScore": 10,
+"why": "This DoD PCRP award has no citizenship requirement, which would help, but it requires fewer than 3 years of postdoctoral experience and Eric is ~7 years past his PhD, so he is past the window. It is also prostate-cancer-specific, outside his hematology and immunology focus, requiring a prostate-cancer mentor."
+},
+"cur-damon-runyon-dale-f-frey-award-for-breakthrough-": {
+"fitScore": 9,
+"why": "This breakthrough award is restricted to current or recent Damon Runyon / Quantitative Biology Fellows transitioning to faculty and cannot be applied for directly by non-awardees. Eric is not a Damon Runyon fellow, so despite the strong quantitative-oncology topical alignment he is not eligible to apply."
+},
+"cur-doris-duke-physician-scientist-fellowship-doris-": {
+"fitScore": 6,
+"why": "This fellowship is exclusively for MD, MD/PhD, or DO clinicians in or just finishing subspecialty clinical fellowship. Eric is a PhD computational scientist with no clinical training, so he does not meet the degree/clinical-fellow requirement regardless of the strong hematology-oncology topic fit."
+},
+"cur-sidney-kimmel-foundation-kimmel-scholar-award-di": {
+"fitScore": 5,
+"why": "The Kimmel Scholar Award is permanently discontinued and no longer making awards, so it is not actionable. Even historically it required a newly independent assistant-professor appointment, which as a postdoc Eric does not hold."
+},
+"cur-nrsa-individual-predoctoral-fellowship-to-promot": {
+"fitScore": 5,
+"why": "This F31-Diversity mechanism is for enrolled PhD students at the dissertation stage, requires U.S. citizenship/PR, and adds an underrepresented-group eligibility layer. Eric is a postdoc (not a predoctoral student) and his PR is pending until ~2027, so he is ineligible on both career stage and citizenship."
+},
+"jhu-postdoctoral-fellowship-lymphoma-research-founda": {
+"fitScore": 83,
+"why": "This LRF postdoctoral fellowship is a bull's-eye for Eric's disease focus: his [redacted] work developed WES/WGS/RNA-seq/ATAC-seq/CUT&RUN pipelines and single-cell TCR-seq analysis in T-cell lymphoma (anti-KLRG1 mAb208 NK/T-cell lymphoma study), and he is genuinely at the postdoc stage with high research effort. The one caveat is eligibility hinges on citizenship OR a valid work visa — as a [redacted] national without PR yet ([redacted] expected ~March 2027), he qualifies only via valid work authorization, so he should confirm his visa satisfies the RFA."
+},
+"cur-peer-reviewed-cancer-research-program-prcrp-idea": {
+"fitScore": 72,
+"why": "The new FY26 Early Career Investigator Option fits a PhD within 7 years of the last postdoc with under $150k/yr non-mentored funding, and CDMRP awards generally carry no U.S. citizenship requirement — removing the barrier that blocks most NIH mechanisms for Eric. The Blood Cancers portfolio (Lymphoma, Leukemia, Myeloma) maps directly onto his T-cell/NK-cell lymphoma genomics work, and the high-risk/no-preliminary-data design suits a novel ML method. His ~7-years-post-PhD timing sits right at the window edge, so he should verify the count runs from his last postdoc position."
+},
+"cur-hanna-h-gray-fellows-program-howard-hughes-medic": {
+"fitScore": 68,
+"why": "HHMI's Hanna Gray program is explicitly open to all backgrounds with no citizenship restriction, and it targets postdocs with up to 7 years of postdoc experience at an eligible U.S. institution like [redacted] — Eric (postdoc since 2020) is near but likely within that window. It is a strong postdoc-to-faculty transition vehicle for his computational-oncology trajectory, though he should confirm his exact postdoc-experience count as of the Dec 15, 2026 cutoff since he is close to the 7-year ceiling."
+},
+"jhu-proposals-in-leukemia-research-when-everyone-sur": {
 "fitScore": 64,
-"why": "The NIH mechanism designed precisely for a quantitative/ML scientist pivoting into biomedical research, where limited prior cancer-biology experience is an expected feature rather than a weakness, making it a conceptually ideal match. Two caveats limit it: it requires US citizenship or permanent residency (his [redacted] is expected only [redacted]) and a mentored faculty appointment. NCI or NHLBI would be the natural institutes for his blood-cancer work once he is eligible."
+"why": "This acute-leukemia RFP is open to all career stages including postdocs with no stated citizenship or residency requirement, making Eric eligible now despite his pending PR. His blood-cancer/hematology computational focus and multi-omics/single-cell expertise fit leukemia biology well, though the topic is specifically acute leukemia rather than his core T-cell lymphoma work, and the $50k/1-year size is modest."
+},
+"cur-nci-informatics-technology-for-cancer-research-i": {
+"fitScore": 47,
+"why": "ITCR is a near-perfect topical match — it explicitly welcomes novel machine-learning/deep-learning tools for cancer data, exactly Eric's wheelhouse (CNCDriver statistical inference algorithm, NGS pipelines on HPC/DNAnexus, multi-omics integration), and it is open to foreign organizations with no citizenship bar. The blocker is career stage: the U01 mechanisms expect an independent PD/PI, and Eric is still a postdoc, not independent faculty, so he could contribute but not lead until he has a faculty appointment."
+},
+"cur-discovery-grant-program-dgp-formerly-blood-cance": {
+"fitScore": 38,
+"why": "Topically this is ideal — discovery-oriented blood-cancer research using genomics and modern tools, matching Eric's T-cell lymphoma multi-omics and single-cell portfolio — and it is open worldwide with no citizenship requirement. The disqualifier is career stage: it requires an established/independent investigator more than 3 years into a faculty appointment, and Eric is a postdoc, so he is not eligible until well into an independent position."
+},
+"cur-mds-pilot-research-grants-the-taub-foundation-fo": {
+"fitScore": 34,
+"why": "The Taub MDS pilot explicitly waives U.S. citizenship and visa documentation, which removes Eric's PR barrier, and MDS is a hematologic malignancy adjacent to his blood-cancer computational strengths. But it requires an independent early-career faculty appointment (instructor or above) with dedicated lab space, which Eric does not have as a postdoc, and the scope is narrowly MDS rather than his T-cell lymphoma focus."
+},
+"cur-melanoma-research-alliance-mra-grant-program-you": {
+"fitScore": 33,
+"why": "Eric has real melanoma experience — he ran single-cell RNA-seq to dissect mtDNA-mutation effects on immunotherapy response in melanoma — and MRA actively funds computational, data-driven melanoma work with no citizenship restriction. The problem is career stage: the Young Investigator track requires being within 5 years of a first faculty appointment, and Eric has not yet started faculty, so he does not currently fit any rung of the ladder."
+},
+"cur-endeavor-award-the-mark-foundation-for-cancer-re": {
+"fitScore": 30,
+"why": "The science scope (multidisciplinary cancer teams, immunology, data-driven) suits Eric's collaborative multi-omics style, and there are no citizenship or geography restrictions. However, every PI and co-PI must hold an independent tenure-track-equivalent faculty appointment, which Eric lacks as a postdoc, so he cannot be named on the team until he is faculty — a firm eligibility block despite the strong topical fit."
+},
+"cur-nih-pathway-to-independence-award-k99-r00-nih-nc": {
+"fitScore": 22,
+"why": "Topically the K99/R00 is exactly Eric's transition goal and his blood-cancer ML methods would be competitive, but the eligibility clock defeats him: the K99 normally caps postdoc experience at ~4 years, and Eric is roughly 7 years post-PhD, placing him past the window (even with temporary NCI extensions this is a stretch). This is the flagship award he has effectively aged out of."
+},
+"cur-amazon-research-awards-ara-amazon-aws-amazon-sci": {
+"fitScore": 20,
+"why": "The AI-for-science/health track with AWS compute credits would suit Eric's cloud-based, large-scale computational oncology work (he already runs pipelines on DNAnexus/HPC). But the ARA explicitly bars postdocs from serving as PI — only full-time faculty or permanent nonprofit researchers qualify — so Eric cannot lead an application in his current role."
+},
+"cur-alsf-reach-grant-alex-s-lemonade-stand-foundatio": {
+"fitScore": 18,
+"why": "ALSF Reach targets pediatric-cancer projects poised to enter Phase I/II trials, which is outside Eric's adult-focused, non-clinical computational research; he has no pediatric-oncology or trial-readiness track record. While his ML/genomics skills are transferable in principle, the translational-to-trial framing and pediatric scope make this a poor fit, and it leans toward more established/independent investigators."
+},
+"jhu-basic-research-fellowship-program-american-brain": {
+"fitScore": 16,
+"why": "This ABTA fellowship is genuinely open to non-citizens and is at the postdoc stage that matches Eric, which is a plus, but the science is strictly brain-tumor research and requires a mentor who actively studies brain tumors. Eric's portfolio (T-cell lymphoma, melanoma, breast, thyroid, pan-cancer) contains no neuro-oncology, so the topical mismatch dominates."
+},
+"jhu-ovarian-cancer-research-program-ocrp-pilot-award": {
+"fitScore": 15,
+"why": "The OCRP Pilot is a CDMRP mechanism with no citizenship barrier and welcomes postdocs, so Eric would be eligible on paper, and his high-risk/untested-concept computational approach fits the innovation framing. But the award is confined to ovarian cancer, a disease Eric has not worked on, so he would need an entirely new disease collaboration to be competitive."
+},
+"cur-clinician-scientist-development-grant-csdg-ameri": {
+"fitScore": 6,
+"why": "The ACS CSDG is built for physician-scientists who hold an active clinical license and provide ongoing clinical care. Eric is a PhD computational scientist, not an MD, and does not see patients, so he is categorically ineligible regardless of the strong blood-cancer topical overlap."
+},
+"cur-young-investigator-award-yia-special-disease-spe": {
+"fitScore": 5,
+"why": "This Conquer Cancer YIA disease-specific competition (CLL, Mantle Cell Lymphoma) directly targets blood cancers Eric could analyze, but it requires a medical degree (MD/DO) within two years of oncology subspecialty training plus ASCO membership. As a PhD, not a physician, Eric is ineligible by design."
+},
+"cur-klingenstein-simons-fellowship-awards-in-the-neu": {
+"fitScore": 5,
+"why": "This fellowship funds early-career faculty doing basic or clinical neuroscience. Eric is neither faculty nor a neuroscientist — his work is computational cancer genomics and immuno-oncology — so both the field and career-stage requirements exclude him."
+},
+"cur-nci-ruth-l-kirschstein-nrsa-individual-predoctor": {
+"fitScore": 5,
+"why": "The F31 is a predoctoral fellowship for PhD candidates at the dissertation stage, and it requires U.S. citizenship or permanent residency at award. Eric already holds a PhD (2019) and is a senior postdoc, so he is well past the eligible stage; his pending PR would also be a barrier even if the stage matched."
+},
+"cur-google-phd-fellowship-google-google-research": {
+"fitScore": 5,
+"why": "The Google PhD Fellowship is restricted to currently enrolled full-time PhD students nominated by their university. Eric completed his PhD in 2019 and is a postdoc, so despite the perfect AI/computational topical alignment he is ineligible on career stage and cannot be nominated."
+},
+"jhu-lustgarten-foundation-aacr-career-development-aw": {
+"fitScore": 9,
+"why": "This AACR/Lustgarten CDA requires assistant-professor rank at grant start and focuses on pancreatic cancer. Eric is a postdoc, not faculty, and has no pancreatic-cancer work in his record, so both the career-stage and disease-focus criteria exclude him despite the award's openness to non-citizens."
+},
+"jhu-lung-cancer-research-program-career-development-": {
+"fitScore": 6,
+"why": "This record itself notes the FY26 Lung Cancer Research Program does NOT offer a Career Development Award, so the mechanism is not available this cycle. Independent of that, lung cancer is outside Eric's disease portfolio, making it a non-fit on both counts."
+},
+"jhu-investigator-initiated-research-grant-american-i": {
+"fitScore": 7,
+"why": "AICR funds research on modifiable lifestyle factors (diet, nutrition, physical activity, body weight) and cancer, and requires an independent investigator at assistant-professor level or above. Eric is a postdoc doing molecular/computational oncology, not lifestyle-exposure epidemiology, so both the career-stage and thematic requirements rule him out."
+},
+"cur-break-through-cancer-teamlabs-incl-aml-teamlab-a": {
+"fitScore": 62,
+"why": "Break Through Cancer runs its TeamLabs through five member institutions including [redacted] (Koch Institute), where Eric now works in the Shah lab, and its Data Science Hub (generative-AI digital pathology, spatial transcriptomics, computational diagnostics) maps almost exactly onto his multi-omics/single-cell ML skills and his prior [redacted] T-cell-lymphoma and MSK spatial-metabolomics work. The AML TeamLab also aligns with his blood-cancer focus. Caveat: this is not an individual-applicant grant — funding flows to institutional teams, so he would need to join an existing [redacted]/[redacted] team rather th"
+},
+"jhu-clra-research-grants-children-s-leukemia-researc": {
+"fitScore": 58,
+"why": "CLRA funds US-based leukemia research with no explicit career-stage bar and no stated citizenship requirement, so his pending green-card status is not a hard block here — a rare open door for him. His blood-cancer/hematology focus and NGS pipeline experience are relevant, though his core disease is T-cell/NK lymphoma rather than classic leukemia, and the award is small ($30k/yr)."
+},
+"cur-acs-flatiron-health-real-world-data-impact-award": {
+"fitScore": 56,
+"why": "This ACS/Flatiron award is explicitly data-science-focused on real-world oncology data and lists postdoc as an eligible stage, aligning with Eric's computational-oncology and risk-stratification work. However, it targets independent investigators already in the ACS research ecosystem (current/former grantees), which he is not, and his strengths are in genomics/single-cell rather than clinical real-world (EHR/registry) datasets."
+},
+"cur-ash-scholar-award-fellow-fellow-to-faculty-and-j": {
+"fitScore": 54,
+"why": "ASH accepts visa holders conducting research in the US, so his pending citizenship is not disqualifying, and the hematology focus is an excellent match for his T-cell/NK-lymphoma and anti-KLRG1 (mAb208) work. But the timing is a real problem: at ~7 years post-PhD (2019) he is past the PhD Fellow window (<6 yrs), and the Junior Faculty level requires a faculty appointment he does not yet hold."
+},
+"cur-mentored-research-scientist-development-award-k0": {
+"fitScore": 52,
+"why": "The K01 is well-suited to a PhD computational scientist seeking protected time for methodological/quantitative development toward independence, matching Eric's ML/multi-omics trajectory. The hard caveat is citizenship: the K01 requires US citizen, national, or permanent resident at time of award, and his [redacted] is not expected until [redacted] — so he is blocked now but could become eligible around that time."
+},
+"cur-microsoft-research-fellowship-successor-to-the-m": {
+"fitScore": 50,
+"why": "As a postdoc doing cutting-edge machine learning and AI (his current [redacted]/Shah-lab focus), Eric fits the AI/computational scope and the postdoc eligibility of this challenge-based fellowship, with US among eligible regions. The mismatch is domain: awards are tied to specific Microsoft Research challenges rather than cancer science, so his oncology-specific strengths (genomics, single-cell) may not map onto a listed challenge."
+},
+"cur-nci-cancer-moonshot-scholars-program-r01-nationa": {
+"fitScore": 48,
+"why": "AI/computational oncology is explicitly allowable science here, a strong topical fit for Eric's methods work. But this is an R01-level award for Early-Stage Investigators seeking their first NCI R01, requiring an independent faculty/PI position he does not yet hold as a postdoc; his ~7-yr post-PhD timing still fits the ESI 10-year window, so the gating issue is career stage, not timing."
+},
+"cur-peer-reviewed-cancer-research-program-prcrp-impa": {
+"fitScore": 48,
+"why": "PRCRP topic areas include Blood, Lymphoma, and Myeloma, matching Eric's T-cell-lymphoma and blood-cancer focus, and computational/translational projects are welcome. The Impact Award targets independent investigators for higher-impact translational work, however, so as a postdoc without an independent PI position he would likely not be eligible to lead the application."
+},
+"cur-cise-future-computing-research-future-core-inclu": {
+"fitScore": 45,
+"why": "The Robust Intelligence (AI/ML) and Information Integration/Informatics scope aligns well with Eric's machine-learning and multi-omics data-integration expertise. But NSF CISE proposals are submitted by institutions with a faculty-level PI/co-PI; as a postdoc he cannot serve as PI, and the solicitation is foundational computing rather than cancer-specific."
+},
+"jhu-cancer-research-grants-program-elsa-u-pardee-fou": {
+"fitScore": 45,
+"why": "Pardee ties eligibility to a US non-profit institution rather than personal citizenship, removing his green-card obstacle, and funds novel approaches toward new cancer treatments across broad oncology. The practical limit is that it targets new/independent cancer investigators typically at faculty level, whereas Eric is still a postdoc without his own lab."
+},
+"cur-alsf-childhood-cancer-data-lab-ccdl-data-science": {
+"fitScore": 44,
+"why": "The CCDL's single-cell/data-science resources (ScPCA/OpenScPCA) directly leverage Eric's single-cell RNA-seq and TCR-seq analysis skills, and it is open across career stages. The disease focus is the mismatch: it is pediatric childhood cancer, whereas his experience is adult malignancies (T-cell lymphoma, breast, melanoma, thyroid)."
+},
+"cur-mmrf-research-scholars-program-scholars-award-mu": {
+"fitScore": 40,
+"why": "MMRF allows PhD holders at or below assistant-professor rank, so stage is not an absolute bar, and Eric's genomics/multi-omics blood-cancer skills are transferable. However, this is a multiple-myeloma-specific award and his hematology work centers on T-cell/NK lymphoma, not myeloma or its precursors, making the disease fit weak."
+},
+"cur-new-investigator-research-grant-program-leukemia": {
+"fitScore": 38,
+"why": "The leukemia/MDS focus is adjacent to Eric's blood-cancer expertise, and there is no citizenship requirement. The blocker is career stage: eligibility requires an independent faculty-level appointment (within 7 years of its start, with dedicated lab space), which a postdoc does not have."
+},
+"jhu-hollis-brownstein-research-grants-program-leukem": {
+"fitScore": 38,
+"why": "This LRF New Investigator mechanism has no citizenship requirement and supports blood-cancer research aligned with Eric's hematology background. But it requires an independent faculty-level appointment (within 7 years of its start, training years excluded), so as a postdoc he is not yet eligible to apply."
+},
+"jhu-research-scholar-grants-rsg-american-cancer-soci": {
+"fitScore": 38,
+"why": "ACS RSG has no personal US-citizenship requirement (only a US institution) and spans any area of cancer research, which suits his broad oncology work. The disqualifier for now is stage: it is for independent full-time faculty within 8 years of first appointment, and Eric is a postdoc without an independent position."
+},
+"jhu-thrive-research-grant-hesi-health-and-environmen": {
+"fitScore": 35,
+"why": "THRIVE has no citizenship restriction and accepts PhD holders, which helps Eric's eligibility. But its focus is cancer survivorship and predicting/reducing long-term late effects of therapy, which is outside his genomics/diagnostics and risk-stratification work, and it expects an independent faculty/research appointment."
+},
+"cur-cri-lloyd-j-old-star-program-scientists-taking-r": {
+"fitScore": 30,
+"why": "CRI STAR's cancer-immunotherapy focus matches Eric's immuno-oncology computational work, and it imposes no citizenship restriction. However, it requires a tenure-track Assistant Professor (>=3 years) or recently promoted Associate Professor, so as a postdoc he is well short of the eligible career stage."
+},
+"cur-mentored-clinical-scientist-career-development-a": {
+"fitScore": 22,
+"why": "This K08/K23 mechanism is designed for physician-scientists (MD, DO, or clinical doctorate) seeking protected time in cancer/blood-disease research. Eric holds a research (computational) PhD, not a clinical doctorate, so despite the strong hematology topical overlap he does not meet the degree eligibility."
+},
+"cur-lrf-clinical-investigator-career-development-awa": {
+"fitScore": 16,
+"why": "The lymphoma focus overlaps Eric's T-cell-lymphoma work, but this CDA is restricted to licensed clinical physicians in ACGME-accredited specialties transitioning to independent clinical research. As a PhD (not MD) computational scientist, he is not eligible."
+},
+"cur-career-development-award-cda-conquer-cancer-the-": {
+"fitScore": 15,
+"why": "The ASCO Career Development Award requires a physician (MD/DO or international equivalent) in a clinical faculty department within 10 years of the medical degree. Eric is a PhD computational scientist, not a physician, so he does not qualify regardless of the oncology topic fit."
+},
+"jhu-young-investigator-award-conquer-cancer-the-asco": {
+"fitScore": 12,
+"why": "The ASCO Young Investigator Award is restricted to physicians (MD/DO) in their final years of oncology subspecialty fellowship. Eric holds a PhD and is a computational postdoc, not a clinical trainee, so he is ineligible despite the oncology relevance."
+},
+"cur-nci-outstanding-investigator-award-r35-national-": {
+"fitScore": 10,
+"why": "The NCI R35 Outstanding Investigator Award is for established investigators with an outstanding multi-year record and continuous NCI grant funding. Eric is a senior postdoc without independent NCI funding, so he is far below the eligibility bar despite the AI/computational-oncology topic match."
+},
+"cur-rare-cancers-research-program-rcrp-idea-developm": {
+"fitScore": 72,
+"why": "RCRP explicitly welcomes rare hematologic malignancies and lymphoma subtypes, and Eric's [redacted] work built WES/WGS/RNA-seq/ATAC/CUT&RUN pipelines plus scRNA/TCR-seq analysis for NK/T-cell lymphoma and the anti-KLRG1 (mAb208) study — a textbook rare-cancer computational program. Postdocs are eligible as PIs and CDMRP imposes no U.S. citizenship bar, so neither his ~7-year post-PhD timing nor pending [redacted] blocks him. The Resource & Community Development track also fits his tool/pipeline-building strengths."
+},
+"cur-hope-funds-for-cancer-research-postdoctoral-fell": {
+"fitScore": 67,
+"why": "Hope Funds is a 3-year postdoc fellowship explicitly covering rare leukemias, lymphomas, and MDS, matching Eric's T-cell/NK lymphoma focus, and it uses a 'time-in-sponsor's-lab' rule (≤2 years as of LOI) rather than a strict post-PhD window, so his ~7-year post-PhD age is not disqualifying since he only joined the [redacted] lab in April 2026. PhD holders qualify and work must be at a U.S. institution ([redacted] qualifies), with no citizenship requirement noted. Strong topical and eligibility alignment for his computational-oncology work."
+},
+"jhu-lymphoma-scientific-research-mentoring-program-l": {
+"fitScore": 60,
+"why": "The Lab/Translational Track admits postdocs up to 8 years post-PhD, so Eric at ~7 years just fits, and the lymphoma focus maps directly onto his NK/T-cell lymphoma pipeline and scRNA/TCR-seq work at [redacted]. Caveat: the program notes applicants must be U.S. citizens/permanent residents, which Eric is not until [redacted], so this is a hard eligibility block for now despite the excellent topical match."
+},
+"cur-ash-scholar-award-fellow-scholar-and-junior-facu": {
+"fitScore": 50,
+"why": "ASH Scholar covers hematology researchers and its computational/blood-cancer scope fits Eric's T-cell lymphoma and risk-stratification ML work well. However, at ~7 years post-PhD he falls awkwardly between the Fellow level (PhD within ~4-6 years) and the Junior Faculty level (>8 years or holding an independent appointment), and he is neither, so his timing plus non-independent postdoc status is a real eligibility caveat."
+},
+"cur-mmrf-research-fellowship-program-multiple-myelom": {
+"fitScore": 44,
+"why": "MMRF funds postdocs working under a myeloma mentor with no citizenship bar, and Eric's blood-cancer genomics and single-cell/multi-omics skills would transfer, but his actual disease focus is NK/T-cell lymphoma, not multiple myeloma. Eligibility (career stage) is fine, yet he would need to pivot to a myeloma project under a qualified myeloma mentor, making the topical fit a stretch."
+},
+"cur-nih-director-s-transformative-research-award-tr0": {
+"fitScore": 35,
+"why": "The Transformative Research Award is open to all career stages and requires no citizenship, and Eric's paradigm-challenging computational methods (CNCDriver, multi-modal MALDI/imaging integration) suit its high-risk, no-preliminary-data ethos. In practice, though, it needs an independent PI able to lead an ambitious program, and as a postdoc without his own faculty appointment he is not realistically positioned to hold this award yet."
+},
+"cur-accelerating-and-scaling-biological-sciences-wit": {
+"fitScore": 32,
+"why": "This CZI GPU-compute RFA is a strong topical match for Eric's machine-learning and single-cell/multi-omics foundation-model interests aligned with the Virtual Cell effort. The blocker is eligibility: PIs/Co-PIs must hold faculty or equivalent independent-investigator status, and Eric is a postdoc without independent status, so he cannot lead an application now."
+},
+"jhu-young-investigator-award-alex-s-lemonade-stand-f": {
+"fitScore": 28,
+"why": "ALSF's YIA fits Eric's stage (postdoc, not above Instructor, within 10 years of PhD) and requires no U.S. citizenship, which is favorable. The mismatch is disease focus: it funds pediatric oncology, whereas Eric's work centers on adult blood cancers and T-cell lymphoma, so he would need a pediatric-cancer angle to be competitive."
+},
+"jhu-pilot-study-program-the-rivkin-center-for-ovaria": {
+"fitScore": 22,
+"why": "The Rivkin/OCRA pilot is open to all career stages with no citizenship requirement, so Eric is eligible, and his multi-omics/consensus-clustering methods could technically apply. But it is dedicated to ovarian cancer, which is outside his blood-cancer and lymphoma focus, making it a poor topical fit."
+},
+"cur-nhlbi-blood-diseases-and-resources-research-fund": {
+"fitScore": 20,
+"why": "NHLBI's DBDR portfolio spans all career stages and touches data science (BioData Catalyst, TOPMed), but it deliberately funds non-malignant blood diseases and cedes blood cancers to NCI. Eric's entire hematology focus is on blood cancers (T-cell/NK lymphoma), so his work falls outside DBDR's remit despite the 'blood diseases' label."
+},
+"cur-institutional-research-grant-irg-pilot-early-inv": {
+"fitScore": 20,
+"why": "ACS IRG pilots welcome computational/data-science projects and have no citizenship bar, but they fund newly independent junior faculty, not trainees. Eric is still a postdoc without an independent faculty appointment, so he is not yet eligible; this becomes relevant only after he starts a faculty position."
+},
+"jhu-pcf-challenge-awards-prostate-cancer-foundation-": {
+"fitScore": 18,
+"why": "PCF Challenge Awards are team-science grants that must include a young investigator, a role Eric could nominally fill, and they have no citizenship restriction. However, they target metastatic/lethal prostate cancer, which is entirely outside his blood-cancer and lymphoma expertise, so the disease mismatch dominates."
+},
+"jhu-aacr-gertrude-b-elion-cancer-research-award-amer": {
+"fitScore": 18,
+"why": "The Elion award has no citizenship restriction, which suits Eric, and its oncology scope aligns broadly with his cancer-genomics work. But it is restricted to assistant professors within their first six years of an independent faculty appointment, and Eric is a postdoc, so he is not yet eligible by career stage."
+},
+"cur-faculty-early-career-development-program-career-": {
+"fitScore": 15,
+"why": "NSF CAREER fits Eric's AI/computational methods intellectually, but it strictly requires a tenure-track (≥50%) assistant-professor appointment, and he is a postdoc, not faculty. He is ineligible until he secures an independent tenure-track position; his ~spring-2027 [redacted] is separate from this stage barrier."
+},
+"cur-st-baldrick-s-scholar-career-development-award-s": {
+"fitScore": 13,
+"why": "St. Baldrick's Scholar is a career-development award for early-career faculty establishing independent pediatric-cancer research. Eric is neither faculty nor a pediatric-cancer researcher (his focus is adult T-cell lymphoma/blood cancer), so both career-stage and disease-focus mismatches make this a poor fit now."
+},
+"jhu-lcrf-minority-career-development-award-cda-in-lu": {
+"fitScore": 12,
+"why": "This LCRF award is international-friendly with no residency bar, but it targets lung cancer and is limited to specific underrepresented groups (Black, Hispanic, AI/AN, NHPI). As a [redacted]/Asian researcher focused on blood cancer, Eric matches neither the demographic eligibility nor the disease area."
+},
+"cur-v-scholar-cancer-research-grant-the-v-foundation": {
+"fitScore": 12,
+"why": "The V Scholar's mandatory biostatistics/bioinformatics plan would play to Eric's strengths, but it requires a tenure-track assistant professor AND U.S. citizenship or permanent residency. Eric is a postdoc and not yet a citizen/PR ([redacted] [redacted]), so he is doubly ineligible right now."
+},
+"cur-jane-coffin-childs-postdoctoral-fellowship-jane-": {
+"fitScore": 11,
+"why": "Jane Coffin Childs is a cancer-focused postdoc fellowship whose computational scope matches Eric's work, but eligibility caps applicants at a PhD conferred ≤24 months prior and ≤12 months of postdoc experience. At ~7 years post-PhD, Eric is far outside this early-postdoc window and is ineligible."
+},
+"cur-damon-runyon-fellowship-award-postdoctoral-fello": {
+"fitScore": 11,
+"why": "Damon Runyon's flagship fellowship explicitly funds theoretical/computational cancer research, aligning well with Eric's methods, but basic scientists must have their degree ≤18 months before the deadline. Eric is ~7 years post-PhD, so he is well past this window and ineligible."
+},
+"jhu-intramural-continuing-umbrella-of-research-exper": {
+"fitScore": 10,
+"why": "NCI's iCURE program supports underrepresented trainees with ≤5 years of postdoctoral experience and generally requires U.S. status. Eric exceeds the 5-year postdoc limit (~7 years post-PhD), is not from the targeted underrepresented groups, and his citizenship is pending, so multiple criteria exclude him."
+},
+"cur-nvidia-graduate-fellowship-nvidia": {
+"fitScore": 8,
+"why": "NVIDIA's fellowship rewards AI/ML research that overlaps with Eric's machine-learning focus, but it is restricted to enrolled PhD students who will not graduate before 2027. Eric earned his PhD in 2019 and is now a postdoc, so he is categorically ineligible."
+},
+"cur-ash-research-training-award-for-fellows-rtaf-ame": {
+"fitScore": 6,
+"why": "RTAF supports blood-disease research that matches Eric's hematology interests, but it requires an MD, DO, DO-PhD, or MD-PhD enrolled in a clinical hematology/oncology fellowship. Eric is a PhD-only computational scientist, not a clinical fellow, so he is ineligible."
+},
+"jhu-aacr-conquer-cancer-foundation-of-asco-young-inv": {
+"fitScore": 6,
+"why": "This AACR-Conquer Cancer YIA funds translational oncology and has no citizenship bar, but it requires an MD/DO/MD-PhD in the final years of subspecialty clinical training. Eric holds a PhD, not a medical degree, and is not in clinical fellowship, so he does not qualify."
+},
+"cur-mentored-clinical-scientist-research-career-deve": {
+"fitScore": 5,
+"why": "The K08 supports mentored translational research that fits Eric's oncology domain, but it requires a clinical doctoral degree (MD/DO/etc.) or clinical PhD plus U.S. citizenship or permanent residency at award. Eric is a research-PhD computational scientist and not yet a citizen/PR, so he is doubly ineligible."
+},
+"cur-ash-global-research-award-american-society-of-he": {
+"fitScore": 30,
+"why": "Your hematology and T-cell lymphoma work (WES/WGS/RNA-seq/ATAC/CUT&RUN pipelines, anti-KLRG1 mAb208 NK/T-cell study) plus AI focus is a bullseye for ASH's scientific scope, and a PhD plus ASH membership satisfies the degree rule. But this award is expressly for researchers based OUTSIDE the U.S. and Canada, and you are at [redacted] in the U.S., which disqualifies you geographically regardless of fit."
+},
+"cur-lsrf-postdoctoral-fellowship-life-sciences-resea": {
+"fitScore": 28,
+"why": "As a foreign citizen working in a U.S. nonprofit lab ([redacted]) in a lab different from your Weill Cornell thesis lab, you meet the location and lab-change rules, and this field-agnostic fellowship would happily fund computational life-science work. However, eligibility caps at 5 years post-PhD as of Oct 1, 2026, and with your PhD conferred in 2019 (~7 years) you are well past the window and ineligible."
+},
+"cur-damon-runyon-quantitative-biology-fellowship-dam": {
+"fitScore": 33,
+"why": "On substance this is almost a portrait of you: a scientist trained in CS/statistics (CNCDriver algorithm, ML methods) entering cancer research under joint computational + cancer-biology mentorship. The hard blocker is timing: the degree must be conferred within 5 years of the deadline and you must have <24 months in the mentor's lab, whereas you are ~7 years post-PhD, so you are past eligibility."
+},
+"cur-emerson-collective-fellowship-emerson-collective": {
+"fitScore": 32,
+"why": "Your computational-oncology track record across [redacted], [redacted] and [redacted] is credible, but this is an invitation-only leadership fellowship, not a dedicated cancer-research grant, and it cannot be self-applied for. Emerson's actual cancer dollars flow through partnerships rather than this program, so it is a weak, non-actionable match despite your strong profile."
+},
+"cur-ai2050-early-career-fellowship-schmidt-sciences-": {
+"fitScore": 42,
+"why": "You are eligible on career stage (postdoc, no stated citizenship restriction), and your ML methods work is adjacent to AI2050's themes. But the program targets foundational 'hard problems' in AI (AI scientists, safe/trustworthy AI) rather than applied computational oncology, and selection is by closed nomination you cannot self-initiate, so both topic and access limit the fit."
+},
+"cur-sloan-research-fellowship-alfred-p-sloan-foundat": {
+"fitScore": 20,
+"why": "Sloan Fellowships require a tenure-track but untenured FACULTY appointment with a teaching obligation, plus departmental nomination. You are a postdoctoral associate, not faculty, so you are not eligible at this career stage even though your CS/computational profile fits the eligible fields."
+},
+"cur-primed-ai-precision-medicine-with-ai-integrating": {
+"fitScore": 45,
+"why": "Scientifically this is one of your strongest matches: your multi-modal integration experience (MALDI + multiplexed IF imaging, genomics/RNA-seq/metabolomics fusion) is exactly the imaging-plus-multimodal AI this Common Fund initiative wants, and NIH research-grant eligibility is institution-based so your pending citizenship is not the blocker. The constraint is that the U01 tracks target independent early-career faculty/PIs, and as a postdoc you cannot yet serve as PD/PI."
+},
+"cur-cri-technology-impact-award-cancer-research-inst": {
+"fitScore": 40,
+"why": "The award explicitly funds computational systems biology and predictive modeling of therapy response/resistance for cancer immunotherapy, which maps directly onto your anti-PD-1 resistance modeling in the breast-cancer model and your immune-repertoire/TCR-seq immunotherapy analyses. It has no citizenship restriction, but it requires a tenure-track (or higher) position, and you are still a postdoc, so career stage rather than topic is the barrier."
+},
+"cur-nih-director-s-new-innovator-award-dp2-nih-commo": {
+"fitScore": 38,
+"why": "You sit within the 10-year Early Stage Investigator window (PhD 2019) and have never held an R01, and your high-risk computational-oncology ideas suit this High-Risk/High-Reward mechanism. The disqualifier is that a DP2 requires an independent research position at a U.S. institution by award start, which you do not yet hold as a postdoc; citizenship itself is not the blocker for this grant."
+},
+"cur-evansmds-discovery-research-grant-edward-p-evans": {
+"fitScore": 32,
+"why": "Your genomics/multi-omics and blood-cancer background is adjacent, but this grant is narrowly scoped to myelodysplastic syndromes (MDS), whereas your hematologic work centers on T-cell/NK-T-cell lymphoma rather than MDS. It also requires an independent investigator, which you are not yet, so both disease specificity and career stage limit the fit."
+},
+"jhu-pcf-young-investigators-prostate-cancer-foundati": {
+"fitScore": 25,
+"why": "Your computational and single-cell/genomics methods would transfer to any tumor type, but this award is dedicated to prostate cancer, which is entirely outside your blood-cancer/lymphoma and immuno-oncology portfolio. The age-35-and-under criterion and the need for a prostate-focused mentored project further weaken an already off-target disease match."
+},
+"jhu-aacr-immuno-oncology-research-fellowships-americ": {
+"fitScore": 33,
+"why": "On topic this fits well: your immuno-oncology work (anti-KLRG1 mAb208 NK/T-cell study, TCR-seq immune repertoire, mtDNA effects on melanoma immunotherapy response) is squarely a mentored immuno-oncology project, and an AACR membership is easily obtained. The blocker is eligibility timing: it requires the doctoral degree within the past 5 years, and at ~7 years post-PhD you fall outside that window."
+},
+"jhu-medical-research-award-gabrielle-s-angel-foundat": {
+"fitScore": 33,
+"why": "The award funds blood-cancer research (leukemia/lymphoma) likely to translate clinically, which aligns with your T-cell/NK-T-cell lymphoma pipelines and therapy-response focus. However, it is invitation-only and limited to NCI-designated cancer centers, and it expects an independent researcher with preliminary results from their own lab, whereas you are a postdoc at [redacted] rather than an independent PI, so access and career stage block it."
+},
+"jhu-st-baldrick-s-international-scholars-st-baldrick": {
+"fitScore": 16,
+"why": "This scholarship supports pediatric-cancer researchers based outside the U.S. (historically low- and middle-income countries) at the early-career-faculty level, none of which fits your situation: you work on adult hematologic malignancies, you are based at [redacted] in the U.S., and you are a postdoc, not faculty. Multiple disease, geographic, and career-stage mismatches make this a poor fit."
 }
 },
 "md": {

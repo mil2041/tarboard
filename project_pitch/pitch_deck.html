@@ -9,21 +9,23 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 <style>
 :root{
-  --paper:#f4f0e7; --paper-2:#faf7f0; --card:#fffdf8; --ink:#1b1a16; --ink-soft:#514d43; --ink-faint:#8a8477;
-  --line:#e2dccc; --line-strong:#cfc7b2; --teal:#0f5f5c; --teal-bright:#12817b; --teal-wash:#e6efec;
-  --crimson:#a4243b; --crimson-wash:#f6e7e6; --amber:#b26a1f; --amber-wash:#f6ecd9; --green:#3f6f3a; --green-wash:#e8efdf;
+  --paper:#f7f8f5; --paper-2:#fbfcfa; --card:#ffffff; --ink:#20231f; --ink-soft:#5c6258; --ink-faint:#8a9185;
+  --line:#e1e6dc; --line-strong:#cbd4c5; --teal:#2f766d; --teal-bright:#348b80; --teal-wash:#edf6f3;
+  --crimson:#a44a5b; --crimson-wash:#f8ecef; --amber:#9a6a2f; --amber-wash:#f7f0e3; --green:#557a4b; --green-wash:#eef5ea;
   --serif:'Fraunces',Georgia,'Times New Roman',serif; --sans:'IBM Plex Sans',system-ui,-apple-system,sans-serif;
   --mono:'IBM Plex Mono',ui-monospace,'SF Mono',Menlo,monospace;
+  --shadow:0 1px 2px rgba(32,35,31,.04),0 16px 36px -28px rgba(32,35,31,.26);
+  --shadow-lg:0 22px 54px -34px rgba(32,35,31,.32);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
-body{background:#141109;font-family:var(--sans);color:var(--ink);overflow:hidden}
+body{background:#eef2eb;font-family:var(--sans);color:var(--ink);overflow:hidden}
 .deck{position:relative;width:100vw;height:100vh;overflow:hidden}
 
 .slide{position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;
   padding:7vh 8vw 9vh;background:var(--paper);
-  background-image:radial-gradient(circle at 1px 1px, color-mix(in srgb,var(--ink) 4%,transparent) 1px, transparent 0);
-  background-size:26px 26px;}
+  background-image:linear-gradient(180deg,rgba(255,255,255,.62),rgba(255,255,255,0));
+  background-size:100% 100%;}
 .slide.active{display:flex;animation:fade .45s cubic-bezier(.2,.7,.2,1) both}
 @keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 
@@ -37,7 +39,7 @@ h2.head{font-family:var(--serif);font-weight:600;font-size:clamp(30px,4.6vw,62px
 .teal{color:var(--teal)} .crim{color:var(--crimson)}
 b,strong{color:var(--ink);font-weight:700}
 
-.card{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 1px 2px rgba(40,34,20,.05),0 18px 46px -30px rgba(40,34,20,.4)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
 .pull{border-left:5px solid var(--teal);background:linear-gradient(180deg,var(--teal-wash),color-mix(in srgb,var(--teal-wash) 30%,transparent));
   border-radius:0 14px 14px 0;padding:3vh 3vw;font-family:var(--serif);font-weight:600;font-size:clamp(22px,3.1vw,44px);line-height:1.14;letter-spacing:-.01em}
 .chip{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-weight:600;font-size:clamp(11px,1.05vw,14px);
@@ -213,13 +215,13 @@ b,strong{color:var(--ink);font-weight:700}
 <div class="deck" id="deck">
 
   <!-- ============ SLIDE 1 — TITLE ============ -->
-  <section class="slide" data-notes="Hi — I'm building Grantboard, a grant-fit copilot for scientists. Here's the problem I lived: as a computational-oncology postdoc at [redacted], I burned weeks hunting for funding — and half the awards I found, it turned out I wasn't even eligible for. So I built the tool I wished I had. You upload your CV and your research aim, and you get a ranked, evidence-backed grant shortlist — with eligibility checks, competitiveness signals, and an application plan. And it's built with Claude Code.">
+  <section class="slide" data-notes="Hi — I'm building Grantboard, a grant-fit copilot for scientists. Here's the problem I lived: as a computational-oncology postdoc at [redacted], I burned weeks hunting for funding — and many awards I found, it turned out I wasn't even eligible for. So I built the tool I wished I had. You upload your CV and your research aim, and you get a ranked, evidence-backed grant shortlist — with eligibility checks, competitiveness signals, and an application plan. And it's built with Claude Code.">
     <div class="title-wrap">
       <div class="kicker">Built with Claude · Life Sciences</div>
       <h1 class="brand">Grant<span class="dot">·</span>board</h1>
       <div class="sub">A grant-fit copilot for scientists</div>
     </div>
-    <p class="title-line">Scientists spend <b>100+ hours</b> per proposal — and routinely chase grants they turn out to be <b class="crim">ineligible</b> for. Grantboard reads your <b>CV</b> and returns only the funding you can actually <b class="teal">win</b> — ranked, reasoned, and ready to apply.</p>
+    <p class="title-line">Scientists spend <b>100+ hours</b> per proposal — and routinely chase grants they turn out to be <b class="crim">ineligible</b> for. Grantboard reads your <b>CV</b> and returns a calm, evidence-backed shortlist of funding worth your <b class="teal">time</b> — ranked, reasoned, and ready to check.</p>
     <div class="title-foot">
       <div><b>Built by an [redacted] computational-oncology postdoc</b> — for my own transition to independence</div>
       <div class="mono">Built with Claude Code</div>
@@ -273,12 +275,12 @@ b,strong{color:var(--ink);font-weight:700}
   </section>
 
   <!-- ============ SLIDE — PROOF / IT WORKS ============ -->
-  <section class="slide" data-notes="And it works — here's my own CV, run live. Seventy-three matches I'm actually eligible for, each ranked with a cited reason. This card is the money shot: eighty-eight out of a hundred Claude fit, and the callout tells me exactly why this fellowship suits me — my NK/T-cell lymphoma work, my career stage — in plain language, grounded in my real record. On the right: the eligibility engine did the gatekeeping — seventy-three open to me, twenty-five it ruled out and told me why. The reasoning for the demo is precomputed so it's instant on stage; a live session costs about fifteen cents.">
+  <section class="slide" data-notes="And it works — here's my own CV, run live. Seventy-three apply-now matches, each ranked with a cited reason. This card is the money shot: eighty-eight out of a hundred fit score, and the callout tells me exactly why this fellowship suits me — my NK/T-cell lymphoma work, my career stage — in plain language, grounded in my real record. On the right: the eligibility engine did the gatekeeping — seventy-three open to me, twenty-five ruled out or moved to future targets, each with a reason. The reasoning for the demo is precomputed so it's instant on stage; a live session costs about fifteen cents.">
     <div class="kicker">It works — my own CV, live</div>
-    <h2 class="head" style="font-size:clamp(25px,3.5vw,46px);margin-bottom:2.4vh">73 grants I can actually win —<br/>each with a reason.</h2>
+    <h2 class="head" style="font-size:clamp(25px,3.5vw,46px);margin-bottom:2.4vh">73 apply-now matches —<br/>each with a reason.</h2>
     <div class="proof-wrap">
       <div class="mockcard">
-        <div class="mc-score"><div class="mc-pct">88<span>/100</span></div><div class="mc-lbl">Claude fit</div></div>
+        <div class="mc-score"><div class="mc-pct">88<span>/100</span></div><div class="mc-lbl">Fit score</div></div>
         <div class="mc-title">Hope Funds for Cancer Research Postdoctoral Fellowship</div>
         <div class="mc-funder"><span class="mc-badge">Foundation</span> The Hope Funds for Cancer Research</div>
         <div class="mc-tags"><span>blood cancer/hematology</span><span>AI/computational</span></div>
@@ -288,9 +290,9 @@ b,strong{color:var(--ink);font-weight:700}
       </div>
       <div class="proof-stats">
         <div class="elig-bar-wrap">
-          <div class="eb-cap">Of the matches, only what I can actually <b>win</b>:</div>
-          <div class="elig-bar" role="img" aria-label="Of the matches, 73 I can apply to now and 25 ruled out, each with a reason."><span class="eb-now" style="flex:73"></span><span class="eb-out" style="flex:25"></span></div>
-          <div class="elig-legend"><span><i class="ln-now"></i><b>73</b> I can apply to now</span><span><i class="ln-out"></i><b>25</b> ruled out — with the reason</span></div>
+          <div class="eb-cap">Of the matches, what is ready to <b>apply</b> now:</div>
+          <div class="elig-bar" role="img" aria-label="Of the matches, 73 are apply-now matches and 25 are future targets or ruled out, each with a reason."><span class="eb-now" style="flex:73"></span><span class="eb-out" style="flex:25"></span></div>
+          <div class="elig-legend"><span><i class="ln-now"></i><b>73</b> apply-now matches</span><span><i class="ln-out"></i><b>25</b> future targets or ruled out — with the reason</span></div>
         </div>
         <div class="pstat"><span class="pn">100%</span><span class="pl">of cards carry a cited "<b>why this suits you</b>," grounded in the CV.</span></div>
         <div class="pstat"><span class="pn">~15¢</span><span class="pl">per live session · precomputed = <b>instant</b>, works offline.</span></div>
@@ -318,7 +320,7 @@ b,strong{color:var(--ink);font-weight:700}
   </section>
 
   <!-- ============ SLIDE 5 — IMPACT & CLOSE ============ -->
-  <section class="slide" data-notes="To land it: this runs on real 2026 data — live Grants.gov, 268 curated programs web-verified to 2026-27, and real NIH RePORTER awards. Because Claude parses any CV, it generalizes beyond my niche — a neuroscientist or a plant biologist gets real matches too. The impact is simple: it turns weeks of anxious searching into minutes, and it gives scientists eligibility they can actually trust. So the one line I'd leave you with: Grantboard doesn't just find grants — it tells you whether you can win, why, and what to fix. Thank you — happy to demo it live.">
+  <section class="slide" data-notes="To land it: this runs on real 2026 data — live Grants.gov, 268 curated programs web-verified to 2026-27, and real NIH RePORTER awards. Because Claude parses any CV, the same architecture can expand beyond my niche — neuroscience, immunology, plant biology, materials. The impact is simple: it turns weeks of anxious searching into minutes, and it gives scientists eligibility they can actually trust. So the one line I'd leave you with: Grantboard doesn't just find grants — it tells you what is worth your time, why, and what to fix. Thank you — happy to demo it live.">
     <div class="kicker">The vision &amp; the ask</div>
     <h2 class="head">Every scientist deserves a<br/>fundraising strategist.</h2>
     <div class="stats" style="grid-template-columns:repeat(2,1fr);max-width:740px">
@@ -329,13 +331,13 @@ b,strong{color:var(--ink);font-weight:700}
       <div class="cost-row"><span class="cost-lab">Grantboard</span><span class="cost-bar cb-us" style="width:3%"></span><span class="cost-val teal">~15¢ / session</span></div>
       <div class="cost-row"><span class="cost-lab">A grant consultant</span><span class="cost-bar cb-them" style="width:100%"></span><span class="cost-val">$300–500 / hour</span></div>
     </div>
-    <div class="closeask"><span class="ask-lab">The ask</span><span>Try the <b>live demo</b> — and I'm looking for <b>early users + a collaborator</b> to take it across every field of science. <span class="mono" style="color:var(--ink-faint)">Built with Claude Code.</span></span></div>
+    <div class="closeask"><span class="ask-lab">The ask</span><span>Try the <b>live demo</b> — and I'm looking for <b>early users + a collaborator</b> to take it across more fields of science. <span class="mono" style="color:var(--ink-faint)">Built with Claude Code.</span></span></div>
   </section>
 
 </div>
 
 <!-- persistent chrome -->
-<div class="chrome counter" id="counter"><b>01</b> / 05</div>
+<div class="chrome counter" id="counter"><b>01</b> / 06</div>
 <div class="chrome brandmark">Grant<span class="dot">·</span>board</div>
 <div class="chrome dots" id="dots"></div>
 <div class="chrome hint" id="hint">← / → to move · S for script</div>
@@ -355,7 +357,7 @@ const pad=n=>String(n+1).padStart(2,'0');
 function render(){
   slides.forEach((s,n)=>s.classList.toggle('active',n===i));
   [...dots.children].forEach((d,n)=>d.classList.toggle('on',n===i));
-  counter.innerHTML=`<b>${pad(i)}</b> / ${pad(slides.length-1)}`;
+  counter.innerHTML=`<b>${pad(i)}</b> / ${String(slides.length).padStart(2,'0')}`;
   notesK.textContent=`Slide ${i+1} · script`;
   notesBody.textContent=slides[i].dataset.notes||'';
   if(i>0) hint.style.opacity=notesOn?'0':'.5';
