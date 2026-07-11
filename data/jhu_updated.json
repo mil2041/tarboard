@@ -784,31 +784,6 @@
   "source": "JHU list (updated 2026)"
  },
  {
-  "name": "Prostate Cancer Research Program (PCRP) Early Investigator Research Award",
-  "funder": "Department of Defense (CDMRP)",
-  "funderType": "federal",
-  "focusAreas": [
-   "oncology"
-  ],
-  "careerStages": [
-   "postdoc",
-   "early-career faculty"
-  ],
-  "awardAmount": "Up to $630,000 total costs",
-  "duration": "Up to 3 years",
-  "deadlineInfo": "FY26 cycle: mandatory pre-application (Letter of Intent) deadline August 12, 2026, 5:00 p.m. ET; full application deadline September 2, 2026, 11:59 p.m. ET. Recurring annually.",
-  "deadlineISO": "2026-08-12",
-  "status": "open",
-  "eligibility": "Early-career investigators with a doctoral degree (or equivalent) and fewer than 3 years of postdoctoral research experience at the application submission deadline (excluding clinical residency/fellowship training). Requires an experienced mentor.",
-  "citizenshipReq": "none",
-  "applyUrl": "https://cdmrp.health.mil/funding/pcrp",
-  "description": "Supports prostate cancer research by early-career investigators under the guidance of an experienced mentor, funding career development and independence. Active FY26 mechanism. Note URL migrated from cdmrp.army.mil to cdmrp.health.mil.",
-  "relevanceToUser": "",
-  "sourceUrl": "https://cdmrp.health.mil/funding/pcrp",
-  "confidence": "high",
-  "source": "JHU list (updated 2026)"
- },
- {
   "name": "Medical Research Award",
   "funder": "Gabrielle's Angel Foundation for Cancer Research",
   "funderType": "foundation",
@@ -856,31 +831,6 @@
   "description": "Funds research aimed at discovering new treatments or cures for cancer at U.S. non-profit institutions, targeting new investigators or novel approaches by established researchers. Active, rolling three-cycle annual program; applications submitted online.",
   "relevanceToUser": "",
   "sourceUrl": "https://pardeefoundation.org/how-to-apply/",
-  "confidence": "high",
-  "source": "JHU list (updated 2026)"
- },
- {
-  "name": "Clinical Investigator Career Development Award",
-  "funder": "Lymphoma Research Foundation",
-  "funderType": "foundation",
-  "focusAreas": [
-   "blood cancer/hematology"
-  ],
-  "careerStages": [
-   "postdoc",
-   "early-career faculty"
-  ],
-  "awardAmount": "$375,000 total over 3 years ($120,000/year salary support)",
-  "duration": "3 years",
-  "deadlineInfo": "Open for the 2027 (2027-2030) cycle. Full application deadline September 3, 2026, 5:00 p.m. EST (no LOI required).",
-  "deadlineISO": "2026-09-03",
-  "status": "open",
-  "eligibility": "Physician investigators at the level of advanced clinical fellow or junior faculty in ACGME-accredited specialties, at non-profit research institutions in the U.S. or Canada. Project must involve clinical observation of human subjects with a 35-50% minimum research time commitment and one primary (preferably senior) mentor. Applicants must be a citizen of the U.S. or Canada, or hold a visa to work in those countries (U.S. citizenship not strictly required).",
-  "citizenshipReq": "none",
-  "applyUrl": "https://lymphoma.org/researchers/grants/",
-  "description": "Supports physician investigators (advanced fellow or junior faculty) developing new lymphoma therapies and diagnostic tools. Active; ~37% funding rate (2022-2026). Requires U.S./Canada institution and work authorization but not U.S. citizenship per se (Canadian citizens and visa holders eligible); at least one award reserved for underrepresented patient populations/applicants.",
-  "relevanceToUser": "",
-  "sourceUrl": "https://lymphoma.org/researchers/grants/",
   "confidence": "high",
   "source": "JHU list (updated 2026)"
  },
@@ -1082,31 +1032,6 @@
   "relevanceToUser": "",
   "sourceUrl": "https://preventcancer.org/research/",
   "confidence": "medium",
-  "source": "JHU list (updated 2026)"
- },
- {
-  "name": "Research Scholar Grants (RSG)",
-  "funder": "American Cancer Society",
-  "funderType": "society",
-  "focusAreas": [
-   "clinical/translational",
-   "oncology"
-  ],
-  "careerStages": [
-   "early-career faculty"
-  ],
-  "awardAmount": "Up to $215,000 per year in direct costs, plus 10% allowable indirect costs",
-  "duration": "Up to 4 years",
-  "deadlineInfo": "Biannual application deadlines: June 1 and December 1 (adjusted for weekends/holidays). Next upcoming deadline: December 1, 2026.",
-  "deadlineISO": "2026-12-01",
-  "status": "open",
-  "eligibility": "Independent investigators first appointed as independent, full-time faculty (or equivalent) 8 or fewer years ago; must work at a U.S. academic institution or eligible non-profit. Cannot be PI on more than one R01/R01-equivalent at time of application. Prior RSG recipients generally cannot reapply unless via a special initiative RFA.",
-  "citizenshipReq": "none",
-  "applyUrl": "https://www.cancer.org/research/we-fund-cancer-research/apply-research-grant/grant-types/research-scholar-grants.html",
-  "description": "The RSG remains active and is accepting applications (June/December cycles). Note: what was paused for the Summer 2026 cycle was the separate Discovery Boost Grant mechanism, NOT the RSG. No U.S. citizenship requirement for the individual PI; eligibility is tied to holding a position at a U.S. institution.",
-  "relevanceToUser": "",
-  "sourceUrl": "https://www.cancer.org/research/we-fund-cancer-research/apply-research-grant/grant-types/research-scholar-grants.html",
-  "confidence": "high",
   "source": "JHU list (updated 2026)"
  },
  {
@@ -1619,7 +1544,7 @@
   ],
   "awardAmount": "$1,000,000 USD ($250,000/year)",
   "duration": "4 years",
-  "deadlineInfo": "2026 cycle: LOI portal opened Mar 25, 2026, LOI due Apr 30, 2026 5 PM ET (now closed); invited full applications due Jul 30, 2026 5 PM ET; award start Jan 1, 2027. Annual program — next LOI cycle [redacted]",
+  "deadlineInfo": "2026 cycle: LOI portal opened Mar 25, 2026, LOI due Apr 30, 2026 5 PM ET (now closed); invited full applications due Jul 30, 2026 5 PM ET; award start Jan 1, 2027. Annual program — next LOI cycle ~ spring 2027",
   "deadlineISO": "2026-07-30",
   "status": "recurring",
   "eligibility": "Independent lab established 3-8 years prior to Dec 31, 2026 (independent appointment in 2018-2023); MD, PhD, or equivalent; single investigator only (no co-investigators)",
@@ -1720,7 +1645,7 @@
   ],
   "awardAmount": "$50,000 USD per awardee (direct costs)",
   "duration": "up to 24 months",
-  "deadlineInfo": "2026 cycle: LOI due May 11, 2026 (closed); invited full proposals due Jul 27, 2026; award decisions Oct 9, 2026. Annual program — next LOI [redacted]",
+  "deadlineInfo": "2026 cycle: LOI due May 11, 2026 (closed); invited full proposals due Jul 27, 2026; award decisions Oct 9, 2026. Annual program — next LOI ~ spring 2027",
   "deadlineISO": "2026-07-27",
   "status": "recurring",
   "eligibility": "M.D., Ph.D., D.V.M., or equivalent degree (degree candidates may apply alongside their PI); faculty or research-institute appointment; able to conduct independent research with peer-reviewed publications",

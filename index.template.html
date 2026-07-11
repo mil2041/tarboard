@@ -178,6 +178,9 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
 .srcpill{display:flex;align-items:center;gap:8px;font-size:13.5px;padding:8px 12px;border-radius:10px;border:1px solid var(--line);background:var(--card)}
 .srcpill .dot{width:8px;height:8px;border-radius:50%;flex:none}
 .srcpill .n{font-family:var(--mono);font-weight:600}
+.srcpill.rerun{cursor:pointer;color:var(--teal);border-color:color-mix(in srgb,var(--teal) 42%,transparent);background:color-mix(in srgb,var(--teal-wash) 55%,transparent);transition:.15s}
+.srcpill.rerun:hover{background:var(--teal);color:var(--paper-2)}
+.srcpill.rerun:hover .n{color:var(--paper-2)}
 .srcpill.loading .dot{animation:pulse 1s infinite}
 @keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}
 
@@ -292,6 +295,7 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
   border:1px solid color-mix(in srgb,var(--teal) 26%,transparent);border-left:3px solid var(--teal)}
 .gc-why.claude .claude-fit-h{display:flex;align-items:center;gap:8px;margin-bottom:6px}
 .gc-why.claude .cfh-lab{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--ink-faint);font-weight:600}
+.gc-why.claude .cfh-cached{margin-left:auto;font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;font-weight:700;color:var(--amber);background:var(--amber-wash);border:1px solid color-mix(in srgb,var(--amber) 34%,transparent);border-radius:999px;padding:1px 7px;cursor:help;white-space:nowrap}
 .gc-why.claude .claudew{margin:0;color:var(--ink);font-weight:450}
 .claude-brief-btn{width:100%;margin-top:9px;background:var(--teal);color:var(--paper-2);border:none;border-radius:8px;padding:9px 10px;font-size:14px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;gap:6px;box-shadow:0 4px 14px -8px var(--teal);transition:.15s}
 .claude-brief-btn:hover{background:var(--teal-bright)}
@@ -522,7 +526,7 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
 
 <footer class="foot">
   <p><b>Grantboard</b> matches your CV and research topics against U.S. funding opportunities. Federal opportunities (NIH, NSF, DOD/CDMRP, ARPA-H) are searched <b>live from the official Grants.gov API</b>. Foundation, society &amp; industry programs come from a curated database plus the <b>Johns Hopkins Research Development</b> cancer/oncology opportunity lists. <b>Always verify current deadlines, amounts &amp; eligibility on the funder's own page before applying</b> — figures shown are best-effort and change frequently. Not affiliated with any funder. Data snapshot compiled 2026.</p>
-  <p style="margin-top:7px"><b>How it works:</b> a deterministic engine decides eligibility (rules — free, auditable, can't hallucinate a deadline or amount); <b>Claude</b> reads your CV, re-ranks matches with reasons, and drafts fit briefs. Claude's re-ranking for the demo corpus is <b>precomputed &amp; cached</b> (110 grants) — real reasoning, instant, works offline; live sessions run ~15–25¢. The verified 165-grant eligibility corpus is the moat. Connect Claude with the ⚙ button. Built with Claude Code.</p>
+  <p style="margin-top:7px"><b>How it works:</b> a deterministic engine decides eligibility (rules — free, auditable, can't hallucinate a deadline or amount); <b>Claude</b> reads your CV, re-ranks matches with reasons, and drafts fit briefs. For the <b>example profiles</b>, Claude's per-grant re-ranking is <b>precomputed &amp; cached</b> (<span id="cacheCount">real reasoning</span>) so the demo is instant and works offline — <b>upload your own CV to run it live</b> (~15–25¢/session). The moat is the two-stage design: a <b>165-verdict rule-derived eligibility corpus</b> re-applied to <em>your</em> profile, with Claude's judgment on top. Connect Claude with the ⚙ button. Built with Claude Code.</p>
 </footer>
 
 <div class="cfg-modal" id="cfgModal" hidden>
@@ -598,11 +602,11 @@ const state = {
   cvText:"", cvKeywords:[], topics:[],
   focus:new Set(), subtypes:new Set(), funder:new Set(["federal","foundation","society","industry"]),
   sources:new Set(["federal","curated","jhu"]),
-  eligStage:true, showBlocked:false, showWindow:false,
+  eligStage:true, showWindow:false,
   show_cit:false, show_other:false, show_faculty:false, show_gated:false,   // per-bucket reveal (each pill toggles its own)
   citizenship:"any", phdYear:null, prMonth:"", nationality:"",
   results:[], view:"all", sort:"deadline",
-  isDemo:false,   // true after "Load example" → allows seeding the precomputed Claude reasoning cache
+  isDemo:false, cacheKey:null, forceLive:false,   // example profiles seed the per-profile precomputed Claude reasoning cache; forceLive bypasses it to run Claude live
   saved:JSON.parse(localStorage.getItem("gb_saved")||"[]"),
   detailCache:{}
 };
@@ -836,11 +840,13 @@ function applyClaudeProfile(prof,label){
 
 /* ---- Precomputed reasoning cache: seed the "Claude fit" callout instantly for the demo profile ---- */
 function seedClaudeCache(){
-  if(!state.isDemo || !CLAUDE_CACHE) return 0;
+  // per-profile precomputed Claude fit reasoning, so swapping the CV shows Claude's judgment for each archetype
+  const bank=(CLAUDE_CACHE && state.cacheKey) ? CLAUDE_CACHE[state.cacheKey] : null;
+  if(!state.isDemo || !bank) return 0;
   let hit=0;
   for(const g of state.results){
-    const c=CLAUDE_CACHE[g.id];
-    if(c && g._claudeScore==null){ g._claudeScore=c.fitScore; g._claudeWhy=c.why; hit++; }
+    const c=bank[g.id];
+    if(c && g._claudeScore==null){ g._claudeScore=c.fitScore; g._claudeWhy=c.why; g._claudeCached=true; hit++; }
   }
   if(hit){ state.claudeRanked=true; if(state.sort==="deadline"){ state.sort="claude"; const ss=$("#sortSel"); if(ss) ss.value="claude"; } }
   return hit;
@@ -870,7 +876,7 @@ async function claudeRerank(tok){
       state.rrCache[key]=ranked;
     }
     if(tok!==state.searchToken) return;
-    ranked.forEach(r=>{const g=byId.get(r.id); if(g){ g._claudeScore=Math.max(0,Math.min(100,+r.fitScore||0)); g._claudeWhy=String(r.why||"").slice(0,500); }});
+    ranked.forEach(r=>{const g=byId.get(r.id); if(g){ g._claudeScore=Math.max(0,Math.min(100,+r.fitScore||0)); g._claudeWhy=String(r.why||"").slice(0,500); g._claudeCached=false; }});
     state.claudeRanked=true; state.sort="claude";
     const ss=$("#sortSel"); if(ss) ss.value="claude";
     render();
@@ -1077,7 +1083,7 @@ async function handleFile(file){
     if(/\.pdf$/i.test(file.name)) text=await readPDF(file);
     else text=await file.text();
     if(!text.trim()) throw new Error("empty");
-    state.isDemo=false;   // a real uploaded CV — the demo reasoning cache no longer applies
+    state.isDemo=false; state.cacheKey=null;   // a real uploaded CV — the demo reasoning cache no longer applies
     await ingestCVSmart(text,file.name);
     toast(claudeReady()?"CV read by Claude":"CV parsed — keywords extracted");
   }catch(e){
@@ -1155,7 +1161,8 @@ function stageMatch(gStages,mine){
 // Citizenship requirement class: 'none' | 'restricted' (citizen OR permanent resident — a [redacted] satisfies) | 'citizen-only'
 function citizenshipReq(g){
   if(g.citizenshipReq) return g.citizenshipReq;   // web-verified field (JHU-updated data)
-  const t=((g.eligibility||"")+" "+(g.description||"")).toLowerCase();
+  // strip non-citizenship uses of the word so "citizen science" / "global citizens" don't imply a requirement
+  const t=((g.eligibility||"")+" "+(g.description||"")).toLowerCase().replace(/citizen science|global citizens?|good citizens?|senior citizens?|(?:digital|corporate|scientific) citizenship/g," ");
   // Explicit NEGATION first — "no citizenship requirement / restriction", "regardless of citizenship",
   // "citizens and non-citizens" all mean NONE (the word "citizen" alone must not imply a restriction).
   if(/no\s+(?:u\.?s\.?\s+)?citizenship\s+(?:requirement|restriction)|no\s+citizenship\s+is\s+required|citizenship\s+(?:is\s+)?not\s+required|regardless\s+of\s+citizenship|no\s+geographic\s+or\s+citizenship|open\s+to\s+(?:all|any)\s+(?:nationalit|citizen)|non-?citizens?\s+(?:are\s+)?eligible|international\s+applicants?\s+(?:are\s+)?eligible/.test(t)) return "none";
@@ -1390,7 +1397,10 @@ async function fetchFederalDetail(oppId){
    MAIN SEARCH
    ============================================================ */
 function slugId(prefix,g,i){
-  const s=((g.funder||"")+"-"+(g.name||"")).toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,48);
+  // NAME-first: the award name is the distinctive part. Funder-first collided badly
+  // (7 different Damon Runyon / LLS awards share one 48-char prefix), which smeared one
+  // Save/Claude-cache entry across many distinct cards. Name-first keeps them distinct.
+  const s=((g.name||"")+"-"+(g.funder||"")).toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,48);
   return prefix+"-"+(s||i);
 }
 function localPool(){
@@ -1401,11 +1411,17 @@ function localPool(){
 }
 // Drop duplicate programs that appear in both the curated and JHU lists; keep the JHU copy (web-verified deadlines).
 function dedupePool(pool){
+  // normalize away parenthetical acronyms/suffixes ("… (ASH)", "… (RTAF)") and a leading "the"
+  // so the same award from the curated vs JHU source merges into one card.
+  const norm=s=>(s||"").toLowerCase().replace(/\([^)]*\)/g," ").replace(/\bthe\b/g," ").replace(/[^a-z0-9]/g,"");
   const seen=new Map();
   for(const g of pool){
-    const k=((g.name||"")+"|"+(g.funder||"")).toLowerCase().replace(/[^a-z0-9|]/g,"");
+    const k=norm(g.name)+"|"+norm(g.funder);
     const prev=seen.get(k);
-    if(!prev||(g.source==="jhu"&&prev.source!=="jhu")) seen.set(k,g);
+    // keep the richer record: prefer JHU (fresher deadlines), then whichever has more detail
+    if(!prev || (g.source==="jhu"&&prev.source!=="jhu") ||
+       (g.source===prev.source && ((g.deadlineISO?1:0)+((g.eligibility||"").length>(prev.eligibility||"").length?1:0))>0 && !prev.deadlineISO))
+      seen.set(k,g);
   }
   return [...seen.values()];
 }
@@ -1426,7 +1442,7 @@ async function runSearch(){
   btn.disabled=false;
   render();
   // the whole curated+JHU pool is pre-reasoned for the demo, so skip the live re-rank there
-  const useCache=state.isDemo && CLAUDE_CACHE && Object.keys(CLAUDE_CACHE).length>0;
+  const useCache=state.isDemo && !state.forceLive && CLAUDE_CACHE && state.cacheKey && CLAUDE_CACHE[state.cacheKey] && Object.keys(CLAUDE_CACHE[state.cacheKey]).length>0;
   // 2) federal streams in asynchronously (with a cached-snapshot fallback), then Claude re-ranks
   if(state.sources.has("federal")){
     fetchFederalSafe().then(({items,ok,total,seed})=>{
@@ -1511,14 +1527,13 @@ function baseFilter(list){
 // citizenship selector (a non-U.S. applicant with no [redacted] can't get citizen/PR awards),
 // unless "Show citizenship-blocked" is on. Past-PhD-window awards hide only when that toggle is on.
 function eligFilter(list){
-  const all=state.showBlocked;   // master reveal (filter-panel toggle)
   return list.filter(g=>{
     const e=eligibility(g);
     // SAME precedence the summary tally uses, so each pill reveals EXACTLY its count.
-    if(e.blocked) return (e.blockedCitizenship?state.show_cit:state.show_other)||all;
-    if(e.facultyBlocked) return state.show_faculty||all;
-    if(e.gated) return state.show_gated||all;
-    if(e.windowExceeded) return state.showWindow||all;
+    if(e.blocked) return e.blockedCitizenship?state.show_cit:state.show_other;
+    if(e.facultyBlocked) return state.show_faculty;
+    if(e.gated) return state.show_gated;
+    if(e.windowExceeded) return state.showWindow;
     return true;
   });
 }
@@ -1641,8 +1656,9 @@ function cardHTML(g,maxScore,idx,showFit){
   const badge=`<span class="badge b-${ftype}">${esc(ftype==="federal"?"Federal":ftype)}</span>`;
   const tags=(g.focusAreas||[]).slice(0,4).map(f=>`<span class="tag-fa ${state.focus.has(f)?"hot":""}">${esc(f)}</span>`).join("");
   const amt=g.awardAmount&&g.awardAmount!=="see details"?g.awardAmount:(g._live?"see details":"varies");
+  const cachedChip=g._claudeCached?`<span class="cfh-cached" title="Precomputed with ${esc(CONFIG.model)} for this example profile so the demo is instant and offline. Upload your own CV (or hit ↻ Re-run live, which uses ${esc(CONFIG.fastModel)}) to generate this live.">precomputed</span>`:"";
   const why=g._claudeWhy
-    ?`<div class="gc-why claude"><div class="claude-fit-h"><span class="mk claude">✦ Claude fit</span> <span class="cfh-lab">why this suits you</span></div><p class="claudew">${esc(g._claudeWhy)}</p></div>`
+    ?`<div class="gc-why claude"><div class="claude-fit-h"><span class="mk claude">✦ Claude fit</span> <span class="cfh-lab">why this suits you</span>${cachedChip}</div><p class="claudew">${esc(g._claudeWhy)}</p></div>`
     :(g._matched&&g._matched.length?`<div class="gc-why"><span class="lab">Why:</span>${g._matched.map(m=>`<span class="mk">${esc(m)}</span>`).join("")}</div>`:"");
   const e=eligibility(g);
   const echips=e.flags.map(f=>`<span class="echip ${f.t}">${esc(f.x)}</span>`).join("");
@@ -1728,10 +1744,10 @@ function render(){
   const maxScore=state.maxScore||Math.max(...sorted.map(g=>g._score),1);
   $("#resHead").textContent=`${sorted.length} matching ${sorted.length===1?"opportunity":"opportunities"}`;
   const fed=sorted.filter(g=>g._live).length;
-  const gcNote=(state.citizenship==="pending"&&gc&&!state.showBlocked)?` · <b>${gc}</b> unlock with permanent residence (hidden)`:"";
-  const blkNote=(blk&&!state.showBlocked)?` · <b>${blk}</b> need US citizenship (hidden)`:"";
-  const otherNote=(other&&!state.showBlocked)?` · <b>${other}</b> not eligible for you (hidden)`:"";
-  const facNote=(faculty&&!state.showBlocked)?` · <b>${faculty}</b> for faculty stage — future targets (hidden)`:"";
+  const gcNote=(state.citizenship==="pending"&&gc&&!state.show_gated)?` · <b>${gc}</b> unlock with permanent residence (hidden)`:"";
+  const blkNote=(blk&&!state.show_cit)?` · <b>${blk}</b> need US citizenship (hidden)`:"";
+  const otherNote=(other&&!state.show_other)?` · <b>${other}</b> not eligible for you (hidden)`:"";
+  const facNote=(faculty&&!state.show_faculty)?` · <b>${faculty}</b> for faculty stage — future targets (hidden)`:"";
   const winNote=(winX&&!state.showWindow)?` · <b>${winX}</b> past your PhD-year window (hidden)`:"";
   const sortLbl={deadline:"soonest deadline",relevance:"best match",amount:"award size",funder:"funder"}[state.sort]||"fit";
   $("#resSub").innerHTML=`Sorted by <b>${sortLbl}</b> · <b>${fed}</b> live federal · <b>${sorted.length-fed}</b> curated${gcNote}${blkNote}${otherNote}${facNote}${winNote}`;
@@ -1740,7 +1756,15 @@ function render(){
   feed.innerHTML=sorted.map((g,i)=>cardHTML(g,maxScore,i)).join("");
   wireCards();
 }
+// keep the Filters-panel eligibility toggles visually in sync with the reveal state (pills ↔ toggles)
+function syncEligToggles(){
+  const set=(k,on)=>{const b=$(`[data-elig="${k}"]`); if(b) b.classList.toggle("on",!!on);};
+  set("stage",state.eligStage);
+  set("cit",state.show_cit&&state.show_other&&state.show_faculty&&state.show_gated);
+  set("window",state.showWindow);
+}
 function renderEligSummary(c){
+  syncEligToggles();
   const el=$("#eligSummary");if(!el)return;
   if(!c){el.innerHTML="";return;}
   // Each excluded bucket is a CLICKABLE pill: click to reveal those grants (shown greyed, each with its
@@ -1766,8 +1790,11 @@ function renderSrcBar(o){
   const pills=[];
   // persistent, visible Claude status
   const cReady=claudeReady();
-  const cText=state.rrLoading?"✦ Claude re-ranking…":(state.claudeRanked?"✦ Ranked by Claude":(cReady?"✦ Claude connected":"✦ Claude — click ⚙ to connect"));
+  const onCache=state.isDemo && !state.forceLive && state.results.some(g=>g._claudeCached);
+  const cText=state.rrLoading?"✦ Claude re-ranking…":(onCache?"✦ Ranked by Claude (precomputed)":(state.claudeRanked?(state.isDemo&&state.forceLive?"✦ Ranked by Claude (live · top 12)":"✦ Ranked by Claude"):(cReady?"✦ Claude connected":"✦ Claude — click ⚙ to connect")));
   pills.push(`<div class="srcpill"><span class="dot" style="background:${cReady?"var(--teal-bright)":"var(--line-strong)"};${state.rrLoading?"animation:pulse 1s infinite":""}"></span><span class="n">${cText}</span></div>`);
+  // On a demo profile shown from cache: let judges/users run the REAL Claude loop live on one click.
+  if(onCache && !state.rrLoading) pills.push(`<button class="srcpill rerun" id="rerunLive" title="${cReady?("Bypass the precomputed cache and re-rank the top 12 grants live with "+esc(CONFIG.fastModel)+" (forced tool-use)"):"Connect Claude (⚙) first, then re-rank live"}"><span class="n">↻ Re-run live</span></button>`);
   if(state.sources.has("federal")){
     if(o.fedLoading||(fs&&fs.loading)) pills.push(`<div class="srcpill loading"><span class="dot" style="background:var(--teal)"></span>Grants.gov <span class="n">querying…</span></div>`);
     else if(fs&&fs.err) pills.push(`<div class="srcpill"><span class="dot" style="background:var(--crimson)"></span>Grants.gov <span class="n">offline</span></div>`);
@@ -1777,6 +1804,14 @@ function renderSrcBar(o){
   if(state.sources.has("curated")) pills.push(`<div class="srcpill"><span class="dot" style="background:var(--crimson)"></span>Curated: hematology/oncology <span class="n">${CURATED_DATA.length}</span></div>`);
   if(state.sources.has("jhu")) pills.push(`<div class="srcpill"><span class="dot" style="background:var(--amber)"></span>JHU list (updated 2026) <span class="n">${JHU_DATA.length}</span></div>`);
   bar.innerHTML=pills.join("");
+  const rl=$("#rerunLive");
+  if(rl) rl.onclick=()=>{
+    if(!claudeReady()){ const cb=$("#cfgBtn"); if(cb) cb.click(); return; }   // no key yet → open the connect modal
+    state.forceLive=true;                                 // bypass the precomputed cache
+    state.results.forEach(g=>{ g._claudeScore=null; g._claudeWhy=null; g._claudeCached=false; });
+    state.rrCache={};                                     // don't reuse a prior cached re-rank
+    runSearch();                                          // re-runs; useCache is now false → live claudeRerank
+  };
 }
 function wireCards(){
   $$("[data-save]").forEach(b=>b.onclick=()=>{
@@ -1861,14 +1896,16 @@ function exportCSV(){
    Same 268 grants; a different applicant → a different eligible set. That's the moat, made visible.
    ============================================================ */
 const EXAMPLES = [
-  { key:"eric", label:"Eric · PhD, senior postdoc", get:()=>({ ...DEMO_PROFILE, isDemo:true }) },
+  { key:"eric", label:"Eric · PhD, senior postdoc", get:()=>({ ...DEMO_PROFILE, isDemo:true, cacheKey:"eric" }) },
   { key:"md", label:"Dr. Chen · MD physician-scientist", get:()=>({
+      isDemo:true, cacheKey:"md",
       name:"Maria Chen, MD", careerStage:"physician-scientist", citizenship:"us", phdYear:2016, prMonth:"", nationality:"",
       topics:["Lymphoma","CAR-T therapy","Immunotherapy","Clinical trials"],
       focus:["blood cancer/hematology","cancer immunology","clinical/translational","oncology"],
       subtypes:["B-cell lymphoma"],
       cvText:"Maria Chen, MD. Instructor / Assistant Professor, Division of Hematology-Oncology. MD 2016; Internal Medicine residency 2016-2019; Hematology & Medical Oncology clinical fellowship 2019-2022, ABIM board-eligible. Physician-scientist: 80% research effort plus clinical service in a lymphoma clinic. Research on CAR-T cell therapy and immunotherapy resistance in diffuse large B-cell lymphoma (DLBCL); correlative studies from investigator-initiated clinical trials." }) },
   { key:"junior", label:"Dr. Park · PhD, 2nd-yr postdoc", get:()=>({
+      isDemo:true, cacheKey:"junior",
       name:"Jun Park", careerStage:"postdoc", citizenship:"pending", phdYear:2024, prMonth:"[redacted]", nationality:"",
       topics:["Acute myeloid leukemia (AML)","Machine learning","Single-cell RNA-seq","Deep learning"],
       focus:["blood cancer/hematology","AI/computational","genomics/omics","oncology"],
@@ -1884,7 +1921,7 @@ function applyProfile(p, autorun){
   state.nationality=p.nationality||"";
   state.focus=new Set(); state.subtypes=new Set(); state.topics=[];
   if(window.__syncElig) window.__syncElig();
-  state.isDemo=!!p.isDemo;
+  state.isDemo=!!p.isDemo; state.cacheKey=p.cacheKey||null; state.forceLive=false;   // new profile → show its cache first
   ingestCV(p.cvText||"","Example CV — "+(p.name||""));         // deterministic parse → a reliable, fast swap on stage
   state.topics=[...(p.topics||[])]; renderTopicChips();
   (p.focus||[]).forEach(f=>state.focus.add(f)); renderFocusFilters();
@@ -1963,7 +2000,7 @@ function wireUI(){
   drop.addEventListener("drop",e=>{if(e.dataTransfer.files[0])handleFile(e.dataTransfer.files[0]);});
   // paste
   $("#pasteToggle").onclick=()=>{const t=$("#cvPaste");t.style.display=t.style.display==="none"?"block":"none";if(t.style.display==="block")t.focus();};
-  let pasteT; $("#cvPaste").addEventListener("input",e=>{const v=e.target.value;clearTimeout(pasteT);pasteT=setTimeout(()=>{if(v.trim().length>60){state.isDemo=false;ingestCVSmart(v,"Pasted text");}},900);});
+  let pasteT; $("#cvPaste").addEventListener("input",e=>{const v=e.target.value;clearTimeout(pasteT);pasteT=setTimeout(()=>{if(v.trim().length>60){state.isDemo=false;state.cacheKey=null;ingestCVSmart(v,"Pasted text");}},900);});
   // example
   $("#loadExample").onclick=()=>{
     $("#applicantName").value=DEMO_PROFILE.name||"";
@@ -1974,7 +2011,7 @@ function wireUI(){
     state.nationality=DEMO_PROFILE.nationality||"";
     syncElig();
     // when Claude is connected, the example exercises the real CV-reading path (judges see "Claude is reading your CV…")
-    state.isDemo=true;   // example profile → the precomputed Claude reasoning cache applies
+    state.isDemo=true; state.cacheKey="eric";   // example profile → the precomputed Claude reasoning cache applies
     (claudeReady()?ingestCVSmart:ingestCV)(DEMO_PROFILE.cvText||"","Example CV — "+(DEMO_PROFILE.name||""));
     state.topics=[...(DEMO_PROFILE.topics||[])];renderTopicChips();
     (DEMO_PROFILE.focus||[]).forEach(f=>state.focus.add(f));renderFocusFilters();
@@ -1994,9 +2031,9 @@ function wireUI(){
     b.classList.toggle("on");
     const on=b.classList.contains("on");
     if(b.dataset.elig==="stage")state.eligStage=on;
-    else if(b.dataset.elig==="cit")state.showBlocked=on;
+    else if(b.dataset.elig==="cit"){ state.show_cit=state.show_other=state.show_faculty=state.show_gated=on; }  // reveal all "locked" buckets
     else if(b.dataset.elig==="window")state.showWindow=on;
-    if(state.results.length)render();
+    render();   // re-renders pills AND (via syncEligToggles) keeps this toggle in sync
   });
   // search
   $("#searchBtn").onclick=runSearch;
@@ -2015,6 +2052,10 @@ function wireUI(){
   loadProfile();   // restore the user's own saved profile if present (overrides demo defaults)
 
   renderTopicChips();renderSuggest();renderFocusFilters();renderSubtypeFilters();renderFunderFilters();renderSourceFilters();renderExamples();
+  // Honest, self-deriving cache count for the footer (never hardcode a number that can drift).
+  const _cc=$("#cacheCount");
+  if(_cc){ const profs=Object.values(CLAUDE_CACHE||{}); const per=profs.length?Math.round(profs.reduce((n,p)=>n+Object.keys(p).length,0)/profs.length):0;
+    if(profs.length) _cc.textContent=per+" grants each × "+profs.length+" example profiles"; }
   $("#savedCount").textContent=state.saved.length;
   render();
 }

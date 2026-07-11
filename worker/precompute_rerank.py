@@ -12,7 +12,10 @@ import json, re, os, urllib.request
 
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 BRIDGE = os.environ.get("BRIDGE_URL", "http://localhost:8788")
-MODEL  = os.environ.get("PRECOMPUTE_MODEL", "claude-haiku-4-5")
+# Precompute offline with the strong model (quality over latency); the shipped
+# data/claude_rerank_cache.json is opus-generated, and the "precomputed" chip in the
+# app names this model. The live in-app re-rank uses the fast model for responsiveness.
+MODEL  = os.environ.get("PRECOMPUTE_MODEL", "claude-opus-4-8")
 TARGET = int(os.environ.get("PRECOMPUTE_N", "130"))   # >= 100
 BATCH  = 12
 
@@ -27,7 +30,9 @@ PROFILE = ("Field: computational oncology / cancer genomics\n"
   "Citizenship: pending (permanent residence ~[redacted])")
 
 def slug_id(prefix, g, i):
-    s = re.sub(r'[^a-z0-9]+', '-', ((g.get('funder') or '') + '-' + (g.get('name') or '')).lower()).strip('-')[:48]
+    # NAME-first, byte-for-byte identical to the app's slugId (index.template.html) and
+    # build.py's _slug — so this script reproduces the exact ids used in the shipped cache.
+    s = re.sub(r'[^a-z0-9]+', '-', ((g.get('name') or '') + '-' + (g.get('funder') or '')).lower()).strip('-')[:48]
     return prefix + '-' + (s or str(i))
 
 def load_pool():

@@ -829,31 +829,6 @@
   "source": "curated"
  },
  {
-  "name": "NIH Director's Early Independence Award (DP5)",
-  "funder": "NIH Common Fund (High-Risk, High-Reward Research program)",
-  "funderType": "federal",
-  "focusAreas": [
-   "blood cancer/hematology",
-   "AI/computational",
-   "oncology",
-   "general biomedical"
-  ],
-  "careerStages": [
-   "early-career faculty",
-   "postdoc"
-  ],
-  "awardAmount": "Up to $250,000 in direct costs per year (plus applicable F&A); grants.gov listing cites up to ~$350,000 total/yr and ~10-13 awards per cycle.",
-  "duration": "5 years",
-  "deadlineInfo": "Current cycle RFA-RM-27-004: application due September 10, 2026 (reference letters Aug 10 - Sep 10, 2026). Common Fund runs this annually.",
-  "eligibility": "U.S. domestic institution. The PD/PI must complete their terminal research doctorate (or postgraduate clinical training) within a narrow window around the award — for this cycle, between about May 1, 2025 and Sept 30, 2027 (roughly 12 months before to 16 months after the degree). Must have a guaranteed or pending independent research position and be able to start independent research at the project start; the mechanism lets exceptional graduates SKIP a postdoc.",
-  "applyUrl": "https://commonfund.nih.gov/earlyindependence",
-  "description": "A high-risk/high-reward award that lets an exceptional new PhD launch an independent lab immediately after graduate school, bypassing the traditional postdoc.",
-  "relevanceToUser": "Well suited to a standout [redacted] computational/AI PhD who wants to start an independent AI+oncology research program right away rather than doing a postdoc. Highly competitive (~10-13 awards/yr NIH-wide) and requires an institution willing to host the new PI. No stated citizenship restriction, but eligibility hinges on the tight degree-completion window.",
-  "sourceUrl": "https://grants.nih.gov/funding/activity-codes/DP5",
-  "confidence": "high",
-  "source": "curated"
- },
- {
   "name": "Ruth L. Kirschstein NRSA Institutional Research Training Grant (T32)",
   "funder": "NIH (awarded to institutions; NCI, NHLBI, NLM/NHGRI fund cancer- and data-science-relevant T32s)",
   "funderType": "federal",
@@ -1943,31 +1918,6 @@
   "description": "Supports postdoctoral fellows conducting basic, translational, or clinical lymphoma research.",
   "relevanceToUser": "Fits a computational/ML postdoc studying lymphoma (e.g., digital pathology, genomic classifiers, outcome prediction); methodology-agnostic and open to PhD-trained (non-MD) postdocs.",
   "sourceUrl": "https://lymphoma.org/wp-content/uploads/2024/05/Fellowship-RFP-2025-FINAL.pdf",
-  "confidence": "high",
-  "source": "curated"
- },
- {
-  "name": "LRF Clinical Investigator Career Development Award (CDA)",
-  "funder": "Lymphoma Research Foundation (LRF)",
-  "funderType": "foundation",
-  "focusAreas": [
-   "blood cancer/hematology",
-   "AI/computational",
-   "clinical/translational",
-   "oncology"
-  ],
-  "careerStages": [
-   "physician-scientist",
-   "early-career faculty"
-  ],
-  "awardAmount": "$225,000 total over 3 years ($70,000/yr salary + $5,000/yr incidental = $75,000/yr).",
-  "duration": "3 years",
-  "deadlineInfo": "2027 cycle full applications due Sept 3, 2026, 5pm EST. Annual cycle.",
-  "eligibility": "Licensed clinical physicians in ACGME-accredited specialties; advanced fellows or junior faculty transitioning to independent clinical research. U.S./Canadian citizen or valid work visa; non-profit institution. At least one award reserved for underrepresented populations/applicants.",
-  "applyUrl": "https://lymphoma.org/researchers/grants/",
-  "description": "Career-development award helping physician-scientists become independent clinical lymphoma researchers.",
-  "relevanceToUser": "Relevant if the user collaborates with (or is) a physician-scientist; supports clinically-oriented lymphoma research that can incorporate AI/ML tools and diagnostics.",
-  "sourceUrl": "https://lymphoma.org/wp-content/uploads/2024/05/CDA-RFP-2025-FINAL.pdf",
   "confidence": "high",
   "source": "curated"
  },
@@ -4129,9 +4079,9 @@
    "PhD student",
    "postdoc"
   ],
-  "awardAmount": "Up to $350,000 direct costs per year for 5 years, plus standard indirect costs (some prior cycles listed ~$250,000/year — confirm current figure).",
+  "awardAmount": "Up to $350,000 in direct costs per year for up to 5 years, plus applicable F&A costs",
   "duration": "5 years",
-  "deadlineInfo": "Annual, but note: the FY2026 Early Independence Award opportunity will NOT go forward; a new opportunity is anticipated for FY2027. Most recent completed cycle was RFA-RM-24-005. Check the program page before planning.",
+  "deadlineInfo": "Annual; the FY2027 cycle is open under RFA-RM-27-004. Confirm the current application due date on the NIH Common Fund program page / Grants.gov before planning.",
   "eligibility": "For exceptional junior scientists who bypass the postdoc: applicant must be within 16 months after (or 12 months before) completing their terminal research degree or postgraduate clinical training at the submission date, and hold a non-independent position at submission. Single PI only; institutions limited to 2 applications. Requires ~9.6 person-months effort in first 2 years; 3–5 reference letters. No preliminary data required.",
   "applyUrl": "https://www.nih.gov/common-fund/common-fund-programs/high-risk-high-reward-research-hrhr/nih-directors-early-independence-award",
   "description": "High-Risk, High-Reward mechanism that lets outstanding new PhDs skip the postdoc and move directly into an independent research position with 5 years of funding.",
@@ -4603,6 +4553,31 @@
   "relevanceToUser": "A stretch but legitimately AI/ML-relevant option: Delta Tissue and similar data-prediction programs reward computational methods for modeling disease progression, which is adjacent to computational-oncology and hematologic-malignancy trajectory modeling. There is no current dedicated blood-cancer program, and awards are milestone contracts — monitor the open-programs page for a call that matches the user's methods. Low confidence on amounts/deadlines because these are program-specific.",
   "sourceUrl": "https://wellcomeleap.org/",
   "confidence": "low",
+  "source": "curated"
+ },
+ {
+  "name": "LRF Clinical Investigator Career Development Award (CDA)",
+  "funder": "Lymphoma Research Foundation (LRF)",
+  "funderType": "foundation",
+  "focusAreas": [
+   "blood cancer/hematology",
+   "AI/computational",
+   "clinical/translational",
+   "oncology"
+  ],
+  "careerStages": [
+   "physician-scientist",
+   "early-career faculty"
+  ],
+  "awardAmount": "$225,000 total over 3 years ($70,000/year salary + $5,000/year incidentals)",
+  "duration": "3 years",
+  "deadlineInfo": "2027 cycle full applications due Sept 3, 2026, 5pm EST. Annual cycle.",
+  "eligibility": "Licensed clinical physicians in ACGME-accredited specialties; advanced fellows or junior faculty transitioning to independent clinical research. U.S./Canadian citizen or valid work visa; non-profit institution. At least one award reserved for underrepresented populations/applicants.",
+  "applyUrl": "https://lymphoma.org/researchers/grants/",
+  "description": "Career-development award helping physician-scientists become independent clinical lymphoma researchers.",
+  "relevanceToUser": "Relevant if the user collaborates with (or is) a physician-scientist; supports clinically-oriented lymphoma research that can incorporate AI/ML tools and diagnostics.",
+  "sourceUrl": "https://lymphoma.org/wp-content/uploads/2024/05/CDA-RFP-2025-FINAL.pdf",
+  "confidence": "high",
   "source": "curated"
  }
 ]
