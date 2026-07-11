@@ -13,17 +13,29 @@ card-based results. Applied on top of all v0 features (nothing functional remove
 
 ---
 
-## Color tokens — light (v1)
+## ⚑ Shipped palette (v1.1): v1 layout + **v0 warm color theme**
+Per preference, the shipped build keeps this doc's **layout/structure** (flat background, single-rule
+masthead, sans titles, calmer cards, chips on their own line, softened wording) but uses the **v0 warm
+"broadsheet" palette** — parchment paper, cream cards, saturated teal/crimson/amber/green (see the exact
+values in `design_style_v0.md`). Only the shadows were kept soft (v1) but re-warmed to sit on parchment:
 ```css
---paper:#f7f8f5; --paper-2:#fbfcfa; --card:#ffffff;      /* flatter, near-white workspace */
---ink:#20231f; --ink-soft:#5c6258; --ink-faint:#8a9185;  /* green-grey neutrals */
---line:#e1e6dc; --line-strong:#cbd4c5;
+/* light :root, as shipped */
+--paper:#f4f0e7; --paper-2:#faf7f0; --card:#fffdf8; --ink:#1b1a16; --ink-soft:#514d43;
+--ink-faint:#8a8477; --line:#e2dccc; --line-strong:#cfc7b2;
+--teal:#0f5f5c; --teal-bright:#12817b; --teal-wash:#e6efec;
+--crimson:#a4243b; --crimson-wash:#f6e7e6; --amber:#b26a1f; --amber-wash:#f6ecd9;
+--green:#3f6f3a; --green-wash:#e8efdf;
+--shadow:0 1px 2px rgba(40,34,20,.04), 0 4px 14px -10px rgba(40,34,20,.15);   /* v1 softness, warm tint */
+--shadow-lg:0 16px 40px -26px rgba(40,34,20,.30);
+```
+
+## Original v1 cool palette (NOT shipped — kept for reference)
+```css
+--paper:#f7f8f5; --paper-2:#fbfcfa; --card:#ffffff; --ink:#20231f; --ink-soft:#5c6258;
+--ink-faint:#8a9185; --line:#e1e6dc; --line-strong:#cbd4c5;
 --teal:#2f766d; --teal-bright:#348b80; --teal-wash:#edf6f3;
---crimson:#a44a5b; --crimson-wash:#f8ecef;   /* muted rose — hard blockers only */
---amber:#9a6a2f; --amber-wash:#f7f0e3;        /* gated / verify / future target */
---green:#557a4b; --green-wash:#eef5ea;        /* open / eligible */
---shadow:0 1px 2px rgba(30,40,30,.04), 0 4px 14px -10px rgba(30,40,30,.13);
---shadow-lg:0 16px 40px -26px rgba(30,40,30,.26);
+--crimson:#a44a5b; --crimson-wash:#f8ecef; --amber:#9a6a2f; --amber-wash:#f7f0e3;
+--green:#557a4b; --green-wash:#eef5ea;
 ```
 Dark theme (`:root[data-theme="dark"]`) is unchanged from v0.
 
