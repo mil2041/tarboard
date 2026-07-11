@@ -62,6 +62,41 @@ b,strong{color:var(--ink);font-weight:700}
 .insight .lab{font-family:var(--mono);font-size:.72em;text-transform:uppercase;letter-spacing:.12em;font-weight:600;opacity:.8;display:block;margin-bottom:6px}
 .plus{font-family:var(--serif);font-size:clamp(26px,3vw,44px);color:var(--ink-faint);flex:none}
 
+/* hero stat (problem) */
+.megastat{display:flex;flex-direction:column;gap:1.4vh;margin:1vh 0 3.4vh}
+.megastat .mn{font-family:var(--serif);font-weight:600;font-size:clamp(56px,10.5vw,148px);line-height:.86;color:var(--teal);letter-spacing:-.025em}
+.megastat .mn .mnu{font-size:.3em;color:var(--ink-faint);font-weight:500;letter-spacing:0}
+.megastat .ml{font-size:clamp(17px,2vw,28px);line-height:1.32;color:var(--ink-soft);max-width:26ch}
+/* why now */
+.whynow{display:flex;flex-direction:column;gap:2vh;margin:1vh 0 3.2vh;max-width:62ch}
+.whynow .wn{display:flex;gap:16px;font-size:clamp(16px,1.7vw,23px);line-height:1.4;color:var(--ink-soft)}
+.whynow .wnn{font-family:var(--mono);font-weight:600;color:var(--teal);font-size:clamp(15px,1.5vw,21px);flex:none;padding-top:3px}
+
+/* product proof (recreated result card) */
+.proof-wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:2.4vw;align-items:start;margin-top:1vh}
+.mockcard{position:relative;background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow-lg);padding:2.6vh 1.7vw}
+.mockcard .mc-score{position:absolute;top:2.4vh;right:1.7vw;text-align:right}
+.mc-pct{font-family:var(--serif);font-weight:600;font-size:clamp(30px,3.6vw,50px);line-height:.9;color:var(--teal)}
+.mc-pct span{font-size:.36em;color:var(--ink-faint)}
+.mc-lbl{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-faint);margin-top:3px}
+.mc-title{font-weight:700;font-size:clamp(15px,1.55vw,21px);line-height:1.25;max-width:78%;margin-bottom:9px}
+.mc-funder{font-size:clamp(12px,1.15vw,15px);color:var(--ink-soft);display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.mc-badge{font-family:var(--mono);font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--crimson);background:var(--crimson-wash);padding:3px 7px;border-radius:5px}
+.mc-tags{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap}
+.mc-tags span{font-size:11.5px;padding:3px 8px;border-radius:6px;background:var(--paper-2);border:1px solid var(--line);color:var(--ink-soft)}
+.mc-why{background:linear-gradient(180deg,color-mix(in srgb,var(--teal-wash) 82%,transparent),color-mix(in srgb,var(--teal-wash) 30%,transparent));border:1px solid color-mix(in srgb,var(--teal) 24%,transparent);border-left:3px solid var(--teal);border-radius:10px;padding:12px 14px;margin-bottom:12px}
+.mc-wh{display:flex;align-items:center;gap:8px;margin-bottom:6px;font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-faint)}
+.mc-chip{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--paper-2);background:linear-gradient(90deg,var(--teal),var(--teal-bright));padding:3px 8px;border-radius:6px;letter-spacing:.02em}
+.mc-why p{font-size:clamp(13px,1.3vw,16.5px);line-height:1.45;color:var(--ink)}
+.mc-meta{display:flex;gap:22px;font-family:var(--mono);font-size:clamp(12px,1.1vw,14.5px);color:var(--ink-soft)}
+.mc-meta b{font-family:var(--sans);color:var(--ink-faint);font-weight:600;font-size:.82em;text-transform:uppercase;letter-spacing:.05em;margin-right:5px}
+.proof-stats{display:flex;flex-direction:column;gap:.4vh}
+.pstat{display:flex;gap:15px;align-items:baseline;padding:1.7vh 0;border-bottom:1px solid var(--line)}
+.pstat:last-child{border-bottom:none}
+.pstat .pn{font-family:var(--serif);font-weight:600;font-size:clamp(24px,2.8vw,42px);line-height:.9;color:var(--teal);flex:none;min-width:2.4em}
+.pstat .pl{font-size:clamp(13px,1.3vw,17px);line-height:1.35;color:var(--ink-soft)}
+@media(max-width:920px){.proof-wrap{grid-template-columns:1fr}}
+
 /* steps */
 .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:1.1vw;margin-top:1.5vh}
 .step{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:2.2vh 1.1vw;position:relative;overflow:hidden}
@@ -83,6 +118,8 @@ b,strong{color:var(--ink);font-weight:700}
   font-size:clamp(12.5px,1.2vw,16px);color:var(--ink-soft)}
 .trust .ti{display:inline-flex;gap:8px;align-items:baseline}
 .trust .ti b{font-family:var(--mono);font-size:.72em;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-soft)}
+.andmore{margin:2.4vh 0 .4vh;font-size:clamp(14px,1.45vw,19px);color:var(--ink-faint);line-height:1.4}
+.andmore b{color:var(--ink-soft)}
 @media(max-width:920px){.fgrid{grid-template-columns:1fr 1fr}}
 
 /* impact stats */
@@ -90,7 +127,24 @@ b,strong{color:var(--ink);font-weight:700}
 .stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:2.4vh 1.2vw;text-align:left}
 .stat .big{font-family:var(--serif);font-weight:600;font-size:clamp(30px,4vw,54px);line-height:.95;color:var(--teal)}
 .stat .lbl{font-size:clamp(12px,1.15vw,15px);color:var(--ink-soft);margin-top:9px;line-height:1.35}
+.stats.three{grid-template-columns:repeat(3,1fr)}
+.closeask{display:flex;align-items:baseline;gap:13px;flex-wrap:wrap;margin-top:2.8vh;font-size:clamp(14px,1.5vw,20px);line-height:1.4;color:var(--ink-soft)}
+.closeask .ask-lab{font-family:var(--mono);font-size:.64em;text-transform:uppercase;letter-spacing:.1em;font-weight:600;color:var(--crimson);flex:none}
+.closeask b{color:var(--ink)}
 @media(max-width:920px){.stats{grid-template-columns:1fr 1fr}}
+
+/* moat */
+.moatgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4vw;margin:1.6vh 0 2.8vh}
+.moat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:2.4vh 1.4vw;display:flex;flex-direction:column;gap:9px}
+.moat .mi{font-family:var(--mono);font-weight:600;color:var(--teal);font-size:clamp(13px,1.2vw,16px)}
+.moat b{font-size:clamp(15px,1.5vw,20px);line-height:1.22}
+.moat span:last-child{font-size:clamp(12.5px,1.2vw,16px);line-height:1.42;color:var(--ink-soft)}
+.foundernote{display:flex;align-items:baseline;gap:13px;flex-wrap:wrap;padding:1.9vh 1.7vw;border-radius:12px;
+  background:linear-gradient(120deg,color-mix(in srgb,var(--teal) 11%,var(--paper-2)),var(--paper-2));
+  border:1px solid color-mix(in srgb,var(--teal) 22%,transparent);font-size:clamp(14px,1.5vw,20px);color:var(--ink-soft)}
+.foundernote .fn-lab{font-family:var(--mono);font-size:.64em;text-transform:uppercase;letter-spacing:.1em;font-weight:600;color:var(--teal);flex:none}
+.foundernote b{color:var(--ink)}
+@media(max-width:920px){.moatgrid{grid-template-columns:1fr}}
 
 /* persistent chrome */
 .chrome{position:fixed;z-index:20;pointer-events:none}
@@ -121,27 +175,37 @@ b,strong{color:var(--ink);font-weight:700}
       <h1 class="brand">Grant<span class="dot">·</span>board</h1>
       <div class="sub">A grant-fit copilot for scientists</div>
     </div>
-    <p class="title-line">Upload your <b>CV</b> and your <b>research aim</b> → a ranked, evidence-backed grant shortlist with <b class="teal">eligibility checks</b>, <b class="teal">competitiveness signals</b>, and an <b class="teal">application plan</b>.</p>
+    <p class="title-line">Scientists spend <b>100+ hours</b> per proposal — and routinely chase grants they turn out to be <b class="crim">ineligible</b> for. Grantboard reads your <b>CV</b> and returns only the funding you can actually <b class="teal">win</b> — ranked, reasoned, and ready to apply.</p>
     <div class="title-foot">
-      <div><b>Development Track</b> · AI + computational oncology / blood cancer</div>
+      <div><b>Built by an [redacted] computational-oncology postdoc</b> — for my own transition to independence</div>
       <div class="mono">Built with Claude Code</div>
     </div>
   </section>
 
   <!-- ============ SLIDE 2 — PROBLEM & THESIS ============ -->
-  <section class="slide" data-notes="Scientists lose weeks to this, and it's high-stakes — miss a deadline or misjudge eligibility and you wait a whole year. The core issue: a search engine can't read your CV, and it definitely can't read a dense federal eligibility clause. Most grant tools stop at 'here's a list.' Our thesis is different: don't just find grants — tell a scientist whether they're competitive, why, and what to fix. And the way we do that safely is the architecture insight at the bottom: deterministic rules decide eligibility — auditable, and impossible to hallucinate — while Claude provides the judgment on top.">
+  <section class="slide" data-notes="Here's the stakes: over fifty billion dollars in U.S. federal research grants every year — and a scientist has no reliable way to see which ones they can actually win. It costs a hundred-plus hours to write a single proposal, and a huge share of that effort goes to grants the applicant was never even eligible for. Why? A search engine can't read your CV, and it definitely can't read a forty-page eligibility clause. And the stakes are brutal: miss the fit and you don't just lose the grant, you lose a whole year to the next cycle. So the thesis: don't just find grants — tell a scientist whether they can win, why, and what to fix.">
     <div class="kicker">The problem</div>
-    <h2 class="head">Finding funding shouldn't<br/>take weeks.</h2>
+    <div class="megastat"><span class="mn">$50B+<span class="mnu"> / year</span></span><span class="ml">in U.S. federal research grants — and scientists have <b>no reliable way</b> to see which ones they're eligible to <b>win</b>.</span></div>
     <ul class="problist">
-      <li><span class="x">✕</span><span>Scientists burn <b>weeks</b> hunting grants — many they turn out to be <b>ineligible</b> for.</span></li>
-      <li><span class="x">✕</span><span>Search engines <b>can't read a CV</b> — or a dense federal <b>eligibility clause</b>.</span></li>
-      <li><span class="x">✕</span><span>Most tools <b>stop at "search."</b> They don't tell you if you can actually win.</span></li>
+      <li><span class="x">✕</span><span><b>100+ hours</b> per proposal — much of it spent on grants the applicant was <b>never eligible</b> for.</span></li>
+      <li><span class="x">✕</span><span>Search engines <b>can't read a CV</b> — or a 40-page federal <b>eligibility clause</b>.</span></li>
+      <li><span class="x">✕</span><span>Miss the fit and you don't just lose the grant — you lose <b>a year</b> to the next cycle.</span></li>
     </ul>
-    <div class="pull">Don't just <span class="crim">find</span> grants — tell a scientist whether they're <span class="teal">competitive</span>, why, and what to fix.</div>
+    <div class="pull">Don't just <span class="crim">find</span> grants — tell a scientist whether they can <span class="teal">win</span>, why, and what to fix.</div>
+  </section>
+
+  <!-- ============ SLIDE — WHY NOW ============ -->
+  <section class="slide" data-notes="Why now — because this was impossible eighteen months ago. Two things just changed. One: language models finally got good enough to read a messy two-column CV and a forty-page federal funding announcement in the same breath — that's exactly the unstructured-text problem that killed every prior grant tool. Two: the data opened up — Grants.gov and NIH RePORTER both expose APIs now, so live opportunities and real awards are queryable. That timing unlocks the core idea: let deterministic rules decide eligibility — auditable, impossible to hallucinate — and let Claude do the judgment. Rules plus Claude. That split is the whole product, and it only became possible now.">
+    <div class="kicker">Why now</div>
+    <h2 class="head">Impossible 18 months ago.</h2>
+    <div class="whynow">
+      <div class="wn"><span class="wnn">01</span><span><b>Claude can finally read the unstructured stuff</b> — a two-column CV and a 40-page federal FOA in one pass. That's the exact problem that broke every prior grant tool.</span></div>
+      <div class="wn"><span class="wnn">02</span><span><b>The data opened up</b> — Grants.gov and NIH RePORTER now expose APIs, so live opportunities and real awards are queryable.</span></div>
+    </div>
     <div class="insight">
-      <div class="half rules"><span class="lab">Eligibility</span><b>Deterministic rules</b> — auditable, and impossible to hallucinate.</div>
+      <div class="half rules"><span class="lab">The unlock</span><b>Deterministic rules</b> decide eligibility — auditable, impossible to hallucinate.</div>
       <div class="plus">+</div>
-      <div class="half claude"><span class="lab">Fit &amp; strategy</span><b>Claude</b> — reads your CV, ranks with reasons, and explains.</div>
+      <div class="half claude"><span class="lab">Newly possible</span><b>Claude</b> reads your CV, ranks with reasons, and explains.</div>
     </div>
   </section>
 
@@ -167,18 +231,38 @@ b,strong{color:var(--ink);font-weight:700}
     </div>
   </section>
 
+  <!-- ============ SLIDE — PROOF / IT WORKS ============ -->
+  <section class="slide" data-notes="And it works — here's my own CV, run live. Seventy-three matches I'm actually eligible for, each ranked with a cited reason. This card is the money shot: eighty-eight out of a hundred Claude fit, and the callout tells me exactly why this fellowship suits me — my NK/T-cell lymphoma work, my career stage — in plain language, grounded in my real record. On the right: the eligibility engine did the gatekeeping — seventy-three open to me, twenty-five it ruled out and told me why. The reasoning for the demo is precomputed so it's instant on stage; a live session costs about fifteen cents.">
+    <div class="kicker">It works — my own CV, live</div>
+    <h2 class="head" style="font-size:clamp(25px,3.5vw,46px);margin-bottom:2.4vh">73 grants I can actually win —<br/>each with a reason.</h2>
+    <div class="proof-wrap">
+      <div class="mockcard">
+        <div class="mc-score"><div class="mc-pct">88<span>/100</span></div><div class="mc-lbl">Claude fit</div></div>
+        <div class="mc-title">Hope Funds for Cancer Research Postdoctoral Fellowship</div>
+        <div class="mc-funder"><span class="mc-badge">Foundation</span> The Hope Funds for Cancer Research</div>
+        <div class="mc-tags"><span>blood cancer/hematology</span><span>AI/computational</span></div>
+        <div class="mc-why"><div class="mc-wh"><span class="mc-chip">✦ Claude fit</span> why this suits you</div>
+          <p>A direct match for your NK/T-cell lymphoma work — the fellowship explicitly funds rare blood cancers, and the 3-year postdoctoral award is ideally timed for your transition to independence.</p></div>
+        <div class="mc-meta"><span><b>Award</b> $56–62k/yr · 3&nbsp;yrs</span><span><b>Deadline</b> Sep 24 · 74d</span></div>
+      </div>
+      <div class="proof-stats">
+        <div class="pstat"><span class="pn">73</span><span class="pl">grants I'm <b>eligible</b> for — <b>25</b> ruled out, each with the reason.</span></div>
+        <div class="pstat"><span class="pn">100%</span><span class="pl">of cards carry a cited "<b>why this suits you</b>," grounded in the CV.</span></div>
+        <div class="pstat"><span class="pn">~15¢</span><span class="pl">per live session · precomputed reasoning = <b>instant</b>, works offline.</span></div>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ SLIDE 4 — WHY BUILT-WITH-CLAUDE ============ -->
   <section class="slide" data-notes="This is where it earns 'Built with Claude.' We use Claude for structured reasoning, not a chatbot. It turns a CV into strict JSON. It re-ranks grants and cites your actual work against the grant's actual text. It reads messy federal eligibility prose and quotes the clause it relied on. It pulls the competitive landscape from real NIH-funded awards — and the collaborators it suggests are real principal investigators from those awards, never invented. Now the trust line, which is the whole game for a funding tool: Claude never authors a deadline, an amount, or an eligibility verdict — those always come from source data. Rules decide eligibility; Claude explains. And on the plumbing: it's a single static HTML file plus a fifty-line Cloudflare Worker — or it runs entirely on your Claude subscription through Claude Code. We even precompute the reasoning so the demo is instant.">
     <div class="kicker">Why it's a Built-with-Claude project</div>
     <h2 class="head" style="font-size:clamp(28px,3.9vw,52px);margin-bottom:2vh">Claude as the engine,<br/>not a chatbot.</h2>
     <div class="fgrid">
-      <div class="feat"><div class="fh"><span class="m">✦</span>CV → structured profile</div><div class="fs">Any field's CV becomes strict JSON — research areas, methods, career stage, eligibility signals.</div></div>
-      <div class="feat"><div class="fh"><span class="m">✦</span>Grounded re-ranking</div><div class="fs">Cites your CV against the grant text. Never invents a grant, deadline, or amount.</div></div>
-      <div class="feat"><div class="fh"><span class="m">✦</span>Reads eligibility prose</div><div class="fs">"Can I apply?" — a verdict plus the exact clause it quoted from the FOA.</div></div>
-      <div class="feat"><div class="fh"><span class="m">✦</span>Competitive landscape</div><div class="fs">Real NIH-funded projects (RePORTER) — collaborators are real PIs, not invented.</div></div>
-      <div class="feat"><div class="fh"><span class="m">✦</span>Application strategy</div><div class="fs">Streamed pitch angle and a specific-aims skeleton grounded in your own record.</div></div>
-      <div class="feat"><div class="fh"><span class="m mono" style="background:var(--ink)">⚙</span>Ships anywhere</div><div class="fs">One static file + a ~50-line Worker — or runs on your Claude subscription via Claude Code.</div></div>
+      <div class="feat"><div class="fh"><span class="m">✦</span>Reads any CV → JSON</div><div class="fs">Turns a messy CV into a strict structured profile that configures the entire dashboard.</div></div>
+      <div class="feat"><div class="fh"><span class="m">✦</span>Ranks with citations</div><div class="fs">Every match cites your CV against the grant — and never invents a grant, deadline, or amount.</div></div>
+      <div class="feat"><div class="fh"><span class="m">✦</span>Reads the fine print</div><div class="fs">"Can I apply?" — a verdict plus the exact eligibility clause it quoted from the 40-page FOA.</div></div>
     </div>
+    <div class="andmore">…and a <b>competitive landscape</b> from real NIH-funded awards, plus a drafted <b>specific-aims skeleton</b>.</div>
     <div class="trust">
       <span class="ti"><b>Eligibility</b> deterministic rules</span>
       <span class="ti"><b>Fit</b> Claude judgment</span>
@@ -187,22 +271,29 @@ b,strong{color:var(--ink);font-weight:700}
     </div>
   </section>
 
+  <!-- ============ SLIDE — MOAT ============ -->
+  <section class="slide" data-notes="Why is this hard to copy? Three things. First, the moat is the verified corpus — 268 foundation and society programs web-verified to 2026-27, plus 165 audited eligibility rulings. That's slow, unglamorous data work a weekend clone won't do. Second, trust is architectural, not a prompt: deterministic rules decide eligibility and Claude never authors a funding fact — a 'just wrap an LLM' competitor will hallucinate a deadline; ours structurally can't. Third, it compounds — every profile precomputes reasoning, and the corpus and cache only deepen with use. And the unfair advantage: I'm a computational-oncology scientist building the tool I need — founder-market fit you can't fake.">
+    <div class="kicker">Why it's hard to copy</div>
+    <h2 class="head">The moat is the verified corpus.</h2>
+    <div class="moatgrid">
+      <div class="moat"><span class="mi">01</span><b>A verified eligibility corpus</b><span>268 programs web-verified to 2026–27 + 165 audited eligibility rulings — slow, unglamorous data a weekend clone won't build.</span></div>
+      <div class="moat"><span class="mi">02</span><b>Trust is architectural, not a prompt</b><span>Rules decide eligibility; Claude never authors a funding fact. A "wrap an LLM" clone hallucinates a deadline — ours structurally can't.</span></div>
+      <div class="moat"><span class="mi">03</span><b>It compounds with use</b><span>Every profile precomputes reasoning; the corpus and reasoning cache deepen over time.</span></div>
+    </div>
+    <div class="foundernote"><span class="fn-lab">Unfair advantage</span><span>Built by a <b>computational-oncology scientist for their own job hunt</b> — founder-market fit you can't fake.</span></div>
+  </section>
+
   <!-- ============ SLIDE 5 — IMPACT & CLOSE ============ -->
   <section class="slide" data-notes="To land it: this runs on real 2026 data — live Grants.gov, 268 curated programs web-verified to 2026-27, and real NIH RePORTER awards. Because Claude parses any CV, it generalizes beyond my niche — a neuroscientist or a plant biologist gets real matches too. The impact is simple: it turns weeks of anxious searching into minutes, and it gives scientists eligibility they can actually trust. So the one line I'd leave you with: Grantboard doesn't just find grants — it tells you whether you can win, why, and what to fix. Thank you — happy to demo it live.">
-    <div class="kicker">Impact</div>
-    <h2 class="head" style="font-size:clamp(28px,4vw,54px)">Trustworthy funding intelligence —<br/>for any scientist.</h2>
-    <div class="stats">
-      <div class="stat"><div class="big">Live</div><div class="lbl">Grants.gov federal, queried in real time (NIH · NSF · DOD · ARPA-H)</div></div>
-      <div class="stat"><div class="big">268</div><div class="lbl">curated foundation / society programs, web-verified to 2026-27</div></div>
-      <div class="stat"><div class="big">Any&nbsp;CV</div><div class="lbl">Claude parses any field — not just oncology</div></div>
-      <div class="stat"><div class="big">Weeks<span style="font-size:.5em;color:var(--ink-faint)"> → </span>min</div><div class="lbl">and eligibility you can actually trust</div></div>
+    <div class="kicker">The vision &amp; the ask</div>
+    <h2 class="head">Every scientist deserves a<br/>fundraising strategist.</h2>
+    <div class="stats three">
+      <div class="stat"><div class="big">Live</div><div class="lbl">real 2026 data — Grants.gov + 268 web-verified programs + NIH RePORTER</div></div>
+      <div class="stat"><div class="big">Any&nbsp;CV</div><div class="lbl">tuned for hem–onc today; generalizes to every field of science</div></div>
+      <div class="stat"><div class="big">~15¢</div><div class="lbl">a strategist for the price of a coffee — not a $500 consultant</div></div>
     </div>
-    <div class="pull" style="margin-top:2vh">It doesn't just <span class="crim">find</span> grants — it tells you whether you can <span class="teal">win</span>, why, and what to fix.</div>
-    <div class="row" style="margin-top:3vh">
-      <span class="chip"><span class="d" style="background:var(--teal)"></span>Built with Claude Code</span>
-      <span class="chip"><span class="d" style="background:var(--amber)"></span>Deterministic guardrails + Claude judgment</span>
-      <span class="chip"><span class="d" style="background:var(--crimson)"></span>Grounded — no hallucinated funding facts</span>
-    </div>
+    <div class="pull" style="margin-top:2vh">Grantboard reads your record, surfaces only what you can <span class="teal">win</span>, and tells you <span class="teal">how</span>.</div>
+    <div class="closeask"><span class="ask-lab">The ask</span><span>Try the <b>live demo</b> — and I'm looking for <b>early users + a collaborator</b> to take it across every field of science. <span class="mono" style="color:var(--ink-faint)">Built with Claude Code.</span></span></div>
   </section>
 
 </div>
