@@ -11,13 +11,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <style>
 :root{
-  --paper:#f4f0e7; --paper-2:#faf7f0; --card:#fffdf8; --ink:#1b1a16; --ink-soft:#514d43;
-  --ink-faint:#8a8477; --line:#e2dccc; --line-strong:#cfc7b2;
-  --teal:#0f5f5c; --teal-bright:#12817b; --teal-wash:#e6efec;
-  --crimson:#a4243b; --crimson-wash:#f6e7e6; --amber:#b26a1f; --amber-wash:#f6ecd9;
-  --green:#3f6f3a; --green-wash:#e8efdf;
-  --shadow:0 1px 2px rgba(40,34,20,.05), 0 8px 26px -14px rgba(40,34,20,.22);
-  --shadow-lg:0 24px 60px -30px rgba(40,34,20,.42);
+  /* v1 — calm research workspace (revert: cp design_style/index.template.v0.html …) */
+  --paper:#f7f8f5; --paper-2:#fbfcfa; --card:#ffffff; --ink:#20231f; --ink-soft:#5c6258;
+  --ink-faint:#8a9185; --line:#e1e6dc; --line-strong:#cbd4c5;
+  --teal:#2f766d; --teal-bright:#348b80; --teal-wash:#edf6f3;
+  --crimson:#a44a5b; --crimson-wash:#f8ecef; --amber:#9a6a2f; --amber-wash:#f7f0e3;
+  --green:#557a4b; --green-wash:#eef5ea;
+  --shadow:0 1px 2px rgba(30,40,30,.04), 0 4px 14px -10px rgba(30,40,30,.13);
+  --shadow-lg:0 16px 40px -26px rgba(30,40,30,.26);
   --serif:'Fraunces',Georgia,'Times New Roman',serif;
   --sans:'IBM Plex Sans',system-ui,-apple-system,sans-serif;
   --mono:'IBM Plex Mono',ui-monospace,'SF Mono',Menlo,monospace;
@@ -36,8 +37,6 @@ html{scroll-behavior:smooth}
 body{
   margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
   font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;
-  background-image:radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--ink) 5%, transparent) 1px, transparent 0);
-  background-size:22px 22px;
 }
 a{color:inherit}
 button{font-family:inherit;cursor:pointer}
@@ -46,7 +45,7 @@ button{font-family:inherit;cursor:pointer}
 
 /* ---------- Masthead ---------- */
 .masthead{
-  border-bottom:3px double var(--ink);background:var(--paper-2);
+  border-bottom:1px solid var(--line);background:var(--paper-2);
   position:sticky;top:0;z-index:40;backdrop-filter:blur(6px);
 }
 .masthead-inner{max-width:1360px;margin:0 auto;padding:14px 26px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
@@ -88,6 +87,7 @@ button{font-family:inherit;cursor:pointer}
 .echip.blk{background:var(--crimson-wash);color:var(--crimson)}
 .echip.warn{background:var(--amber-wash);color:var(--amber)}
 .echip.win{background:var(--green-wash);color:var(--green)}
+.gc-elig{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
 .gcard.inelig{opacity:.62}
 .gcard.inelig:hover{opacity:1}
 
@@ -179,12 +179,12 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
 @keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}
 
 /* card */
-.feed{display:flex;flex-direction:column;gap:14px}
-.gcard{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);overflow:hidden;transition:.18s;animation:rise .5s both}
-.gcard:hover{border-color:var(--line-strong);box-shadow:var(--shadow-lg);transform:translateY(-2px)}
+.feed{display:flex;flex-direction:column;gap:16px}
+.gcard{background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);overflow:hidden;transition:.16s;animation:rise .4s both}
+.gcard:hover{border-color:var(--line-strong);box-shadow:var(--shadow)}
 @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-.gc-main{padding:16px 18px;display:grid;grid-template-columns:1fr auto;gap:16px}
-.gc-title{font-family:var(--serif);font-size:19px;font-weight:600;line-height:1.28;letter-spacing:-.01em;margin:0 0 6px}
+.gc-main{padding:18px 20px;display:grid;grid-template-columns:1fr auto;gap:18px}
+.gc-title{font-family:var(--sans);font-size:17.5px;font-weight:600;line-height:1.34;letter-spacing:-.005em;margin:0 0 6px}
 .gc-title a{text-decoration:none}
 .gc-title a:hover{color:var(--teal);text-decoration:underline;text-underline-offset:3px}
 .gc-funder{font-size:14.5px;color:var(--ink-soft);display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:10px}
@@ -233,11 +233,11 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
 /* right rail of card: score + actions */
 .gc-side{display:flex;flex-direction:column;align-items:flex-end;gap:12px;min-width:118px}
 .score{text-align:right}
-.score .pct{font-family:var(--serif);font-size:31px;font-weight:600;line-height:1;color:var(--teal)}
+.score .pct{font-family:var(--serif);font-size:26px;font-weight:600;line-height:1;color:var(--teal)}
 .score .pct.low{color:var(--ink-faint)}
 .score .lbl{font-size:11.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-faint);margin-top:2px}
-.meter{width:104px;height:5px;border-radius:3px;background:var(--line);overflow:hidden;margin-top:7px}
-.meter>i{display:block;height:100%;background:linear-gradient(90deg,var(--teal),var(--teal-bright));border-radius:3px}
+.meter{width:84px;height:4px;border-radius:3px;background:var(--line);overflow:hidden;margin-top:7px}
+.meter>i{display:block;height:100%;background:var(--teal);border-radius:3px;opacity:.85}
 .gc-actions{display:flex;flex-direction:column;gap:7px;width:100%}
 .act{font-size:14px;font-weight:600;padding:8px 10px;border-radius:8px;text-align:center;text-decoration:none;transition:.14s;border:1px solid transparent;display:flex;align-items:center;justify-content:center;gap:6px}
 .act.primary{background:var(--ink);color:var(--paper-2)}
@@ -1191,22 +1191,22 @@ function eligibility(g){
   // awards for finishing PhD students — not for someone who graduated years ago
   if(requiresCompletingPhD(g) && ys!=null && ys>=1){ blocked=true; flags.push({t:"blk",x:"For finishing PhD students"}); }
   if(req==="citizen-only"){
-    if(cit==="non-us"||cit==="pending"){blocked=true;blockedCitizenship=true;flags.push({t:"blk",x:"U.S. citizens only"});}
+    if(cit==="non-us"||cit==="pending"){blocked=true;blockedCitizenship=true;flags.push({t:"blk",x:"Needs U.S. citizenship"});}
   }else if(req==="restricted"){
-    if(cit==="pending"){gated=true;flags.push({t:"gc",x:"Permanent residence unlocks"+(state.prMonth?" ~"+state.prMonth:"")});}
-    else if(cit==="non-us"){blocked=true;blockedCitizenship=true;flags.push({t:"blk",x:"Needs citizen / PR"});}
+    if(cit==="pending"){gated=true;flags.push({t:"gc",x:"Future target · unlocks with PR"+(state.prMonth?" ~"+state.prMonth:"")});}
+    else if(cit==="non-us"){blocked=true;blockedCitizenship=true;flags.push({t:"blk",x:"Needs PR / citizenship"});}
   }
   if(win!=null && ys!=null){
-    if(ys>win){windowExceeded=true;flags.push({t:"warn",x:`past ${fmtWindow(win)} post-PhD window`});}
+    if(ys>win){windowExceeded=true;flags.push({t:"warn",x:`Verify timing · past ${fmtWindow(win)} window`});}
     else flags.push({t:"win",x:`≤${fmtWindow(win)} window ✓`});
   }
   // baked eligibility-audit verdict (authoritative per the applicant profile)
-  const AL={md_physician_only:"MD / physician-scientist only",finishing_phd_student_only:"For finishing PhD students",nationality_restricted:"Nationality-restricted",faculty_or_independent_required:"Requires faculty position",us_citizen_only:"U.S. citizens only",other:"Not eligible — see details"};
+  const AL={md_physician_only:"MD / physician-scientist only",finishing_phd_student_only:"For finishing PhD students",nationality_restricted:"Nationality-restricted",faculty_or_independent_required:"Future target · faculty stage",us_citizen_only:"Needs U.S. citizenship",other:"Not currently eligible"};
   const ac=g.auditCode, isFacultyStage=/faculty|established/.test(mine);
   let facultyBlocked=false;
-  if(ac==="past_time_window"){ if(!windowExceeded){windowExceeded=true;flags.push({t:"warn",x:"past post-PhD window"});} }
-  else if(ac==="us_citizen_only"){ if(cit!=="us"){blocked=true;blockedCitizenship=true;if(!flags.some(f=>f.x==="U.S. citizens only"))flags.push({t:"blk",x:"U.S. citizens only"});} }
-  else if(ac==="faculty_or_independent_required"){ if(!isFacultyStage){facultyBlocked=true;flags.push({t:"blk",x:"Requires faculty position"});} }
+  if(ac==="past_time_window"){ if(!windowExceeded){windowExceeded=true;flags.push({t:"warn",x:"Verify timing · past window"});} }
+  else if(ac==="us_citizen_only"){ if(cit!=="us"){blocked=true;blockedCitizenship=true;if(!flags.some(f=>f.x==="Needs U.S. citizenship"))flags.push({t:"blk",x:"Needs U.S. citizenship"});} }
+  else if(ac==="faculty_or_independent_required"){ if(!isFacultyStage){facultyBlocked=true;flags.push({t:"warn",x:"Future target · faculty stage"});} }
   else if(ac){ if(!flags.some(f=>f.x===AL[ac])){blocked=true;flags.push({t:"blk",x:AL[ac]||AL.other});} }
   return {blocked,blockedCitizenship,facultyBlocked,gated,windowExceeded,win,req,flags,auditReason:g.auditReason};
 }
@@ -1567,7 +1567,7 @@ function cardHTML(g,maxScore,idx,showFit){
     <div class="gc-main">
       <div class="gc-body">
         <h3 class="gc-title"><a href="${esc(bestUrl(g))}" target="_blank" rel="noopener">${esc(g.name)}</a></h3>
-        <div class="gc-funder">${badge}<strong>${esc(g.funder)}</strong>${g.number?`<span class="mono" style="color:var(--ink-faint)">· ${esc(g.number)}</span>`:""}${echips}${confChip}</div>
+        <div class="gc-funder">${badge}<strong>${esc(g.funder)}</strong>${g.number?`<span class="mono" style="color:var(--ink-faint)">· ${esc(g.number)}</span>`:""}${confChip}</div>
         <div class="tags">${tags}</div>
         ${why}
         <div class="gc-meta">
@@ -1575,6 +1575,7 @@ function cardHTML(g,maxScore,idx,showFit){
           <div class="m"><div class="k">Deadline</div><div class="v">${deadlineChip(g)}</div></div>
           ${g.careerStages&&g.careerStages.length?`<div class="m"><div class="k">Stage</div><div class="v" style="font-family:var(--sans);font-weight:600;font-size:14px">${esc(g.careerStages.join(", "))}</div></div>`:""}
         </div>
+        ${echips?`<div class="gc-elig">${echips}</div>`:""}
         ${g.description?`<p class="gc-desc clamp">${esc(g.description)}</p>`:(g._live?`<p class="gc-desc" style="color:var(--ink-faint);font-style:italic">Federal opportunity — expand for full synopsis.</p>`:"")}
         ${expand}
         ${showFit?suggestFor(g):""}
