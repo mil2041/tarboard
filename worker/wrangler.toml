@@ -1,0 +1,16 @@
+name = "grantboard-claude"
+main = "worker.js"
+compatibility_date = "2024-11-01"
+
+# Optional shared token the page sends as x-demo-token (set with: wrangler secret put DEMO_TOKEN)
+# and an exact origin to allow in addition to file:// ("null").
+[vars]
+ALLOW_ORIGIN = "*"
+# DEMO_TOKEN is better set as a secret; ALLOW_ORIGIN can be pinned to your Pages/host URL for the demo.
+
+# To enable the per-IP daily cap, create a KV namespace and bind it as RATE_KV:
+#   npx wrangler kv namespace create RATE_KV
+# then uncomment and paste the id:
+# [[kv_namespaces]]
+# binding = "RATE_KV"
+# id = "xxxxxxxxxxxxxxxxxxxxxxxx"

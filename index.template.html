@@ -278,6 +278,39 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
 .exportbtn{font-size:14px;font-weight:600;padding:8px 12px;border-radius:9px;border:1px solid var(--line-strong);background:var(--card);color:var(--ink-soft);display:inline-flex;align-items:center;gap:6px}
 .exportbtn:hover{border-color:var(--teal);color:var(--teal)}
 .exportbtn svg{width:14px;height:14px}
+
+/* ---------- Claude layer ---------- */
+.mk.claude{background:linear-gradient(90deg,var(--teal),var(--teal-bright));color:var(--paper-2)}
+.badge.b-claude{background:linear-gradient(90deg,var(--teal),var(--teal-bright));color:var(--paper-2)}
+.gc-why .claudew{color:var(--ink-soft)}
+.claude-brief-btn{width:100%;margin-top:9px;background:var(--teal);color:var(--paper-2);border:none;border-radius:8px;padding:9px 10px;font-size:14px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;gap:6px;box-shadow:0 4px 14px -8px var(--teal);transition:.15s}
+.claude-brief-btn:hover{background:var(--teal-bright)}
+.claude-brief-btn:disabled{opacity:.7;cursor:wait}
+.claude-brief{font-size:14.5px;line-height:1.55;color:var(--ink);margin-top:9px;white-space:pre-wrap}
+.claude-brief:empty{display:none}
+.cursor{display:inline-block;width:7px;height:15px;background:var(--teal);vertical-align:text-bottom;animation:blink 1s steps(2) infinite;border-radius:1px}
+@keyframes blink{50%{opacity:0}}
+.claude-elig{margin-top:8px;font-size:14px}
+.elig-verdict{display:flex;align-items:center;gap:8px;margin-bottom:4px;flex-wrap:wrap}
+.src-label{font-size:12px;color:var(--ink-faint);font-style:italic}
+.quoted{border-left:3px solid var(--teal);padding:2px 0 2px 10px;color:var(--ink-soft);font-style:italic;margin:6px 0}
+.echip.conf-high{background:var(--green-wash);color:var(--green)}
+.echip.conf-med{background:var(--amber-wash);color:var(--amber)}
+.echip.conf-low{background:var(--paper-2);color:var(--ink-faint);border:1px solid var(--line-strong)}
+/* config modal */
+.cfg-modal{position:fixed;inset:0;background:rgba(20,17,10,.55);display:flex;align-items:center;justify-content:center;z-index:80;padding:20px}
+.cfg-modal[hidden]{display:none}
+.cfg-card{background:var(--card);border:1px solid var(--line-strong);border-radius:16px;max-width:460px;width:100%;padding:22px;box-shadow:var(--shadow-lg)}
+.cfg-card h3{font-family:var(--serif);font-size:22px;margin:0 0 6px}
+.cfg-card>p{font-size:14px;color:var(--ink-soft);margin:0 0 6px;line-height:1.5}
+.cfg-card label{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-faint);font-weight:600;margin:10px 0 4px}
+.cfg-card input{width:100%}
+.cfg-or{text-align:center;font-size:12px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.08em;margin:14px 0 2px}
+.cfg-actions{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.cfg-primary{background:var(--teal);color:var(--paper-2);border:none;border-radius:9px;padding:10px 16px;font-weight:700}
+.cfg-ghost{background:var(--paper-2);border:1px solid var(--line-strong);border-radius:9px;padding:10px 14px;color:var(--ink-soft);font-weight:600}
+.cfg-status{margin-top:10px;font-size:13px;color:var(--teal);font-weight:600;min-height:16px}
+.domain-banner{background:var(--amber-wash);color:var(--amber);border:1px solid color-mix(in srgb,var(--amber) 35%,transparent);border-radius:10px;padding:9px 12px;font-size:14px;font-weight:600;margin-bottom:14px}
 </style>
 </head>
 <body>
@@ -291,6 +324,9 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
     <div class="masthead-spacer"></div>
     <div class="masthead-meta">
       <div class="datestamp" id="datestamp">—</div>
+      <button class="iconbtn" id="cfgBtn" title="Connect Claude" aria-label="Connect Claude">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      </button>
       <button class="iconbtn" id="themeBtn" title="Toggle theme" aria-label="Toggle light/dark">
         <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"/></svg>
       </button>
@@ -424,6 +460,7 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
         </div>
         <select class="sortsel" id="sortSel" title="Sort">
           <option value="deadline" selected>Sort: Deadline (soonest)</option>
+          <option value="claude">Sort: Claude fit ✦</option>
           <option value="relevance">Sort: Best match</option>
           <option value="amount">Sort: Award size</option>
           <option value="funder">Sort: Funder A–Z</option>
@@ -444,7 +481,28 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
 
 <footer class="foot">
   <p><b>Grantboard</b> matches your CV and research topics against U.S. funding opportunities. Federal opportunities (NIH, NSF, DOD/CDMRP, ARPA-H) are searched <b>live from the official Grants.gov API</b>. Foundation, society &amp; industry programs come from a curated database plus the <b>Johns Hopkins Research Development</b> cancer/oncology opportunity lists. <b>Always verify current deadlines, amounts &amp; eligibility on the funder's own page before applying</b> — figures shown are best-effort and change frequently. Not affiliated with any funder. Data snapshot compiled 2026.</p>
+  <p style="margin-top:7px"><b>How it works:</b> a deterministic engine decides eligibility (rules — auditable, never hallucinated); <b>Claude</b> reads your CV, re-ranks matches with reasons, and drafts fit briefs. Connect Claude with the ⚙ button. Built with Claude Code.</p>
 </footer>
+
+<div class="cfg-modal" id="cfgModal" hidden>
+  <div class="cfg-card">
+    <h3>Connect Claude</h3>
+    <p>Grantboard reads your CV, re-ranks matches and drafts fit briefs with <b>Claude</b>. Point it at your Cloudflare Worker proxy (recommended — see <span class="mono">worker/README.md</span>), or paste an API key for local testing only.</p>
+    <label>Worker URL</label>
+    <input type="text" id="cfgWorker" placeholder="https://grantboard-claude.you.workers.dev" autocomplete="off" spellcheck="false" />
+    <label>Demo token (optional)</label>
+    <input type="text" id="cfgToken" placeholder="x-demo-token, if you set one" autocomplete="off" spellcheck="false" />
+    <div class="cfg-or">— or, local dev only —</div>
+    <label>Anthropic API key (stays in this browser)</label>
+    <input type="password" id="cfgKey" placeholder="sk-ant-…" autocomplete="off" />
+    <div class="cfg-actions">
+      <button class="cfg-primary" id="cfgSave">Save &amp; test</button>
+      <button class="cfg-ghost" id="cfgClear">Disconnect</button>
+      <button class="cfg-ghost" id="cfgClose">Close</button>
+    </div>
+    <div class="cfg-status" id="cfgStatus"></div>
+  </div>
+</div>
 
 <div class="toast" id="toast"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg><span id="toastMsg"></span></div>
 
@@ -455,6 +513,7 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
 const DEMO_PROFILE = /*__DEMO__*/{};
 const CURATED_DATA = /*__CURATED__*/[];
 const JHU_DATA     = /*__JHU__*/[];
+const FEDERAL_SEED = /*__FEDSEED__*/[];   // real Grants.gov oppHits, used only if the live API is unreachable
 
 /* ============================================================
    LEXICON + focus-area vocabulary
@@ -537,7 +596,11 @@ function deadlineChip(g){
   }
   const days=Math.round((d-new Date())/864e5);
   const fmt=d.toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"});
-  if(days<0) return `<span class="dl unk" title="${esc(g.deadlineInfo||'')}">closed ${esc(fmt)}${/annual|recur|each year|next|cycle/i.test(g.deadlineInfo||"")?" · recurs":""}</span>`;
+  if(days<0){
+    const recurs=/annual|recur|each year|next|cycle/i.test(g.deadlineInfo||"");
+    if(recurs) return `<span class="dl unk" title="${esc(g.deadlineInfo||fmt)}">↻ recurs — verify next cycle</span>`;
+    return `<span class="dl unk" title="${esc(g.deadlineInfo||'')}">closed ${esc(fmt)}</span>`;
+  }
   const cls=days<=45?"soon":days<=120?"mid":"far";
   return `<span class="dl ${cls}">◷ ${esc(fmt)} · ${days}d</span>`;
 }
@@ -553,6 +616,219 @@ function parseAmount(s){
   if(s==null) return 0;
   const m=String(s).replace(/,/g,"").match(/\$?\s?([\d]{4,})/);
   return m?+m[1]:0;
+}
+function hashStr(s){let h=5381;for(let i=0;i<s.length;i++)h=((h<<5)+h+s.charCodeAt(i))|0;return (h>>>0).toString(36);}
+
+/* ============================================================
+   CLAUDE  — the analysis layer. Deterministic rules still decide
+   eligibility; Claude reads the CV, re-ranks matches with reasons,
+   drafts fit briefs, and reads federal eligibility prose.
+   Key is never in this file: calls go through a Cloudflare Worker
+   proxy (worker/), or a paste-your-own-key dev mode. Every call
+   degrades gracefully to the lexical/regex path when unavailable.
+   ============================================================ */
+const CONFIG = { workerUrl:"", demoToken:"", model:"claude-opus-4-8", fastModel:"claude-haiku-4-5" };
+function claudeCfg(){
+  let c={}; try{c=JSON.parse(localStorage.getItem("gb_claude_cfg")||"{}");}catch(e){}
+  return { workerUrl:(c.workerUrl||CONFIG.workerUrl||"").trim(),
+           demoToken:(c.demoToken||CONFIG.demoToken||"").trim(),
+           userKey:(c.userKey||"").trim() };
+}
+function saveClaudeCfg(patch){ localStorage.setItem("gb_claude_cfg",JSON.stringify({...claudeCfg(),...patch})); }
+function claudeReady(){ const c=claudeCfg(); return !!(c.workerUrl||c.userKey); }
+
+async function claudeFetch(payload,signal){
+  const c=claudeCfg();
+  if(c.workerUrl) return fetch(c.workerUrl,{method:"POST",signal,
+    headers:{"Content-Type":"application/json",...(c.demoToken?{"x-demo-token":c.demoToken}:{})},
+    body:JSON.stringify(payload)});
+  if(c.userKey) return fetch("https://api.anthropic.com/v1/messages",{method:"POST",signal,
+    headers:{"x-api-key":c.userKey,"anthropic-version":"2023-06-01","content-type":"application/json",
+             "anthropic-dangerous-direct-browser-access":"true"},
+    body:JSON.stringify(payload)});
+  throw new Error("claude-not-configured");
+}
+// Structured JSON out via forced tool use — a guaranteed-valid object, portable across models.
+async function claudeJSON({system,messages,schema,model,max_tokens=1024,timeoutMs=25000}){
+  const ac=new AbortController(); const t=setTimeout(()=>ac.abort(),timeoutMs);
+  try{
+    const r=await claudeFetch({ model:model||CONFIG.model, max_tokens, ...(system?{system}:{}), messages,
+      tools:[{name:"emit",description:"Return the structured result.",input_schema:schema}],
+      tool_choice:{type:"tool",name:"emit"} },ac.signal);
+    if(!r.ok) throw new Error("claude http "+r.status);
+    const j=await r.json();
+    const tu=(j.content||[]).find(b=>b.type==="tool_use"&&b.name==="emit");
+    if(!tu) throw new Error("no tool_use in response");
+    return tu.input;
+  } finally { clearTimeout(t); }
+}
+// Streaming text out. onToken(chunk) fires as tokens arrive; returns the full string.
+async function claudeStream({system,messages,model,max_tokens=1024,onToken}){
+  const r=await claudeFetch({model:model||CONFIG.model,max_tokens,stream:true,...(system?{system}:{}),messages});
+  if(!r.ok||!r.body) throw new Error("claude http "+(r.status||"nobody"));
+  const reader=r.body.getReader(),dec=new TextDecoder(); let buf="",full="";
+  while(true){
+    const {done,value}=await reader.read(); if(done) break;
+    buf+=dec.decode(value,{stream:true}); let i;
+    while((i=buf.indexOf("\n"))>=0){
+      const line=buf.slice(0,i); buf=buf.slice(i+1);
+      if(!line.startsWith("data:")) continue;
+      const data=line.slice(5).trim(); if(!data||data==="[DONE]") continue;
+      try{ const ev=JSON.parse(data);
+        if(ev.type==="content_block_delta"&&ev.delta&&ev.delta.type==="text_delta"){ full+=ev.delta.text; if(onToken)onToken(ev.delta.text); }
+      }catch(e){}
+    }
+  }
+  return full;
+}
+
+/* ---- shared prompt/schema material (grounded, no invention) ---- */
+const CAREER_STAGES=["PhD student","postdoc","early-career faculty","physician-scientist","established investigator"];
+const PROFILE_SCHEMA={type:"object",additionalProperties:false,
+  required:["researchAreas","techniques","focusAreas","diseaseSubtypes","careerStage","phdYear","citizenshipSignals","field","searchQueries"],
+  properties:{
+    researchAreas:{type:"array",items:{type:"string"}},
+    techniques:{type:"array",items:{type:"string"}},
+    focusAreas:{type:"array",items:{type:"string",enum:FOCUS_AREAS}},
+    diseaseSubtypes:{type:"array",items:{type:"string",enum:Object.keys(SUBTYPES)}},
+    careerStage:{type:"string",enum:CAREER_STAGES},
+    phdYear:{type:"integer",description:"4-digit year PhD completed, or 0 if not stated"},
+    citizenshipSignals:{type:"string"},
+    field:{type:"string",description:"primary scientific field in a few words"},
+    searchQueries:{type:"array",items:{type:"string"}}
+  }};
+const CV_SYSTEM="You are an expert research-development analyst extracting a structured funding profile from a scientist's CV. Use only information supported by the CV text; never invent publications, grants, or credentials. Return via the emit tool.";
+function CV_PROMPT(text){return "CV text:\n<cv>\n"+String(text).slice(0,12000)+"\n</cv>\n\nExtract the profile. focusAreas ONLY from: "+FOCUS_AREAS.join("; ")+". diseaseSubtypes ONLY from: "+Object.keys(SUBTYPES).join("; ")+" (empty if none). careerStage one of: "+CAREER_STAGES.join("; ")+". phdYear = 4-digit year PhD completed (0 if not stated). field = the applicant's primary scientific field in a few words. searchQueries = 4-6 short keyword phrases to find matching US federal grants on Grants.gov, tuned to their ACTUAL research.";}
+
+const RERANK_SCHEMA={type:"object",additionalProperties:false,required:["rankings"],properties:{
+  rankings:{type:"array",items:{type:"object",additionalProperties:false,required:["id","fitScore","why"],
+    properties:{id:{type:"string"},fitScore:{type:"integer"},why:{type:"string"}}}}}};
+const RERANK_SYSTEM="You are a grants-matching expert. Rank funding opportunities by fit to the applicant. You may ONLY reference the grant objects provided, by their exact id. Never invent grants, deadlines, amounts, or eligibility. Judge scientific topic/method alignment and career-stage fit. A grant dedicated to a disease the applicant does not study is a poor fit even if the method (AI, genomics) matches. Return via emit.";
+function RERANK_PROMPT(summary,payload){return "Applicant:\n"+summary+"\n\nGrants (JSON array):\n"+JSON.stringify(payload)+"\n\nFor EACH id above return fitScore 0-100 and why (<=18 words citing the specific reason). Demote disease-locked grants that don't match the applicant's disease area.";}
+
+const ELIG_SCHEMA={type:"object",additionalProperties:false,required:["verdict","quotedClause","note"],properties:{
+  verdict:{type:"string",enum:["eligible","gated_until_PR","ineligible","unclear"]},
+  quotedClause:{type:"string"},note:{type:"string"}}};
+const ELIG_SYSTEM="You read federal grant eligibility prose and decide whether a specific applicant can apply. Quote verbatim, in quotedClause, the exact sentence you relied on (empty if none). Never invent requirements. If citizenship/permanent residence is required and the applicant's PR is pending, use gated_until_PR.";
+function ELIG_PROMPT(text,who){return "Applicant: "+who+"\n\nOfficial eligibility text:\n<elig>\n"+String(text).slice(0,4000)+"\n</elig>\n\nCan this applicant apply? Base the verdict ONLY on the text.";}
+
+const BRIEF_SYSTEM="You are a grant strategist helping a scientist pitch to a specific funder. Cite the applicant's ACTUAL CV specifics (projects, methods, papers) where possible. Be honest about gaps. Do NOT contradict the deterministic eligibility verdict provided — the app's rules decide eligibility; you only explain research fit. Never state a deadline, amount, or eligibility status as fact. ~110 words, plain prose (no headers): 2 sentences on why they fit citing CV specifics, one suggested one-line aim, one honest watch-out.";
+function BRIEF_PROMPT(g,desc,e){
+  const flags=(e.flags||[]).map(f=>f.x).join("; ")||"no blocking flags";
+  return "Applicant CV (excerpt):\n"+String(state.cvText||"").slice(0,4000)
+    +"\nResearch topics: "+(state.topics||[]).join(", ")
+    +"\nCareer stage: "+(($("#careerStage")||{}).value||"postdoc")+"; citizenship: "+state.citizenship+(state.prMonth?(" (PR ~"+state.prMonth+")"):"")
+    +"\n\nGrant: "+(g.name||"")+" — "+(g.funder||"")+"\nGrant focus: "+((g.focusAreas||[]).join(", "))
+    +"\nGrant description: "+String(desc||"").slice(0,900)
+    +"\nDeterministic eligibility verdict (DO NOT contradict): "+flags
+    +"\n\nWrite the pitch angle.";
+}
+function profileSummary(){
+  const cs=($("#careerStage")||{}).value||"postdoc";
+  return [ state.field?("Field: "+state.field):"",
+    (state.topics||[]).length?("Topics: "+state.topics.slice(0,8).join(", ")):"",
+    state.focus.size?("Focus: "+[...state.focus].join(", ")):"",
+    (state.cvKeywords||[]).length?("Expertise: "+state.cvKeywords.slice(0,12).join(", ")):"",
+    "Career stage: "+cs, state.phdYear?("PhD "+state.phdYear):"",
+    "Citizenship: "+state.citizenship+(state.prMonth?(" (PR ~"+state.prMonth+")"):"") ].filter(Boolean).join("\n");
+}
+function claudeCheck(msg){return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> '+msg;}
+
+/* ---- CV -> structured profile (with lexicon fallback) ---- */
+async function ingestCVSmart(text,label){
+  state.cvText=text;
+  if(!claudeReady()){ ingestCV(text,label); return; }
+  const stat=$("#cvStat"); if(stat){ stat.style.display="flex"; stat.innerHTML=claudeCheck("Claude is reading your CV…"); }
+  const cached=(()=>{try{return JSON.parse(localStorage.getItem("gb_cv_"+hashStr(text))||"null");}catch(e){return null;}})();
+  try{
+    const prof=cached||await claudeJSON({model:CONFIG.model,max_tokens:1200,system:CV_SYSTEM,
+      messages:[{role:"user",content:CV_PROMPT(text)}],schema:PROFILE_SCHEMA,timeoutMs:35000});
+    try{localStorage.setItem("gb_cv_"+hashStr(text),JSON.stringify(prof));}catch(e){}
+    applyClaudeProfile(prof,label);
+  }catch(e){ ingestCV(text,label); }
+}
+function applyClaudeProfile(prof,label){
+  const kws=[...new Set([...(prof.techniques||[]),...(prof.researchAreas||[])].map(s=>String(s).trim().toLowerCase()).filter(Boolean))].slice(0,24);
+  state.cvKeywords=kws;
+  (prof.focusAreas||[]).forEach(f=>{ if(FOCUS_AREAS.includes(f)) state.focus.add(f); });
+  (prof.diseaseSubtypes||[]).forEach(s=>{ if(SUBTYPES[s]) state.subtypes.add(s); });
+  state.field=prof.field||"";
+  state.claudeQueries=(prof.searchQueries||[]).map(s=>String(s).trim().toLowerCase()).filter(Boolean).slice(0,6);
+  const oncish=/(cancer|oncolog|hematolog|leukem|lymphoma|myeloma|tumou?r|\bblood\b|immunother)/i.test((prof.field||"")+" "+(prof.focusAreas||[]).join(" "));
+  state.outOfDomain=!oncish;
+  if(prof.phdYear && +prof.phdYear>1950 && $("#phdYear")) $("#phdYear").value=prof.phdYear;
+  if(prof.careerStage && CAREER_STAGES.includes(prof.careerStage) && $("#careerStage")) $("#careerStage").value=prof.careerStage;
+  if(window.__syncElig) window.__syncElig();
+  renderFocusFilters(); renderSubtypeFilters(); renderCvKeywords();
+  const stat=$("#cvStat"); if(stat){ stat.style.display="flex";
+    stat.innerHTML=claudeCheck(esc(label)+" · Claude found "+kws.length+" expertise areas"+(state.claudeQueries.length?(" · "+state.claudeQueries.length+" federal queries"):"")); }
+  saveProfile();
+  if(state.outOfDomain) toast("CV is outside hematology/oncology — showing broader + live-federal matches");
+}
+
+/* ---- Claude re-rank of the lexical top-20 (Claude in the core loop) ---- */
+function markRerank(on){ state.rrLoading=on; if($("#srcBar")) renderSrcBar({}); }
+async function claudeRerank(tok){
+  if(!claudeReady()) return;
+  const base=eligFilter(baseFilter(state.results));
+  const top=[...base].sort((a,b)=>b._score-a._score).slice(0,20);
+  if(top.length<2) return;
+  const ids=top.map(g=>g.id), idset=new Set(ids), byId=new Map(top.map(g=>[g.id,g]));
+  const key="rr:"+hashStr(profileSummary()+"|"+ids.join(","));
+  state.rrCache=state.rrCache||{};
+  markRerank(true);
+  try{
+    let ranked=state.rrCache[key];
+    if(!ranked){
+      const payload=top.map(g=>({id:g.id,name:g.name,funder:g.funder,
+        focusAreas:(g.focusAreas||[]).join(", "),
+        amount:g.awardAmount||"",deadline:g.deadlineInfo||g.closeDate||"",
+        desc:String(g.description||g.relevanceToUser||"").slice(0,250)}));
+      const out=await claudeJSON({model:CONFIG.model,max_tokens:1600,system:RERANK_SYSTEM,
+        messages:[{role:"user",content:RERANK_PROMPT(profileSummary(),payload)}],schema:RERANK_SCHEMA,timeoutMs:35000});
+      ranked=(out.rankings||[]).filter(r=>idset.has(r.id));   // drop any invented ids
+      state.rrCache[key]=ranked;
+    }
+    if(tok!==state.searchToken) return;
+    ranked.forEach(r=>{const g=byId.get(r.id); if(g){ g._claudeScore=Math.max(0,Math.min(100,+r.fitScore||0)); g._claudeWhy=String(r.why||"").slice(0,140); }});
+    state.claudeRanked=true; state.sort="claude";
+    const ss=$("#sortSel"); if(ss) ss.value="claude";
+    render();
+  }catch(e){ /* keep lexical order */ }
+  finally{ markRerank(false); }
+}
+
+/* ---- Streamed, CV-grounded fit brief (replaces the canned ANGLE map) ---- */
+async function claudeFitBrief(g,el){
+  if(!claudeReady()){ toast("Connect Claude first (⚙ top-right)"); return; }
+  const key="fb:"+hashStr((g.id||g.name||"")+"|"+profileSummary());
+  state.fbCache=state.fbCache||{};
+  if(state.fbCache[key]){ el.textContent=state.fbCache[key]; return; }
+  el.innerHTML='<span class="cursor"></span>';
+  let desc=g.description||g.relevanceToUser||"";
+  if(g._live&&g._oppId){ try{ const d=await fetchFederalDetail(g._oppId); if(d&&d.description) desc=d.description; }catch(e){} }
+  const e=eligibility(g);
+  try{
+    el.textContent="";
+    const full=await claudeStream({model:CONFIG.model,max_tokens:420,system:BRIEF_SYSTEM,
+      messages:[{role:"user",content:BRIEF_PROMPT(g,desc,e)}], onToken:tx=>{ el.textContent+=tx; }});
+    state.fbCache[key]=full;
+  }catch(err){ el.innerHTML='<span style="color:var(--ink-faint)">Claude unavailable — the deterministic tips above still apply.</span>'; }
+}
+
+/* ---- "Can I apply?" — Claude reads federal eligibility prose ---- */
+async function claudeEligibility(text,el){
+  const who=(($("#careerStage")||{}).value||"postdoc")+", PhD year "+(state.phdYear||"unknown")+", citizenship: "+state.citizenship+(state.prMonth?(" (PR expected ~"+state.prMonth+")"):"")+", nationality "+(state.nationality||"unspecified");
+  el.innerHTML='<span class="cursor"></span>';
+  try{
+    const o=await claudeJSON({model:CONFIG.fastModel,max_tokens:600,system:ELIG_SYSTEM,
+      messages:[{role:"user",content:ELIG_PROMPT(text,who)}],schema:ELIG_SCHEMA,timeoutMs:25000});
+    const V={eligible:["✓ Likely eligible","win"],gated_until_PR:["Gated until permanent residence","gc"],ineligible:["✗ Likely ineligible","blk"],unclear:["Unclear — verify","warn"]};
+    const v=V[o.verdict]||V.unclear;
+    el.innerHTML='<div class="elig-verdict"><span class="echip '+v[1]+'">'+esc(v[0])+'</span> <span class="src-label">Claude read the synopsis</span></div>'
+      +(o.quotedClause?'<p class="quoted">“'+esc(o.quotedClause)+'”</p>':'')
+      +(o.note?'<p>'+esc(o.note)+'</p>':'');
+  }catch(e){ el.innerHTML='<span style="color:var(--crimson)">Claude unavailable — verify on the funder page.</span>'; }
 }
 
 /* ============================================================
@@ -598,6 +874,7 @@ function renderCvKeywords(){
 function saveProfile(){
   try{localStorage.setItem("gb_profile",JSON.stringify({
     cvText:state.cvText,cvKeywords:state.cvKeywords,topics:state.topics,focus:[...state.focus],subtypes:[...state.subtypes],
+    field:state.field||"",claudeQueries:state.claudeQueries||[],outOfDomain:!!state.outOfDomain,
     name:($("#applicantName")||{}).value||"",phdYear:($("#phdYear")||{}).value||"",
     citizenship:($("#citizenship")||{}).value||"any",prMonth:($("#prMonth")||{}).value||"",
     careerStage:($("#careerStage")||{}).value||"postdoc",nationality:state.nationality||""
@@ -607,6 +884,7 @@ function loadProfile(){
   let p; try{p=JSON.parse(localStorage.getItem("gb_profile")||"null");}catch(e){}
   if(!p) return;
   state.cvText=p.cvText||""; state.cvKeywords=p.cvKeywords||[]; state.topics=p.topics||[];
+  state.field=p.field||""; state.claudeQueries=p.claudeQueries||[]; state.outOfDomain=!!p.outOfDomain;
   if(p.nationality!=null) state.nationality=p.nationality;
   (p.focus||[]).forEach(f=>state.focus.add(f));
   (p.subtypes||[]).forEach(s=>state.subtypes.add(s));
@@ -642,8 +920,8 @@ async function handleFile(file){
     if(/\.pdf$/i.test(file.name)) text=await readPDF(file);
     else text=await file.text();
     if(!text.trim()) throw new Error("empty");
-    ingestCV(text,file.name);
-    toast("CV parsed — keywords extracted");
+    await ingestCVSmart(text,file.name);
+    toast(claudeReady()?"CV read by Claude":"CV parsed — keywords extracted");
   }catch(e){
     toast("Couldn't read that file — try pasting the text");
     $("#cvPaste").style.display="block";
@@ -857,17 +1135,31 @@ const FED_SEED={
 };
 function buildFederalQueries(){
   const q=[];
+  (state.claudeQueries||[]).forEach(s=>q.push(s));   // Claude-derived queries from the CV go first
   state.topics.slice(0,4).forEach(t=>q.push(t));
   state.focus.forEach(f=>(FED_SEED[f]||[]).forEach(s=>q.push(s)));
   if(!q.length) q.push("cancer research","artificial intelligence health");
   return [...new Set(q.map(x=>x.trim().toLowerCase()))].slice(0,7);
 }
 async function ggSearch(keyword){
-  const r=await fetch(GG_SEARCH,{method:"POST",headers:{"Content-Type":"text/plain"},
-    body:JSON.stringify({keyword,oppStatuses:"posted|forecasted",rows:25})});
-  if(!r.ok) throw new Error("http "+r.status);
-  const j=await r.json();
-  return (j.data&&j.data.oppHits)||[];
+  const ac=new AbortController(),tm=setTimeout(()=>ac.abort(),7000);
+  try{
+    const r=await fetch(GG_SEARCH,{method:"POST",headers:{"Content-Type":"text/plain"},
+      body:JSON.stringify({keyword,oppStatuses:"posted|forecasted",rows:25}),signal:ac.signal});
+    if(!r.ok) throw new Error("http "+r.status);
+    const j=await r.json();
+    return (j.data&&j.data.oppHits)||[];
+  } finally { clearTimeout(tm); }
+}
+function mapHit(h){
+  return { id:"fed-"+h.id, _oppId:h.id, name:h.title, funder:h.agency||h.agencyCode||"Federal agency",
+    funderType:"federal", source:"federal", _live:true,
+    focusAreas:deriveFocus((h.title||"")+" "+(h.agency||"")),
+    careerStages:[], awardAmount:"see details", duration:"",
+    deadlineInfo:h.closeDate||"", closeDate:h.closeDate, openDate:h.openDate, oppStatus:h.oppStatus,
+    number:h.number, eligibility:"", description:"",
+    applyUrl:"https://www.grants.gov/search-results-detail/"+h.id,
+    sourceUrl:"https://www.grants.gov/search-results-detail/"+h.id };
 }
 async function fetchFederal(){
   const queries=buildFederalQueries();
@@ -876,22 +1168,15 @@ async function fetchFederal(){
   let ok=0;
   for(const s of settled){
     if(s.status==="fulfilled"){ok++;
-      for(const h of s.value){
-        if(seen.has(h.id)) continue;
-        seen.set(h.id,{
-          id:"fed-"+h.id, _oppId:h.id, name:h.title, funder:h.agency||h.agencyCode||"Federal agency",
-          funderType:"federal", source:"federal", _live:true,
-          focusAreas:deriveFocus((h.title||"")+" "+(h.agency||"")),
-          careerStages:[], awardAmount:"see details", duration:"",
-          deadlineInfo:h.closeDate||"", closeDate:h.closeDate, openDate:h.openDate, oppStatus:h.oppStatus,
-          number:h.number, eligibility:"", description:"",
-          applyUrl:"https://www.grants.gov/search-results-detail/"+h.id,
-          sourceUrl:"https://www.grants.gov/search-results-detail/"+h.id
-        });
-      }
+      for(const h of s.value){ if(seen.has(h.id)) continue; seen.set(h.id,mapHit(h)); }
     }
   }
   return {items:[...seen.values()], ok, total:queries.length};
+}
+// Never let a Grants.gov outage freeze or empty the feed: fall back to the inlined 2026 snapshot.
+async function fetchFederalSafe(){
+  try{ const r=await fetchFederal(); if(r.ok>0 && r.items.length) return {...r,seed:false}; }catch(e){}
+  return { items:(FEDERAL_SEED||[]).map(mapHit), ok:0, total:0, seed:true };
 }
 function deriveFocus(text){
   const t=" "+text.toLowerCase()+" ";const fa=[];
@@ -906,8 +1191,10 @@ function deriveFocus(text){
 }
 async function fetchFederalDetail(oppId){
   if(state.detailCache[oppId]) return state.detailCache[oppId];
-  const r=await fetch(GG_FETCH,{method:"POST",headers:{"Content-Type":"text/plain"},body:JSON.stringify({opportunityId:+oppId})});
-  const j=await r.json();
+  const ac=new AbortController(),tm=setTimeout(()=>ac.abort(),8000);
+  let j;
+  try{ const r=await fetch(GG_FETCH,{method:"POST",headers:{"Content-Type":"text/plain"},body:JSON.stringify({opportunityId:+oppId}),signal:ac.signal}); j=await r.json(); }
+  finally{ clearTimeout(tm); }
   const s=(j.data&&j.data.synopsis)||{};
   const strip=h=>(h||"").replace(/<[^>]+>/g," ").replace(/&nbsp;/g," ").replace(/\s+/g," ").trim();
   const d={
@@ -932,33 +1219,45 @@ function localPool(){
   if(state.sources.has("jhu")) pool=pool.concat(JHU_DATA.map((g,i)=>({...g,source:"jhu",id:g.id||slugId("jhu",g,i)})));
   return pool;
 }
+// Drop duplicate programs that appear in both the curated and JHU lists; keep the JHU copy (web-verified deadlines).
+function dedupePool(pool){
+  const seen=new Map();
+  for(const g of pool){
+    const k=((g.name||"")+"|"+(g.funder||"")).toLowerCase().replace(/[^a-z0-9|]/g,"");
+    const prev=seen.get(k);
+    if(!prev||(g.source==="jhu"&&prev.source!=="jhu")) seen.set(k,g);
+  }
+  return [...seen.values()];
+}
 async function runSearch(){
   const btn=$("#searchBtn");btn.disabled=true;
+  state.searchToken=(state.searchToken||0)+1; const tok=state.searchToken;
+  state.claudeRanked=false;
   $("#resHead").textContent="Searching…";
   $("#resSub").innerHTML="Scoring curated programs and querying Grants.gov live…";
-  // skeletons
   $("#feed").innerHTML=Array.from({length:4}).map(()=>`<div class="skel"></div>`).join("");
-  renderSrcBar({fedLoading:state.sources.has("federal")});
-
   const terms=buildProfileTerms();
-  // local (curated + jhu)
-  let local=localPool().map(g=>{const sc=scoreGrant(g,terms);return {...g,_score:sc.score,_matched:sc.matched,_fa:sc.faOverlap,_deadlineDate:grantDeadlineDate(g)};});
-
-  // federal live
-  let fed=[]; let fedStatus={ok:0,total:0,err:false};
-  if(state.sources.has("federal")){
-    try{
-      const {items,ok,total}=await fetchFederal();
-      fedStatus={ok,total,err:false};
-      fed=items.map(g=>{const sc=scoreGrant(g,terms);return {...g,_score:sc.score,_matched:sc.matched,_fa:sc.faOverlap,_deadlineDate:grantDeadlineDate(g)};});
-    }catch(e){fedStatus={ok:0,total:0,err:true};}
-  }
-  state.fedStatus=fedStatus;
-  state.results=[...fed,...local];
-  // single normalization reference used by BOTH Matches and Shortlist, so a grant's % is identical in each
+  // 1) score + render the local (curated + JHU) pool IMMEDIATELY — the feed never blocks on the network
+  const local=dedupePool(localPool()).map(g=>{const sc=scoreGrant(g,terms);return {...g,_score:sc.score,_matched:sc.matched,_fa:sc.faOverlap,_deadlineDate:grantDeadlineDate(g)};});
+  state.results=[...local];
   state.maxScore=Math.max(1,...state.results.map(g=>g._score||0));
+  state.fedStatus={loading:state.sources.has("federal"),err:false};
   btn.disabled=false;
   render();
+  // 2) federal streams in asynchronously (with a cached-snapshot fallback), then Claude re-ranks
+  if(state.sources.has("federal")){
+    fetchFederalSafe().then(({items,ok,total,seed})=>{
+      if(tok!==state.searchToken) return;   // a newer search superseded this one
+      const fed=items.map(g=>{const sc=scoreGrant(g,terms);return {...g,_score:sc.score,_matched:sc.matched,_fa:sc.faOverlap,_deadlineDate:grantDeadlineDate(g)};});
+      state.fedStatus={ok,total,err:false,seed,loading:false};
+      state.results=[...fed,...local];
+      state.maxScore=Math.max(1,...state.results.map(g=>g._score||0));
+      render();
+      claudeRerank(tok);
+    });
+  } else {
+    claudeRerank(tok);
+  }
 }
 
 /* ============================================================
@@ -987,6 +1286,7 @@ function cancerRelevant(g){
 // only counts when the grant is cancer-relevant.
 function focusPass(g){
   if(!state.focus.size) return true;
+  if(state.outOfDomain) return true;   // non-onc CV: don't hard-filter to cancer; let ranking sort it out
   if(offTargetDisease(g)) return false;
   const gf=g.focusAreas||[];
   const GENERIC=new Set(["oncology","general biomedical"]);
@@ -1039,7 +1339,9 @@ function eligFilter(list){
 function sortList(list){
   const s=state.sort;
   const arr=[...list];
-  if(s==="relevance") arr.sort((a,b)=>b._score-a._score);
+  const cscore=g=>(g._claudeScore!=null&&!isNaN(g._claudeScore))?g._claudeScore:-1;
+  if(s==="claude") arr.sort((a,b)=>(cscore(b)-cscore(a))||(b._score-a._score));
+  else if(s==="relevance") arr.sort((a,b)=>b._score-a._score);
   else if(s==="deadline"){
     // upcoming deadlines first (soonest), then undated/recurring, then closed (most-recent first)
     const rank=d=>{ if(!d||isNaN(d)) return 5e6; const days=(d-Date.now())/864e5; return days>=0?days:1e7+(-days); };
@@ -1123,18 +1425,24 @@ function suggestFor(g){
     ${evidence.length?`<div class="fit-row"><span class="fit-k">From your CV</span><span>${evidence.map(x=>`<span class="fit-ev">${esc(x)}</span>`).join("")}</span></div>`:""}
     <div class="fit-row"><span class="fit-k">How to pitch</span><span>${esc(angle)}</span></div>
     ${watch.length?`<div class="fit-row"><span class="fit-k">Watch-outs</span><span>${watch.map(w=>esc(w)).join(" ")}</span></div>`:""}
+    <button class="claude-brief-btn" data-fit="${esc(g.id)}">✦ Draft my pitch angle — Claude</button>
+    <div class="claude-brief" data-brief="${esc(g.id)}"></div>
   </div>`;
 }
 function cardHTML(g,maxScore,idx,showFit){
   const delay=Math.min((idx||0)*35,600);
-  const pct=maxScore>0?Math.max(4,Math.round(g._score/maxScore*100)):0;
+  const hasClaude=g._claudeScore!=null&&!isNaN(g._claudeScore);
+  const pct=hasClaude?Math.max(4,Math.min(100,Math.round(g._claudeScore))):(maxScore>0?Math.max(4,Math.round(g._score/maxScore*100)):0);
   const ftype=g.funderType||"foundation";
   const badge=g._live?`<span class="badge b-live"><span class="liveddot"></span>LIVE</span>`:`<span class="badge b-${ftype}">${esc(ftype)}</span>`;
   const tags=(g.focusAreas||[]).slice(0,4).map(f=>`<span class="tag-fa ${state.focus.has(f)?"hot":""}">${esc(f)}</span>`).join("");
   const amt=g.awardAmount&&g.awardAmount!=="see details"?g.awardAmount:(g._live?"see details":"varies");
-  const why=g._matched&&g._matched.length?`<div class="gc-why"><span class="lab">Why:</span>${g._matched.map(m=>`<span class="mk">${esc(m)}</span>`).join("")}</div>`:"";
+  const why=g._claudeWhy
+    ?`<div class="gc-why"><span class="mk claude">✦ Claude</span> <span class="claudew">${esc(g._claudeWhy)}</span></div>`
+    :(g._matched&&g._matched.length?`<div class="gc-why"><span class="lab">Why:</span>${g._matched.map(m=>`<span class="mk">${esc(m)}</span>`).join("")}</div>`:"");
   const e=eligibility(g);
   const echips=e.flags.map(f=>`<span class="echip ${f.t}">${esc(f.x)}</span>`).join("");
+  const confChip=g.confidence?`<span class="echip conf-${esc(String(g.confidence).toLowerCase())}" title="Data confidence (compile-time snapshot — verify on funder page)">${esc(g.confidence)} conf</span>`:"";
   const saved=isSaved(g);
   const expand=g._live
     ? `<button class="expandbtn" data-opp="${esc(g._oppId)}" data-id="${esc(g.id)}">▾ View full synopsis, award ceiling &amp; eligibility <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></button>`
@@ -1143,7 +1451,7 @@ function cardHTML(g,maxScore,idx,showFit){
     <div class="gc-main">
       <div class="gc-body">
         <h3 class="gc-title"><a href="${esc(bestUrl(g))}" target="_blank" rel="noopener">${esc(g.name)}</a></h3>
-        <div class="gc-funder">${badge}<strong>${esc(g.funder)}</strong>${g.number?`<span class="mono" style="color:var(--ink-faint)">· ${esc(g.number)}</span>`:""}${echips}</div>
+        <div class="gc-funder">${badge}<strong>${esc(g.funder)}</strong>${g.number?`<span class="mono" style="color:var(--ink-faint)">· ${esc(g.number)}</span>`:""}${echips}${confChip}</div>
         <div class="tags">${tags}</div>
         <div class="gc-meta">
           <div class="m"><div class="k">Award</div><div class="v amt">${esc(amt)}</div></div>
@@ -1158,7 +1466,7 @@ function cardHTML(g,maxScore,idx,showFit){
       <div class="gc-side">
         <div class="score">
           <div class="pct ${pct<25?"low":""}">${pct}<span style="font-size:16px">%</span></div>
-          <div class="lbl">match</div>
+          <div class="lbl">${hasClaude?"Claude fit":"match"}</div>
           <div class="meter"><i style="width:${pct}%"></i></div>
         </div>
         <div class="gc-actions">
@@ -1236,15 +1544,21 @@ function emptyHTML(t,s){
   return `<div class="empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><div class="t">${esc(t)}</div><div class="s">${esc(s)}</div></div>`;
 }
 function renderSrcBar(o){
-  const bar=$("#srcBar");
+  o=o||{};
+  const bar=$("#srcBar"); if(!bar) return;
   const fs=state.fedStatus;
   const pills=[];
+  // persistent, visible Claude status
+  const cReady=claudeReady();
+  const cText=state.rrLoading?"✦ Claude re-ranking…":(state.claudeRanked?"✦ Ranked by Claude":(cReady?"✦ Claude connected":"✦ Claude — click ⚙ to connect"));
+  pills.push(`<div class="srcpill"><span class="dot" style="background:${cReady?"var(--teal-bright)":"var(--line-strong)"};${state.rrLoading?"animation:pulse 1s infinite":""}"></span><span class="n">${cText}</span></div>`);
   if(state.sources.has("federal")){
-    if(o.fedLoading) pills.push(`<div class="srcpill loading"><span class="dot" style="background:var(--teal)"></span>Grants.gov <span class="n">querying…</span></div>`);
+    if(o.fedLoading||(fs&&fs.loading)) pills.push(`<div class="srcpill loading"><span class="dot" style="background:var(--teal)"></span>Grants.gov <span class="n">querying…</span></div>`);
     else if(fs&&fs.err) pills.push(`<div class="srcpill"><span class="dot" style="background:var(--crimson)"></span>Grants.gov <span class="n">offline</span></div>`);
+    else if(fs&&fs.seed) pills.push(`<div class="srcpill"><span class="dot" style="background:var(--amber)"></span>Grants.gov <span class="n">cached snapshot</span></div>`);
     else if(fs) pills.push(`<div class="srcpill"><span class="dot" style="background:var(--green)"></span>Grants.gov live <span class="n">${state.results.filter(g=>g._live).length} opps</span></div>`);
   }
-  if(state.sources.has("curated")) pills.push(`<div class="srcpill"><span class="dot" style="background:var(--crimson)"></span>Curated foundations <span class="n">${CURATED_DATA.length}</span></div>`);
+  if(state.sources.has("curated")) pills.push(`<div class="srcpill"><span class="dot" style="background:var(--crimson)"></span>Curated: hematology/oncology <span class="n">${CURATED_DATA.length}</span></div>`);
   if(state.sources.has("jhu")) pills.push(`<div class="srcpill"><span class="dot" style="background:var(--amber)"></span>JHU list (updated 2026) <span class="n">${JHU_DATA.length}</span></div>`);
   bar.innerHTML=pills.join("");
 }
@@ -1253,6 +1567,12 @@ function wireCards(){
     const id=b.dataset.save;
     const g=[...state.results,...state.saved].find(x=>String(x.id)===id);
     if(g) toggleSave(g);
+  });
+  $$("[data-fit]").forEach(b=>b.onclick=()=>{
+    const id=b.dataset.fit;
+    const g=[...state.saved,...state.results].find(x=>String(x.id)===id);
+    const el=$(`.claude-brief[data-brief="${CSS.escape(id)}"]`);
+    if(g&&el){ b.disabled=true; b.textContent="✦ Claude is drafting…"; claudeFitBrief(g,el).finally(()=>{b.style.display="none";}); }
   });
   const toggleExpand=async(b)=>{
     const card=b.closest(".gcard");
@@ -1275,6 +1595,12 @@ function wireCards(){
         ${d.eligibility?`<p><b style="color:var(--ink)">Eligibility:</b> ${esc(d.eligibility)}</p>`:""}
         ${d.agencyEmail?`<p><b style="color:var(--ink)">Contact:</b> <span class="mono">${esc(d.agencyEmail)}</span></p>`:""}
         <p><a class="lk" href="${esc("https://www.grants.gov/search-results-detail/"+b.dataset.opp)}" target="_blank" rel="noopener">Open full opportunity on Grants.gov ↗</a></p>`;
+        if(claudeReady() && d.eligibility){
+          const oid=b.dataset.opp;
+          det.innerHTML+=`<div style="margin-top:10px"><button class="claude-brief-btn" id="elig-${esc(oid)}">✦ Ask Claude: can I apply?</button><div class="claude-elig" id="eligout-${esc(oid)}"></div></div>`;
+          const eb=det.querySelector("#elig-"+CSS.escape(oid));
+          if(eb) eb.onclick=()=>{ eb.disabled=true; eb.textContent="✦ Claude is reading the synopsis…"; claudeEligibility(d.eligibility, det.querySelector("#eligout-"+CSS.escape(oid))).finally(()=>{eb.style.display="none";}); };
+        }
         det.dataset.loaded="1";
       }catch(e){det.innerHTML=`<span style="color:var(--crimson)">Couldn't load details — <a class="lk" href="https://www.grants.gov/search-results-detail/${esc(b.dataset.opp)}" target="_blank" rel="noopener">open on Grants.gov</a> instead.</span>`;}
     }
@@ -1309,6 +1635,27 @@ function wireUI(){
     const cur=document.documentElement.getAttribute("data-theme")==="dark"?"light":"dark";
     document.documentElement.setAttribute("data-theme",cur);localStorage.setItem("gb_theme",cur);
   };
+  // ---- Claude connection modal ----
+  const cfgModal=$("#cfgModal");
+  $("#cfgBtn").onclick=()=>{
+    const c=claudeCfg();
+    $("#cfgWorker").value=c.workerUrl; $("#cfgToken").value=c.demoToken; $("#cfgKey").value=c.userKey;
+    $("#cfgStatus").textContent=claudeReady()?"Connected.":"Not connected — the app still runs offline (lexical matching).";
+    cfgModal.hidden=false;
+  };
+  $("#cfgClose").onclick=()=>{cfgModal.hidden=true;};
+  cfgModal.onclick=e=>{if(e.target===cfgModal)cfgModal.hidden=true;};
+  $("#cfgClear").onclick=()=>{localStorage.removeItem("gb_claude_cfg");$("#cfgWorker").value="";$("#cfgToken").value="";$("#cfgKey").value="";$("#cfgStatus").textContent="Disconnected.";renderSrcBar({});};
+  $("#cfgSave").onclick=async()=>{
+    saveClaudeCfg({workerUrl:$("#cfgWorker").value.trim(),demoToken:$("#cfgToken").value.trim(),userKey:$("#cfgKey").value.trim()});
+    $("#cfgStatus").textContent="Testing…"; renderSrcBar({});
+    try{
+      await claudeJSON({model:CONFIG.fastModel,max_tokens:32,messages:[{role:"user",content:"Reply with ok."}],
+        schema:{type:"object",additionalProperties:false,required:["ok"],properties:{ok:{type:"boolean"}}},timeoutMs:15000});
+      $("#cfgStatus").textContent="✓ Connected to Claude.";
+    }catch(e){ $("#cfgStatus").textContent="Couldn't reach Claude — check the URL/key. (The app still works offline.)"; }
+    renderSrcBar({});
+  };
   // keep the sticky sidebar anchored below the (variable-height) masthead so it can scroll fully
   const mh=document.querySelector(".masthead");
   const setMastheadH=()=>document.documentElement.style.setProperty("--masthead-h",mh.offsetHeight+"px");
@@ -1341,7 +1688,7 @@ function wireUI(){
   drop.addEventListener("drop",e=>{if(e.dataTransfer.files[0])handleFile(e.dataTransfer.files[0]);});
   // paste
   $("#pasteToggle").onclick=()=>{const t=$("#cvPaste");t.style.display=t.style.display==="none"?"block":"none";if(t.style.display==="block")t.focus();};
-  $("#cvPaste").addEventListener("input",e=>{if(e.target.value.trim().length>60)ingestCV(e.target.value,"Pasted text");});
+  let pasteT; $("#cvPaste").addEventListener("input",e=>{const v=e.target.value;clearTimeout(pasteT);pasteT=setTimeout(()=>{if(v.trim().length>60)ingestCVSmart(v,"Pasted text");},900);});
   // example
   $("#loadExample").onclick=()=>{
     $("#applicantName").value=DEMO_PROFILE.name||"";

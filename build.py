@@ -35,6 +35,8 @@ demo = {
 }
 curated = json.load(open("data/curated_opportunities.json"))
 jhu = json.load(open("data/jhu_updated.json"))   # web-refreshed 2026-2027 deadlines
+# Real Grants.gov opportunities, inlined as an offline fallback if the live API is unreachable.
+fedseed = json.load(open("data/federal_seed.json")) if os.path.exists("data/federal_seed.json") else []
 
 # Annotate records with the eligibility-audit verdicts (per the applicant profile in the audit workflow)
 import os
@@ -58,12 +60,17 @@ def safe(v):
     return json.dumps(v, ensure_ascii=False).replace("</", "<\\/")
 
 html = open("index.template.html", encoding="utf-8").read()
-for marker, val in [("DEMO", demo), ("CURATED", curated), ("JHU", jhu)]:
+for marker, val in [("DEMO", demo), ("CURATED", curated), ("JHU", jhu), ("FEDSEED", fedseed)]:
     pat = re.compile(re.escape("/*__" + marker + "__*/") + r'(\{\}|\[\])')
     if not pat.search(html):
         raise SystemExit("marker not found: " + marker)
     repl = "/*__" + marker + "__*/" + safe(val)
     html = pat.sub(lambda m, r=repl: r, html, count=1)
 
+# Safety: a real Anthropic key must NEVER be baked into the shipped static file.
+# (The literal placeholder "sk-ant-…" in the connect-modal input is fine; match only key-shaped tokens.)
+if re.search(r'sk-ant-[A-Za-z0-9_-]{20,}', html):
+    raise SystemExit("REFUSING TO BUILD: a real 'sk-ant-' key is present in the output. Keys belong on the Worker, never in index.html.")
+
 open("index.html", "w", encoding="utf-8").write(html)
-print(f"built index.html  |  curated={len(curated)} jhu={len(jhu)} cv={len(demo['cvText'])} chars | audit-annotated={annot}")
+print(f"built index.html  |  curated={len(curated)} jhu={len(jhu)} fedseed={len(fedseed)} cv={len(demo['cvText'])} chars | audit-annotated={annot}")
