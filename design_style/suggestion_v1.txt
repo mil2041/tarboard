@@ -1,0 +1,160 @@
+Yes. Your current design has a strong “academic broadsheet” identity, but for
+  easy to read + low stress, I’d soften it. Right now the beige paper texture,
+  double-line masthead, crimson accents, dense cards, and animated/outlined
+  chips make it feel a little high-stakes. For grant search, users are already
+  anxious, so the UI should feel quieter.
+
+  Main Direction
+  Move from editorial newspaper to calm research workspace.
+
+  I’d keep:
+
+  - serif logo / brand character
+  - teal as the primary action color
+  - clear eligibility chips
+  - card-based results
+
+  I’d change:
+
+  - reduce the parchment/newspaper feeling
+  - reduce crimson usage
+  - make backgrounds flatter
+  - make cards less visually busy
+  - make status colors calmer
+
+  Color Suggestions
+  Current palette:
+
+  - beige paper background
+  - dark ink
+  - teal
+  - crimson
+  - amber
+  - green
+
+  I’d shift to:
+
+  --paper: #f7f8f5;
+  --paper-2: #fbfcfa;
+  --card: #ffffff;
+  --ink: #20231f;
+  --ink-soft: #5c6258;
+  --ink-faint: #8a9185;
+  --line: #e1e6dc;
+  --line-strong: #cbd4c5;
+
+  --teal: #2f766d;
+  --teal-bright: #348b80;
+  --teal-wash: #edf6f3;
+
+  --crimson: #a44a5b;
+  --crimson-wash: #f8ecef;
+  --amber: #9a6a2f;
+  --amber-wash: #f7f0e3;
+  --green: #557a4b;
+  --green-wash: #eef5ea;
+
+  This keeps personality but lowers contrast stress.
+
+  Most Important Visual Changes
+
+  1. Remove or reduce the dotted paper texture
+     The radial background pattern adds visual noise. For low-stress reading,
+     use a flat background or extremely subtle texture.
+
+     Current:
+
+     background-image: radial-gradient(...);
+
+     I’d remove it or make it almost invisible.
+
+  2. Reduce crimson prominence
+     Crimson is useful for true blockers, but if it appears too often, the page
+     feels like it is warning the user constantly. Use crimson only for hard
+     ineligibility. Use amber/gray for “verify” or “future target.”
+
+  3. Make cards calmer
+     Current cards have strong borders, shadows, animation, badges, tags, chips,
+     meters, and buttons all competing. I’d:
+      - reduce shadows
+      - reduce hover lift
+      - use lighter borders
+      - make the score meter smaller or less saturated
+      - put eligibility chips on their own line
+
+  4. Rename and soften alarming labels
+     Instead of:
+      - blocked
+      - ineligible
+      - past window
+
+     Use:
+      - Not currently eligible
+      - Future target
+      - Verify timing
+      - Needs PR/citizenship
+
+     This is lower stress while still honest.
+
+  5. Make the top masthead less formal
+     The double black border makes it feel official/legal. I’d replace:
+
+     border-bottom: 3px double var(--ink);
+
+     with:
+
+     border-bottom: 1px solid var(--line);
+
+  6. Use “quiet dashboard” spacing
+     The dashboard is information-dense, which is good, but chips and badges
+     need more hierarchy. I’d make the result card order:
+      - Title
+      - Funder + source
+      - Fit reason
+      - Award / deadline / stage
+      - Eligibility status
+      - Description
+      - Actions
+
+     Right now eligibility chips sit near the funder line, which can make the
+     top of each card feel crowded.
+
+  Theme Recommendation
+  I’d describe the design target as:
+
+  > Calm, clinical, research-office dashboard. Not startup flashy, not
+  > government portal, not academic newspaper.
+
+  Visual references:
+
+  - NIH / research admin calmness
+  - Notion-like readability
+  - Linear-style restraint
+  - soft biomedical color palette
+
+  Typography
+  Your IBM Plex Sans choice is good. Fraunces gives personality, but I’d use it
+  mostly for the brand and major section headings. Keep result titles readable,
+  not too decorative. Scientists scanning grants need clarity more than
+  editorial flair.
+
+  One Specific UI Suggestion
+  Add a low-stress summary panel above results:
+
+  You have 14 grants open now
+  9 future targets
+  3 need citizenship / PR
+  Sorted by Claude fit
+
+  Use soft green / gray / amber, not red-heavy. This gives control and reduces
+  anxiety.
+
+  My Strongest Recommendation
+  Keep the app beautiful, but make it quieter. Your product’s value is trust and
+  clarity. The best design should feel like:
+
+  > “Here is what is worth your time, here is what is not, and nothing is being
+  > hidden.”
+
+  That means softer colors, less visual noise, fewer red alerts, and more
+  breathing room around the key decisions.
