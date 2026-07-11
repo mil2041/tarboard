@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>GRANTBOARD — Career Development Grant Finder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<!-- pdf.js for client-side CV parsing; degrades gracefully if offline -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<style>
+:root{
+  --paper:#f4f0e7; --paper-2:#faf7f0; --card:#fffdf8; --ink:#1b1a16; --ink-soft:#514d43;
+  --ink-faint:#8a8477; --line:#e2dccc; --line-strong:#cfc7b2;
+  --teal:#0f5f5c; --teal-bright:#12817b; --teal-wash:#e6efec;
+  --crimson:#a4243b; --crimson-wash:#f6e7e6; --amber:#b26a1f; --amber-wash:#f6ecd9;
+  --green:#3f6f3a; --green-wash:#e8efdf;
+  --shadow:0 1px 2px rgba(40,34,20,.05), 0 8px 26px -14px rgba(40,34,20,.22);
+  --shadow-lg:0 24px 60px -30px rgba(40,34,20,.42);
+  --serif:'Fraunces',Georgia,'Times New Roman',serif;
+  --sans:'IBM Plex Sans',system-ui,-apple-system,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,'SF Mono',Menlo,monospace;
+}
+:root[data-theme="dark"]{
+  --paper:#101109; --paper-2:#14160e; --card:#191c13; --ink:#ece7d7; --ink-soft:#b4ae9c;
+  --ink-faint:#7f7a69; --line:#2a2e20; --line-strong:#3a3f2d;
+  --teal:#4fd0c4; --teal-bright:#63e0d4; --teal-wash:#12241f;
+  --crimson:#e8637a; --crimson-wash:#2a1519; --amber:#d99a4b; --amber-wash:#2a2110;
+  --green:#8fc07a; --green-wash:#1a2413;
+  --shadow:0 1px 2px rgba(0,0,0,.3), 0 10px 30px -16px rgba(0,0,0,.7);
+  --shadow-lg:0 30px 70px -34px rgba(0,0,0,.85);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+  font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--ink) 5%, transparent) 1px, transparent 0);
+  background-size:22px 22px;
+}
+a{color:inherit}
+button{font-family:inherit;cursor:pointer}
+::selection{background:var(--teal);color:var(--paper-2)}
+.mono{font-family:var(--mono)}
+
+/* ---------- Masthead ---------- */
+.masthead{
+  border-bottom:3px double var(--ink);background:var(--paper-2);
+  position:sticky;top:0;z-index:40;backdrop-filter:blur(6px);
+}
+.masthead-inner{max-width:1360px;margin:0 auto;padding:14px 26px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.brand{display:flex;flex-direction:column;line-height:1}
+.brand .kicker{font-family:var(--mono);font-size:12.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--teal);margin-bottom:6px}
+.brand h1{font-family:var(--serif);font-weight:600;font-size:31px;letter-spacing:-.01em;margin:0}
+.brand h1 .amp{color:var(--crimson);font-style:italic}
+.brand .tag{font-size:14px;color:var(--ink-faint);margin-top:5px;font-style:italic;font-family:var(--serif)}
+.masthead-spacer{flex:1}
+.masthead-meta{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.datestamp{font-family:var(--mono);font-size:13px;color:var(--ink-soft);text-align:right;text-transform:uppercase;letter-spacing:.06em;border-left:1px solid var(--line-strong);padding-left:14px}
+.iconbtn{background:var(--card);border:1px solid var(--line-strong);border-radius:9px;width:38px;height:38px;display:grid;place-items:center;color:var(--ink-soft);transition:.15s}
+.iconbtn:hover{color:var(--teal);border-color:var(--teal);transform:translateY(-1px)}
+.iconbtn svg{width:18px;height:18px}
+
+/* ---------- Eligibility bar (top of dashboard) ---------- */
+.eligrow{border-top:1px solid var(--line);background:linear-gradient(180deg,color-mix(in srgb,var(--teal-wash) 40%,var(--paper-2)),var(--paper-2))}
+.eligrow-inner{max-width:1360px;margin:0 auto;padding:11px 26px;display:flex;align-items:flex-end;gap:20px;flex-wrap:wrap}
+.ef{display:flex;flex-direction:column;gap:4px}
+.ef .efk{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);font-weight:600}
+.ef input,.ef select{background:var(--card);border:1px solid var(--line-strong);border-radius:8px;padding:7px 10px;font-size:15px;color:var(--ink);font-family:var(--sans)}
+.ef input:focus,.ef select:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px var(--teal-wash)}
+.ef input{width:118px}
+.ef.name input{width:150px}
+.ef select{appearance:none;padding-right:26px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' stroke='%238a8477' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 9px center}
+.ef .efnote{font-family:var(--mono);font-size:12px;color:var(--teal);font-weight:600;height:12px}
+.ef .efnote.warn{color:var(--amber)}
+.eligsum{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:13.5px}
+.eligsum .pill{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card);font-family:var(--mono);font-weight:600;font-size:13px}
+.eligsum .pill .d{width:7px;height:7px;border-radius:50%}
+.eligsum .pill.open .d{background:var(--green)}
+.eligsum .pill.gc .d{background:var(--amber)}
+.eligsum .pill.blk .d{background:var(--crimson)}
+@media(max-width:720px){.eligsum{margin-left:0;width:100%}}
+
+/* eligibility chips on cards */
+.echip{font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;padding:3px 7px;border-radius:5px;display:inline-flex;align-items:center;gap:4px}
+.echip.gc{background:var(--amber-wash);color:var(--amber)}
+.echip.blk{background:var(--crimson-wash);color:var(--crimson)}
+.echip.warn{background:var(--amber-wash);color:var(--amber)}
+.echip.win{background:var(--green-wash);color:var(--green)}
+.gcard.inelig{opacity:.62}
+.gcard.inelig:hover{opacity:1}
+
+/* ---------- Layout ---------- */
+.wrap{max-width:1360px;margin:0 auto;padding:26px;display:grid;grid-template-columns:352px 1fr;gap:26px;align-items:start}
+@media(max-width:940px){.wrap{grid-template-columns:1fr;padding:18px}}
+
+/* ---------- Sidebar ---------- */
+.side{position:sticky;top:calc(var(--masthead-h,150px) + 14px);max-height:calc(100vh - var(--masthead-h,150px) - 28px);overflow-y:auto;overflow-x:hidden;display:flex;flex-direction:column;gap:16px;padding-right:5px;scrollbar-width:thin;scrollbar-color:var(--line-strong) transparent}
+.side>*{flex:none}
+.side::-webkit-scrollbar{width:8px}
+.side::-webkit-scrollbar-thumb{background:var(--line-strong);border-radius:4px}
+.side::-webkit-scrollbar-track{background:transparent}
+@media(max-width:940px){.side{position:static;max-height:none;overflow:visible;padding-right:0}}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);overflow:hidden}
+.panel-h{display:flex;align-items:center;gap:9px;padding:13px 16px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,color-mix(in srgb,var(--teal-wash) 60%,transparent),transparent)}
+.panel-h .num{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--paper-2);background:var(--teal);width:20px;height:20px;border-radius:6px;display:grid;place-items:center}
+.panel-h h2{font-family:var(--mono);font-size:13px;letter-spacing:.16em;text-transform:uppercase;margin:0;color:var(--ink-soft);font-weight:600}
+.panel-b{padding:16px}
+.field{margin-bottom:14px}
+.field:last-child{margin-bottom:0}
+label.lab{display:block;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:6px}
+input[type=text],textarea,select{
+  width:100%;background:var(--paper-2);border:1px solid var(--line-strong);border-radius:9px;
+  padding:9px 11px;font-family:var(--sans);font-size:15px;color:var(--ink);transition:.15s
+}
+input[type=text]:focus,textarea:focus,select:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px var(--teal-wash)}
+textarea{resize:vertical;min-height:74px;line-height:1.45}
+select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' stroke='%238a8477' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 11px center;padding-right:30px}
+
+/* dropzone */
+.drop{border:1.5px dashed var(--line-strong);border-radius:11px;padding:16px 14px;text-align:center;background:var(--paper-2);transition:.15s;cursor:pointer}
+.drop:hover,.drop.over{border-color:var(--teal);background:var(--teal-wash)}
+.drop svg{width:26px;height:26px;color:var(--teal);margin-bottom:6px}
+.drop .t{font-size:15px;font-weight:600}
+.drop .s{font-size:13.5px;color:var(--ink-faint);margin-top:3px}
+.drop .s b{color:var(--teal)}
+.cvstat{margin-top:10px;font-size:14px;display:none;align-items:center;gap:7px;padding:8px 10px;border-radius:8px;background:var(--green-wash);color:var(--green);font-weight:600}
+.cvstat svg{width:14px;height:14px;flex:none}
+.mini-link{background:none;border:none;color:var(--teal);font-size:14px;font-weight:600;padding:0;text-decoration:underline;text-underline-offset:2px}
+
+/* chips */
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:14px;padding:4px 9px;border-radius:999px;background:var(--paper-2);border:1px solid var(--line-strong);color:var(--ink-soft);transition:.12s;user-select:none}
+.chip.on{background:var(--teal);border-color:var(--teal);color:var(--paper-2);font-weight:600}
+.chip.rm{cursor:pointer}
+.chip.rm .x{opacity:.6;font-weight:700}
+.chip.rm:hover .x{opacity:1}
+.chip.add{cursor:pointer;border-style:dashed}
+.chip.add:hover{border-color:var(--teal);color:var(--teal)}
+.chip.userchip{background:var(--crimson-wash);border-color:color-mix(in srgb,var(--crimson) 40%,transparent);color:var(--crimson);font-weight:600}
+.suglabel{font-size:12.5px;color:var(--ink-faint);letter-spacing:.05em;text-transform:uppercase;margin-top:12px;margin-bottom:2px}
+
+/* filter groups */
+.filtgrid{display:flex;flex-wrap:wrap;gap:6px}
+.seg{display:flex;flex-wrap:wrap;gap:5px}
+.togg{font-size:13.5px;padding:5px 9px;border-radius:8px;border:1px solid var(--line-strong);background:var(--paper-2);color:var(--ink-soft);transition:.12s}
+.togg.on{background:var(--ink);border-color:var(--ink);color:var(--paper-2);font-weight:600}
+.togg.on.teal{background:var(--teal);border-color:var(--teal)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+
+.searchbtn{
+  width:100%;margin-top:4px;background:var(--teal);color:var(--paper-2);border:none;border-radius:10px;
+  padding:13px;font-size:15px;font-weight:700;letter-spacing:.02em;display:flex;align-items:center;justify-content:center;gap:9px;
+  box-shadow:0 6px 18px -8px var(--teal);transition:.15s
+}
+.searchbtn:hover{background:var(--teal-bright);transform:translateY(-1px)}
+.searchbtn:active{transform:translateY(0)}
+.searchbtn svg{width:17px;height:17px}
+.searchbtn:disabled{opacity:.6;cursor:wait}
+
+/* ---------- Results ---------- */
+.results-top{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:16px}
+.results-top .h{font-family:var(--serif);font-size:24px;font-weight:600;letter-spacing:-.01em}
+.results-top .sub{font-size:14.5px;color:var(--ink-faint);margin-top:3px}
+.results-top .sub b{color:var(--teal);font-family:var(--mono)}
+.controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.tabs{display:flex;gap:2px;background:var(--paper-2);border:1px solid var(--line);border-radius:10px;padding:3px}
+.tab{font-size:14.5px;font-weight:600;padding:6px 12px;border-radius:7px;border:none;background:none;color:var(--ink-soft);transition:.12s}
+.tab.on{background:var(--card);color:var(--teal);box-shadow:var(--shadow)}
+.tab .b{font-family:var(--mono);font-size:13px;opacity:.7;margin-left:4px}
+.sortsel{font-size:14.5px;padding:7px 28px 7px 11px;width:auto;min-width:150px}
+
+.srcbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.srcpill{display:flex;align-items:center;gap:8px;font-size:13.5px;padding:8px 12px;border-radius:10px;border:1px solid var(--line);background:var(--card)}
+.srcpill .dot{width:8px;height:8px;border-radius:50%;flex:none}
+.srcpill .n{font-family:var(--mono);font-weight:600}
+.srcpill.loading .dot{animation:pulse 1s infinite}
+@keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}
+
+/* card */
+.feed{display:flex;flex-direction:column;gap:14px}
+.gcard{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);overflow:hidden;transition:.18s;animation:rise .5s both}
+.gcard:hover{border-color:var(--line-strong);box-shadow:var(--shadow-lg);transform:translateY(-2px)}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.gc-main{padding:16px 18px;display:grid;grid-template-columns:1fr auto;gap:16px}
+.gc-title{font-family:var(--serif);font-size:19px;font-weight:600;line-height:1.28;letter-spacing:-.01em;margin:0 0 6px}
+.gc-title a{text-decoration:none}
+.gc-title a:hover{color:var(--teal);text-decoration:underline;text-underline-offset:3px}
+.gc-funder{font-size:14.5px;color:var(--ink-soft);display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.badge{font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:3px 7px;border-radius:5px}
+.b-federal{background:var(--teal-wash);color:var(--teal)}
+.b-foundation{background:var(--crimson-wash);color:var(--crimson)}
+.b-society{background:var(--amber-wash);color:var(--amber)}
+.b-industry{background:var(--green-wash);color:var(--green)}
+.b-academic{background:var(--paper-2);color:var(--ink-soft);border:1px solid var(--line-strong)}
+.b-live{background:var(--teal);color:var(--paper-2);display:inline-flex;align-items:center;gap:4px}
+.b-live .liveddot{width:5px;height:5px;border-radius:50%;background:var(--paper-2);animation:pulse 1.2s infinite}
+.tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:11px}
+.tag-fa{font-size:13px;padding:3px 8px;border-radius:6px;background:var(--paper-2);border:1px solid var(--line);color:var(--ink-soft)}
+.tag-fa.hot{background:var(--teal-wash);border-color:color-mix(in srgb,var(--teal) 35%,transparent);color:var(--teal);font-weight:600}
+.gc-meta{display:flex;flex-wrap:wrap;gap:16px;font-size:14.5px;margin-bottom:11px}
+.gc-meta .m .k{font-size:11.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-faint);margin-bottom:2px}
+.gc-meta .m .v{font-family:var(--mono);font-weight:600;font-size:15px}
+.gc-meta .m .v.amt{color:var(--teal)}
+.dl{display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-weight:600;font-size:14px;padding:2px 7px;border-radius:6px}
+.dl.soon{background:var(--crimson-wash);color:var(--crimson)}
+.dl.mid{background:var(--amber-wash);color:var(--amber)}
+.dl.far{background:var(--green-wash);color:var(--green)}
+.dl.unk{background:var(--paper-2);color:var(--ink-faint)}
+.gc-desc{font-size:15.5px;color:var(--ink-soft);line-height:1.5;margin-bottom:4px}
+.gc-desc.clamp{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;cursor:pointer}
+.gcard.expanded .gc-desc.clamp{-webkit-line-clamp:unset;display:block;overflow:visible}
+.gc-detail p{margin:8px 0;line-height:1.55}
+.gc-detail .lk{color:var(--teal);font-weight:600;text-decoration:none}
+.gc-detail .lk:hover{text-decoration:underline}
+/* shortlist "fit" panel */
+.gc-fit{margin-top:12px;border:1px solid var(--line);border-radius:11px;background:linear-gradient(180deg,color-mix(in srgb,var(--teal-wash) 55%,transparent),transparent);padding:12px 14px}
+.gc-fit .fit-h{font-size:14.5px;font-weight:700;color:var(--ink);display:flex;align-items:center;gap:8px;margin-bottom:9px}
+.fit-badge{font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:999px}
+.fit-badge.open{background:var(--green-wash);color:var(--green)}
+.fit-badge.gc{background:var(--amber-wash);color:var(--amber)}
+.fit-badge.blk{background:var(--crimson-wash);color:var(--crimson)}
+.fit-row{display:grid;grid-template-columns:96px 1fr;gap:10px;font-size:14.5px;line-height:1.5;padding:4px 0;align-items:baseline}
+.fit-row .fit-k{font-size:12px;text-transform:uppercase;letter-spacing:.07em;color:var(--ink-faint);font-weight:600}
+.fit-ev{display:inline-block;font-family:var(--mono);font-size:12.5px;padding:2px 7px;border-radius:5px;background:var(--crimson-wash);color:var(--crimson);font-weight:600;margin:1px 3px 1px 0}
+.fit-row .mk{margin:1px 3px 1px 0}
+@media(max-width:640px){.fit-row{grid-template-columns:1fr}}
+.gc-why{margin-top:10px;font-size:13.5px;color:var(--ink-faint);display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.gc-why .lab{font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+.mk{font-family:var(--mono);font-size:12.5px;padding:2px 6px;border-radius:5px;background:var(--teal-wash);color:var(--teal);font-weight:600}
+
+/* right rail of card: score + actions */
+.gc-side{display:flex;flex-direction:column;align-items:flex-end;gap:12px;min-width:118px}
+.score{text-align:right}
+.score .pct{font-family:var(--serif);font-size:31px;font-weight:600;line-height:1;color:var(--teal)}
+.score .pct.low{color:var(--ink-faint)}
+.score .lbl{font-size:11.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-faint);margin-top:2px}
+.meter{width:104px;height:5px;border-radius:3px;background:var(--line);overflow:hidden;margin-top:7px}
+.meter>i{display:block;height:100%;background:linear-gradient(90deg,var(--teal),var(--teal-bright));border-radius:3px}
+.gc-actions{display:flex;flex-direction:column;gap:7px;width:100%}
+.act{font-size:14px;font-weight:600;padding:8px 10px;border-radius:8px;text-align:center;text-decoration:none;transition:.14s;border:1px solid transparent;display:flex;align-items:center;justify-content:center;gap:6px}
+.act.primary{background:var(--ink);color:var(--paper-2)}
+.act.primary:hover{background:var(--teal)}
+.act.ghost{background:var(--paper-2);border-color:var(--line-strong);color:var(--ink-soft)}
+.act.ghost:hover{border-color:var(--teal);color:var(--teal)}
+.act.saved{background:var(--crimson-wash);border-color:var(--crimson);color:var(--crimson)}
+.act svg{width:13px;height:13px}
+
+/* expandable federal detail */
+.gc-detail{border-top:1px solid var(--line);padding:14px 18px;background:var(--paper-2);font-size:15px;color:var(--ink-soft);display:none}
+.gc-detail.show{display:block;animation:rise .3s both}
+.gc-detail .dgrid{display:flex;flex-wrap:wrap;gap:18px;margin-bottom:10px}
+.gc-detail .dgrid .k{font-size:11.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-faint)}
+.gc-detail .dgrid .v{font-family:var(--mono);font-weight:600;color:var(--ink)}
+.expandbtn{font-size:13.5px;font-weight:600;color:var(--teal);background:none;border:none;padding:4px 0;display:inline-flex;align-items:center;gap:5px}
+.expandbtn svg{width:12px;height:12px;transition:.2s}
+.expandbtn.open svg{transform:rotate(180deg)}
+
+/* empty / loading */
+.empty{text-align:center;padding:70px 24px;color:var(--ink-faint)}
+.empty svg{width:52px;height:52px;color:var(--line-strong);margin-bottom:14px}
+.empty .t{font-family:var(--serif);font-size:21px;color:var(--ink-soft);margin-bottom:6px}
+.empty .s{font-size:15.5px;max-width:380px;margin:0 auto;line-height:1.5}
+.skel{height:150px;border-radius:14px;background:linear-gradient(100deg,var(--card) 30%,var(--paper-2) 50%,var(--card) 70%);background-size:200% 100%;animation:sh 1.3s infinite;border:1px solid var(--line)}
+@keyframes sh{to{background-position:-200% 0}}
+
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--ink);color:var(--paper-2);padding:11px 18px;border-radius:10px;font-size:15px;font-weight:500;box-shadow:var(--shadow-lg);opacity:0;pointer-events:none;transition:.25s;z-index:60;display:flex;align-items:center;gap:9px}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.toast svg{width:15px;height:15px;color:var(--teal-bright)}
+
+.foot{max-width:1360px;margin:10px auto 30px;padding:0 26px;font-size:13.5px;color:var(--ink-faint);line-height:1.6}
+.foot b{color:var(--ink-soft)}
+.foot a{color:var(--teal)}
+
+/* saved view */
+.exportrow{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+.exportbtn{font-size:14px;font-weight:600;padding:8px 12px;border-radius:9px;border:1px solid var(--line-strong);background:var(--card);color:var(--ink-soft);display:inline-flex;align-items:center;gap:6px}
+.exportbtn:hover{border-color:var(--teal);color:var(--teal)}
+.exportbtn svg{width:14px;height:14px}
+</style>
+</head>
+<body>
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="brand">
+      <span class="kicker">Career Development Funding Intelligence</span>
+      <h1>Grant<span class="amp">·</span>board</h1>
+      <span class="tag">Matching researchers to U.S. grants in AI, computational oncology &amp; blood cancer</span>
+    </div>
+    <div class="masthead-spacer"></div>
+    <div class="masthead-meta">
+      <div class="datestamp" id="datestamp">—</div>
+      <button class="iconbtn" id="themeBtn" title="Toggle theme" aria-label="Toggle light/dark">
+        <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"/></svg>
+      </button>
+    </div>
+  </div>
+  <!-- ===================== ELIGIBILITY BAR (top) ===================== -->
+  <div class="eligrow">
+    <div class="eligrow-inner">
+      <div class="ef name">
+        <span class="efk">Applicant</span>
+        <input type="text" id="applicantName" placeholder="Your name (optional)" />
+      </div>
+      <div class="ef">
+        <span class="efk">PhD completed</span>
+        <input type="text" id="phdYear" inputmode="numeric" maxlength="7" placeholder="e.g. 2019" />
+      </div>
+      <div class="ef">
+        <span class="efk">Career stage</span>
+        <select id="careerStage">
+          <option value="PhD student">PhD student</option>
+          <option value="postdoc" selected>Postdoc</option>
+          <option value="early-career faculty">Early-career faculty</option>
+          <option value="physician-scientist">Physician-scientist</option>
+          <option value="established investigator">Established investigator</option>
+        </select>
+      </div>
+      <div class="ef">
+        <span class="efk">Citizenship</span>
+        <select id="citizenship">
+          <option value="any">Prefer not to say</option>
+          <option value="us">U.S. citizen / permanent resident</option>
+          <option value="non-us">Non-U.S. — no permanent residence</option>
+          <option value="pending">Non-U.S. — permanent residence expected</option>
+        </select>
+      </div>
+      <div class="ef" id="prWrap" style="display:none">
+        <span class="efk">Permanent residence ~</span>
+        <input type="text" id="prMonth" maxlength="7" placeholder="[redacted]" />
+      </div>
+      <div class="eligsum" id="eligSummary"></div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <!-- ===================== SIDEBAR ===================== -->
+  <aside class="side">
+    <!-- CV -->
+    <section class="panel">
+      <div class="panel-h"><span class="num">1</span><h2>Curriculum Vitae</h2></div>
+      <div class="panel-b">
+        <div class="drop" id="drop">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 16V4M12 4l-4 4M12 4l4 4"/><path d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+          <div class="t">Drop your CV here</div>
+          <div class="s">PDF or text · or <b>browse</b></div>
+          <input type="file" id="cvFile" accept=".pdf,.txt,.md" hidden />
+        </div>
+        <div class="cvstat" id="cvStat"></div>
+        <div style="display:flex;justify-content:space-between;margin-top:10px;align-items:center">
+          <button class="mini-link" id="loadExample">★ Load example — Eric Liu ([redacted])</button>
+          <button class="mini-link" id="pasteToggle" style="color:var(--ink-faint)">paste text</button>
+        </div>
+        <textarea id="cvPaste" placeholder="…or paste your CV / research statement text here" style="display:none;margin-top:10px"></textarea>
+        <div id="cvKw"></div>
+      </div>
+    </section>
+
+    <!-- Topics -->
+    <section class="panel">
+      <div class="panel-h"><span class="num">2</span><h2>Research Topics</h2></div>
+      <div class="panel-b">
+        <div class="field" style="margin-bottom:8px">
+          <input type="text" id="topicInput" placeholder="Add a topic + Enter (e.g. AML, foundation models)" />
+        </div>
+        <div class="chips" id="topicChips"></div>
+        <div class="suglabel">Blood cancer</div>
+        <div class="chips" id="sugBlood"></div>
+        <div class="suglabel">AI / methods</div>
+        <div class="chips" id="sugAI"></div>
+      </div>
+    </section>
+
+    <!-- Filters -->
+    <section class="panel">
+      <div class="panel-h"><span class="num">3</span><h2>Filters &amp; Sources</h2></div>
+      <div class="panel-b">
+        <div class="field">
+          <label class="lab">Focus areas</label>
+          <div class="filtgrid" id="focusFilters"></div>
+        </div>
+        <div class="field">
+          <label class="lab">Disease subtype <span style="text-transform:none;letter-spacing:0;color:var(--ink-faint)">(refine — keeps general blood-cancer funders)</span></label>
+          <div class="filtgrid" id="subtypeFilters"></div>
+        </div>
+        <div class="field">
+          <label class="lab">Funder type</label>
+          <div class="seg" id="funderFilters"></div>
+        </div>
+        <div class="field">
+          <label class="lab">Data sources</label>
+          <div class="seg" id="sourceFilters"></div>
+        </div>
+        <div class="field" style="margin-bottom:0">
+          <label class="lab">Eligibility filters</label>
+          <div class="seg">
+            <button class="togg teal on" data-elig="stage">Match my career stage</button>
+            <button class="togg teal" data-elig="cit">Show citizenship-locked</button>
+            <button class="togg teal" data-elig="window">Show past-window (ineligible)</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <button class="searchbtn" id="searchBtn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      Search grants
+    </button>
+  </aside>
+
+  <!-- ===================== RESULTS ===================== -->
+  <main>
+    <div class="results-top">
+      <div>
+        <div class="h" id="resHead">Ready to search</div>
+        <div class="sub" id="resSub">Load a CV or add topics, then hit <b>Search grants</b>. Federal opportunities are pulled live from Grants.gov.</div>
+      </div>
+      <div class="controls">
+        <div class="tabs">
+          <button class="tab on" data-view="all" id="tabAll">Matches</button>
+          <button class="tab" data-view="saved" id="tabSaved">Shortlist<span class="b" id="savedCount">0</span></button>
+        </div>
+        <select class="sortsel" id="sortSel" title="Sort">
+          <option value="deadline" selected>Sort: Deadline (soonest)</option>
+          <option value="relevance">Sort: Best match</option>
+          <option value="amount">Sort: Award size</option>
+          <option value="funder">Sort: Funder A–Z</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="srcbar" id="srcBar"></div>
+    <div class="exportrow" id="exportRow" style="display:none">
+      <button class="exportbtn" id="expCsv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12M12 15l-4-4M12 15l4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>Export CSV</button>
+      <button class="exportbtn" id="expJson"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12M12 15l-4-4M12 15l4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>Export JSON</button>
+      <button class="exportbtn" id="clearSaved"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M6 7l1 13a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1l1-13"/></svg>Clear</button>
+    </div>
+
+    <div class="feed" id="feed"></div>
+  </main>
+</div>
+
+<footer class="foot">
+  <p><b>Grantboard</b> matches your CV and research topics against U.S. funding opportunities. Federal opportunities (NIH, NSF, DOD/CDMRP, ARPA-H) are searched <b>live from the official Grants.gov API</b>. Foundation, society &amp; industry programs come from a curated database plus the <b>Johns Hopkins Research Development</b> cancer/oncology opportunity lists. <b>Always verify current deadlines, amounts &amp; eligibility on the funder's own page before applying</b> — figures shown are best-effort and change frequently. Not affiliated with any funder. Data snapshot compiled 2026.</p>
+</footer>
+
+<div class="toast" id="toast"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg><span id="toastMsg"></span></div>
+
+<script>
+/* ============================================================
+   DATA  (spliced in at build time)
+   ============================================================ */
+const DEMO_PROFILE = /*__DEMO__*/{};
+const CURATED_DATA = /*__CURATED__*/[];
+const JHU_DATA     = /*__JHU__*/[];
+
+/* ============================================================
+   LEXICON + focus-area vocabulary
+   ============================================================ */
+const FOCUS_AREAS = [
+  "blood cancer/hematology","AI/computational","cancer immunology",
+  "genomics/omics","oncology","pediatric cancer","general biomedical","clinical/translational"
+];
+const LEX = {
+  "blood cancer/hematology":["leukemia","lymphoma","myeloma","hematolog","myelodysplastic"," mds ","bone marrow","marrow failure"," aml "," all "," cll "," cml ","hodgkin","t-cell lymphoma","nk/t","blood cancer","aplastic"],
+  "AI/computational":["machine learning","deep learning","artificial intelligence","neural network","pytorch","tensorflow","statistical","algorithm","computational","data science","foundation model","transformer"," model "," inference "," ai ","biostatistic"],
+  "genomics/omics":["genomics","rna-seq","single-cell","single cell","scrna","whole-genome"," wgs "," wes ","whole-exome","atac-seq","multi-omic","metabolomic","proteomic","sequencing","tcr-seq","cut&run","spatial","epigenom"],
+  "cancer immunology":["immunotherap","immune","anti-pd-1","checkpoint","car-t","car t","antibody","microenvironment","immuno-oncology"],
+  "oncology":["cancer","oncolog","tumor","carcinoma","melanoma","driver mutation","biomarker","risk stratification","diagnostic","metasta","neoplas"],
+  "pediatric cancer":["pediatric","childhood cancer"," child "],
+  "clinical/translational":["clinical trial","translational","patient","therapy","therapeutic"]
+};
+const TOPIC_SUGGEST = {
+  blood:["Acute myeloid leukemia (AML)","Lymphoma","Multiple myeloma","Myelodysplastic syndromes","Bone marrow failure","T-cell lymphoma","CAR-T therapy","Hematopoiesis"],
+  ai:["Machine learning","Deep learning","Foundation models","Single-cell analysis","Multi-omics integration","Survival modeling","Spatial transcriptomics","Causal inference"]
+};
+// Blood-cancer subtypes for the optional "Disease subtype" refine filter.
+const SUBTYPES = {
+  "T-cell lymphoma": /t-?cell lymphoma|nk\/?t\b|peripheral t-?cell|cutaneous t-?cell|\bctcl\b|\bptcl\b|angioimmunoblastic|adult t-?cell/,
+  "B-cell lymphoma": /b-?cell lymphoma|\bdlbcl\b|follicular lymphoma|mantle cell|marginal zone|burkitt|large b-?cell/,
+  "Hodgkin lymphoma": /hodgkin/,
+  "AML (acute myeloid)": /acute myeloid|\baml\b|acute myelogenous/,
+  "ALL (lymphoblastic)": /acute lymphoblastic|acute lymphocytic|lymphoblastic leukemia/,
+  "CLL": /chronic lymphocytic|\bcll\b/,
+  "CML": /chronic myeloid|\bcml\b|chronic myelogenous/,
+  "Multiple myeloma": /multiple myeloma|\bmyeloma\b|plasma cell/,
+  "MDS": /myelodysplastic|\bmds\b/,
+  "Bone marrow failure": /bone marrow failure|aplastic anemia|marrow failure|fanconi/
+};
+
+/* ============================================================
+   STATE
+   ============================================================ */
+const state = {
+  cvText:"", cvKeywords:[], topics:[],
+  focus:new Set(), subtypes:new Set(), funder:new Set(["federal","foundation","society","industry"]),
+  sources:new Set(["federal","curated","jhu"]),
+  eligStage:true, showBlocked:false, showWindow:false,
+  citizenship:"any", phdYear:null, prMonth:"", nationality:"",
+  results:[], view:"all", sort:"deadline",
+  saved:JSON.parse(localStorage.getItem("gb_saved")||"[]"),
+  detailCache:{}
+};
+
+/* ============================================================
+   UTIL
+   ============================================================ */
+const $=(s,r=document)=>r.querySelector(s);
+const $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const esc=s=>(s==null?"":String(s)).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function toast(msg){const t=$("#toast");$("#toastMsg").textContent=msg;t.classList.add("show");clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove("show"),2200);}
+
+const MONTHS={jan:0,feb:1,mar:2,apr:3,may:4,jun:5,jul:6,aug:7,sep:8,oct:9,nov:10,dec:11};
+function parseDeadline(s){
+  if(!s) return null;
+  s=String(s);
+  let m=s.match(/(\d{4})-(\d{2})-(\d{2})/); if(m) return new Date(+m[1],+m[2]-1,+m[3]);
+  m=s.match(/(\d{1,2})\/(\d{1,2})\/(\d{4})/); if(m) return new Date(+m[3],+m[1]-1,+m[2]);
+  m=s.match(/([A-Za-z]{3,9})\.?\s+(\d{1,2})(?:,?\s*(\d{4}))?/);
+  if(m){const mo=MONTHS[m[1].slice(0,3).toLowerCase()]; if(mo!=null){const now=new Date();let y=m[3]?+m[3]:now.getFullYear();let d=new Date(y,mo,+m[2]); if(!m[3]&&d<now)d=new Date(y+1,mo,+m[2]); return d;}}
+  return null;
+}
+// Prefer a web-verified ISO date; otherwise parse the free-text deadline.
+function grantDeadlineDate(g){
+  if(g.deadlineISO && /^\d{4}-\d{2}-\d{2}$/.test(g.deadlineISO)) return new Date(g.deadlineISO+"T00:00:00");
+  return parseDeadline(g.deadlineInfo||g.closeDate);
+}
+function deadlineChip(g){
+  const d=g._deadlineDate||grantDeadlineDate(g);
+  if(!d||isNaN(d)){
+    const txt=(g.deadlineInfo||"").trim();
+    if(txt && txt.length>4 && !/^see site$/i.test(txt))
+      return `<span class="dl unk" title="${esc(txt)}">↻ ${esc(txt.slice(0,30))}${txt.length>30?"…":""}</span>`;
+    return `<span class="dl unk">◇ see site</span>`;
+  }
+  const days=Math.round((d-new Date())/864e5);
+  const fmt=d.toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"});
+  if(days<0) return `<span class="dl unk" title="${esc(g.deadlineInfo||'')}">closed ${esc(fmt)}${/annual|recur|each year|next|cycle/i.test(g.deadlineInfo||"")?" · recurs":""}</span>`;
+  const cls=days<=45?"soon":days<=120?"mid":"far";
+  return `<span class="dl ${cls}">◷ ${esc(fmt)} · ${days}d</span>`;
+}
+// Prefer a real funder URL over a bare submission-portal homepage (proposalcentral.com, grants.gov, …)
+function bestUrl(g){
+  const generic=/^https?:\/\/(www\.)?(proposalcentral\.com|grants\.gov|ebrap\.org|nih\.gov)\/?$/i;
+  const a=(g.applyUrl||"").trim(), s=(g.sourceUrl||"").trim();
+  if(a && !generic.test(a)) return a;
+  if(s && !generic.test(s)) return s;
+  return a||s||"#";
+}
+function parseAmount(s){
+  if(s==null) return 0;
+  const m=String(s).replace(/,/g,"").match(/\$?\s?([\d]{4,})/);
+  return m?+m[1]:0;
+}
+
+/* ============================================================
+   KEYWORD EXTRACTION from CV text
+   ============================================================ */
+function extractKeywords(text){
+  const t=(" "+text+" ").toLowerCase().replace(/\s+/g," ");
+  const found=new Map();
+  for(const [fa,terms] of Object.entries(LEX)){
+    for(const term of terms){
+      if(t.includes(term.trim())){
+        const key=term.trim();
+        if(!found.has(key)) found.set(key,fa);
+      }
+    }
+  }
+  // also grab notable method/tool tokens
+  const extra=["pytorch","tensorflow","single-cell","rna-seq","multi-omics","spatial","immunotherapy","genomics","bioinformatics","risk stratification"];
+  const kws=[...found.keys()];
+  const suggestedFA=new Set([...found.values()]);
+  return {keywords:kws.slice(0,24), focus:suggestedFA};
+}
+function ingestCV(text,label){
+  state.cvText=text;
+  const {keywords,focus}=extractKeywords(text);
+  state.cvKeywords=keywords;
+  // auto-activate detected focus areas
+  focus.forEach(f=>state.focus.add(f));
+  renderFocusFilters();
+  const stat=$("#cvStat");
+  stat.style.display="flex";
+  stat.innerHTML=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> ${esc(label)} · ${keywords.length} keywords detected`;
+  renderCvKeywords();
+  saveProfile();
+}
+function renderCvKeywords(){
+  const el=$("#cvKw");
+  if(!state.cvKeywords.length){el.innerHTML="";return;}
+  el.innerHTML=`<div class="suglabel">Detected expertise</div><div class="chips">`+
+    state.cvKeywords.map(k=>`<span class="chip on" style="font-size:13px">${esc(k)}</span>`).join("")+`</div>`;
+}
+// Persist the applicant profile so shortlist fit-tips + inputs survive a page reload.
+function saveProfile(){
+  try{localStorage.setItem("gb_profile",JSON.stringify({
+    cvText:state.cvText,cvKeywords:state.cvKeywords,topics:state.topics,focus:[...state.focus],subtypes:[...state.subtypes],
+    name:($("#applicantName")||{}).value||"",phdYear:($("#phdYear")||{}).value||"",
+    citizenship:($("#citizenship")||{}).value||"any",prMonth:($("#prMonth")||{}).value||"",
+    careerStage:($("#careerStage")||{}).value||"postdoc",nationality:state.nationality||""
+  }));}catch(e){}
+}
+function loadProfile(){
+  let p; try{p=JSON.parse(localStorage.getItem("gb_profile")||"null");}catch(e){}
+  if(!p) return;
+  state.cvText=p.cvText||""; state.cvKeywords=p.cvKeywords||[]; state.topics=p.topics||[];
+  if(p.nationality!=null) state.nationality=p.nationality;
+  (p.focus||[]).forEach(f=>state.focus.add(f));
+  (p.subtypes||[]).forEach(s=>state.subtypes.add(s));
+  if(p.name&&$("#applicantName")) $("#applicantName").value=p.name;
+  if(p.phdYear&&$("#phdYear")) $("#phdYear").value=p.phdYear;
+  if(p.citizenship&&$("#citizenship")) $("#citizenship").value=p.citizenship;
+  if(p.prMonth&&$("#prMonth")) $("#prMonth").value=p.prMonth;
+  if(p.careerStage&&$("#careerStage")) $("#careerStage").value=p.careerStage;
+  if(window.__syncElig) window.__syncElig();
+  if(state.cvKeywords.length){const stat=$("#cvStat");if(stat){stat.style.display="flex";stat.innerHTML=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> Restored your saved profile · ${state.cvKeywords.length} keywords`;}}
+  renderCvKeywords();
+}
+
+/* ============================================================
+   PDF / file handling
+   ============================================================ */
+if(window.pdfjsLib){pdfjsLib.GlobalWorkerOptions.workerSrc="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";}
+async function readPDF(file){
+  if(!window.pdfjsLib) throw new Error("pdf.js unavailable");
+  const buf=await file.arrayBuffer();
+  const pdf=await pdfjsLib.getDocument({data:buf}).promise;
+  let out="";
+  for(let i=1;i<=pdf.numPages;i++){
+    const pg=await pdf.getPage(i);
+    const tc=await pg.getTextContent();
+    out+=tc.items.map(it=>it.str).join(" ")+"\n";
+  }
+  return out;
+}
+async function handleFile(file){
+  try{
+    let text;
+    if(/\.pdf$/i.test(file.name)) text=await readPDF(file);
+    else text=await file.text();
+    if(!text.trim()) throw new Error("empty");
+    ingestCV(text,file.name);
+    toast("CV parsed — keywords extracted");
+  }catch(e){
+    toast("Couldn't read that file — try pasting the text");
+    $("#cvPaste").style.display="block";
+  }
+}
+
+/* ============================================================
+   TOPICS + FILTER UI
+   ============================================================ */
+function renderTopicChips(){
+  $("#topicChips").innerHTML=state.topics.map((t,i)=>
+    `<span class="chip userchip rm" data-i="${i}">${esc(t)} <span class="x">×</span></span>`).join("")
+    || `<span style="font-size:13.5px;color:var(--ink-faint)">No topics yet — add your own or pick suggestions below.</span>`;
+  $$("#topicChips .rm").forEach(c=>c.onclick=()=>{state.topics.splice(+c.dataset.i,1);renderTopicChips();saveProfile();});
+}
+function addTopic(t){t=t.trim();if(t&&!state.topics.includes(t)){state.topics.push(t);renderTopicChips();saveProfile();}}
+function renderSuggest(){
+  const mk=(list,el)=>{$(el).innerHTML=list.map(s=>`<span class="chip add" data-t="${esc(s)}">+ ${esc(s)}</span>`).join("");
+    $$(el+" .add").forEach(c=>c.onclick=()=>{addTopic(c.dataset.t);});};
+  mk(TOPIC_SUGGEST.blood,"#sugBlood"); mk(TOPIC_SUGGEST.ai,"#sugAI");
+}
+function renderFocusFilters(){
+  $("#focusFilters").innerHTML=FOCUS_AREAS.map(f=>
+    `<button class="togg ${state.focus.has(f)?"on teal":""}" data-f="${esc(f)}">${esc(f)}</button>`).join("");
+  $$("#focusFilters .togg").forEach(b=>b.onclick=()=>{
+    const f=b.dataset.f; state.focus.has(f)?state.focus.delete(f):state.focus.add(f); renderFocusFilters(); saveProfile(); if(state.results.length)render();
+  });
+}
+function renderSubtypeFilters(){
+  $("#subtypeFilters").innerHTML=Object.keys(SUBTYPES).map(s=>
+    `<button class="togg ${state.subtypes.has(s)?"on teal":""}" data-st="${esc(s)}">${esc(s)}</button>`).join("");
+  $$("#subtypeFilters .togg").forEach(b=>b.onclick=()=>{
+    const s=b.dataset.st; state.subtypes.has(s)?state.subtypes.delete(s):state.subtypes.add(s); renderSubtypeFilters(); saveProfile(); if(state.results.length)render();
+  });
+}
+function renderFunderFilters(){
+  const types=[["federal","Federal"],["foundation","Foundation"],["society","Society"],["industry","Industry"]];
+  $("#funderFilters").innerHTML=types.map(([k,l])=>
+    `<button class="togg ${state.funder.has(k)?"on":""}" data-k="${k}">${l}</button>`).join("");
+  $$("#funderFilters .togg").forEach(b=>b.onclick=()=>{
+    const k=b.dataset.k; state.funder.has(k)?state.funder.delete(k):state.funder.add(k); renderFunderFilters(); if(state.results.length) render();
+  });
+}
+function renderSourceFilters(){
+  const src=[["federal","Live federal"],["curated","Curated foundations"],["jhu","JHU list"]];
+  $("#sourceFilters").innerHTML=src.map(([k,l])=>
+    `<button class="togg ${state.sources.has(k)?"on teal":""}" data-k="${k}">${l}</button>`).join("");
+  $$("#sourceFilters .togg").forEach(b=>b.onclick=()=>{
+    const k=b.dataset.k; state.sources.has(k)?state.sources.delete(k):state.sources.add(k); renderSourceFilters();
+  });
+}
+
+/* ============================================================
+   MATCH SCORING
+   ============================================================ */
+function buildProfileTerms(){
+  const terms=new Map();
+  const add=(t,w)=>{t=t.toLowerCase().trim();if(t.length<3)return;terms.set(t,Math.max(terms.get(t)||0,w));};
+  state.topics.forEach(t=>add(t,3));
+  state.cvKeywords.forEach(k=>add(k,1.4));
+  state.focus.forEach(f=>{(LEX[f]||[]).slice(0,4).forEach(t=>add(t.trim(),0.8));});
+  return [...terms.entries()].map(([term,w])=>({term,w}));
+}
+function stageMatch(gStages,mine){
+  if(!gStages||!gStages.length) return true;          // unknown stage (e.g. live federal) — don't exclude
+  const g=gStages.map(x=>x.toLowerCase());
+  if(g.some(x=>x.includes("any"))) return true;
+  const m=mine.toLowerCase();
+  // a postdoc should also see fellow-to-faculty / transition awards that list "fellow"
+  if(m==="postdoc" && g.some(x=>x.includes("postdoc")||x.includes("fellow"))) return true;
+  return g.some(x=>x.includes(m)||m.includes(x.split(" ")[0]));
+}
+// Citizenship requirement class: 'none' | 'restricted' (citizen OR permanent resident — a [redacted] satisfies) | 'citizen-only'
+function citizenshipReq(g){
+  if(g.citizenshipReq) return g.citizenshipReq;   // web-verified field (JHU-updated data)
+  const t=((g.eligibility||"")+" "+(g.description||"")).toLowerCase();
+  if(!/citizen|permanent resident|[redacted]|\bnationals?\b/.test(t)) return "none";
+  // A [redacted] does NOT help only when the award is explicitly citizens-only with no PR pathway.
+  if(/citizens?\s+only|only\s+u\.?s\.?\s+citizens|citizens?\s+of\s+the\s+united\s+states\s+only/.test(t) && !/permanent resident|[redacted]/.test(t)) return "citizen-only";
+  return "restricted";
+}
+// Parse an eligibility window measured from the PhD/terminal degree (in YEARS), handling both
+// "N years" and "N months" phrasings; returns the most restrictive window found, or null.
+// Deliberately ignores lab-tenure ("24 months in the mentor's lab") and faculty-appointment clocks.
+function degreeWindow(g){
+  const nm=((g.name||"")+" "+(g.number||"")+" "+(g.funder||"")).toLowerCase();
+  if(/\bk99\b|pathway to independence/.test(nm)) return 4;                 // K99: ≤4 yrs postdoctoral experience
+  if(/\bdp5\b|early independence/.test(nm)) return 1;                      // DP5: within ~1 yr of terminal degree
+  if(/immuno-informatics|irvington (fellowship|postdoctoral)/.test(nm)) return 5;  // CRI postdoc fellowships: <5 yrs since PhD
+  let t=((g.eligibility||"")+" "+(g.description||"")).toLowerCase().replace(/\s+/g," ");
+  const NW={one:1,two:2,three:3,four:4,five:5,six:6,seven:7,eight:8,nine:9,ten:10,eleven:11,twelve:12};
+  t=t.replace(/\b(one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve)\b/g,w=>NW[w]);  // spelled-out numbers → digits
+  const toY=(n,u)=>/month/.test(u)?(+n)/12:(+n);
+  const A="(?:~|approx(?:\\.|imately)?|about|roughly|<|≤)?\\s*";   // optional "~18", "<5", "≤5"
+  const pats=[
+    "(?:no more than|within|up to|less than|not more than|fewer than|no later than|at most|under)\\s+"+A+"(\\d{1,3})\\s+(month|year)s?[^.]{0,40}(?:before|of|prior to|since|after|post|from|following)[^.]{0,25}(?:deadline|degree|ph\\.?d|doctoral|doctorate|graduation|terminal|conferred|residency)",
+    "(?:degree|ph\\.?d|doctoral|doctorate|conferred|graduation|terminal degree|residency|clinical training)[^.]{0,40}?(?:no more than|within|up to|less than|not more than|under)\\s+"+A+"(\\d{1,3})\\s+(month|year)s?",
+    "(?:conferred|received|awarded|completed|earned|obtained)[^.]{0,30}(?:within|no more than|up to|less than|under)\\s+"+A+"(\\d{1,3})\\s+(month|year)s?",
+    // symbol/word quantifier + "N years [of] (mentored) research/postdoc experience/training"
+    "(?:<|≤|less than|under|fewer than|no more than|within|up to|at most|not more than)\\s*"+A+"(\\d{1,3})\\s+(month|year)s?\\s+(?:of\\s+)?(?:mentored\\s+|independent\\s+|postdoctoral\\s+)?(?:research|postdoc|experience|training)",
+    // inverse: "N or more years ... (are) not eligible / ineligible"
+    "(\\d{1,3})\\s+(?:or more|or greater|\\+)\\s+(month|year)s?[^.]{0,70}(?:not eligible|ineligible|no longer eligible)"
+  ];
+  // future-graduation allowances ("planning to defend PhD within 12 months") are NOT post-degree caps
+  const FUTURE=/defend|planning to|plan to|expect|anticipat|will (?:receive|earn|defend|complete|obtain|have)|about to|prior to (?:receiv|earn|obtain|the (?:phd|degree|doctoral))|before (?:receiv|earn|obtain)/;
+  let best=null;
+  for(const s of pats){
+    const re=new RegExp(s,"g"); let m;
+    while((m=re.exec(t))){
+      const ctx=t.slice(Math.max(0,m.index-25), m.index+m[0].length+15);
+      if(FUTURE.test(ctx)) continue;
+      const y=toY(m[1],m[2]); if(y>0&&y<=15&&(best===null||y<best)) best=y;
+    }
+  }
+  return best;
+}
+function fmtWindow(y){ return y<1?`${Math.round(y*12)}-mo`:`${(y%1?y.toFixed(1):y)}-yr`; }
+function yearsSincePhD(){
+  if(!state.phdYear) return null;
+  return (new Date().getFullYear())-state.phdYear;
+}
+// Detect awards restricted to a specific (non-U.S.) nationality, e.g. "for young Italian scientists".
+const NATIONALITIES=["italian","german","french","japanese","korean","chinese","[redacted]","canadian","british","swiss","spanish","dutch","swedish","israeli","indian","australian","austrian","belgian","danish","norwegian","finnish","polish","greek","portuguese","turkish","irish","mexican","brazilian","argentine","singaporean"];
+function nationalityRestriction(g){
+  const t=((g.name||"")+" "+(g.funder||"")+" "+(g.eligibility||"")+" "+(g.description||"")).toLowerCase();
+  for(const n of NATIONALITIES){
+    const re=new RegExp("(?:for (?:young )?|only (?:open )?to |must be (?:an? )?|restricted to |reserved for |open (?:only )?to |program is for |targets? |citizens? of |nationals? of )"+n+"\\b|\\b"+n+"\\s+(?:scientists?|citizens?|nationals?|researchers?|investigators?|nationality|citizenship|descent|origin)");
+    if(re.test(t)) return n.charAt(0).toUpperCase()+n.slice(1);
+  }
+  return null;
+}
+// Awards open ONLY to physicians (MD/DO), not to PhD basic scientists.
+function requiresPhysicianOnly(g){
+  const t=((g.name||"")+" "+(g.eligibility||"")+" "+(g.description||"")).toLowerCase();
+  // signals of a physician/MD requirement
+  const md=/physician-?scientist|md\/do only|md or do only|md\/do\b|\(md\/do|board-?eligible|board-?certified|completed .{0,25}(?:residency|clinical training)|recruiting .{0,30}physicians|physicians? (?:only|who have|\()|must (?:be|hold) (?:an? )?(?:m\.?d\.?|medical degree|physician)|medical degree (?:is )?required|newly trained physicians|for (?:newly )?(?:trained )?physicians/;
+  if(!md.test(t)) return false;
+  // explicit exclusion of PhDs → definitely physician-only (check FIRST: "MD/PhDs NOT eligible")
+  if(/md\/?-?phds?\s+not\s+eligible|ph\.?ds?\s+(?:are\s+)?not\s+eligible|cannot\s+(?:be\s+pursuing|pursue)\s+a?\s*ph\.?d|not\s+open\s+to\s+ph\.?d|md(?:\/|\s+or\s+)do\s+only|open only to md/.test(t)) return true;
+  // PhDs / basic scientists explicitly allowed → NOT physician-only
+  const phdOk=/ph\.?d[^.]{0,25}(?:\bor\b|,|\/)[^.]{0,12}(?:m\.?d|d\.?o|dvm|dds|equivalent)|(?:m\.?d|d\.?o|dvm|dds)[^.]{0,15}(?:\bor\b|,)[^.]{0,12}ph\.?d|basic scientists?|non-?clinical|open to (?:both )?(?:phd|basic|non-?physician)|phd applicants|for (?:both )?phd/;
+  return !phdOk.test(t);
+}
+// Awards for CURRENT/finishing PhD students (e.g. Schmidt Science Fellows) — not for established postdocs.
+// Key signal: PhD must be completed within a FUTURE date window (a graduation window, not "have completed").
+function requiresCompletingPhD(g){
+  const t=((g.name||"")+" "+(g.eligibility||"")+" "+(g.description||"")).toLowerCase();
+  return /final year of (?:your |the )?(?:ph\.?d|doctoral|doctorate)|current(?:ly)? (?:enrolled )?(?:ph\.?d|doctoral) (?:students?|candidates?)|graduating (?:ph\.?d|doctoral)|enrolled in a (?:ph\.?d|doctoral) program|(?:complete|defend|receive|be awarded|conferral)[^;]{0,25}(?:ph\.?d|doctorate|doctoral degree)[^;]{0,45}between[^;]{0,45}20\d\d|(?:complete|defend|receive|earn)[^;]{0,20}(?:ph\.?d|doctorate)[^;]{0,30}(?:by|before|no later than)[^;]{0,25}20(?:2[6-9]|3\d)/.test(t);
+}
+// Combined eligibility given the applicant's citizenship + years-since-PhD.
+function eligibility(g){
+  const cit=state.citizenship, req=citizenshipReq(g), win=degreeWindow(g), ys=yearsSincePhD();
+  const mine=($("#careerStage")||{}).value||state.careerStage||"postdoc";
+  const flags=[]; let blocked=false, blockedCitizenship=false, gated=false, windowExceeded=false;
+  // nationality restriction (e.g. Italian-only) — blocks unless it matches the applicant's nationality
+  const nat=nationalityRestriction(g);
+  if(nat && nat.toLowerCase()!==(state.nationality||"").toLowerCase()){ blocked=true; flags.push({t:"blk",x:`${nat} nationals only`}); }
+  // physician-only (MD/DO) awards don't apply to a PhD basic scientist
+  if(requiresPhysicianOnly(g) && mine!=="physician-scientist"){ blocked=true; flags.push({t:"blk",x:"MD / physician-scientist only"}); }
+  // awards for finishing PhD students — not for someone who graduated years ago
+  if(requiresCompletingPhD(g) && ys!=null && ys>=1){ blocked=true; flags.push({t:"blk",x:"For finishing PhD students"}); }
+  if(req==="citizen-only"){
+    if(cit==="non-us"||cit==="pending"){blocked=true;blockedCitizenship=true;flags.push({t:"blk",x:"U.S. citizens only"});}
+  }else if(req==="restricted"){
+    if(cit==="pending"){gated=true;flags.push({t:"gc",x:"Permanent residence unlocks"+(state.prMonth?" ~"+state.prMonth:"")});}
+    else if(cit==="non-us"){blocked=true;blockedCitizenship=true;flags.push({t:"blk",x:"Needs citizen / PR"});}
+  }
+  if(win!=null && ys!=null){
+    if(ys>win){windowExceeded=true;flags.push({t:"warn",x:`past ${fmtWindow(win)} post-PhD window`});}
+    else flags.push({t:"win",x:`≤${fmtWindow(win)} window ✓`});
+  }
+  // baked eligibility-audit verdict (authoritative per the applicant profile)
+  const AL={md_physician_only:"MD / physician-scientist only",finishing_phd_student_only:"For finishing PhD students",nationality_restricted:"Nationality-restricted",faculty_or_independent_required:"Requires faculty position",us_citizen_only:"U.S. citizens only",other:"Not eligible — see details"};
+  const ac=g.auditCode, isFacultyStage=/faculty|established/.test(mine);
+  let facultyBlocked=false;
+  if(ac==="past_time_window"){ if(!windowExceeded){windowExceeded=true;flags.push({t:"warn",x:"past post-PhD window"});} }
+  else if(ac==="us_citizen_only"){ if(cit!=="us"){blocked=true;blockedCitizenship=true;if(!flags.some(f=>f.x==="U.S. citizens only"))flags.push({t:"blk",x:"U.S. citizens only"});} }
+  else if(ac==="faculty_or_independent_required"){ if(!isFacultyStage){facultyBlocked=true;flags.push({t:"blk",x:"Requires faculty position"});} }
+  else if(ac){ if(!flags.some(f=>f.x===AL[ac])){blocked=true;flags.push({t:"blk",x:AL[ac]||AL.other});} }
+  return {blocked,blockedCitizenship,facultyBlocked,gated,windowExceeded,win,req,flags,auditReason:g.auditReason};
+}
+function scoreGrant(g,terms){
+  const hay=((g.name||"")+" "+(g.funder||"")+" "+(g.description||"")+" "+((g.focusAreas||[]).join(" "))+" "+(g.eligibility||"")+" "+(g.relevanceToUser||"")).toLowerCase();
+  let score=0;const matched=[];
+  for(const {term,w} of terms){
+    const idx=hay.indexOf(term);
+    if(idx>-1){score+=w;matched.push(term);}
+  }
+  const faOverlap=(g.focusAreas||[]).filter(f=>state.focus.has(f)).length;
+  score+=faOverlap*2.2;
+  if(stageMatch(g.careerStages,$("#careerStage").value)) score+=2;
+  // small prior so curated blood/AI items aren't zero when profile empty
+  if((g.focusAreas||[]).some(f=>f==="blood cancer/hematology"||f==="AI/computational")) score+=0.4;
+  // boost grants that match a selected disease subtype so they rank to the top
+  state.subtypes.forEach(s=>{ if(SUBTYPES[s]&&SUBTYPES[s].test(hay)){ score+=3; matched.push(s.toLowerCase()); } });
+  return {score,matched:[...new Set(matched)].slice(0,6),faOverlap};
+}
+
+/* ============================================================
+   LIVE FEDERAL SEARCH (Grants.gov Search2 — text/plain avoids CORS preflight)
+   ============================================================ */
+const GG_SEARCH="https://api.grants.gov/v1/api/search2";
+const GG_FETCH="https://api.grants.gov/v1/api/fetchOpportunity";
+const FED_SEED={
+  "blood cancer/hematology":["leukemia lymphoma myeloma","myelodysplastic bone marrow failure","hematologic malignancy"],
+  "AI/computational":["artificial intelligence machine learning cancer","computational data science health"],
+  "cancer immunology":["cancer immunotherapy"],
+  "genomics/omics":["cancer genomics single cell"],
+  "oncology":["cancer research"],
+  "pediatric cancer":["pediatric cancer"]
+};
+function buildFederalQueries(){
+  const q=[];
+  state.topics.slice(0,4).forEach(t=>q.push(t));
+  state.focus.forEach(f=>(FED_SEED[f]||[]).forEach(s=>q.push(s)));
+  if(!q.length) q.push("cancer research","artificial intelligence health");
+  return [...new Set(q.map(x=>x.trim().toLowerCase()))].slice(0,7);
+}
+async function ggSearch(keyword){
+  const r=await fetch(GG_SEARCH,{method:"POST",headers:{"Content-Type":"text/plain"},
+    body:JSON.stringify({keyword,oppStatuses:"posted|forecasted",rows:25})});
+  if(!r.ok) throw new Error("http "+r.status);
+  const j=await r.json();
+  return (j.data&&j.data.oppHits)||[];
+}
+async function fetchFederal(){
+  const queries=buildFederalQueries();
+  const seen=new Map();
+  const settled=await Promise.allSettled(queries.map(q=>ggSearch(q)));
+  let ok=0;
+  for(const s of settled){
+    if(s.status==="fulfilled"){ok++;
+      for(const h of s.value){
+        if(seen.has(h.id)) continue;
+        seen.set(h.id,{
+          id:"fed-"+h.id, _oppId:h.id, name:h.title, funder:h.agency||h.agencyCode||"Federal agency",
+          funderType:"federal", source:"federal", _live:true,
+          focusAreas:deriveFocus((h.title||"")+" "+(h.agency||"")),
+          careerStages:[], awardAmount:"see details", duration:"",
+          deadlineInfo:h.closeDate||"", closeDate:h.closeDate, openDate:h.openDate, oppStatus:h.oppStatus,
+          number:h.number, eligibility:"", description:"",
+          applyUrl:"https://www.grants.gov/search-results-detail/"+h.id,
+          sourceUrl:"https://www.grants.gov/search-results-detail/"+h.id
+        });
+      }
+    }
+  }
+  return {items:[...seen.values()], ok, total:queries.length};
+}
+function deriveFocus(text){
+  const t=" "+text.toLowerCase()+" ";const fa=[];
+  const test=(fa_,re)=>{if(re.test(t))fa.push(fa_);};
+  test("blood cancer/hematology",/leukemia|lymphoma|myeloma|hematolog|myelodysplas|marrow|aplastic/);
+  test("AI/computational",/artificial intelligence|machine learning|deep learning|computational|data science|informatic|algorithm/);
+  test("cancer immunology",/immunotherap|immune|checkpoint|car-t/);
+  test("genomics/omics",/genom|single.cell|sequencing|multi.omic|proteom|metabolom/);
+  test("pediatric cancer",/pediatric|childhood/);
+  if(/cancer|oncolog|tumor|carcinoma|neoplas/.test(t)) fa.push("oncology");
+  return [...new Set(fa)].length?[...new Set(fa)]:["general biomedical"];
+}
+async function fetchFederalDetail(oppId){
+  if(state.detailCache[oppId]) return state.detailCache[oppId];
+  const r=await fetch(GG_FETCH,{method:"POST",headers:{"Content-Type":"text/plain"},body:JSON.stringify({opportunityId:+oppId})});
+  const j=await r.json();
+  const s=(j.data&&j.data.synopsis)||{};
+  const strip=h=>(h||"").replace(/<[^>]+>/g," ").replace(/&nbsp;/g," ").replace(/\s+/g," ").trim();
+  const d={
+    description:strip(s.synopsisDesc),
+    eligibility:strip(s.applicantEligibilityDesc)||(s.applicantTypes||[]).map(a=>a.description).join("; "),
+    awardCeiling:s.awardCeiling, awardFloor:s.awardFloor, estimatedFunding:s.estimatedTotalProgramFunding||s.estimatedFunding,
+    expectedAwards:s.numberOfAwards, closeDate:s.responseDate, agencyEmail:s.agencyContactEmail
+  };
+  state.detailCache[oppId]=d;return d;
+}
+
+/* ============================================================
+   MAIN SEARCH
+   ============================================================ */
+function slugId(prefix,g,i){
+  const s=((g.funder||"")+"-"+(g.name||"")).toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,48);
+  return prefix+"-"+(s||i);
+}
+function localPool(){
+  let pool=[];
+  if(state.sources.has("curated")) pool=pool.concat(CURATED_DATA.map((g,i)=>({...g,source:g.source||"curated",id:g.id||slugId("cur",g,i)})));
+  if(state.sources.has("jhu")) pool=pool.concat(JHU_DATA.map((g,i)=>({...g,source:"jhu",id:g.id||slugId("jhu",g,i)})));
+  return pool;
+}
+async function runSearch(){
+  const btn=$("#searchBtn");btn.disabled=true;
+  $("#resHead").textContent="Searching…";
+  $("#resSub").innerHTML="Scoring curated programs and querying Grants.gov live…";
+  // skeletons
+  $("#feed").innerHTML=Array.from({length:4}).map(()=>`<div class="skel"></div>`).join("");
+  renderSrcBar({fedLoading:state.sources.has("federal")});
+
+  const terms=buildProfileTerms();
+  // local (curated + jhu)
+  let local=localPool().map(g=>{const sc=scoreGrant(g,terms);return {...g,_score:sc.score,_matched:sc.matched,_fa:sc.faOverlap,_deadlineDate:grantDeadlineDate(g)};});
+
+  // federal live
+  let fed=[]; let fedStatus={ok:0,total:0,err:false};
+  if(state.sources.has("federal")){
+    try{
+      const {items,ok,total}=await fetchFederal();
+      fedStatus={ok,total,err:false};
+      fed=items.map(g=>{const sc=scoreGrant(g,terms);return {...g,_score:sc.score,_matched:sc.matched,_fa:sc.faOverlap,_deadlineDate:grantDeadlineDate(g)};});
+    }catch(e){fedStatus={ok:0,total:0,err:true};}
+  }
+  state.fedStatus=fedStatus;
+  state.results=[...fed,...local];
+  // single normalization reference used by BOTH Matches and Shortlist, so a grant's % is identical in each
+  state.maxScore=Math.max(1,...state.results.map(g=>g._score||0));
+  btn.disabled=false;
+  render();
+}
+
+/* ============================================================
+   FILTER + SORT + RENDER
+   ============================================================ */
+// A grant is "off-target" if it is dedicated to ONE specific non-blood cancer (skin, ovarian,
+// prostate, breast, lung, brain, etc.) and does not also cover blood cancer or all/pan-cancer.
+// NOTE: a computational/AI angle does NOT rescue a disease-locked tumor — a prostate data-science
+// award still requires prostate research, which is off-target for a blood-cancer applicant.
+function offTargetDisease(g){
+  const t=((g.name||"")+" "+(g.funder||"")+" "+(g.description||"")+" "+(g.focusAreas||[]).join(" ")+" "+(g.eligibility||"")).toLowerCase();
+  const specific=/melanoma|skin cancer|ovarian|prostate|breast cancer|lung cancer|non-small cell|nsclc|pancrea|colorectal|colon cancer|glioblast|glioma|brain tumor|brain cancer|head and neck|kidney cancer|renal cell|bladder cancer|cervical|endometrial|uterine|sarcoma|desmoid|thyroid|liver cancer|hepatocellular|gastric|esophag|neuroblastoma|retinoblast|neurofibromatos|mesotheli|ovary/;
+  if(!specific.test(t)) return false;
+  const rescue=/leukemi|lymphoma|myeloma|hematolog|blood cancer|myelodysplas|marrow|\baml\b|\bcll\b|\bcml\b|pan-?cancer|any cancer|all cancers?|any (solid or )?(cancer|tumo)|multiple cancer|across cancer|solid and hematolog|any (scientific )?discipline|all types of cancer/;
+  return !rescue.test(t);
+}
+// Is the grant actually in the cancer domain (vs a general-biomedical or pure-AI grant that leaked
+// in from the live federal search, e.g. "science of learning", "suicide prevention")?
+function cancerRelevant(g){
+  const gf=g.focusAreas||[];
+  if(gf.some(f=>["blood cancer/hematology","cancer immunology","pediatric cancer","oncology"].includes(f))) return true;
+  const t=((g.name||"")+" "+(g.funder||"")+" "+(g.description||"")+" "+(g.relevanceToUser||"")).toLowerCase();
+  return /cancer|oncolog|tumou?r|carcinoma|leukemi|lymphoma|myeloma|hematolog|neoplas|malignan|metasta/.test(t);
+}
+// Focus gate: exclude off-target single tumors and non-cancer noise; a method match (AI/genomics)
+// only counts when the grant is cancer-relevant.
+function focusPass(g){
+  if(!state.focus.size) return true;
+  if(offTargetDisease(g)) return false;
+  const gf=g.focusAreas||[];
+  const GENERIC=new Set(["oncology","general biomedical"]);
+  for(const f of gf){
+    if(GENERIC.has(f)||!state.focus.has(f)) continue;
+    if(f==="AI/computational"||f==="genomics/omics"){ if(cancerRelevant(g)) return true; }   // method match needs cancer relevance
+    else return true;                                                                          // blood cancer / immunology / pediatric — direct
+  }
+  if(state.focus.has("oncology") && gf.includes("oncology") && cancerRelevant(g)) return true;  // pan-cancer / general oncology
+  return false;
+}
+// Disease-subtype refine filter. A grant passes if: no subtype selected; OR it isn't dedicated to a
+// specific blood-cancer subtype (general blood-cancer / pan-cancer funders stay — they still apply);
+// OR the subtype it's named for is one of the selected ones. Grants dedicated to a DIFFERENT subtype
+// (e.g. a myeloma-only award when you selected T-cell lymphoma) are dropped.
+function grantNamedSubtypes(g){
+  const nf=((g.name||"")+" "+(g.funder||"")).toLowerCase();
+  return Object.keys(SUBTYPES).filter(s=>SUBTYPES[s].test(nf));
+}
+function subtypeMatch(g){
+  if(!state.subtypes.size) return true;
+  const named=grantNamedSubtypes(g);
+  if(!named.length) return true;                 // general blood-cancer / pan-cancer — applies to your subtype too
+  return named.some(s=>state.subtypes.has(s));    // named for a subtype → keep only if it's one you selected
+}
+// funder + focus + career-stage + subtype filters (eligibility-neutral)
+function baseFilter(list){
+  const mine=$("#careerStage").value;
+  return list.filter(g=>{
+    if(!state.funder.has(g.funderType)) return false;
+    if(!focusPass(g)) return false;
+    if(!subtypeMatch(g)) return false;
+    if(state.eligStage && !stageMatch(g.careerStages,mine)) return false;
+    return true;
+  });
+}
+// eligibility filter — citizenship-blocked grants are hidden AUTOMATICALLY based on the
+// citizenship selector (a non-U.S. applicant with no [redacted] can't get citizen/PR awards),
+// unless "Show citizenship-blocked" is on. Past-PhD-window awards hide only when that toggle is on.
+function eligFilter(list){
+  return list.filter(g=>{
+    const e=eligibility(g);
+    // hide anything you can't apply to right now: hard-blocked, PR-gated, or faculty-stage-only.
+    // "Show citizenship-locked" reveals them.
+    if((e.blocked||e.gated||e.facultyBlocked) && !state.showBlocked) return false;
+    if(e.windowExceeded && !state.showWindow) return false;   // past your PhD-year window → not applicable, hidden by default
+    return true;
+  });
+}
+function sortList(list){
+  const s=state.sort;
+  const arr=[...list];
+  if(s==="relevance") arr.sort((a,b)=>b._score-a._score);
+  else if(s==="deadline"){
+    // upcoming deadlines first (soonest), then undated/recurring, then closed (most-recent first)
+    const rank=d=>{ if(!d||isNaN(d)) return 5e6; const days=(d-Date.now())/864e5; return days>=0?days:1e7+(-days); };
+    arr.sort((a,b)=>{const r=rank(a._deadlineDate)-rank(b._deadlineDate);return r!==0?r:b._score-a._score;});
+  }
+  else if(s==="amount") arr.sort((a,b)=>parseAmount(b.awardAmount)-parseAmount(a.awardAmount));
+  else if(s==="funder") arr.sort((a,b)=>(a.funder||"").localeCompare(b.funder||""));
+  return arr;
+}
+function isSaved(g){return state.saved.some(s=>s.id===g.id||(s.name===g.name&&s.funder===g.funder));}
+function toggleSave(g){
+  if(isSaved(g)){
+    state.saved=state.saved.filter(s=>!(s.id===g.id||(s.name===g.name&&s.funder===g.funder)));
+  }else{
+    state.saved.push({id:g.id,name:g.name,funder:g.funder,funderType:g.funderType,awardAmount:g.awardAmount,
+      duration:g.duration,deadlineInfo:g.deadlineInfo||g.closeDate,deadlineISO:g.deadlineISO,closeDate:g.closeDate,
+      applyUrl:g.applyUrl,sourceUrl:g.sourceUrl,focusAreas:g.focusAreas,careerStages:g.careerStages,
+      eligibility:g.eligibility,description:g.description,relevanceToUser:g.relevanceToUser,
+      citizenshipReq:g.citizenshipReq,status:g.status,number:g.number,_live:g._live,_oppId:g._oppId,
+      _score:g._score,_scoreMax:state.maxScore});
+    toast("Saved to your Shortlist — open the Shortlist tab for fit tips");
+  }
+  localStorage.setItem("gb_saved",JSON.stringify(state.saved));
+  $("#savedCount").textContent=state.saved.length;
+  render();
+}
+
+function localDetailHTML(g){
+  const citLabel={none:"No citizenship requirement",restricted:"U.S. citizen or permanent resident",'citizen-only':"U.S. citizens only"}[citizenshipReq(g)]||"See program";
+  const rows=[];
+  if(g.awardAmount) rows.push(["Award",g.awardAmount]);
+  if(g.duration) rows.push(["Duration",g.duration]);
+  if(g.deadlineInfo) rows.push(["Deadline / cycle",g.deadlineInfo]);
+  rows.push(["Citizenship",citLabel]);
+  if(g.careerStages&&g.careerStages.length) rows.push(["Career stage",g.careerStages.join(", ")]);
+  if(g.status) rows.push(["Status",g.status]);
+  if(g.confidence) rows.push(["Data confidence",g.confidence]);
+  let h=`<div class="dgrid">`+rows.map(([k,v])=>`<div><div class="k">${esc(k)}</div><div class="v" style="font-family:var(--sans);font-weight:600;color:var(--ink)">${esc(v)}</div></div>`).join("")+`</div>`;
+  if(g.auditReason) h+=`<p style="background:var(--crimson-wash);color:var(--crimson);padding:8px 10px;border-radius:8px;font-weight:600">⚠ Likely not eligible for you: ${esc(g.auditReason)}</p>`;
+  if(g.eligibility) h+=`<p><b style="color:var(--ink)">Eligibility:</b> ${esc(g.eligibility)}</p>`;
+  if(g.relevanceToUser) h+=`<p><b style="color:var(--ink)">Why it fits you:</b> ${esc(g.relevanceToUser)}</p>`;
+  const links=[];
+  const primaryUrl=bestUrl(g);
+  if(primaryUrl&&primaryUrl!=="#") links.push(`<a class="lk" href="${esc(primaryUrl)}" target="_blank" rel="noopener">Apply / program page ↗</a>`);
+  if(g.sourceUrl&&g.sourceUrl!==primaryUrl) links.push(`<a class="lk" href="${esc(g.sourceUrl)}" target="_blank" rel="noopener">Source ↗</a>`);
+  if(links.length) h+=`<p>${links.join(" &nbsp;·&nbsp; ")}</p>`;
+  return h;
+}
+// CV-tailored fit analysis for a shortlisted grant.
+function suggestFor(g){
+  const gf=g.focusAreas||[];
+  const overlap=gf.filter(f=>state.focus.has(f)&&!["general biomedical","oncology"].includes(f));
+  // which detected CV keywords belong to this grant's focus areas
+  const cvEvidence=new Set();
+  gf.forEach(f=>(LEX[f]||[]).forEach(term=>{const k=term.trim();if((state.cvKeywords||[]).includes(k)) cvEvidence.add(k);}));
+  // which research topics appear in the grant text
+  const hay=((g.name||"")+" "+(g.description||"")+" "+(g.eligibility||"")+" "+(g.funder||"")+" "+(g.relevanceToUser||"")+" "+gf.join(" ")).toLowerCase();
+  const topicHits=(state.topics||[]).filter(t=>{const w=t.toLowerCase().split(/[ (]/)[0];return w.length>3&&hay.includes(w);});
+  const evidence=[...new Set([...topicHits,...cvEvidence])].slice(0,7);
+  const ANGLE={
+    "blood cancer/hematology":"Frame the project on a hematologic malignancy (leukemia / lymphoma / myeloma / MDS) and lead with your blood-cancer experience.",
+    "AI/computational":"Position your ML / computational methods as the differentiator — few applicants to disease-focused funders bring this.",
+    "cancer immunology":"Center it on tumor immunology / immunotherapy response and cite your immuno-oncology work.",
+    "genomics/omics":"Foreground your single-cell and multi-omics pipeline expertise as the technical core.",
+    "pediatric cancer":"Tie the approach to a pediatric blood-cancer question to fit this funder's mission.",
+    "clinical/translational":"Emphasize the translational endpoint and clinical relevance of your computational work."
+  };
+  const primary=overlap.find(f=>ANGLE[f])||overlap[0]||gf[0];
+  const angle=ANGLE[primary]||"Align the project with this funder's stated focus and lead with your strongest matching experience.";
+  const score=overlap.length*2+evidence.length;
+  const strength=score>=6?["Strong fit","open"]:score>=3?["Good fit","gc"]:["Possible fit","blk"];
+  const e=eligibility(g), watch=[];
+  const d=grantDeadlineDate(g);
+  if(d&&!isNaN(d)){const days=Math.round((d-new Date())/864e5);if(days>=0&&days<=60)watch.push(`Deadline in ${days} day${days===1?"":"s"} — prioritize this one.`);else if(days<0)watch.push("Latest deadline has passed — check for the next annual cycle.");}
+  if(e.gated) watch.push("Requires U.S. citizenship/PR — you'll qualify once your permanent residence is granted.");
+  if(e.blocked) watch.push("Requires citizenship you don't have — likely not applicable.");
+  if(e.windowExceeded) watch.push(`Past its ${fmtWindow(e.win)} post-PhD window — you may be ineligible; verify with the program.`);
+  return `<div class="gc-fit">
+    <div class="fit-h"><span class="fit-badge ${strength[1]}">${strength[0]}</span> How this fits your research</div>
+    ${overlap.length?`<div class="fit-row"><span class="fit-k">Focus overlap</span><span>${overlap.map(f=>`<span class="mk">${esc(f)}</span>`).join(" ")}</span></div>`:""}
+    ${evidence.length?`<div class="fit-row"><span class="fit-k">From your CV</span><span>${evidence.map(x=>`<span class="fit-ev">${esc(x)}</span>`).join("")}</span></div>`:""}
+    <div class="fit-row"><span class="fit-k">How to pitch</span><span>${esc(angle)}</span></div>
+    ${watch.length?`<div class="fit-row"><span class="fit-k">Watch-outs</span><span>${watch.map(w=>esc(w)).join(" ")}</span></div>`:""}
+  </div>`;
+}
+function cardHTML(g,maxScore,idx,showFit){
+  const delay=Math.min((idx||0)*35,600);
+  const pct=maxScore>0?Math.max(4,Math.round(g._score/maxScore*100)):0;
+  const ftype=g.funderType||"foundation";
+  const badge=g._live?`<span class="badge b-live"><span class="liveddot"></span>LIVE</span>`:`<span class="badge b-${ftype}">${esc(ftype)}</span>`;
+  const tags=(g.focusAreas||[]).slice(0,4).map(f=>`<span class="tag-fa ${state.focus.has(f)?"hot":""}">${esc(f)}</span>`).join("");
+  const amt=g.awardAmount&&g.awardAmount!=="see details"?g.awardAmount:(g._live?"see details":"varies");
+  const why=g._matched&&g._matched.length?`<div class="gc-why"><span class="lab">Why:</span>${g._matched.map(m=>`<span class="mk">${esc(m)}</span>`).join("")}</div>`:"";
+  const e=eligibility(g);
+  const echips=e.flags.map(f=>`<span class="echip ${f.t}">${esc(f.x)}</span>`).join("");
+  const saved=isSaved(g);
+  const expand=g._live
+    ? `<button class="expandbtn" data-opp="${esc(g._oppId)}" data-id="${esc(g.id)}">▾ View full synopsis, award ceiling &amp; eligibility <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></button>`
+    : `<button class="expandbtn" data-id="${esc(g.id)}">▾ More details &amp; eligibility <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></button>`;
+  return `<article class="gcard${e.blocked?" inelig":""}" data-id="${esc(g.id)}" style="animation-delay:${delay}ms">
+    <div class="gc-main">
+      <div class="gc-body">
+        <h3 class="gc-title"><a href="${esc(bestUrl(g))}" target="_blank" rel="noopener">${esc(g.name)}</a></h3>
+        <div class="gc-funder">${badge}<strong>${esc(g.funder)}</strong>${g.number?`<span class="mono" style="color:var(--ink-faint)">· ${esc(g.number)}</span>`:""}${echips}</div>
+        <div class="tags">${tags}</div>
+        <div class="gc-meta">
+          <div class="m"><div class="k">Award</div><div class="v amt">${esc(amt)}</div></div>
+          <div class="m"><div class="k">Deadline</div><div class="v">${deadlineChip(g)}</div></div>
+          ${g.careerStages&&g.careerStages.length?`<div class="m"><div class="k">Stage</div><div class="v" style="font-family:var(--sans);font-weight:600;font-size:14px">${esc(g.careerStages.join(", "))}</div></div>`:""}
+        </div>
+        ${g.description?`<p class="gc-desc clamp">${esc(g.description)}</p>`:(g._live?`<p class="gc-desc" style="color:var(--ink-faint);font-style:italic">Federal opportunity — expand for full synopsis.</p>`:"")}
+        ${why}
+        ${expand}
+        ${showFit?suggestFor(g):""}
+      </div>
+      <div class="gc-side">
+        <div class="score">
+          <div class="pct ${pct<25?"low":""}">${pct}<span style="font-size:16px">%</span></div>
+          <div class="lbl">match</div>
+          <div class="meter"><i style="width:${pct}%"></i></div>
+        </div>
+        <div class="gc-actions">
+          <a class="act primary" href="${esc(bestUrl(g))}" target="_blank" rel="noopener">Open ↗</a>
+          <button class="act ${saved?"saved":"ghost"}" data-save="${esc(g.id)}">
+            <svg viewBox="0 0 24 24" fill="${saved?"currentColor":"none"}" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+            ${saved?"Saved":"Save"}
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="gc-detail" data-detail="${esc(g.id)}">${g._live?"":localDetailHTML(g)}</div>
+  </article>`;
+}
+
+function render(){
+  const feed=$("#feed");
+  if(state.view==="saved"){
+    $("#exportRow").style.display=state.saved.length?"flex":"none";
+    renderSrcBar({});
+    if(!state.saved.length){
+      feed.innerHTML=emptyHTML("Your shortlist is empty","Click the bookmark on any grant to add it here. Your shortlist is saved in this browser and can be exported to CSV.");
+      $("#resHead").textContent="Shortlist";$("#resSub").innerHTML="Saved opportunities live here — export anytime.";
+      return;
+    }
+    // re-score each saved grant against the current profile so its % matches the Matches view
+    const terms=buildProfileTerms();
+    const list=state.saved.map(s=>{const sc=scoreGrant(s,terms);return {...s,focusAreas:s.focusAreas||[],_score:sc.score,_matched:sc.matched,_deadlineDate:grantDeadlineDate(s)};});
+    const smax=state.maxScore||Math.max(1,...list.map(g=>g._score),...state.saved.map(s=>s._scoreMax||0));
+    $("#resHead").textContent="Shortlist";
+    $("#resSub").innerHTML=`<b>${state.saved.length}</b> saved ${state.saved.length===1?"opportunity":"opportunities"} · fit tips below each, from your CV`;
+    renderEligSummary(null);
+    feed.innerHTML=list.map((g,i)=>cardHTML(g,smax,i,true)).join("");
+    wireCards();
+    return;
+  }
+  $("#exportRow").style.display="none";
+  if(!state.results.length){
+    feed.innerHTML=emptyHTML("Ready when you are","Add research topics or load a CV in the left panel, then hit Search grants. Federal opportunities stream in live from Grants.gov.");
+    renderSrcBar({});
+    return;
+  }
+  const base=baseFilter(state.results);
+  // eligibility tallies over the base set (before hiding), so the summary can report what's excluded
+  let openNow=0,gc=0,blk=0,other=0,faculty=0,winX=0;
+  base.forEach(g=>{const e=eligibility(g);if(e.windowExceeded)winX++;if(e.blocked){e.blockedCitizenship?blk++:other++;}else if(e.facultyBlocked)faculty++;else if(e.gated)gc++;else if(!e.windowExceeded)openNow++;});
+  const sorted=sortList(eligFilter(base));
+  const maxScore=state.maxScore||Math.max(...sorted.map(g=>g._score),1);
+  $("#resHead").textContent=`${sorted.length} matching ${sorted.length===1?"opportunity":"opportunities"}`;
+  const fed=sorted.filter(g=>g._live).length;
+  const gcNote=(state.citizenship==="pending"&&gc&&!state.showBlocked)?` · <b>${gc}</b> unlock with permanent residence (hidden)`:"";
+  const blkNote=(blk&&!state.showBlocked)?` · <b>${blk}</b> need US citizenship (hidden)`:"";
+  const otherNote=(other&&!state.showBlocked)?` · <b>${other}</b> not eligible for you (hidden)`:"";
+  const facNote=(faculty&&!state.showBlocked)?` · <b>${faculty}</b> for faculty stage — future targets (hidden)`:"";
+  const winNote=(winX&&!state.showWindow)?` · <b>${winX}</b> past your PhD-year window (hidden)`:"";
+  const sortLbl={deadline:"soonest deadline",relevance:"best match",amount:"award size",funder:"funder"}[state.sort]||"fit";
+  $("#resSub").innerHTML=`Sorted by <b>${sortLbl}</b> · <b>${fed}</b> live federal · <b>${sorted.length-fed}</b> curated${gcNote}${blkNote}${otherNote}${facNote}${winNote}`;
+  renderSrcBar({});
+  renderEligSummary({openNow,gc,blk,other,faculty,winX});
+  feed.innerHTML=sorted.map((g,i)=>cardHTML(g,maxScore,i)).join("");
+  wireCards();
+}
+function renderEligSummary(c){
+  const el=$("#eligSummary");if(!el)return;
+  if(!c){el.innerHTML="";return;}
+  const p=[`<span class="pill open"><span class="d"></span>${c.openNow} open to you now</span>`];
+  if(state.citizenship==="pending"&&c.gc) p.push(`<span class="pill gc"><span class="d"></span>${c.gc} with permanent residence${state.showBlocked?"":" (hidden)"}</span>`);
+  if(c.blk) p.push(`<span class="pill blk"><span class="d"></span>${c.blk} need US citizenship${state.showBlocked?"":" (hidden)"}</span>`);
+  if(c.other) p.push(`<span class="pill blk"><span class="d"></span>${c.other} not eligible for you${state.showBlocked?"":" (hidden)"}</span>`);
+  if(c.faculty) p.push(`<span class="pill gc"><span class="d"></span>${c.faculty} for faculty stage${state.showBlocked?"":" (hidden)"}</span>`);
+  if(c.winX) p.push(`<span class="pill blk"><span class="d"></span>${c.winX} past PhD-year window${state.showWindow?"":" (hidden)"}</span>`);
+  el.innerHTML=p.join("");
+}
+function emptyHTML(t,s){
+  return `<div class="empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><div class="t">${esc(t)}</div><div class="s">${esc(s)}</div></div>`;
+}
+function renderSrcBar(o){
+  const bar=$("#srcBar");
+  const fs=state.fedStatus;
+  const pills=[];
+  if(state.sources.has("federal")){
+    if(o.fedLoading) pills.push(`<div class="srcpill loading"><span class="dot" style="background:var(--teal)"></span>Grants.gov <span class="n">querying…</span></div>`);
+    else if(fs&&fs.err) pills.push(`<div class="srcpill"><span class="dot" style="background:var(--crimson)"></span>Grants.gov <span class="n">offline</span></div>`);
+    else if(fs) pills.push(`<div class="srcpill"><span class="dot" style="background:var(--green)"></span>Grants.gov live <span class="n">${state.results.filter(g=>g._live).length} opps</span></div>`);
+  }
+  if(state.sources.has("curated")) pills.push(`<div class="srcpill"><span class="dot" style="background:var(--crimson)"></span>Curated foundations <span class="n">${CURATED_DATA.length}</span></div>`);
+  if(state.sources.has("jhu")) pills.push(`<div class="srcpill"><span class="dot" style="background:var(--amber)"></span>JHU list (updated 2026) <span class="n">${JHU_DATA.length}</span></div>`);
+  bar.innerHTML=pills.join("");
+}
+function wireCards(){
+  $$("[data-save]").forEach(b=>b.onclick=()=>{
+    const id=b.dataset.save;
+    const g=[...state.results,...state.saved].find(x=>String(x.id)===id);
+    if(g) toggleSave(g);
+  });
+  const toggleExpand=async(b)=>{
+    const card=b.closest(".gcard");
+    const det=$(`.gc-detail[data-detail="${CSS.escape(b.dataset.id)}"]`);
+    if(!det) return;
+    if(det.classList.contains("show")){det.classList.remove("show");b.classList.remove("open");card.classList.remove("expanded");return;}
+    b.classList.add("open");det.classList.add("show");card.classList.add("expanded");
+    if(b.dataset.opp && !det.dataset.loaded){   // live federal — fetch full synopsis once
+      det.innerHTML=`<span style="color:var(--ink-faint)">Loading full synopsis from Grants.gov…</span>`;
+      try{
+        const d=await fetchFederalDetail(b.dataset.opp);
+        const money=v=>{const n=Number(v);return (v!=null&&v!==""&&!isNaN(n)&&n>0)?("$"+n.toLocaleString()):"—";};
+        det.innerHTML=`<div class="dgrid">
+          <div><div class="k">Award ceiling</div><div class="v">${money(d.awardCeiling)}</div></div>
+          <div><div class="k">Award floor</div><div class="v">${money(d.awardFloor)}</div></div>
+          <div><div class="k">Est. program funding</div><div class="v">${money(d.estimatedFunding)}</div></div>
+          <div><div class="k">Expected awards</div><div class="v">${esc(d.expectedAwards||"—")}</div></div>
+        </div>
+        ${d.description?`<p><b style="color:var(--ink)">Description:</b> ${esc(d.description)}</p>`:""}
+        ${d.eligibility?`<p><b style="color:var(--ink)">Eligibility:</b> ${esc(d.eligibility)}</p>`:""}
+        ${d.agencyEmail?`<p><b style="color:var(--ink)">Contact:</b> <span class="mono">${esc(d.agencyEmail)}</span></p>`:""}
+        <p><a class="lk" href="${esc("https://www.grants.gov/search-results-detail/"+b.dataset.opp)}" target="_blank" rel="noopener">Open full opportunity on Grants.gov ↗</a></p>`;
+        det.dataset.loaded="1";
+      }catch(e){det.innerHTML=`<span style="color:var(--crimson)">Couldn't load details — <a class="lk" href="https://www.grants.gov/search-results-detail/${esc(b.dataset.opp)}" target="_blank" rel="noopener">open on Grants.gov</a> instead.</span>`;}
+    }
+  };
+  $$(".expandbtn").forEach(b=>b.onclick=()=>toggleExpand(b));
+  // clicking the truncated description also expands
+  $$(".gc-desc.clamp").forEach(p=>p.onclick=()=>{const b=p.closest(".gc-body")?.querySelector(".expandbtn");if(b)toggleExpand(b);});
+}
+
+/* ============================================================
+   EXPORT
+   ============================================================ */
+function download(name,text,type){
+  const blob=new Blob([text],{type});const url=URL.createObjectURL(blob);
+  const a=document.createElement("a");a.href=url;a.download=name;a.click();URL.revokeObjectURL(url);
+}
+function exportCSV(){
+  const rows=[["Name","Funder","Type","Award","Deadline","Focus areas","URL"]];
+  state.saved.forEach(s=>rows.push([s.name,s.funder,s.funderType,s.awardAmount,s.deadlineInfo,(s.focusAreas||[]).join("; "),s.applyUrl]));
+  const csv=rows.map(r=>r.map(c=>`"${String(c==null?"":c).replace(/"/g,'""')}"`).join(",")).join("\n");
+  download("grantboard-shortlist.csv",csv,"text/csv");toast("Exported CSV");
+}
+
+/* ============================================================
+   WIRING
+   ============================================================ */
+function wireUI(){
+  // theme
+  const saved=localStorage.getItem("gb_theme")||"light";
+  document.documentElement.setAttribute("data-theme",saved);
+  $("#themeBtn").onclick=()=>{
+    const cur=document.documentElement.getAttribute("data-theme")==="dark"?"light":"dark";
+    document.documentElement.setAttribute("data-theme",cur);localStorage.setItem("gb_theme",cur);
+  };
+  // keep the sticky sidebar anchored below the (variable-height) masthead so it can scroll fully
+  const mh=document.querySelector(".masthead");
+  const setMastheadH=()=>document.documentElement.style.setProperty("--masthead-h",mh.offsetHeight+"px");
+  setMastheadH();
+  if(window.ResizeObserver) new ResizeObserver(setMastheadH).observe(mh);
+  window.addEventListener("resize",setMastheadH);
+  // datestamp
+  $("#datestamp").textContent=new Date().toLocaleDateString("en-US",{weekday:"long",year:"numeric",month:"long",day:"numeric"});
+  // ---- top eligibility bar ----
+  function syncElig(){
+    const py=parseInt(($("#phdYear").value||"").slice(0,4),10);
+    state.phdYear=(py>=1950&&py<=2100)?py:null;
+    state.citizenship=$("#citizenship").value;
+    state.prMonth=$("#prMonth").value.trim();
+    $("#prWrap").style.display=state.citizenship==="pending"?"flex":"none";
+    saveProfile();
+    if(state.results.length)render();
+  }
+  $("#phdYear").addEventListener("input",syncElig);
+  $("#citizenship").addEventListener("change",syncElig);
+  $("#prMonth").addEventListener("input",syncElig);
+  $("#careerStage").addEventListener("change",()=>{saveProfile();if(state.results.length)render();});
+  window.__syncElig=syncElig;
+  // dropzone
+  const drop=$("#drop"),file=$("#cvFile");
+  drop.onclick=()=>file.click();
+  file.onchange=e=>{if(e.target.files[0])handleFile(e.target.files[0]);};
+  ["dragover","dragenter"].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add("over");}));
+  ["dragleave","drop"].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove("over");}));
+  drop.addEventListener("drop",e=>{if(e.dataTransfer.files[0])handleFile(e.dataTransfer.files[0]);});
+  // paste
+  $("#pasteToggle").onclick=()=>{const t=$("#cvPaste");t.style.display=t.style.display==="none"?"block":"none";if(t.style.display==="block")t.focus();};
+  $("#cvPaste").addEventListener("input",e=>{if(e.target.value.trim().length>60)ingestCV(e.target.value,"Pasted text");});
+  // example
+  $("#loadExample").onclick=()=>{
+    $("#applicantName").value=DEMO_PROFILE.name||"";
+    $("#careerStage").value=DEMO_PROFILE.careerStage||"postdoc";
+    $("#citizenship").value=DEMO_PROFILE.citizenship||"any";
+    $("#phdYear").value=DEMO_PROFILE.phdYear||"";
+    $("#prMonth").value=DEMO_PROFILE.prMonth||"";
+    state.nationality=DEMO_PROFILE.nationality||"";
+    syncElig();
+    ingestCV(DEMO_PROFILE.cvText||"","Example CV — "+(DEMO_PROFILE.name||""));
+    state.topics=[...(DEMO_PROFILE.topics||[])];renderTopicChips();
+    (DEMO_PROFILE.focus||[]).forEach(f=>state.focus.add(f));renderFocusFilters();
+    saveProfile();
+    toast("Loaded Eric Liu's profile — hit Search");
+    window.scrollTo({top:0,behavior:"smooth"});
+  };
+  // topics
+  $("#topicInput").addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();addTopic(e.target.value);e.target.value="";}});
+  // tabs
+  $("#tabAll").onclick=()=>{state.view="all";$("#tabAll").classList.add("on");$("#tabSaved").classList.remove("on");render();};
+  $("#tabSaved").onclick=()=>{state.view="saved";$("#tabSaved").classList.add("on");$("#tabAll").classList.remove("on");render();};
+  // sort
+  $("#sortSel").onchange=e=>{state.sort=e.target.value;render();};
+  // elig toggles
+  $$("[data-elig]").forEach(b=>b.onclick=()=>{
+    b.classList.toggle("on");
+    const on=b.classList.contains("on");
+    if(b.dataset.elig==="stage")state.eligStage=on;
+    else if(b.dataset.elig==="cit")state.showBlocked=on;
+    else if(b.dataset.elig==="window")state.showWindow=on;
+    if(state.results.length)render();
+  });
+  // search
+  $("#searchBtn").onclick=runSearch;
+  // export
+  $("#expCsv").onclick=exportCSV;
+  $("#expJson").onclick=()=>{download("grantboard-shortlist.json",JSON.stringify(state.saved,null,2),"application/json");toast("Exported JSON");};
+  $("#clearSaved").onclick=()=>{if(confirm("Clear your entire shortlist?")){state.saved=[];localStorage.setItem("gb_saved","[]");$("#savedCount").textContent=0;render();}};
+
+  // prefill the eligibility bar from the dashboard's default applicant profile
+  if(DEMO_PROFILE.phdYear) $("#phdYear").value=DEMO_PROFILE.phdYear;
+  if(DEMO_PROFILE.citizenship) $("#citizenship").value=DEMO_PROFILE.citizenship;
+  if(DEMO_PROFILE.prMonth) $("#prMonth").value=DEMO_PROFILE.prMonth;
+  if(DEMO_PROFILE.careerStage) $("#careerStage").value=DEMO_PROFILE.careerStage;
+  state.nationality=DEMO_PROFILE.nationality||"";
+  syncElig();
+  loadProfile();   // restore the user's own saved profile if present (overrides demo defaults)
+
+  renderTopicChips();renderSuggest();renderFocusFilters();renderSubtypeFilters();renderFunderFilters();renderSourceFilters();
+  $("#savedCount").textContent=state.saved.length;
+  render();
+}
+wireUI();
+</script>
+</body>
+</html>

@@ -1,0 +1,1157 @@
+[
+ {
+  "name": "Career Awards at the Scientific Interface (CASI)",
+  "funder": "Burroughs Wellcome Fund",
+  "reasonCode": "past_time_window",
+  "reason": "Eligibility requires 12-60 months of postdoctoral experience, but the applicant has ~6 years (~72 months) of postdoc experience, exceeding the 60-month cap.",
+  "confidence": "high"
+ },
+ {
+  "name": "Postdoctoral Enrichment Program (PDEP)",
+  "funder": "Burroughs Wellcome Fund",
+  "reasonCode": "past_time_window",
+  "reason": "Caps eligibility at no more than 48 months of postdoctoral experience and no more than 5 years from PhD, but the applicant is ~6 years into his postdoc and ~7 years past his August 2019 PhD.",
+  "confidence": "high"
+ },
+ {
+  "name": "Pew Scholars Program in the Biomedical Sciences (Pew Biomedical Scholars)",
+  "funder": "The Pew Charitable Trusts",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "Requires holding a full-time, tenure-track assistant professor appointment running an independent lab as of the cutoff, but the applicant is still a postdoc.",
+  "confidence": "high"
+ },
+ {
+  "name": "Searle Scholars Program",
+  "funder": "Kinship Foundation (Searle Funds)",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "Requires having begun a first tenure-track (or nearest-equivalent) assistant-professor appointment, which the applicant (a postdoc) does not hold.",
+  "confidence": "high"
+ },
+ {
+  "name": "Rita Allen Foundation Scholars",
+  "funder": "Rita Allen Foundation",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "Intended for investigators early in their own independent (faculty) research careers, whereas the applicant remains a postdoc without an independent appointment.",
+  "confidence": "high"
+ },
+ {
+  "name": "Beckman Young Investigator (BYI) Program",
+  "funder": "Arnold and Mabel Beckman Foundation",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "Requires being within the first 4 years of a tenure-track (or equivalent independent) research appointment, but the applicant holds no such appointment and is still a postdoc.",
+  "confidence": "high"
+ },
+ {
+  "name": "Clinical Scientist Development Award (CSDA)",
+  "funder": "Doris Duke Foundation",
+  "reasonCode": "md_physician_only",
+  "reason": "Restricted to physician-scientists holding an MD, DO, MD/PhD, or foreign equivalent, whereas the applicant holds a PhD only.",
+  "confidence": "high"
+ },
+ {
+  "name": "Klingenstein-Simons Fellowship Awards in the Neurosciences",
+  "funder": "Esther A. & Joseph Klingenstein Fund and Simons Foundation",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "For early-career investigators in the first years of an independent/assistant-professor appointment, which the applicant (a postdoc) does not hold.",
+  "confidence": "high"
+ },
+ {
+  "name": "Faculty Early Career Development Program (CAREER)",
+  "funder": "National Science Foundation",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "Requires holding at least a 50% tenure-track assistant-professor position and being untenured as of the deadline, but the applicant is a postdoc.",
+  "confidence": "high"
+ },
+ {
+  "name": "Jane Coffin Childs Postdoctoral Fellowship",
+  "funder": "Jane Coffin Childs Fund for Medical Research",
+  "reasonCode": "past_time_window",
+  "reason": "Eligibility caps applicants at a PhD conferred no more than 24 months before the deadline and no more than 12 months of postdoc experience, but he is ~7 years post-PhD with ~6 years of postdoc experience.",
+  "confidence": "high"
+ },
+ {
+  "name": "Helen Hay Whitney Foundation Postdoctoral Research Fellowship",
+  "funder": "Helen Hay Whitney Foundation",
+  "reasonCode": "past_time_window",
+  "reason": "Requires a PhD received within the past 2 years and no more than 1 year in the postdoc lab, whereas he finished his PhD in August 2019 and has ~6 years of postdoc experience.",
+  "confidence": "high"
+ },
+ {
+  "name": "Damon Runyon Quantitative Biology Fellowship",
+  "funder": "Damon Runyon Cancer Research Foundation",
+  "reasonCode": "past_time_window",
+  "reason": "Requires a PhD conferred within 5 years of the deadline, but his PhD was conferred in August 2019, roughly 7 years before a 2026 deadline.",
+  "confidence": "high"
+ },
+ {
+  "name": "Doris Duke Clinical Scientist Development Award (CSDA)",
+  "funder": "Doris Duke Foundation",
+  "reasonCode": "md_physician_only",
+  "reason": "Restricted to physician-scientists holding an MD, DO, or foreign equivalent with an active U.S. medical license, so a PhD-only computational scientist is ineligible.",
+  "confidence": "high"
+ },
+ {
+  "name": "Doris Duke Physician Scientist Fellowship",
+  "funder": "Doris Duke Foundation",
+  "reasonCode": "md_physician_only",
+  "reason": "Open only to MD, MD/PhD, or DO physicians in or recently completing clinical subspecialty fellowship training, which excludes a PhD-only applicant with no medical/clinical degree.",
+  "confidence": "high"
+ },
+ {
+  "name": "Melanoma Research Alliance (MRA) Grant Program",
+  "funder": "Melanoma Research Alliance",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "Its investigator mechanisms require a faculty appointment (Young Investigator within 5 years of a first academic faculty appointment; Established past that), but he is still a postdoc rather than an independent faculty investigator.",
+  "confidence": "medium"
+ },
+ {
+  "name": "Mentored Clinical Scientist Career Development Award (Parent K08) — with K23 companion",
+  "funder": "NIH — NCI, NHLBI, NIDDK and other ICs",
+  "reasonCode": "md_physician_only",
+  "reason": "Eligibility is limited to clinicians holding a clinical doctoral degree (MD, DO, DVM, DDS, PharmD, or clinical PhD) for physician-scientist career development, and a computational/basic-science PhD does not qualify.",
+  "confidence": "high"
+ },
+ {
+  "name": "Schmidt Science Fellows",
+  "funder": "Schmidt Sciences / Schmidt Science Fellows (in partnership with Rhodes Trust)",
+  "reasonCode": "finishing_phd_student_only",
+  "reason": "Applicants must complete their PhD (including defense) between May 1, 2026 and June 30, 2027, but he had his PhD conferred in August 2019.",
+  "confidence": "high"
+ },
+ {
+  "name": "Sloan Research Fellowship",
+  "funder": "Alfred P. Sloan Foundation",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "Eligibility requires being tenure-track but untenured faculty with a regular teaching obligation, whereas he is still a postdoc.",
+  "confidence": "high"
+ },
+ {
+  "name": "Packard Fellowships for Science and Engineering",
+  "funder": "David and Lucile Packard Foundation",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "Eligibility is restricted to faculty in the first 3 years of a first tenure-track appointment, and he holds a postdoc position rather than a faculty appointment.",
+  "confidence": "high"
+ },
+ {
+  "name": "Targeted Grants in Mathematics and Physical Sciences (MPS)",
+  "funder": "Simons Foundation",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "PIs and co-Is must hold tenured/tenure-track (or equivalent) positions, which a postdoc does not, though the 'or equivalent' clause introduces some ambiguity.",
+  "confidence": "medium"
+ },
+ {
+  "name": "Google PhD Fellowship",
+  "funder": "Google (Google Research)",
+  "reasonCode": "finishing_phd_student_only",
+  "reason": "The fellowship requires full-time PhD enrollment for the award duration and recognizes current PhD students, but he completed his PhD in 2019.",
+  "confidence": "high"
+ },
+ {
+  "name": "Google Research Scholar Program",
+  "funder": "Google (Google Research / Google.org)",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "Eligibility is limited to assistant/associate professors, whereas he is still a postdoc without a faculty position.",
+  "confidence": "high"
+ },
+ {
+  "name": "Accelerating and Scaling Biological Sciences with AI (GPU Compute RFA)",
+  "funder": "Chan Zuckerberg Initiative (CZI)",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "Eligibility requires PIs and Co-PIs to hold faculty or equivalent independent-investigator status, which he does not have as a postdoc.",
+  "confidence": "high"
+ },
+ {
+  "name": "AACR Hematologic Malignancies Research Fellowship",
+  "funder": "American Association for Cancer Research (AACR)",
+  "reasonCode": "past_time_window",
+  "reason": "Requires a postdoctoral fellow within 5 years of the most recent doctoral degree, but his PhD was conferred in August 2019 (~7 years prior).",
+  "confidence": "high"
+ },
+ {
+  "name": "AACR Trailblazer Cancer Research Grants (Early-Stage and Mid-Career tracks)",
+  "funder": "American Association for Cancer Research (AACR)",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "Both tracks require an independent faculty appointment (assistant professor with independent lab, or tenured associate professor), which he does not hold as a postdoc.",
+  "confidence": "high"
+ },
+ {
+  "name": "AACR NextGen Grants for Transformative Cancer Research",
+  "funder": "American Association for Cancer Research (AACR)",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "At grant start the applicant must hold a tenure-track assistant-professor position, which he does not have as a postdoc.",
+  "confidence": "high"
+ },
+ {
+  "name": "AACR-AstraZeneca Career Development Award for Physician-Scientists (in Honor of Jose Baselga)",
+  "funder": "American Association for Cancer Research (AACR) / AstraZeneca",
+  "reasonCode": "md_physician_only",
+  "reason": "The award is restricted to physician-scientists, and he holds a PhD only with no medical/clinical degree.",
+  "confidence": "high"
+ },
+ {
+  "name": "Freeman Hrabowski Scholars Program",
+  "funder": "Howard Hughes Medical Institute (HHMI)",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "Restricted to early-career faculty who have led an independent lab, which he does not have as a postdoc.",
+  "confidence": "high"
+ },
+ {
+  "name": "LSRF Postdoctoral Fellowship",
+  "funder": "Life Sciences Research Foundation (LSRF)",
+  "reasonCode": "past_time_window",
+  "reason": "Requires being within 5 years of the PhD as of Oct 1, 2026, but his PhD was conferred in August 2019 (~7 years prior).",
+  "confidence": "high"
+ },
+ {
+  "name": "LRF Postdoctoral Fellowship Grant",
+  "funder": "Lymphoma Research Foundation (LRF)",
+  "reasonCode": "past_time_window",
+  "reason": "The grant limits PhD applicants to those with fewer than 5 years of postdoctoral work by the cycle start date, and he has roughly 6 years of postdoc experience as of July 2026.",
+  "confidence": "high"
+ },
+ {
+  "name": "LRF Clinical Investigator Career Development Award (CDA)",
+  "funder": "Lymphoma Research Foundation (LRF)",
+  "reasonCode": "md_physician_only",
+  "reason": "Eligibility is restricted to licensed clinical physicians in ACGME-accredited specialties, and he holds a PhD only with no medical degree or clinical training.",
+  "confidence": "high"
+ },
+ {
+  "name": "Gabrielle's Angel Foundation Medical Research Award",
+  "funder": "Gabrielle's Angel Foundation for Cancer Research",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "The award is given to institution-nominated investigators who are typically Assistant Professors, whereas he is still a postdoc without a faculty appointment.",
+  "confidence": "high"
+ },
+ {
+  "name": "ALSF 'A' Award",
+  "funder": "Alex's Lemonade Stand Foundation (ALSF)",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "It requires being within the first 5 years of one's first independent faculty appointment (assistant professor or equivalent), which he does not hold as a postdoc.",
+  "confidence": "high"
+ },
+ {
+  "name": "ALSF Innovation Grant",
+  "funder": "Alex's Lemonade Stand Foundation (ALSF)",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "The grant is limited to independent/established investigators, typically faculty with a track record, while he remains a mentored postdoc.",
+  "confidence": "high"
+ },
+ {
+  "name": "ALSF Reach Grant",
+  "funder": "Alex's Lemonade Stand Foundation (ALSF)",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "Its listed stages are established investigator and early-career faculty leading projects toward a Phase I/II trial, a level that excludes his current postdoc position.",
+  "confidence": "medium"
+ },
+ {
+  "name": "ALSF Pediatric Oncology Student Training (POST) Grant",
+  "funder": "Alex's Lemonade Stand Foundation (ALSF)",
+  "reasonCode": "finishing_phd_student_only",
+  "reason": "The POST grant supports students (including graduate students) doing mentored research, but he completed his PhD in 2019 and is now a postdoc, not a student.",
+  "confidence": "high"
+ },
+ {
+  "name": "Discovery Boost Grant (DBG)",
+  "funder": "American Cancer Society",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "Eligibility is limited to independent investigators holding a full-time faculty appointment (or equivalent), which the applicant, still a postdoc, does not hold.",
+  "confidence": "high"
+ },
+ {
+  "name": "ACS - Fanconi Cancer Foundation Discovery Boost Grant (RFA)",
+  "funder": "American Cancer Society (with Fanconi Cancer Foundation)",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "It requires independent investigators with a full-time faculty appointment (or equivalent), a status the applicant lacks as a postdoc.",
+  "confidence": "high"
+ },
+ {
+  "name": "Mission Boost Grant (MBG)",
+  "funder": "American Cancer Society",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "Despite being open to 'any career stage,' it still requires a full-time faculty appointment (or equivalent), which the applicant does not have as a postdoc.",
+  "confidence": "high"
+ },
+ {
+  "name": "Ruth L. Kirschstein NRSA Individual Predoctoral Fellowship (Parent F31)",
+  "funder": "NIH (NCI and most other Institutes/Centers participate)",
+  "reasonCode": "finishing_phd_student_only",
+  "reason": "It requires the applicant to be currently enrolled in a PhD program at the dissertation-research stage, but he received his PhD in August 2019.",
+  "confidence": "high"
+ },
+ {
+  "name": "NRSA Individual Predoctoral Fellowship to Promote Diversity in Health-Related Research (Parent F31-Diversity)",
+  "funder": "NIH (participating Institutes/Centers)",
+  "reasonCode": "finishing_phd_student_only",
+  "reason": "Like the parent F31, it requires current enrollment as a PhD student at the dissertation stage, which the applicant completed in 2019.",
+  "confidence": "high"
+ },
+ {
+  "name": "NRSA Individual Predoctoral Fellowship for MD/PhD and Dual-Degree Students (Parent F30)",
+  "funder": "NIH (participating Institutes/Centers incl. NCI, NHLBI)",
+  "reasonCode": "md_physician_only",
+  "reason": "It requires enrollment in an MD/PhD or other dual clinical-research doctoral (physician-scientist) program matriculated within 48 months, but the applicant holds a PhD only and finished it in 2019.",
+  "confidence": "high"
+ },
+ {
+  "name": "NIH Pathway to Independence Award (K99/R00)",
+  "funder": "NIH / NCI",
+  "reasonCode": "past_time_window",
+  "reason": "The K99 caps postdoctoral experience at no more than 4 years at submission (up to 6 years with temporary extensions), and the applicant has ~6-7 years of postdoc experience, exceeding even the extended limit.",
+  "confidence": "high"
+ },
+ {
+  "name": "Mentored Clinical Scientist Research Career Development Award (K08)",
+  "funder": "NIH (NCI and most Institutes/Centers)",
+  "reasonCode": "md_physician_only",
+  "reason": "It requires a clinical doctoral degree (MD, DO, etc.) or clinical PhD with typically an active clinical license, whereas the applicant is a PhD-only computational scientist with no clinical degree.",
+  "confidence": "high"
+ },
+ {
+  "name": "NIH Director's Early Independence Award (DP5)",
+  "funder": "NIH Common Fund (High-Risk, High-Reward Research program)",
+  "reasonCode": "finishing_phd_student_only",
+  "reason": "The DP5 requires completing the terminal research doctorate within a narrow window around the award (about May 1, 2025 to Sept 30, 2027), targeting finishing or brand-new PhDs bypassing a postdoc, but he earned his PhD in August 2019.",
+  "confidence": "high"
+ },
+ {
+  "name": "Career Development Program (CDP) - Fellow",
+  "funder": "The Leukemia & Lymphoma Society (LLS) / Blood Cancer United",
+  "reasonCode": "past_time_window",
+  "reason": "The Fellow level is restricted to early-stage postdocs with 3 years or less of postdoctoral research training by the award start date, but he has ~6 years of postdoctoral experience.",
+  "confidence": "high"
+ },
+ {
+  "name": "Career Development Program (CDP) - Special Fellow",
+  "funder": "The Leukemia & Lymphoma Society (LLS) / Blood Cancer United",
+  "reasonCode": "past_time_window",
+  "reason": "The Special Fellow level targets roughly 3-5 years of postdoctoral training, but at ~6 years post-PhD (and more by any 2027 start date) he exceeds that window.",
+  "confidence": "medium"
+ },
+ {
+  "name": "Career Development Program (CDP) - Scholar",
+  "funder": "The Leukemia & Lymphoma Society (LLS) / Blood Cancer United",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "Eligibility requires an independent, tenure-track (or equivalent) faculty investigator with substantial national research support, but he is still a mentored postdoc.",
+  "confidence": "high"
+ },
+ {
+  "name": "Career Development Program (CDP) - Scholar in Clinical Research",
+  "funder": "The Leukemia & Lymphoma Society (LLS) / Blood Cancer United",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "Eligibility requires appointment to an independent tenure-track faculty position leading independent clinical research, but he is a computational postdoc with no faculty appointment.",
+  "confidence": "high"
+ },
+ {
+  "name": "Translational Research Program (TRP)",
+  "funder": "The Leukemia & Lymphoma Society (LLS) / Blood Cancer United",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "Eligibility requires an independent investigator with 3+ years in an independent faculty position and explicitly states postdocs are not eligible, but he is still a postdoc.",
+  "confidence": "high"
+ },
+ {
+  "name": "Discovery Grant Program (DGP) - formerly Blood Cancer Discoveries Grant (BCDG)",
+  "funder": "The Leukemia & Lymphoma Society (LLS) / Blood Cancer United",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "Eligibility requires an established/independent investigator with more than 3 years in an independent faculty appointment, but he is still a postdoc.",
+  "confidence": "high"
+ },
+ {
+  "name": "Specialized Center of Research Program (SCOR)",
+  "funder": "The Leukemia & Lymphoma Society (LLS) / Blood Cancer United",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "Eligibility requires a team of established/independent investigators serving as Program Leader and Project PIs, a role a mentored postdoc cannot hold.",
+  "confidence": "high"
+ },
+ {
+  "name": "ASH Research Training Award for Fellows (RTAF)",
+  "funder": "American Society of Hematology (ASH)",
+  "reasonCode": "md_physician_only",
+  "reason": "Eligibility requires holding an MD, DO, DO-PhD, or MD-PhD and being a clinical hematology fellow 0-4 years from residency, whereas the applicant holds a PhD only and is not a physician.",
+  "confidence": "high"
+ },
+ {
+  "name": "ASH Bridge Grant",
+  "funder": "American Society of Hematology (ASH)",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "Requires holding a faculty position at an academic/nonprofit institution and having submitted an NIH R01 as PI or co-PI, but the applicant is still a postdoc, not an independent faculty investigator.",
+  "confidence": "high"
+ },
+ {
+  "name": "ASH Graduate Hematology Award",
+  "funder": "American Society of Hematology (ASH)",
+  "reasonCode": "finishing_phd_student_only",
+  "reason": "Restricted to students enrolled in a PhD-granting program within the first three years of the PhD, whereas the applicant completed his PhD in 2019.",
+  "confidence": "high"
+ },
+ {
+  "name": "ASH Global Research Award",
+  "funder": "American Society of Hematology (ASH)",
+  "reasonCode": "other",
+  "reason": "Open only to emerging hematology researchers based OUTSIDE the U.S. and Canada, but the applicant is a postdoc based at [redacted] in the U.S.",
+  "confidence": "medium"
+ },
+ {
+  "name": "Emerging Leader Award",
+  "funder": "The Mark Foundation for Cancer Research",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "Requires having established an independent lab 3-8 years prior with dedicated lab space, hiring ability, and PI grant authority, whereas the applicant is still a postdoc without an independent lab.",
+  "confidence": "high"
+ },
+ {
+  "name": "ASPIRE Award (ASPIRE I and ASPIRE II)",
+  "funder": "The Mark Foundation for Cancer Research",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "Requires the PI to be an independent researcher at their institution, but the applicant is a postdoc rather than an independent PI.",
+  "confidence": "high"
+ },
+ {
+  "name": "Endeavor Award",
+  "funder": "The Mark Foundation for Cancer Research",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "Requires each PI and co-PI to hold an independent (tenure-track or equivalent) faculty appointment at a nonprofit institution, whereas the applicant is still a postdoc.",
+  "confidence": "high"
+ },
+ {
+  "name": "CRI Lloyd J. Old STAR Program (Scientists Taking Risks)",
+  "funder": "Cancer Research Institute (CRI)",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "Eligibility requires a tenure-track Assistant Professor with >=3 years in position or an Associate Professor, but he is still a postdoc and holds no independent faculty appointment.",
+  "confidence": "high"
+ },
+ {
+  "name": "V Scholar Cancer Research Grant",
+  "funder": "The V Foundation for Cancer Research",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "The grant is limited to tenure-track or tenured Assistant Professors within the first 5 years of their first faculty appointment, and he does not yet hold any faculty position as a postdoc.",
+  "confidence": "high"
+ },
+ {
+  "name": "V Foundation Translational Grant",
+  "funder": "The V Foundation for Cancer Research",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "It is open only to faculty investigators (with institutional nomination), whereas he is a postdoc rather than an independent faculty member.",
+  "confidence": "medium"
+ },
+ {
+  "name": "V Foundation All-Star Grant",
+  "funder": "The V Foundation for Cancer Research",
+  "reasonCode": "other",
+  "reason": "The award is restricted to previously funded V Scholar/Translational/Game-Changer recipients invited to apply and is explicitly not open to first-time applicants, which he is.",
+  "confidence": "medium"
+ },
+ {
+  "name": "Young Investigator Award (YIA) - General Competition",
+  "funder": "Conquer Cancer, the ASCO Foundation (ASCO)",
+  "reasonCode": "md_physician_only",
+  "reason": "Applicants must be a physician (MD, DO, or international equivalent) with an active medical license in their final oncology subspecialty training, and he is a PhD-only scientist with no medical degree.",
+  "confidence": "high"
+ },
+ {
+  "name": "Young Investigator Award (YIA) - Special/Disease-Specific Competitions (CLL and Mantle Cell Lymphoma)",
+  "funder": "Conquer Cancer, the ASCO Foundation (ASCO)",
+  "reasonCode": "md_physician_only",
+  "reason": "The disease-specific YIA carries the same core criteria requiring a medical degree and physician subspecialty training, which he lacks as a PhD-only researcher.",
+  "confidence": "high"
+ },
+ {
+  "name": "AACR-Conquer Cancer, the ASCO Foundation Young Investigator Award for Translational Cancer Research",
+  "funder": "American Association for Cancer Research (AACR) with Conquer Cancer, the ASCO Foundation",
+  "reasonCode": "md_physician_only",
+  "reason": "A medical degree (MD, DO, MD/PhD, or equivalent) and active medical license in final subspecialty training are required, but he holds a PhD only and is not a physician.",
+  "confidence": "high"
+ },
+ {
+  "name": "AACR Gertrude B. Elion Cancer Research Award",
+  "funder": "American Association for Cancer Research (AACR)",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "Eligibility is limited to early-career faculty holding a tenure-eligible assistant-professor appointment within their first six years of an independent faculty position, but the applicant is still a postdoc with no faculty appointment.",
+  "confidence": "high"
+ },
+ {
+  "name": "Distinguished Scientist Awards",
+  "funder": "Sontag Foundation",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "Requires holding a first independent faculty appointment (dated March 1, 2021 to Jan 1, 2026) at a US or Canadian institution, but the applicant is a postdoc, not faculty.",
+  "confidence": "high"
+ },
+ {
+  "name": "Collaborative Research Development Grant",
+  "funder": "Ovarian Cancer Research Alliance (OCRA)",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "Eligibility states all investigators and collaborators must hold full-time faculty appointments, but the applicant is a postdoc without a faculty appointment.",
+  "confidence": "high"
+ },
+ {
+  "name": "Prostate Cancer Research Program (PCRP) Early Investigator Research Award",
+  "funder": "U.S. Department of Defense - Congressionally Directed Medical Research Programs (CDMRP)",
+  "reasonCode": "past_time_window",
+  "reason": "Restricted to investigators with fewer than 3 years of postdoctoral research experience at the submission deadline, but the applicant has roughly 6 years of postdoc experience.",
+  "confidence": "high"
+ },
+ {
+  "name": "Prostate Cancer Research Program (PCRP) Physician Research Award",
+  "funder": "U.S. Department of Defense - Congressionally Directed Medical Research Programs (CDMRP)",
+  "reasonCode": "md_physician_only",
+  "reason": "Limited to early-career clinician-investigators in a medical residency/fellowship or early faculty, but the applicant is a PhD-only basic scientist and not a physician.",
+  "confidence": "high"
+ },
+ {
+  "name": "CRI Irvington Postdoctoral Fellowship Program",
+  "funder": "Cancer Research Institute (CRI)",
+  "reasonCode": "past_time_window",
+  "reason": "Requires fewer than 5 years of relevant postdoctoral research experience at award activation, but the applicant already has roughly 6 years of postdoc experience.",
+  "confidence": "high"
+ },
+ {
+  "name": "Clinical Investigator Career Development Award",
+  "funder": "Lymphoma Research Foundation (LRF)",
+  "reasonCode": "md_physician_only",
+  "reason": "Open only to clinical fellows and faculty who are licensed clinical physicians in ACGME-accredited specialties, but the applicant holds a PhD only and is not a physician.",
+  "confidence": "high"
+ },
+ {
+  "name": "Young Investigator Award",
+  "funder": "Conquer Cancer, the ASCO Foundation",
+  "reasonCode": "md_physician_only",
+  "reason": "Requires a physician (MD, DO, or international equivalent) in the final years of oncology subspecialty training, but the applicant is a PhD-only basic scientist.",
+  "confidence": "high"
+ },
+ {
+  "name": "NSF Graduate Research Fellowship Program (GRFP)",
+  "funder": "National Science Foundation",
+  "reasonCode": "finishing_phd_student_only",
+  "reason": "GRFP requires applicants to have completed less than one academic year of graduate study, a stage an applicant whose PhD was conferred in August 2019 can never occupy again.",
+  "confidence": "high"
+ },
+ {
+  "name": "Mathematical Sciences Postdoctoral Research Fellowships (MSPRF)",
+  "funder": "National Science Foundation (Division of Mathematical Sciences, MPS)",
+  "reasonCode": "past_time_window",
+  "reason": "MSPRF bars anyone who has held the doctorate more than 2 years as of January 1 of the award year, and the applicant is roughly 7 years past his 2019 PhD.",
+  "confidence": "high"
+ },
+ {
+  "name": "CISE Graduate Fellowships (CSGrad4US)",
+  "funder": "National Science Foundation (Directorate for CISE)",
+  "reasonCode": "finishing_phd_student_only",
+  "reason": "CSGrad4US is limited to bachelor's/master's holders who intend to start a research doctorate in computing, which an applicant who already holds a 2019 PhD can never satisfy.",
+  "confidence": "high"
+ },
+ {
+  "name": "National Artificial Intelligence (AI) Research Institutes",
+  "funder": "National Science Foundation (with multiple federal/industry partners)",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "The program funds large multi-institution teams led by established investigators or early-career faculty as PIs, a role a current postdoc cannot hold and postdoc is not among the listed stages.",
+  "confidence": "medium"
+ },
+ {
+  "name": "Postdoctoral Fellowship (PF)",
+  "funder": "American Cancer Society",
+  "reasonCode": "past_time_window",
+  "reason": "ACS PF requires the terminal doctoral degree for 3 years or less and 3 or fewer years of postdoctoral training at the deadline, but the applicant is ~7 years post-PhD with ~6 years of postdoc experience.",
+  "confidence": "high"
+ },
+ {
+  "name": "Research Scholar Grant (RSG)",
+  "funder": "American Cancer Society",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "RSG is limited to investigators first appointed as independent full-time faculty 8 or fewer years ago, and the applicant is still a postdoc with no faculty appointment.",
+  "confidence": "high"
+ },
+ {
+  "name": "Clinician Scientist Development Grant (CSDG)",
+  "funder": "American Cancer Society",
+  "reasonCode": "md_physician_only",
+  "reason": "CSDG requires an active clinical license and ongoing participation in clinical care (a physician-scientist), which the PhD-only, non-clinical applicant cannot meet.",
+  "confidence": "high"
+ },
+ {
+  "name": "Institutional Research Grant (IRG) - Pilot / Early-Investigator Awards",
+  "funder": "American Cancer Society (administered by grantee institutions)",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "IRG pilot awards are restricted to junior/early-career faculty who hold a first independent faculty appointment, which the applicant, still a postdoc, does not have.",
+  "confidence": "high"
+ },
+ {
+  "name": "NCI Cancer Moonshot Scholars Program (R01)",
+  "funder": "National Cancer Institute (NCI), NIH",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "The R01 mechanism funds Early-Stage Investigators launching independent cancer research programs, which requires an independent faculty/PI appointment he does not hold as a postdoc.",
+  "confidence": "medium"
+ },
+ {
+  "name": "Damon Runyon Fellowship Award (Postdoctoral Fellowship)",
+  "funder": "Damon Runyon Cancer Research Foundation",
+  "reasonCode": "past_time_window",
+  "reason": "For basic scientists the degree must be no more than 18 months before the deadline, but his PhD was conferred in August 2019 (~7 years ago), far exceeding the window.",
+  "confidence": "high"
+ },
+ {
+  "name": "Damon Runyon-Rachleff Innovation Award",
+  "funder": "Damon Runyon Cancer Research Foundation",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "Eligibility requires a tenure-track Assistant Professor within the first 5 years of appointment (or equivalent independent position with dedicated lab space), which he does not hold as a postdoc.",
+  "confidence": "high"
+ },
+ {
+  "name": "Damon Runyon Clinical Investigator Award",
+  "funder": "Damon Runyon Cancer Research Foundation",
+  "reasonCode": "md_physician_only",
+  "reason": "The award requires an MD, DO, or MD/PhD with an active medical license, and he holds a PhD only.",
+  "confidence": "high"
+ },
+ {
+  "name": "Damon Runyon Physician-Scientist Training Award",
+  "funder": "Damon Runyon Cancer Research Foundation",
+  "reasonCode": "md_physician_only",
+  "reason": "The award is restricted to MD or DO holders (MD/PhDs explicitly excluded), and he holds a PhD only.",
+  "confidence": "high"
+ },
+ {
+  "name": "Damon Runyon-St. Jude Pediatric Cancer Research Fellowship Award",
+  "funder": "Damon Runyon Cancer Research Foundation",
+  "reasonCode": "past_time_window",
+  "reason": "As a Damon Runyon early-career postdoctoral fellowship it carries a recent-degree timing window that a scientist ~7 years past his PhD would exceed.",
+  "confidence": "low"
+ },
+ {
+  "name": "Damon Runyon-Dale F. Frey Award for Breakthrough Scientists",
+  "funder": "Damon Runyon Cancer Research Foundation",
+  "reasonCode": "other",
+  "reason": "Eligibility is restricted to current or recent Damon Runyon Fellows and Quantitative Biology Fellows, and he is not (and can no longer become) such an awardee.",
+  "confidence": "high"
+ },
+ {
+  "name": "CRI Immuno-Informatics Postdoctoral Fellowship",
+  "funder": "Cancer Research Institute (CRI)",
+  "reasonCode": "past_time_window",
+  "reason": "Eligibility requires fewer than 5 years of mentored research experience, but he has ~6 years of postdoctoral experience, exceeding the limit.",
+  "confidence": "high"
+ },
+ {
+  "name": "CRI Irvington Postdoctoral Fellowship",
+  "funder": "Cancer Research Institute (CRI)",
+  "reasonCode": "past_time_window",
+  "reason": "Eligibility requires fewer than 5 years of mentored research experience, but he has ~6 years of postdoctoral experience, exceeding the limit.",
+  "confidence": "high"
+ },
+ {
+  "name": "CRI Technology Impact Award",
+  "funder": "Cancer Research Institute (CRI)",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "Eligibility requires a tenure-track position (or higher) at a non-profit institution, which he does not hold as a postdoc.",
+  "confidence": "high"
+ },
+ {
+  "name": "CRI Clinic and Laboratory Integration Program (CLIP) Grant",
+  "funder": "Cancer Research Institute (CRI)",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "Eligibility requires a tenure-track Assistant Professor (or higher) appointment at award activation, which he does not hold as a postdoc.",
+  "confidence": "high"
+ },
+ {
+  "name": "NCI Outstanding Investigator Award (R35)",
+  "funder": "National Cancer Institute (NCI), NIH",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "It requires an institution-nominated PD/PI with continuous active NCI research-grant (R01-equivalent) funding, which only an independent faculty investigator can hold, not a postdoc.",
+  "confidence": "high"
+ },
+ {
+  "name": "NIH Director's Early Independence Award (DP5)",
+  "funder": "NIH Common Fund (Office of the Director)",
+  "reasonCode": "past_time_window",
+  "reason": "The applicant must be within 16 months after completing their terminal degree, but he received his PhD in August 2019 (~7 years ago), far outside that window.",
+  "confidence": "high"
+ },
+ {
+  "name": "NHLBI Outstanding Investigator Award (OIA) (R35)",
+  "funder": "National Heart, Lung, and Blood Institute (NHLBI), NIH",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "It requires an established investigator with at least four consecutive years of active NHLBI R01-equivalent funding, which a postdoc cannot hold.",
+  "confidence": "high"
+ },
+ {
+  "name": "NHLBI Emerging Investigator Award (EIA) (R35)",
+  "funder": "National Heart, Lung, and Blood Institute (NHLBI), NIH",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "It requires the applicant to already hold an NHLBI-funded NIH Early Stage Investigator award with four consecutive years of NHLBI support, i.e. an independent faculty PD/PI, not a postdoc.",
+  "confidence": "high"
+ },
+ {
+  "name": "NIGMS Maximizing Investigators' Research Award (MIRA) (R35)",
+  "funder": "National Institute of General Medical Sciences (NIGMS), NIH",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "Both the established and ESI tracks require the applicant to be a PD/PI holding (or eligible to hold) an R01-equivalent NIGMS award, which requires an independent faculty position he does not have.",
+  "confidence": "high"
+ },
+ {
+  "name": "EvansMDS Discovery Research Grant (DRG)",
+  "funder": "Edward P. Evans Foundation (EvansMDS)",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "It is restricted to established independent investigators in a tenure-track or tenured position at the Assistant Professor level or higher, whereas he is still a postdoc.",
+  "confidence": "high"
+ },
+ {
+  "name": "MDS Pilot Research Grants",
+  "funder": "The Taub Foundation for MDS Research",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "It requires an independent investigator holding a faculty position (instructor level or above) with designated laboratory space, which a postdoc does not hold.",
+  "confidence": "high"
+ },
+ {
+  "name": "New Investigator Research Grant Program",
+  "funder": "Leukemia Research Foundation (LRF)",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "Eligibility is limited to independent investigators within 7 years of a first faculty-level appointment (assistant professor or equivalent) with dedicated lab space, and postdoc years explicitly do not count, but the applicant is still a postdoc.",
+  "confidence": "high"
+ },
+ {
+  "name": "ASH Fellow-to-Faculty Scholar Award",
+  "funder": "American Society of Hematology (ASH)",
+  "reasonCode": "us_citizen_only",
+  "reason": "The award is restricted to postdoctoral researchers who are citizens of the USA or Canada, which a [redacted] national holding only a U.S. [redacted] cannot satisfy.",
+  "confidence": "high"
+ },
+ {
+  "name": "EvansMDS Discovery Research Grant",
+  "funder": "Edward P. Evans Foundation (EvansMDS)",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "The grant is open only to independent investigators (listed stages are early-career faculty and established investigator), whereas the applicant is still a postdoc without an independent lab.",
+  "confidence": "medium"
+ },
+ {
+  "name": "NIH Pathway to Independence Award (Parent K99/R00)",
+  "funder": "NIH National Library of Medicine (NLM)",
+  "reasonCode": "past_time_window",
+  "reason": "The K99 phase requires no more than 4 years of postdoctoral research experience at initial submission (even with the NOT-OD-25-121 extension), and the applicant already has ~6 years of postdoc experience.",
+  "confidence": "high"
+ },
+ {
+  "name": "Amazon Research Awards (ARA)",
+  "funder": "Amazon / AWS (Amazon Science)",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "The PI must be a full-time faculty member or permanent researcher and the program is explicitly not open to postdocs as PI, but the applicant is a postdoc.",
+  "confidence": "high"
+ },
+ {
+  "name": "NVIDIA Graduate Fellowship",
+  "funder": "NVIDIA",
+  "reasonCode": "finishing_phd_student_only",
+  "reason": "The fellowship requires being an actively enrolled full-time PhD student through 2026-27 with no graduation before May/June 2027, but the applicant already earned his PhD in August 2019.",
+  "confidence": "high"
+ },
+ {
+  "name": "AACR-Conquer Cancer Foundation of ASCO Young Investigator Award for Translational Cancer Research",
+  "funder": "American Association for Cancer Research (AACR)",
+  "reasonCode": "md_physician_only",
+  "reason": "Eligibility requires an MD, DO, MD/PhD, or equivalent medical degree and subspecialty clinical training, so a PhD-only computational scientist cannot qualify.",
+  "confidence": "high"
+ },
+ {
+  "name": "Fellowship",
+  "funder": "Jane Coffin Childs Memorial Fund for Medical Research",
+  "reasonCode": "past_time_window",
+  "reason": "Requires PhD conferred no more than 18 months before the deadline and no more than 1 year of prior postdoc experience, but the applicant is ~7 years post-PhD with ~6 years of postdoc experience.",
+  "confidence": "high"
+ },
+ {
+  "name": "Young Investigator Award",
+  "funder": "Bladder Cancer Advocacy Network (BCAN)",
+  "reasonCode": "past_time_window",
+  "reason": "Restricted to researchers within 6 years of completing their degree, but the applicant's PhD was conferred in August 2019 (~7 years ago).",
+  "confidence": "high"
+ },
+ {
+  "name": "International Research Fellowship Program",
+  "funder": "American-Italian Cancer Foundation",
+  "reasonCode": "nationality_restricted",
+  "reason": "The program is for young Italian scientists (applicant is [redacted]) and also caps eligibility at 3 years past the advanced degree, which he exceeds.",
+  "confidence": "high"
+ },
+ {
+  "name": "Immuno-Informatics Postdoctoral Fellowship",
+  "funder": "Cancer Research Institute (CRI)",
+  "reasonCode": "past_time_window",
+  "reason": "It shares the CRI Irvington framework, which bars applicants with 5 or more years of postdoctoral/mentored research experience (calculated from doctoral conferral), and the applicant is ~6-7 years past his 2019 PhD.",
+  "confidence": "high"
+ },
+ {
+  "name": "Young Investigator Grant",
+  "funder": "Alex's Lemonade Stand Foundation (ALSF)",
+  "reasonCode": "past_time_window",
+  "reason": "PhD applicants must be within 4 years of the terminal degree, but the applicant is ~7 years past his 2019 PhD.",
+  "confidence": "high"
+ },
+ {
+  "name": "AACR Immuno-Oncology Research Fellowships",
+  "funder": "American Association for Cancer Research (AACR)",
+  "reasonCode": "past_time_window",
+  "reason": "Limited to fellows who completed their doctoral degree within the past 5 years, but the applicant's PhD was conferred ~7 years ago.",
+  "confidence": "high"
+ },
+ {
+  "name": "Intramural Continuing Umbrella of Research Experiences Program",
+  "funder": "National Cancer Institute (NCI)",
+  "reasonCode": "past_time_window",
+  "reason": "The postdoc track requires no more than 5 years of relevant post-doctorate research experience, but the applicant has ~6 years of postdoctoral experience.",
+  "confidence": "high"
+ },
+ {
+  "name": "Peer Reviewed Cancer Research Program (PRCRP) — Impact Award",
+  "funder": "U.S. Department of Defense — CDMRP, Defense Health Program",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "The Impact Award is restricted to independent investigators (its listed stages are established investigator and early-career faculty), so a current postdoc cannot serve as PI.",
+  "confidence": "medium"
+ },
+ {
+  "name": "NIH Research Project Grant (Parent R01)",
+  "funder": "NIH — National Cancer Institute (NCI), NHLBI, NIDDK and other ICs",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "The Parent R01 requires the PI to hold an eligible independent faculty/PI appointment, which the applicant, still a postdoc, does not have.",
+  "confidence": "medium"
+ },
+ {
+  "name": "NCI Method to Extend Research in Time (MERIT) Award (R37)",
+  "funder": "National Cancer Institute (NCI)",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "The R37 cannot be applied for directly and is only a conversion of a competitive ESI-held R01, which requires an independent faculty investigator already holding an R01 — a postdoc cannot qualify.",
+  "confidence": "medium"
+ },
+ {
+  "name": "NCI Predoctoral to Postdoctoral Fellow Transition Award (F99/K00)",
+  "funder": "National Cancer Institute (NCI)",
+  "reasonCode": "finishing_phd_student_only",
+  "reason": "The F99/K00 is limited to advanced PhD candidates within ~1–2 years of completing their PhD, whereas the applicant received his PhD in August 2019.",
+  "confidence": "high"
+ },
+ {
+  "name": "NCI Pathway to Independence Award, including Early K99/R00",
+  "funder": "National Cancer Institute (NCI)",
+  "reasonCode": "past_time_window",
+  "reason": "The K99 caps postdoctoral experience at ~4 years (Early K99 at ≤2 years), but the applicant has ~6 years of postdoc experience, exceeding the eligibility window.",
+  "confidence": "high"
+ },
+ {
+  "name": "NCI Ruth L. Kirschstein NRSA Individual Predoctoral Fellowship (F31)",
+  "funder": "National Cancer Institute (NCI)",
+  "reasonCode": "finishing_phd_student_only",
+  "reason": "The F31 is an individual predoctoral fellowship for current PhD candidates at the dissertation-research stage, and the applicant completed his PhD in 2019.",
+  "confidence": "high"
+ },
+ {
+  "name": "NCI Individual Predoctoral MD/PhD Fellowship (F30)",
+  "funder": "National Cancer Institute (NCI)",
+  "reasonCode": "md_physician_only",
+  "reason": "The F30 requires enrollment in an accredited MD/PhD (dual clinical-doctoral) program, but the applicant holds a PhD only and is not a physician-scientist trainee.",
+  "confidence": "high"
+ },
+ {
+  "name": "Career Development Award (CDA)",
+  "funder": "Conquer Cancer, the ASCO Foundation",
+  "reasonCode": "md_physician_only",
+  "reason": "Eligibility requires a physician (MD, DO, or international equivalent) with an active medical license and a clinical faculty appointment, so a PhD-only computational scientist can never qualify.",
+  "confidence": "high"
+ },
+ {
+  "name": "Pershing Square Sohn Prize for Young Investigators in Cancer Research",
+  "funder": "Pershing Square Sohn Cancer Research Alliance (The Pershing Square Foundation)",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "Requires a faculty appointment at the Assistant/Associate Professor level and having run one's own independent lab for 2-6 years, which a current postdoc does not have.",
+  "confidence": "high"
+ },
+ {
+  "name": "Stand Up To Cancer (SU2C) Innovative Research Grants (IRG)",
+  "funder": "Stand Up To Cancer (administered by AACR)",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "Limited to tenure-track independent investigators and explicitly states that postdocs and researchers-in-training are ineligible.",
+  "confidence": "high"
+ },
+ {
+  "name": "Sidney Kimmel Foundation Kimmel Scholar Award (DISCONTINUED)",
+  "funder": "Sidney Kimmel Foundation for Cancer Research",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "Restricted to newly independent investigators at the assistant-professor level, a status a current postdoc has not reached (and the program is closed).",
+  "confidence": "high"
+ },
+ {
+  "name": "Career Awards for Medical Scientists (CAMS)",
+  "funder": "Burroughs Wellcome Fund",
+  "reasonCode": "md_physician_only",
+  "reason": "Requires a clinical doctorate (MD, DO, DDS, DVM, or equivalent) and explicitly states PhD-only candidates are ineligible.",
+  "confidence": "high"
+ },
+ {
+  "name": "Postdoctoral Diversity Enrichment Program (PDEP)",
+  "funder": "Burroughs Wellcome Fund",
+  "reasonCode": "past_time_window",
+  "reason": "Caps eligibility at no more than 48 months of postdoctoral experience and 5 years from the PhD, which he exceeds at ~6 years postdoc/~7 years post-PhD (and it is further limited to US/Canadian citizens from specific underrepresented groups).",
+  "confidence": "high"
+ },
+ {
+  "name": "NIH Director's New Innovator Award (DP2)",
+  "funder": "NIH Common Fund (Office of the Director)",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "Requires holding an independent research position at a U.S. institution by the award start, which a current postdoc does not hold.",
+  "confidence": "high"
+ },
+ {
+  "name": "AHNS Pilot Grant",
+  "funder": "American Head & Neck Society (AHNS)",
+  "reasonCode": "md_physician_only",
+  "reason": "Eligibility is limited to medical students, residents, or MD faculty, so a PhD-only computational scientist with no medical degree can never qualify.",
+  "confidence": "high"
+ },
+ {
+  "name": "Career Development Program - Special Fellow",
+  "funder": "Blood Cancer United (formerly The Leukemia & Lymphoma Society)",
+  "reasonCode": "past_time_window",
+  "reason": "The Special Fellow track requires only 3-5 years of postdoctoral research training by award start, but he will have ~7 years post-PhD, exceeding the upper bound.",
+  "confidence": "high"
+ },
+ {
+  "name": "NCI Pathway to Independence Award for Outstanding Early Stage Postdoctoral Researchers (K99/R00 - Independent Clinical Trial Not Allowed)",
+  "funder": "National Institutes of Health (NIH) / National Cancer Institute (NCI)",
+  "reasonCode": "past_time_window",
+  "reason": "The K99/R00 caps postdoctoral research experience at no more than 4 years at time of application, and he has ~6-7 years, well past the limit.",
+  "confidence": "high"
+ },
+ {
+  "name": "Postdoctoral Fellowships",
+  "funder": "American Cancer Society (ACS)",
+  "reasonCode": "past_time_window",
+  "reason": "Requires a terminal doctoral degree held 3 years or less and 3 or fewer years of postdoctoral training, but his PhD (2019) is ~7 years old with ~6 years of postdoc.",
+  "confidence": "high"
+ },
+ {
+  "name": "Pancreatic Cancer Research Program (PCARP) - Idea Development Award with Early Career Investigator Option",
+  "funder": "Department of Defense (CDMRP)",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "Eligibility is restricted to independent investigators (the ECI/Partnering PI must hold an independent faculty-level appointment), which a current postdoc does not have.",
+  "confidence": "medium"
+ },
+ {
+  "name": "Prostate Cancer Research Program (PCRP) Early Investigator Research Award",
+  "funder": "Department of Defense (CDMRP)",
+  "reasonCode": "past_time_window",
+  "reason": "Requires fewer than 3 years of postdoctoral research experience at the submission deadline, but he has ~6 years.",
+  "confidence": "high"
+ },
+ {
+  "name": "Medical Research Award",
+  "funder": "Gabrielle's Angel Foundation for Cancer Research",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "The award funds researchers with independent projects and preliminary results from their own lab, i.e. established PIs, which a postdoc without an independent lab is not.",
+  "confidence": "medium"
+ },
+ {
+  "name": "Clinical Investigator Career Development Award",
+  "funder": "Lymphoma Research Foundation",
+  "reasonCode": "md_physician_only",
+  "reason": "Restricted to physician investigators (advanced clinical fellow or junior faculty) in ACGME-accredited specialties, which excludes a PhD-only non-physician.",
+  "confidence": "high"
+ },
+ {
+  "name": "St. Baldrick's Scholar (Career Development) Award",
+  "funder": "St. Baldrick's Foundation",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "The award is a career-development mechanism for early-career faculty 'establishing independent research,' but he is still a postdoc and does not hold the required independent/faculty position.",
+  "confidence": "high"
+ },
+ {
+  "name": "St. Baldrick's Research Grant",
+  "funder": "St. Baldrick's Foundation",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "Eligibility is restricted to 'independent investigators' (established investigator / early-career faculty stages), and as a postdoc he is not an independent PI.",
+  "confidence": "high"
+ },
+ {
+  "name": "St. Baldrick's Robert J. Arceci Innovation Award",
+  "funder": "St. Baldrick's Foundation",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "This innovation award is limited to early- to mid-career independent investigators (early-career faculty / established investigator stages, postdoc not listed), which a postdoc does not satisfy.",
+  "confidence": "medium"
+ },
+ {
+  "name": "Bone Marrow Failure Research Program (BMFRP) — Idea Development Award (IDA)",
+  "funder": "U.S. Department of Defense — CDMRP, Defense Health Program",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "Both PI tracks require an independent investigator at Assistant Professor level or above, so a postdoc cannot serve as PI.",
+  "confidence": "medium"
+ },
+ {
+  "name": "Bone Marrow Failure Research Program (BMFRP) — Investigator-Initiated Research Award (IIRA)",
+  "funder": "U.S. Department of Defense — CDMRP, Defense Health Program",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "Eligibility is limited to 'independent investigators at all career levels,' and a postdoc does not meet the independent-investigator requirement.",
+  "confidence": "high"
+ },
+ {
+  "name": "Bone Marrow Failure Research Program (BMFRP) — Resource Development Award (RDA)",
+  "funder": "U.S. Department of Defense — CDMRP, Defense Health Program",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "Eligibility is limited to 'independent investigators at all career levels,' which a postdoc does not satisfy.",
+  "confidence": "high"
+ },
+ {
+  "name": "Peer Reviewed Cancer Research Program (PRCRP) — Career Development Award – Scholar Option (CDA-SO)",
+  "funder": "U.S. Department of Defense — CDMRP, Defense Health Program",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "The Scholar must be an independent early-career investigator with independent lab space and the RFA states 'postdoctoral fellows are NOT eligible,' so a postdoc is excluded.",
+  "confidence": "high"
+ },
+ {
+  "name": "St. Baldrick's Scholars",
+  "funder": "St. Baldrick's Foundation",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "Eligibility requires holding (or holding by award start) a full-time faculty position, which he does not have as a current senior postdoc.",
+  "confidence": "high"
+ },
+ {
+  "name": "\"A\" Award",
+  "funder": "Alex's Lemonade Stand Foundation",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "Eligibility requires being early-career independent faculty within 5 years of a first Assistant Professor appointment, which he lacks as a postdoc.",
+  "confidence": "high"
+ },
+ {
+  "name": "Research Grant Funding",
+  "funder": "Oncology Nursing Society Foundation",
+  "reasonCode": "other",
+  "reason": "The PI must be a registered oncology nurse actively involved in cancer patient care, whereas he is a computational PhD scientist with no nursing credential.",
+  "confidence": "high"
+ },
+ {
+  "name": "Research Scholar Grants (RSG)",
+  "funder": "American Cancer Society",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "Eligibility requires being an independent investigator first appointed as full-time faculty 8 or fewer years ago, but he holds no faculty appointment as a postdoc.",
+  "confidence": "high"
+ },
+ {
+  "name": "Research Scholar Grants (RSG)",
+  "funder": "American Cancer Society (ACS)",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "Eligibility is restricted to independent, full-time faculty (first appointed 8 or fewer years ago) with institutional resources for independent research, whereas the applicant is still a postdoctoral fellow without a faculty/independent-investigator appointment.",
+  "confidence": "high"
+ },
+ {
+  "name": "Damon Runyon Fellowship Award",
+  "funder": "Damon Runyon Cancer Research Foundation",
+  "reasonCode": "past_time_window",
+  "reason": "For basic scientists the degree must have been conferred within ~18 months of the deadline, but the applicant's PhD was conferred in August 2019 (~7 years ago), far outside that window.",
+  "confidence": "high"
+ },
+ {
+  "name": "Career Transition Award",
+  "funder": "Susan G. Komen Breast Cancer Foundation",
+  "reasonCode": "past_time_window",
+  "reason": "Limited to senior postdocs with no more than 5 years of total postdoctoral research experience at LOI, but the applicant has roughly 6 years of postdoctoral experience.",
+  "confidence": "high"
+ },
+ {
+  "name": "Individual Rising Star Grant",
+  "funder": "The Honorable Tina Brozman Foundation for Ovarian Cancer Research (\"Tina's Wish\")",
+  "reasonCode": "past_time_window",
+  "reason": "PhD applicants must be within 3 years of their degree, but the applicant earned his PhD in August 2019 (~7 years ago), exceeding that limit.",
+  "confidence": "high"
+ },
+ {
+  "name": "Young Investigator Award (YIA)",
+  "funder": "American Society for Clinical Oncology (ASCO) / Conquer Cancer",
+  "reasonCode": "md_physician_only",
+  "reason": "The award is restricted to physicians within 10 years of their medical degree who hold an active medical license, so a PhD-only computational scientist with no MD or clinical license cannot apply.",
+  "confidence": "high"
+ },
+ {
+  "name": "Ovarian Cancer Research Program - Ovarian Cancer Academy Early-Career Investigator Award",
+  "funder": "Department of Defense (DoD) - CDMRP",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "The FY26 program announcement states that individuals in a postdoctoral research position at the time of full application submission are not eligible (PI must be within five years of their last postdoc), which excludes a current senior postdoc.",
+  "confidence": "high"
+ },
+ {
+  "name": "Kidney Cancer Research Program - Academy of Kidney Cancer Investigators Early-Career Scholar Award (AKCIECSA)",
+  "funder": "Department of Defense (DoD) - CDMRP",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "Eligibility explicitly bars applicants who are still in a postdoc or clinical fellowship at the application deadline, so a current senior postdoc cannot apply.",
+  "confidence": "high"
+ },
+ {
+  "name": "AGA-Caroline Craig Augustyn & Damian Augustyn Award in Digestive Cancer",
+  "funder": "American Gastroenterological Association (AGA) Research Foundation",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "It requires a full-time faculty position and currently holding an NIH K-series (or equivalent, >=4-yr) career-development award with time remaining, neither of which a postdoc holds (and he is also >7 years post-PhD by the April 2027 start).",
+  "confidence": "high"
+ },
+ {
+  "name": "Team Science Awards",
+  "funder": "Melanoma Research Alliance (MRA)",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "The lead applicant must be at least an Associate Professor and even the encouraged early-career team role requires an independent researcher within 7 years of a first faculty appointment, so a postdoc with no faculty appointment cannot serve as a qualifying applicant.",
+  "confidence": "medium"
+ },
+ {
+  "name": "General RFP - Young Investigator Award",
+  "funder": "Melanoma Research Alliance (MRA)",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "It is limited to Young Investigators within 5 years of their first academic faculty appointment, and he holds no faculty appointment (still a postdoc), so he cannot qualify.",
+  "confidence": "high"
+ },
+ {
+  "name": "Career Development Award",
+  "funder": "American Society for Clinical Oncology (ASCO) / Conquer Cancer",
+  "reasonCode": "md_physician_only",
+  "reason": "It requires a physician (MD, DO, or international equivalent) with an active medical license in the 1st-4th year of a clinical-department faculty appointment, so a PhD-only non-physician is ineligible.",
+  "confidence": "high"
+ },
+ {
+  "name": "Lustgarten Foundation-AACR Career Development Award for Pancreatic Cancer Research, in Honor of Ruth Bader Ginsburg",
+  "funder": "American Association for Cancer Research (AACR)",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "It requires assistant-professor rank with independent lab space at grant start, which a current postdoc does not hold.",
+  "confidence": "high"
+ },
+ {
+  "name": "Clinician Scientist Development Grant (CSDG)",
+  "funder": "American Cancer Society (ACS)",
+  "reasonCode": "md_physician_only",
+  "reason": "It is restricted to full-time faculty clinician-scientists holding an active clinical license and engaged in clinical care, so a computational scientist with no clinical license or clinical practice cannot apply.",
+  "confidence": "high"
+ },
+ {
+  "name": "AACR-Sontag Foundation Brain Cancer Research Fellowship",
+  "funder": "American Association for Cancer Research (AACR)",
+  "reasonCode": "past_time_window",
+  "reason": "Eligibility requires the most recent doctoral degree to have been completed within the past 5 years, but his PhD was conferred in August 2019 (~7 years ago), exceeding the window.",
+  "confidence": "high"
+ },
+ {
+  "name": "Residents/Fellows in Radiation Oncology Research Seed Grant",
+  "funder": "American Society for Radiation Oncology (ASTRO)",
+  "reasonCode": "md_physician_only",
+  "reason": "The award requires being a current radiation oncology resident or radiation oncology clinical fellow enrolled in an accredited US clinical training program, a physician/clinical-trainee status a PhD-only computational scientist cannot hold.",
+  "confidence": "medium"
+ },
+ {
+  "name": "AACR Career Development Awards for Translational Breast Cancer Research",
+  "funder": "American Association for Cancer Research (AACR) / Breast Cancer Research Foundation (BCRF)",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "Eligibility is limited to faculty at the assistant professor/instructor/research assistant professor level who started their first independent faculty position within the past 6 years, but he is still a postdoc with no faculty appointment.",
+  "confidence": "high"
+ },
+ {
+  "name": "Investigator-Initiated Research Grant",
+  "funder": "American Institute for Cancer Research (AICR)",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "The grant is restricted to Independent Investigators at the level of Assistant Professor (or equivalent) or higher, whereas he is still a postdoctoral researcher.",
+  "confidence": "high"
+ },
+ {
+  "name": "Hollis Brownstein Research Grants Program",
+  "funder": "Leukemia Research Foundation (LRF)",
+  "reasonCode": "faculty_or_independent_required",
+  "reason": "The New Investigator award requires being an independent investigator within 7 years of the start of a first independent faculty-level appointment, which he has never held as a postdoc.",
+  "confidence": "high"
+ }
+]

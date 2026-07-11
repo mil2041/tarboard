@@ -1,0 +1,18 @@
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Personal data — CV PDF contains home address / phone (PII). The app inlines the
+# professional example text into index.html, so the demo works without this file.
+user_profile/
+
+# Python
+__pycache__/
+*.pyc
+
+# Editors / temp
+*.swp
+*~
+
+# Hackathon submission artifacts (screenshots, etc.)
+hackthone_submit/
