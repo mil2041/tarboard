@@ -283,12 +283,13 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
 .mk.claude{background:linear-gradient(90deg,var(--teal),var(--teal-bright));color:var(--paper-2)}
 .badge.b-claude{background:linear-gradient(90deg,var(--teal),var(--teal-bright));color:var(--paper-2)}
 .gc-why .claudew{color:var(--ink-soft)}
-/* Claude fit reasoning as a prominent callout, directly under the focus tags */
-.gc-why.claude{margin:0 0 12px;padding:9px 12px;border-radius:10px;font-size:14.5px;color:var(--ink);line-height:1.45;align-items:baseline;
-  background:linear-gradient(180deg,color-mix(in srgb,var(--teal-wash) 75%,transparent),color-mix(in srgb,var(--teal-wash) 30%,transparent));
-  border:1px solid color-mix(in srgb,var(--teal) 24%,transparent)}
-.gc-why.claude .claudew{color:var(--ink);font-weight:500}
-.gc-why.claude .mk.claude{align-self:flex-start;flex:none}
+/* Claude fit reasoning — a prominent standout callout, directly under the focus tags */
+.gc-why.claude{display:block;margin:2px 0 13px;padding:11px 13px 12px;border-radius:10px;font-size:14.5px;color:var(--ink);line-height:1.55;
+  background:linear-gradient(180deg,color-mix(in srgb,var(--teal-wash) 82%,transparent),color-mix(in srgb,var(--teal-wash) 32%,transparent));
+  border:1px solid color-mix(in srgb,var(--teal) 26%,transparent);border-left:3px solid var(--teal)}
+.gc-why.claude .claude-fit-h{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.gc-why.claude .cfh-lab{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--ink-faint);font-weight:600}
+.gc-why.claude .claudew{margin:0;color:var(--ink);font-weight:450}
 .claude-brief-btn{width:100%;margin-top:9px;background:var(--teal);color:var(--paper-2);border:none;border-radius:8px;padding:9px 10px;font-size:14px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;gap:6px;box-shadow:0 4px 14px -8px var(--teal);transition:.15s}
 .claude-brief-btn:hover{background:var(--teal-bright)}
 .claude-brief-btn:disabled{opacity:.7;cursor:wait}
@@ -735,9 +736,9 @@ function CV_PROMPT(text){return "CV text:\n<cv>\n"+String(text).slice(0,12000)+"
 
 const RERANK_SCHEMA={type:"object",additionalProperties:false,required:["rankings"],properties:{
   rankings:{type:"array",items:{type:"object",additionalProperties:false,required:["id","fitScore","why"],
-    properties:{id:{type:"string"},fitScore:{type:"integer"},why:{type:"string",description:"one or two natural, complete sentences"}}}}}};
-const RERANK_SYSTEM="You are a grants-matching expert briefing a scientist on how each funding opportunity fits them. Rank the opportunities by fit. You may ONLY reference the grant objects provided, by their exact id. Never invent grants, deadlines, amounts, or eligibility. Judge scientific topic/method alignment and career-stage fit; a grant dedicated to a disease the applicant does not study is a poor fit even if the method (AI, genomics) matches. Write each 'why' as one or two complete, natural sentences in a warm, advisory tone — as if telling the applicant why this suits them — not a terse fragment or a keyword list. Return via emit.";
-function RERANK_PROMPT(summary,payload){return "Applicant:\n"+summary+"\n\nGrants (JSON array):\n"+JSON.stringify(payload)+"\n\nFor EACH id above return a fitScore 0-100 and a 'why' of one or two natural, complete sentences explaining specifically why it does (or doesn't) fit this applicant's research and career stage. Demote disease-locked grants that don't match the applicant's disease area.";}
+    properties:{id:{type:"string"},fitScore:{type:"integer"},why:{type:"string",description:"two or three natural, complete sentences"}}}}}};
+const RERANK_SYSTEM="You are a grants-matching expert briefing a scientist on how each funding opportunity fits them. Rank the opportunities by fit. You may ONLY reference the grant objects provided, by their exact id. Never invent grants, deadlines, amounts, or eligibility. Judge scientific topic/method alignment and career-stage fit; a grant dedicated to a disease the applicant does not study is a poor fit even if the method (AI, genomics) matches. Write each 'why' as TWO OR THREE complete, natural sentences in a warm, advisory tone that connect the applicant's specific research and career stage to what this funder supports — as if telling them why it suits them — not a terse fragment or a keyword list. Return via emit.";
+function RERANK_PROMPT(summary,payload){return "Applicant:\n"+summary+"\n\nGrants (JSON array):\n"+JSON.stringify(payload)+"\n\nFor EACH id above return a fitScore 0-100 and a 'why' of TWO OR THREE natural, complete sentences that explain specifically why it does (or doesn't) fit this applicant — referencing their actual research area, methods, and career stage against what the grant funds. Demote disease-locked grants that don't match the applicant's disease area.";}
 
 const ELIG_SCHEMA={type:"object",additionalProperties:false,required:["verdict","quotedClause","note"],properties:{
   verdict:{type:"string",enum:["eligible","gated_until_PR","ineligible","unclear"]},
@@ -817,13 +818,13 @@ async function claudeRerank(tok){
         focusAreas:(g.focusAreas||[]).join(", "),
         amount:g.awardAmount||"",deadline:g.deadlineInfo||g.closeDate||"",
         desc:String(g.description||g.relevanceToUser||"").slice(0,250)}));
-      const out=await claudeJSON({model:CONFIG.fastModel,max_tokens:2400,system:RERANK_SYSTEM,
+      const out=await claudeJSON({model:CONFIG.fastModel,max_tokens:3600,system:RERANK_SYSTEM,
         messages:[{role:"user",content:RERANK_PROMPT(profileSummary(),payload)}],schema:RERANK_SCHEMA,timeoutMs:90000});
       ranked=(out.rankings||[]).filter(r=>idset.has(r.id));   // drop any invented ids
       state.rrCache[key]=ranked;
     }
     if(tok!==state.searchToken) return;
-    ranked.forEach(r=>{const g=byId.get(r.id); if(g){ g._claudeScore=Math.max(0,Math.min(100,+r.fitScore||0)); g._claudeWhy=String(r.why||"").slice(0,300); }});
+    ranked.forEach(r=>{const g=byId.get(r.id); if(g){ g._claudeScore=Math.max(0,Math.min(100,+r.fitScore||0)); g._claudeWhy=String(r.why||"").slice(0,500); }});
     state.claudeRanked=true; state.sort="claude";
     const ss=$("#sortSel"); if(ss) ss.value="claude";
     render();
@@ -1557,7 +1558,7 @@ function cardHTML(g,maxScore,idx,showFit){
   const tags=(g.focusAreas||[]).slice(0,4).map(f=>`<span class="tag-fa ${state.focus.has(f)?"hot":""}">${esc(f)}</span>`).join("");
   const amt=g.awardAmount&&g.awardAmount!=="see details"?g.awardAmount:(g._live?"see details":"varies");
   const why=g._claudeWhy
-    ?`<div class="gc-why claude"><span class="mk claude">✦ Claude fit</span> <span class="claudew">${esc(g._claudeWhy)}</span></div>`
+    ?`<div class="gc-why claude"><div class="claude-fit-h"><span class="mk claude">✦ Claude fit</span> <span class="cfh-lab">why this suits you</span></div><p class="claudew">${esc(g._claudeWhy)}</p></div>`
     :(g._matched&&g._matched.length?`<div class="gc-why"><span class="lab">Why:</span>${g._matched.map(m=>`<span class="mk">${esc(m)}</span>`).join("")}</div>`:"");
   const e=eligibility(g);
   const echips=e.flags.map(f=>`<span class="echip ${f.t}">${esc(f.x)}</span>`).join("");
