@@ -121,3 +121,24 @@ Per the judge's remaining ceiling item #2 ("tighten to 6–7 slides"), condensed
   How slide and the kicker now carries "Claude is the engine, not a chatbot."
 Final 6-slide arc: **Title · Problem/fragmentation · How-it-works (Claude engine) · Proof · Moat · Vision+ask.**
 All 4 figures retained. Verified in-browser: no overcrowding on the two merged slides.
+
+### Judge validation — 6-slide condensed deck
+**Judge-validated: 83/100 (held, unchanged from the 8-slide figure-driven 83).** Narrative held at 9 (both
+flaws fixed — no more three-product-slides-in-a-row, no longer a slide too long — capped only because the
+why-now beat no longer stands alone). Design held at 8 (the redundant why-Claude card grid is gone, but the
+trust strip + why-now bridge were *relocated* onto How/Problem, so per-slide density rose as slide count fell).
+
+Judge's ruling: *"The condensation was correct and worth keeping — do NOT revert; the 6-slide version is the
+better deck to present. It just doesn't move the score, because the tightening relocated density instead of
+removing it."*
+
+**What would actually move it now (content/evidence, not structure):**
+1. **Evidence 8→9** (biggest lever) — one real result from a second field, or one external user; the field
+   chips still assert generalization without demonstrating it.
+2. **Product 8→9** — one real screen capture / 3-sec GIF of the running app (the recreated card is the last
+   told-not-shown element; the live app is available to capture).
+3. **Design 8→9** — actually *cut* a cluster per slide (don't relocate): e.g., drop the two-stage-engine
+   chips from How, or the founder note from Moat, so the strong figures breathe.
+4. **Moat 8→9** — only real usage turning the flywheel would move it.
+
+Overall judge-validated arc: **61 (baseline) → 79 (phase-1) → 83 (phase-2 figures) → 83 (6-slide condense).**
