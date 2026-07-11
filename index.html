@@ -283,6 +283,12 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
 .mk.claude{background:linear-gradient(90deg,var(--teal),var(--teal-bright));color:var(--paper-2)}
 .badge.b-claude{background:linear-gradient(90deg,var(--teal),var(--teal-bright));color:var(--paper-2)}
 .gc-why .claudew{color:var(--ink-soft)}
+/* Claude fit reasoning as a prominent callout, directly under the focus tags */
+.gc-why.claude{margin:0 0 12px;padding:9px 12px;border-radius:10px;font-size:14.5px;color:var(--ink);line-height:1.45;align-items:baseline;
+  background:linear-gradient(180deg,color-mix(in srgb,var(--teal-wash) 75%,transparent),color-mix(in srgb,var(--teal-wash) 30%,transparent));
+  border:1px solid color-mix(in srgb,var(--teal) 24%,transparent)}
+.gc-why.claude .claudew{color:var(--ink);font-weight:500}
+.gc-why.claude .mk.claude{align-self:flex-start;flex:none}
 .claude-brief-btn{width:100%;margin-top:9px;background:var(--teal);color:var(--paper-2);border:none;border-radius:8px;padding:9px 10px;font-size:14px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;gap:6px;box-shadow:0 4px 14px -8px var(--teal);transition:.15s}
 .claude-brief-btn:hover{background:var(--teal-bright)}
 .claude-brief-btn:disabled{opacity:.7;cursor:wait}
@@ -1438,7 +1444,7 @@ function cardHTML(g,maxScore,idx,showFit){
   const tags=(g.focusAreas||[]).slice(0,4).map(f=>`<span class="tag-fa ${state.focus.has(f)?"hot":""}">${esc(f)}</span>`).join("");
   const amt=g.awardAmount&&g.awardAmount!=="see details"?g.awardAmount:(g._live?"see details":"varies");
   const why=g._claudeWhy
-    ?`<div class="gc-why"><span class="mk claude">✦ Claude</span> <span class="claudew">${esc(g._claudeWhy)}</span></div>`
+    ?`<div class="gc-why claude"><span class="mk claude">✦ Claude fit</span> <span class="claudew">${esc(g._claudeWhy)}</span></div>`
     :(g._matched&&g._matched.length?`<div class="gc-why"><span class="lab">Why:</span>${g._matched.map(m=>`<span class="mk">${esc(m)}</span>`).join("")}</div>`:"");
   const e=eligibility(g);
   const echips=e.flags.map(f=>`<span class="echip ${f.t}">${esc(f.x)}</span>`).join("");
@@ -1453,13 +1459,13 @@ function cardHTML(g,maxScore,idx,showFit){
         <h3 class="gc-title"><a href="${esc(bestUrl(g))}" target="_blank" rel="noopener">${esc(g.name)}</a></h3>
         <div class="gc-funder">${badge}<strong>${esc(g.funder)}</strong>${g.number?`<span class="mono" style="color:var(--ink-faint)">· ${esc(g.number)}</span>`:""}${echips}${confChip}</div>
         <div class="tags">${tags}</div>
+        ${why}
         <div class="gc-meta">
           <div class="m"><div class="k">Award</div><div class="v amt">${esc(amt)}</div></div>
           <div class="m"><div class="k">Deadline</div><div class="v">${deadlineChip(g)}</div></div>
           ${g.careerStages&&g.careerStages.length?`<div class="m"><div class="k">Stage</div><div class="v" style="font-family:var(--sans);font-weight:600;font-size:14px">${esc(g.careerStages.join(", "))}</div></div>`:""}
         </div>
         ${g.description?`<p class="gc-desc clamp">${esc(g.description)}</p>`:(g._live?`<p class="gc-desc" style="color:var(--ink-faint);font-style:italic">Federal opportunity — expand for full synopsis.</p>`:"")}
-        ${why}
         ${expand}
         ${showFit?suggestFor(g):""}
       </div>
