@@ -805,7 +805,7 @@ function markRerank(on){ state.rrLoading=on; if($("#srcBar")) renderSrcBar({}); 
 async function claudeRerank(tok){
   if(!claudeReady()) return;
   const base=eligFilter(baseFilter(state.results));
-  const top=[...base].sort((a,b)=>b._score-a._score).slice(0,20);
+  const top=[...base].sort((a,b)=>b._score-a._score).slice(0,12);   // top 12 keeps the re-rank fast enough to finish reliably
   if(top.length<2) return;
   const ids=top.map(g=>g.id), idset=new Set(ids), byId=new Map(top.map(g=>[g.id,g]));
   const key="rr:"+hashStr(profileSummary()+"|"+ids.join(","));
@@ -817,7 +817,7 @@ async function claudeRerank(tok){
       const payload=top.map(g=>({id:g.id,name:g.name,funder:g.funder,
         focusAreas:(g.focusAreas||[]).join(", "),
         amount:g.awardAmount||"",deadline:g.deadlineInfo||g.closeDate||"",
-        desc:String(g.description||g.relevanceToUser||"").slice(0,250)}));
+        desc:String(g.description||g.relevanceToUser||"").slice(0,160)}));
       const out=await claudeJSON({model:CONFIG.fastModel,max_tokens:3600,system:RERANK_SYSTEM,
         messages:[{role:"user",content:RERANK_PROMPT(profileSummary(),payload)}],schema:RERANK_SCHEMA,timeoutMs:90000});
       ranked=(out.rankings||[]).filter(r=>idset.has(r.id));   // drop any invented ids

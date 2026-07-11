@@ -686,7 +686,7 @@ async function claudeFetch(payload,signal){
 async function claudeJSON({system,messages,schema,model,max_tokens=1024,timeoutMs=25000}){
   const ac=new AbortController(); const t=setTimeout(()=>ac.abort(),timeoutMs);
   try{
-    const r=await claudeFetch({ model:model||CONFIG.model, max_tokens, ...(system?{system}:{}), messages,
+    const r=await claudeFetch({ model:model||CONFIG.model, max_tokens, ...(system?{system:cachedSystem(system)}:{}), messages,
       tools:[{name:"emit",description:"Return the structured result.",input_schema:schema}],
       tool_choice:{type:"tool",name:"emit"} },ac.signal);
     if(!r.ok) throw new Error("claude http "+r.status);
@@ -697,8 +697,10 @@ async function claudeJSON({system,messages,schema,model,max_tokens=1024,timeoutM
   } finally { clearTimeout(t); }
 }
 // Streaming text out. onToken(chunk) fires as tokens arrive; returns the full string.
+// Send the (repeated) system prompt as a cached block so Anthropic prompt-caching kicks in across calls.
+function cachedSystem(system){ return [{type:"text",text:String(system),cache_control:{type:"ephemeral"}}]; }
 async function claudeStream({system,messages,model,max_tokens=1024,onToken}){
-  const r=await claudeFetch({model:model||CONFIG.model,max_tokens,stream:true,...(system?{system}:{}),messages});
+  const r=await claudeFetch({model:model||CONFIG.model,max_tokens,stream:true,...(system?{system:cachedSystem(system)}:{}),messages});
   if(!r.ok||!r.body) throw new Error("claude http "+(r.status||"nobody"));
   const reader=r.body.getReader(),dec=new TextDecoder(); let buf="",full="";
   while(true){
@@ -805,7 +807,7 @@ function markRerank(on){ state.rrLoading=on; if($("#srcBar")) renderSrcBar({}); 
 async function claudeRerank(tok){
   if(!claudeReady()) return;
   const base=eligFilter(baseFilter(state.results));
-  const top=[...base].sort((a,b)=>b._score-a._score).slice(0,20);
+  const top=[...base].sort((a,b)=>b._score-a._score).slice(0,12);   // top 12 keeps the re-rank fast enough to finish reliably
   if(top.length<2) return;
   const ids=top.map(g=>g.id), idset=new Set(ids), byId=new Map(top.map(g=>[g.id,g]));
   const key="rr:"+hashStr(profileSummary()+"|"+ids.join(","));
@@ -817,7 +819,7 @@ async function claudeRerank(tok){
       const payload=top.map(g=>({id:g.id,name:g.name,funder:g.funder,
         focusAreas:(g.focusAreas||[]).join(", "),
         amount:g.awardAmount||"",deadline:g.deadlineInfo||g.closeDate||"",
-        desc:String(g.description||g.relevanceToUser||"").slice(0,250)}));
+        desc:String(g.description||g.relevanceToUser||"").slice(0,160)}));
       const out=await claudeJSON({model:CONFIG.fastModel,max_tokens:3600,system:RERANK_SYSTEM,
         messages:[{role:"user",content:RERANK_PROMPT(profileSummary(),payload)}],schema:RERANK_SCHEMA,timeoutMs:90000});
       ranked=(out.rankings||[]).filter(r=>idset.has(r.id));   // drop any invented ids
@@ -1150,6 +1152,14 @@ function degreeWindow(g){
   return best;
 }
 function fmtWindow(y){ return y<1?`${Math.round(y*12)}-mo`:`${(y%1?y.toFixed(1):y)}-yr`; }
+// Parse the post-PhD/postdoc window (in years) the audit reason cited, so past_time_window is applied
+// relative to the applicant's ACTUAL PhD year rather than force-hidden for everyone.
+function auditWindowYears(reason){
+  if(!reason) return null; const s=reason.toLowerCase();
+  const m=s.match(/(?:within|no more than|fewer than|less than|<|≤|up to|cap(?:s|ped)? (?:at|to)|no later than|more than)\s*~?\s*(\d{1,3})\s*(month|year)/)
+        || s.match(/(\d{1,3})\s*(month|year)s?\s*(?:or (?:less|more|fewer)|of (?:post|phd|doctoral|research)|post|since|from|after)/);
+  if(!m) return null; const n=+m[1]; return /month/.test(m[2])?Math.round(n/12*10)/10:n;
+}
 function yearsSincePhD(){
   if(!state.phdYear) return null;
   return (new Date().getFullYear())-state.phdYear;
@@ -1204,13 +1214,24 @@ function eligibility(g){
     if(ys>win){windowExceeded=true;flags.push({t:"warn",x:`Verify timing · past ${fmtWindow(win)} window`});}
     else flags.push({t:"win",x:`≤${fmtWindow(win)} window ✓`});
   }
-  // baked eligibility-audit verdict (authoritative per the applicant profile)
+  // Baked eligibility-audit verdicts (from the offline agent panel). Applied RELATIVE TO THE CURRENT
+  // profile — the entered PhD year, career stage, and degree — so loading a different CV never
+  // silently mis-hides. Codes that don't apply to this profile are simply skipped.
   const AL={md_physician_only:"MD / physician-scientist only",finishing_phd_student_only:"For finishing PhD students",nationality_restricted:"Nationality-restricted",faculty_or_independent_required:"Future target · faculty stage",us_citizen_only:"Needs U.S. citizenship",other:"Not currently eligible"};
-  const ac=g.auditCode, isFacultyStage=/faculty|established/.test(mine);
+  const ac=g.auditCode, isFacultyStage=/faculty|established/.test(mine), isStudent=(mine==="PhD student")||(ys!=null&&ys<1);
   let facultyBlocked=false;
-  if(ac==="past_time_window"){ if(!windowExceeded){windowExceeded=true;flags.push({t:"warn",x:"Verify timing · past window"});} }
-  else if(ac==="us_citizen_only"){ if(cit!=="us"){blocked=true;blockedCitizenship=true;if(!flags.some(f=>f.x==="Needs U.S. citizenship"))flags.push({t:"blk",x:"Needs U.S. citizenship"});} }
+  if(ac==="past_time_window"){
+    // respect the applicant's entered PhD year: parse the window the audit cited, flag only if exceeded
+    const w=auditWindowYears(g.auditReason);
+    if(ys!=null && ((w!=null && ys>w) || (w==null && ys>=4)) && !windowExceeded){
+      windowExceeded=true; flags.push({t:"warn",x:w!=null?`Verify timing · past ${fmtWindow(w)} window`:"Verify timing · past window"});
+    }
+  }
   else if(ac==="faculty_or_independent_required"){ if(!isFacultyStage){facultyBlocked=true;flags.push({t:"warn",x:"Future target · faculty stage"});} }
+  else if(ac==="md_physician_only"){ if(mine!=="physician-scientist" && !flags.some(f=>f.x===AL.md_physician_only)){blocked=true;flags.push({t:"blk",x:AL.md_physician_only});} }
+  else if(ac==="finishing_phd_student_only"){ if(!isStudent && !flags.some(f=>f.x===AL.finishing_phd_student_only)){blocked=true;flags.push({t:"blk",x:AL.finishing_phd_student_only});} }
+  else if(ac==="us_citizen_only"){ if(cit!=="us"){blocked=true;blockedCitizenship=true;if(!flags.some(f=>f.x==="Needs U.S. citizenship"))flags.push({t:"blk",x:"Needs U.S. citizenship"});} }
+  else if(ac==="nationality_restricted"){ /* handled by the nationalityRestriction() check above, which compares to the user's nationality */ }
   else if(ac){ if(!flags.some(f=>f.x===AL[ac])){blocked=true;flags.push({t:"blk",x:AL[ac]||AL.other});} }
   return {blocked,blockedCitizenship,facultyBlocked,gated,windowExceeded,win,req,flags,auditReason:g.auditReason};
 }

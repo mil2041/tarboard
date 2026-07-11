@@ -84,7 +84,9 @@ class Handler(BaseHTTPRequestHandler):
     def _json(self, code, obj):
         data = json.dumps(obj).encode()
         self.send_response(code); self._cors()
-        self.send_header("Content-Type", "application/json"); self.end_headers()
+        self.send_header("Content-Type", "application/json")
+        self.send_header("Content-Length", str(len(data)))   # let the browser resolve the fetch immediately
+        self.end_headers()
         try: self.wfile.write(data)
         except BrokenPipeError: pass
 
@@ -103,7 +105,9 @@ class Handler(BaseHTTPRequestHandler):
                 with urllib.request.urlopen(req, timeout=25) as r:
                     data = r.read()
                 self.send_response(200); self._cors()
-                self.send_header("Content-Type", "application/json"); self.end_headers()
+                self.send_header("Content-Type", "application/json")
+                self.send_header("Content-Length", str(len(data)))
+                self.end_headers()
                 try: self.wfile.write(data)
                 except BrokenPipeError: pass
             except Exception as e:
