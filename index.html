@@ -742,7 +742,7 @@ async function ingestCVSmart(text,label){
   const cached=(()=>{try{return JSON.parse(localStorage.getItem("gb_cv_"+hashStr(text))||"null");}catch(e){return null;}})();
   try{
     const prof=cached||await claudeJSON({model:CONFIG.model,max_tokens:1200,system:CV_SYSTEM,
-      messages:[{role:"user",content:CV_PROMPT(text)}],schema:PROFILE_SCHEMA,timeoutMs:35000});
+      messages:[{role:"user",content:CV_PROMPT(text)}],schema:PROFILE_SCHEMA,timeoutMs:60000});
     try{localStorage.setItem("gb_cv_"+hashStr(text),JSON.stringify(prof));}catch(e){}
     applyClaudeProfile(prof,label);
   }catch(e){ ingestCV(text,label); }
@@ -785,7 +785,7 @@ async function claudeRerank(tok){
         amount:g.awardAmount||"",deadline:g.deadlineInfo||g.closeDate||"",
         desc:String(g.description||g.relevanceToUser||"").slice(0,250)}));
       const out=await claudeJSON({model:CONFIG.model,max_tokens:1600,system:RERANK_SYSTEM,
-        messages:[{role:"user",content:RERANK_PROMPT(profileSummary(),payload)}],schema:RERANK_SCHEMA,timeoutMs:35000});
+        messages:[{role:"user",content:RERANK_PROMPT(profileSummary(),payload)}],schema:RERANK_SCHEMA,timeoutMs:90000});
       ranked=(out.rankings||[]).filter(r=>idset.has(r.id));   // drop any invented ids
       state.rrCache[key]=ranked;
     }
@@ -822,7 +822,7 @@ async function claudeEligibility(text,el){
   el.innerHTML='<span class="cursor"></span>';
   try{
     const o=await claudeJSON({model:CONFIG.fastModel,max_tokens:600,system:ELIG_SYSTEM,
-      messages:[{role:"user",content:ELIG_PROMPT(text,who)}],schema:ELIG_SCHEMA,timeoutMs:25000});
+      messages:[{role:"user",content:ELIG_PROMPT(text,who)}],schema:ELIG_SCHEMA,timeoutMs:45000});
     const V={eligible:["✓ Likely eligible","win"],gated_until_PR:["Gated until permanent residence","gc"],ineligible:["✗ Likely ineligible","blk"],unclear:["Unclear — verify","warn"]};
     const v=V[o.verdict]||V.unclear;
     el.innerHTML='<div class="elig-verdict"><span class="echip '+v[1]+'">'+esc(v[0])+'</span> <span class="src-label">Claude read the synopsis</span></div>'
@@ -1651,7 +1651,7 @@ function wireUI(){
     $("#cfgStatus").textContent="Testing…"; renderSrcBar({});
     try{
       await claudeJSON({model:CONFIG.fastModel,max_tokens:32,messages:[{role:"user",content:"Reply with ok."}],
-        schema:{type:"object",additionalProperties:false,required:["ok"],properties:{ok:{type:"boolean"}}},timeoutMs:15000});
+        schema:{type:"object",additionalProperties:false,required:["ok"],properties:{ok:{type:"boolean"}}},timeoutMs:30000});
       $("#cfgStatus").textContent="✓ Connected to Claude.";
     }catch(e){ $("#cfgStatus").textContent="Couldn't reach Claude — check the URL/key. (The app still works offline.)"; }
     renderSrcBar({});

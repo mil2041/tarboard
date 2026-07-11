@@ -32,6 +32,10 @@ The dashboard is a static file, so it can't hold an API key. Two ways to give it
 2. **Paste-your-own-key dev mode.** For local rehearsal only: ⚙ → paste an Anthropic key (stays in your
    browser, calls the API directly). Never ship a page with a key baked in — `build.py` refuses to build if
    one is present.
+3. **Claude Code bridge (no key, uses your Claude subscription).** For a local demo, run
+   `python3 worker/claude_code_bridge.py` and point ⚙ at `http://localhost:8788`; it runs the app's Claude
+   calls through the `claude -p` CLI on your existing login. See `worker/README.md`. Local-only and slower
+   than the API, but zero setup — good for developing/demoing on a laptop.
 
 Without either, the app still runs fully on the deterministic/lexical path. Models are pinned in one
 `CONFIG` object (`claude-opus-4-8` workhorse, `claude-haiku-4-5` fast path); ~$0.15–0.25 per session.

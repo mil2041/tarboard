@@ -35,6 +35,23 @@ curl -s https://grantboard-claude.<you>.workers.dev \
   -d '{"model":"claude-opus-4-8","max_tokens":64,"messages":[{"role":"user","content":"say hi in 3 words"}]}'
 ```
 
+## Option C — run on your Claude subscription via Claude Code (no API key, no Cloudflare)
+
+For a **local** demo you can skip the Worker/key entirely and route the app's Claude calls through the
+Claude Code CLI, using your existing Claude Code login (your Claude subscription):
+
+```bash
+python3 worker/claude_code_bridge.py        # serves http://localhost:8788
+# then in the app: ⚙ gear → Worker URL = http://localhost:8788
+```
+
+The bridge speaks the same request shape the app sends and internally runs `claude -p`, mapping the
+result back into the Messages-API response the client expects (forced-JSON → a `tool_use` block; streaming
+→ SSE deltas). Verified end-to-end: CV parse (~18s), 20-grant re-rank (~10s), streamed fit brief (~7s).
+Caveats: it's **local-only** (remote judges can't reach it), each call pays Claude Code's cold-start so
+it's slower than the raw API, and rapid repeated searches can leave `claude -p` workers running briefly.
+For a hosted/shared demo, use the Cloudflare Worker above. Env: `BRIDGE_PORT`, `BRIDGE_MODEL`.
+
 ## Demo insurance (no Worker needed)
 
 The app also supports a **paste-your-own-key dev mode** (same ⚙ gear). It calls `api.anthropic.com`
