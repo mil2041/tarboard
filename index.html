@@ -307,6 +307,15 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
 .rep-item a:hover{text-decoration:underline}
 .rep-meta{font-size:12.5px;color:var(--ink-faint);font-family:var(--mono);margin-top:2px}
 .comp-out{margin-top:8px}
+.claude-more-btn{background:var(--paper-2);border:1px solid var(--line-strong);color:var(--ink-soft);border-radius:8px;padding:8px 10px;font-size:13px;font-weight:600;flex:0 0 auto}
+.claude-more-btn:hover{border-color:var(--teal);color:var(--teal)}
+.claude-more{margin-top:7px}
+.claude-more[hidden]{display:none}
+.claude-more .claude-brief-btn{width:100%}
+/* trust strip near the results bar */
+.trust-strip{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;margin:0 0 16px;padding:8px 13px;border:1px solid var(--line);border-radius:9px;background:var(--paper-2);font-size:12.5px;color:var(--ink-faint)}
+.trust-strip .ts-item{display:inline-flex;gap:6px;align-items:baseline}
+.trust-strip .ts-item b{color:var(--ink-soft);font-weight:700;text-transform:uppercase;letter-spacing:.04em;font-size:11px}
 .cursor{display:inline-block;width:7px;height:15px;background:var(--teal);vertical-align:text-bottom;animation:blink 1s steps(2) infinite;border-radius:1px}
 @keyframes blink{50%{opacity:0}}
 .claude-elig{margin-top:8px;font-size:14px}
@@ -488,6 +497,11 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
     </div>
 
     <div class="srcbar" id="srcBar"></div>
+    <div class="trust-strip" id="trustStrip">
+      <span class="ts-item"><b>Eligibility</b> deterministic rules</span>
+      <span class="ts-item"><b>Fit</b> Claude judgment</span>
+      <span class="ts-item"><b>Funding facts</b> source data — verify on funder page</span>
+    </div>
     <div class="exportrow" id="exportRow" style="display:none">
       <button class="exportbtn" id="expCsv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12M12 15l-4-4M12 15l4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>Export CSV</button>
       <button class="exportbtn" id="expJson"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12M12 15l-4-4M12 15l4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>Export JSON</button>
@@ -721,9 +735,9 @@ function CV_PROMPT(text){return "CV text:\n<cv>\n"+String(text).slice(0,12000)+"
 
 const RERANK_SCHEMA={type:"object",additionalProperties:false,required:["rankings"],properties:{
   rankings:{type:"array",items:{type:"object",additionalProperties:false,required:["id","fitScore","why"],
-    properties:{id:{type:"string"},fitScore:{type:"integer"},why:{type:"string"}}}}}};
-const RERANK_SYSTEM="You are a grants-matching expert. Rank funding opportunities by fit to the applicant. You may ONLY reference the grant objects provided, by their exact id. Never invent grants, deadlines, amounts, or eligibility. Judge scientific topic/method alignment and career-stage fit. A grant dedicated to a disease the applicant does not study is a poor fit even if the method (AI, genomics) matches. Return via emit.";
-function RERANK_PROMPT(summary,payload){return "Applicant:\n"+summary+"\n\nGrants (JSON array):\n"+JSON.stringify(payload)+"\n\nFor EACH id above return fitScore 0-100 and why (<=18 words citing the specific reason). Demote disease-locked grants that don't match the applicant's disease area.";}
+    properties:{id:{type:"string"},fitScore:{type:"integer"},why:{type:"string",description:"one or two natural, complete sentences"}}}}}};
+const RERANK_SYSTEM="You are a grants-matching expert briefing a scientist on how each funding opportunity fits them. Rank the opportunities by fit. You may ONLY reference the grant objects provided, by their exact id. Never invent grants, deadlines, amounts, or eligibility. Judge scientific topic/method alignment and career-stage fit; a grant dedicated to a disease the applicant does not study is a poor fit even if the method (AI, genomics) matches. Write each 'why' as one or two complete, natural sentences in a warm, advisory tone — as if telling the applicant why this suits them — not a terse fragment or a keyword list. Return via emit.";
+function RERANK_PROMPT(summary,payload){return "Applicant:\n"+summary+"\n\nGrants (JSON array):\n"+JSON.stringify(payload)+"\n\nFor EACH id above return a fitScore 0-100 and a 'why' of one or two natural, complete sentences explaining specifically why it does (or doesn't) fit this applicant's research and career stage. Demote disease-locked grants that don't match the applicant's disease area.";}
 
 const ELIG_SCHEMA={type:"object",additionalProperties:false,required:["verdict","quotedClause","note"],properties:{
   verdict:{type:"string",enum:["eligible","gated_until_PR","ineligible","unclear"]},
@@ -803,13 +817,13 @@ async function claudeRerank(tok){
         focusAreas:(g.focusAreas||[]).join(", "),
         amount:g.awardAmount||"",deadline:g.deadlineInfo||g.closeDate||"",
         desc:String(g.description||g.relevanceToUser||"").slice(0,250)}));
-      const out=await claudeJSON({model:CONFIG.fastModel,max_tokens:1600,system:RERANK_SYSTEM,
+      const out=await claudeJSON({model:CONFIG.fastModel,max_tokens:2400,system:RERANK_SYSTEM,
         messages:[{role:"user",content:RERANK_PROMPT(profileSummary(),payload)}],schema:RERANK_SCHEMA,timeoutMs:90000});
       ranked=(out.rankings||[]).filter(r=>idset.has(r.id));   // drop any invented ids
       state.rrCache[key]=ranked;
     }
     if(tok!==state.searchToken) return;
-    ranked.forEach(r=>{const g=byId.get(r.id); if(g){ g._claudeScore=Math.max(0,Math.min(100,+r.fitScore||0)); g._claudeWhy=String(r.why||"").slice(0,140); }});
+    ranked.forEach(r=>{const g=byId.get(r.id); if(g){ g._claudeScore=Math.max(0,Math.min(100,+r.fitScore||0)); g._claudeWhy=String(r.why||"").slice(0,300); }});
     state.claudeRanked=true; state.sort="claude";
     const ss=$("#sortSel"); if(ss) ss.value="claude";
     render();
@@ -1520,8 +1534,11 @@ function suggestFor(g){
     ${watch.length?`<div class="fit-row"><span class="fit-k">Watch-outs</span><span>${watch.map(w=>esc(w)).join(" ")}</span></div>`:""}
     <div class="claude-tools">
       <button class="claude-brief-btn" data-fit="${esc(g.id)}">✦ Pitch angle</button>
+      <button class="claude-brief-btn" data-comp="${esc(g.id)}">✦ Competitive landscape</button>
+      <button class="claude-more-btn" data-more="${esc(g.id)}">More ▾</button>
+    </div>
+    <div class="claude-more" data-moretools="${esc(g.id)}" hidden>
       <button class="claude-brief-btn" data-aims="${esc(g.id)}">✦ Specific aims skeleton</button>
-      <button class="claude-brief-btn" data-comp="${esc(g.id)}">✦ Competitiveness &amp; collaborators</button>
     </div>
     <div class="claude-brief" data-brief="${esc(g.id)}"></div>
     <div class="claude-brief aims" data-aimsout="${esc(g.id)}"></div>
@@ -1564,8 +1581,8 @@ function cardHTML(g,maxScore,idx,showFit){
       </div>
       <div class="gc-side">
         <div class="score">
-          <div class="pct ${pct<25?"low":""}">${pct}<span style="font-size:16px">%</span></div>
-          <div class="lbl">${hasClaude?"Claude fit":"match"}</div>
+          <div class="pct ${pct<25?"low":""}">${pct}<span style="font-size:13px;color:var(--ink-faint)"> /100</span></div>
+          <div class="lbl">${hasClaude?"Claude fit score":"match"}</div>
           <div class="meter"><i style="width:${pct}%"></i></div>
         </div>
         <div class="gc-actions">
@@ -1683,7 +1700,11 @@ function wireCards(){
     const id=b.dataset.comp;
     const g=[...state.saved,...state.results].find(x=>String(x.id)===id);
     const el=$(`.claude-comp[data-compout="${CSS.escape(id)}"]`);
-    if(g&&el){ b.disabled=true; b.textContent="✦ Searching…"; claudeCompetitiveness(g,el).finally(()=>{b.disabled=false;b.textContent="✦ Competitiveness & collaborators";}); }
+    if(g&&el){ b.disabled=true; b.textContent="✦ Searching…"; claudeCompetitiveness(g,el).finally(()=>{b.disabled=false;b.textContent="✦ Competitive landscape";}); }
+  });
+  $$("[data-more]").forEach(b=>b.onclick=()=>{
+    const m=$(`.claude-more[data-moretools="${CSS.escape(b.dataset.more)}"]`);
+    if(m){ const show=m.hidden; m.hidden=!show; b.textContent=show?"Less ▴":"More ▾"; }
   });
   const toggleExpand=async(b)=>{
     const card=b.closest(".gcard");
@@ -1809,7 +1830,8 @@ function wireUI(){
     $("#prMonth").value=DEMO_PROFILE.prMonth||"";
     state.nationality=DEMO_PROFILE.nationality||"";
     syncElig();
-    ingestCV(DEMO_PROFILE.cvText||"","Example CV — "+(DEMO_PROFILE.name||""));
+    // when Claude is connected, the example exercises the real CV-reading path (judges see "Claude is reading your CV…")
+    (claudeReady()?ingestCVSmart:ingestCV)(DEMO_PROFILE.cvText||"","Example CV — "+(DEMO_PROFILE.name||""));
     state.topics=[...(DEMO_PROFILE.topics||[])];renderTopicChips();
     (DEMO_PROFILE.focus||[]).forEach(f=>state.focus.add(f));renderFocusFilters();
     saveProfile();
