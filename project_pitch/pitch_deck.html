@@ -72,6 +72,18 @@ b,strong{color:var(--ink);font-weight:700}
 .whynow .wn{display:flex;gap:16px;font-size:clamp(16px,1.7vw,23px);line-height:1.4;color:var(--ink-soft)}
 .whynow .wnn{font-family:var(--mono);font-weight:600;color:var(--teal);font-size:clamp(15px,1.5vw,21px);flex:none;padding-top:3px}
 
+/* fragmentation figure (federal = one solid block; beyond-federal = shattered into many funders) */
+.fragfig{width:100%;max-width:740px;height:auto;margin:.6vh 0 2vh;display:block}
+.fragfig .fl{font-family:var(--mono);font-size:14px;font-weight:600;fill:var(--ink-soft)}
+.fragfig .bar-fed{fill:var(--ink-faint)}
+.fragfig .seg{fill:var(--teal)}
+.fragfig .cnt{font-family:var(--serif);font-size:27px;font-weight:600;fill:var(--teal)}
+.fragfig .cnt.cfed{fill:var(--ink-faint);font-size:21px}
+.fragfig .csub{font-family:var(--mono);font-size:12px;fill:var(--ink-faint)}
+.fragline{font-size:clamp(15px,1.7vw,23px);line-height:1.45;color:var(--ink-soft);max-width:64ch}
+.fragline b{color:var(--ink)}
+.fragline b.teal{color:var(--teal)}
+
 /* product proof (recreated result card) */
 .proof-wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:2.4vw;align-items:start;margin-top:1vh}
 .mockcard{position:relative;background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow-lg);padding:2.6vh 1.7vw}
@@ -95,6 +107,21 @@ b,strong{color:var(--ink);font-weight:700}
 .pstat:last-child{border-bottom:none}
 .pstat .pn{font-family:var(--serif);font-weight:600;font-size:clamp(24px,2.8vw,42px);line-height:.9;color:var(--teal);flex:none;min-width:2.4em}
 .pstat .pl{font-size:clamp(13px,1.3vw,17px);line-height:1.35;color:var(--ink-soft)}
+.elig-bar-wrap{padding:0 0 1.9vh;border-bottom:1px solid var(--line);margin-bottom:.4vh}
+.eb-cap{font-size:clamp(13px,1.25vw,16.5px);color:var(--ink-soft);margin-bottom:9px}
+.eb-cap b{color:var(--teal)}
+.elig-bar{display:flex;height:28px;gap:2px;margin-bottom:10px}
+.elig-bar .eb-now{background:var(--teal);border-radius:7px 2px 2px 7px}
+.elig-bar .eb-out{background:var(--ink-faint);opacity:.5;border-radius:2px 7px 7px 2px}
+.elig-legend{display:flex;gap:20px;flex-wrap:wrap;font-size:clamp(12.5px,1.2vw,16px);color:var(--ink-soft)}
+.elig-legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:7px;vertical-align:baseline}
+.elig-legend b{color:var(--ink)}
+.elig-legend .ln-now{background:var(--teal)}
+.elig-legend .ln-out{background:var(--ink-faint);opacity:.5}
+.generalize{display:flex;align-items:center;gap:13px;flex-wrap:wrap;margin-top:2.6vh;font-size:clamp(12.5px,1.2vw,16px);color:var(--ink-soft)}
+.generalize .gl{font-weight:600;color:var(--ink)}
+.gchips{display:flex;gap:7px;flex-wrap:wrap}
+.gchips b{font-family:var(--mono);font-weight:600;font-size:.9em;color:var(--ink-soft);background:var(--paper-2);border:1px solid var(--line-strong);border-radius:999px;padding:4px 12px}
 @media(max-width:920px){.proof-wrap{grid-template-columns:1fr}}
 
 /* steps */
@@ -131,6 +158,15 @@ b,strong{color:var(--ink);font-weight:700}
 .closeask{display:flex;align-items:baseline;gap:13px;flex-wrap:wrap;margin-top:2.8vh;font-size:clamp(14px,1.5vw,20px);line-height:1.4;color:var(--ink-soft)}
 .closeask .ask-lab{font-family:var(--mono);font-size:.64em;text-transform:uppercase;letter-spacing:.1em;font-weight:600;color:var(--crimson);flex:none}
 .closeask b{color:var(--ink)}
+/* cost-comparison figure (close) */
+.cost-fig{margin:2.4vh 0 1vh;display:flex;flex-direction:column;gap:1.3vh;max-width:660px}
+.cost-row{display:grid;grid-template-columns:150px 1fr auto;align-items:center;gap:16px}
+.cost-lab{font-size:clamp(12.5px,1.2vw,16px);color:var(--ink-soft);text-align:right}
+.cost-bar{height:22px;border-radius:6px}
+.cost-bar.cb-us{background:var(--teal);min-width:12px}
+.cost-bar.cb-them{background:var(--ink-faint);opacity:.42}
+.cost-val{font-family:var(--mono);font-weight:600;font-size:clamp(13px,1.3vw,17px);color:var(--ink-soft);white-space:nowrap}
+.cost-val.teal{color:var(--teal)}
 @media(max-width:920px){.stats{grid-template-columns:1fr 1fr}}
 
 /* moat */
@@ -144,6 +180,11 @@ b,strong{color:var(--ink);font-weight:700}
   border:1px solid color-mix(in srgb,var(--teal) 22%,transparent);font-size:clamp(14px,1.5vw,20px);color:var(--ink-soft)}
 .foundernote .fn-lab{font-family:var(--mono);font-size:.64em;text-transform:uppercase;letter-spacing:.1em;font-weight:600;color:var(--teal);flex:none}
 .foundernote b{color:var(--ink)}
+/* moat flywheel */
+.flywheel{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 2.4vh;font-size:clamp(12px,1.15vw,15.5px)}
+.fw-node{background:var(--card);border:1px solid var(--line-strong);border-radius:999px;padding:8px 15px;color:var(--ink-soft);font-weight:600}
+.fw-node.hot{background:var(--teal);border-color:var(--teal);color:var(--paper-2)}
+.fw-arr{font-family:var(--mono);color:var(--teal);font-weight:600;font-size:1.05em}
 @media(max-width:920px){.moatgrid{grid-template-columns:1fr}}
 
 /* persistent chrome */
@@ -183,15 +224,20 @@ b,strong{color:var(--ink);font-weight:700}
   </section>
 
   <!-- ============ SLIDE 2 — PROBLEM & THESIS ============ -->
-  <section class="slide" data-notes="Here's the stakes: over fifty billion dollars in U.S. federal research grants every year — and a scientist has no reliable way to see which ones they can actually win. It costs a hundred-plus hours to write a single proposal, and a huge share of that effort goes to grants the applicant was never even eligible for. Why? A search engine can't read your CV, and it definitely can't read a forty-page eligibility clause. And the stakes are brutal: miss the fit and you don't just lose the grant, you lose a whole year to the next cycle. So the thesis: don't just find grants — tell a scientist whether they can win, why, and what to fix.">
-    <div class="kicker">The problem</div>
-    <div class="megastat"><span class="mn">$50B+<span class="mnu"> / year</span></span><span class="ml">in U.S. federal research grants — and scientists have <b>no reliable way</b> to see which ones they're eligible to <b>win</b>.</span></div>
-    <ul class="problist">
-      <li><span class="x">✕</span><span><b>100+ hours</b> per proposal — much of it spent on grants the applicant was <b>never eligible</b> for.</span></li>
-      <li><span class="x">✕</span><span>Search engines <b>can't read a CV</b> — or a 40-page federal <b>eligibility clause</b>.</span></li>
-      <li><span class="x">✕</span><span>Miss the fit and you don't just lose the grant — you lose <b>a year</b> to the next cycle.</span></li>
-    </ul>
-    <div class="pull">Don't just <span class="crim">find</span> grants — tell a scientist whether they can <span class="teal">win</span>, why, and what to fix.</div>
+  <section class="slide" data-notes="Here's the real problem. There's over fifty billion dollars a year in U.S. research funding — but the part a scientist can actually apply to mostly isn't federal. Federal is the easy part: it's one searchable portal, Grants.gov. The money beyond that — disease foundations, medical societies, private foundations — is a hundred and ninety-four programs scattered across a hundred and eleven separate funders, each with its own website, its own deadline, its own eligibility rules. One portal covers the government; nothing covers the rest. That fragmentation is the problem — and it's exactly what a keyword search can't solve.">
+    <div class="kicker">The problem — funding beyond federal is fragmented</div>
+    <h2 class="head" style="font-size:clamp(27px,3.7vw,50px);margin-bottom:1.4vh">The money is there.<br/>It's just <span class="crim">scattered</span>.</h2>
+    <svg viewBox="0 0 760 200" class="fragfig" role="img" aria-label="Federal research funding is 70 programs in one searchable Grants.gov portal; beyond federal there are 194 programs scattered across 111 separate funders.">
+      <text x="0" y="56" class="fl">Federal</text>
+      <rect x="168" y="34" width="166.7" height="34" rx="6" class="bar-fed"/>
+      <text x="348.7" y="50" class="cnt cfed">70</text>
+      <text x="348.7" y="65" class="csub">one portal · searchable</text>
+      <text x="0" y="132" class="fl">Beyond<tspan x="0" dy="17">federal</tspan></text>
+      <rect x="168.0" y="118" width="12.0" height="34" rx="2.5" class="seg"/><rect x="183.4" y="118" width="12.0" height="34" rx="2.5" class="seg"/><rect x="198.8" y="118" width="12.0" height="34" rx="2.5" class="seg"/><rect x="214.2" y="118" width="12.0" height="34" rx="2.5" class="seg"/><rect x="229.6" y="118" width="12.0" height="34" rx="2.5" class="seg"/><rect x="245.0" y="118" width="12.0" height="34" rx="2.5" class="seg"/><rect x="260.4" y="118" width="12.0" height="34" rx="2.5" class="seg"/><rect x="275.8" y="118" width="12.0" height="34" rx="2.5" class="seg"/><rect x="291.2" y="118" width="12.0" height="34" rx="2.5" class="seg"/><rect x="306.6" y="118" width="12.0" height="34" rx="2.5" class="seg"/><rect x="322.0" y="118" width="12.0" height="34" rx="2.5" class="seg"/><rect x="337.4" y="118" width="12.0" height="34" rx="2.5" class="seg"/><rect x="352.8" y="118" width="12.0" height="34" rx="2.5" class="seg"/><rect x="368.2" y="118" width="12.0" height="34" rx="2.5" class="seg"/><rect x="383.6" y="118" width="12.0" height="34" rx="2.5" class="seg"/><rect x="399.0" y="118" width="12.0" height="34" rx="2.5" class="seg"/><rect x="414.4" y="118" width="12.0" height="34" rx="2.5" class="seg"/><rect x="429.8" y="118" width="12.0" height="34" rx="2.5" class="seg"/><rect x="445.2" y="118" width="12.0" height="34" rx="2.5" class="seg"/><rect x="460.6" y="118" width="12.0" height="34" rx="2.5" class="seg"/><rect x="476.0" y="118" width="12.0" height="34" rx="2.5" class="seg"/><rect x="491.4" y="118" width="12.0" height="34" rx="2.5" class="seg"/><rect x="506.8" y="118" width="12.0" height="34" rx="2.5" class="seg"/><rect x="522.2" y="118" width="12.0" height="34" rx="2.5" class="seg"/><rect x="537.6" y="118" width="12.0" height="34" rx="2.5" class="seg"/><rect x="553.0" y="118" width="12.0" height="34" rx="2.5" class="seg"/><rect x="568.4" y="118" width="12.0" height="34" rx="2.5" class="seg"/><rect x="583.8" y="118" width="12.0" height="34" rx="2.5" class="seg"/><rect x="599.2" y="118" width="12.0" height="34" rx="2.5" class="seg"/><rect x="614.6" y="118" width="12.0" height="34" rx="2.5" class="seg"/>
+      <text x="644" y="134" class="cnt">194</text>
+      <text x="644" y="149" class="csub">111 funders</text>
+    </svg>
+    <p class="fragline"><b>$50B+/year</b> in U.S. research funding — but most of what a scientist can actually apply to <b>isn't federal</b>. It's <b class="teal">111 separate foundations and societies</b>, each its own site, deadline, and eligibility. One portal covers the government. <b>Nothing covers the rest.</b></p>
   </section>
 
   <!-- ============ SLIDE — WHY NOW ============ -->
@@ -199,8 +245,8 @@ b,strong{color:var(--ink);font-weight:700}
     <div class="kicker">Why now</div>
     <h2 class="head">Impossible 18 months ago.</h2>
     <div class="whynow">
-      <div class="wn"><span class="wnn">01</span><span><b>Claude can finally read the unstructured stuff</b> — a two-column CV and a 40-page federal FOA in one pass. That's the exact problem that broke every prior grant tool.</span></div>
-      <div class="wn"><span class="wnn">02</span><span><b>The data opened up</b> — Grants.gov and NIH RePORTER now expose APIs, so live opportunities and real awards are queryable.</span></div>
+      <div class="wn"><span class="wnn">01</span><span><b>Claude can finally read the fragmented fine print</b> — a two-column CV, and the eligibility prose of <b>100+ different funders</b>, each written its own way. That's the exact problem that broke every prior grant tool.</span></div>
+      <div class="wn"><span class="wnn">02</span><span><b>The data opened up</b> — Grants.gov and NIH RePORTER now expose APIs, so the scattered foundation, society, and private programs are finally aggregable in one place.</span></div>
     </div>
     <div class="insight">
       <div class="half rules"><span class="lab">The unlock</span><b>Deterministic rules</b> decide eligibility — auditable, impossible to hallucinate.</div>
@@ -215,7 +261,7 @@ b,strong{color:var(--ink);font-weight:700}
     <h2 class="head" style="font-size:clamp(26px,3.7vw,48px);margin-bottom:2vh">CV in → strategy out.</h2>
     <div class="steps">
       <div class="step"><span class="claudeflag">✦ Claude</span><div class="n">1</div><div class="t">Read the CV</div><div class="s">Claude extracts a structured profile — the dashboard self-configures.</div></div>
-      <div class="step"><div class="n">2</div><div class="t">Match instantly</div><div class="s">268 verified foundation/society programs + live Grants.gov federal.</div></div>
+      <div class="step"><div class="n">2</div><div class="t">Unify the scattered</div><div class="s">268 verified programs across 111 funders + live Grants.gov — one ranked list.</div></div>
       <div class="step"><span class="claudeflag">✦ Claude</span><div class="n">3</div><div class="t">Re-rank + reason</div><div class="s">A 2-3 sentence "why this suits you" on every top match.</div></div>
       <div class="step"><div class="n">4</div><div class="t">Check eligibility</div><div class="s">Deterministic rules: open now, future target, or needs citizenship.</div></div>
       <div class="step"><span class="claudeflag">✦ Claude</span><div class="n">5</div><div class="t">Plan the ask</div><div class="s">Pitch angle, competitive landscape (NIH RePORTER), aims skeleton.</div></div>
@@ -246,11 +292,16 @@ b,strong{color:var(--ink);font-weight:700}
         <div class="mc-meta"><span><b>Award</b> $56–62k/yr · 3&nbsp;yrs</span><span><b>Deadline</b> Sep 24 · 74d</span></div>
       </div>
       <div class="proof-stats">
-        <div class="pstat"><span class="pn">73</span><span class="pl">grants I'm <b>eligible</b> for — <b>25</b> ruled out, each with the reason.</span></div>
+        <div class="elig-bar-wrap">
+          <div class="eb-cap">Of the matches, only what I can actually <b>win</b>:</div>
+          <div class="elig-bar" role="img" aria-label="Of the matches, 73 I can apply to now and 25 ruled out, each with a reason."><span class="eb-now" style="flex:73"></span><span class="eb-out" style="flex:25"></span></div>
+          <div class="elig-legend"><span><i class="ln-now"></i><b>73</b> I can apply to now</span><span><i class="ln-out"></i><b>25</b> ruled out — with the reason</span></div>
+        </div>
         <div class="pstat"><span class="pn">100%</span><span class="pl">of cards carry a cited "<b>why this suits you</b>," grounded in the CV.</span></div>
-        <div class="pstat"><span class="pn">~15¢</span><span class="pl">per live session · precomputed reasoning = <b>instant</b>, works offline.</span></div>
+        <div class="pstat"><span class="pn">~15¢</span><span class="pl">per live session · precomputed = <b>instant</b>, works offline.</span></div>
       </div>
     </div>
+    <div class="generalize"><span class="gl">Same engine, any field — Claude parses <b>any</b> CV:</span><span class="gchips"><b>neuroscience</b><b>immunology</b><b>plant biology</b><b>materials science</b></span></div>
   </section>
 
   <!-- ============ SLIDE 4 — WHY BUILT-WITH-CLAUDE ============ -->
@@ -278,7 +329,13 @@ b,strong{color:var(--ink);font-weight:700}
     <div class="moatgrid">
       <div class="moat"><span class="mi">01</span><b>A verified eligibility corpus</b><span>268 programs web-verified to 2026–27 + 165 audited eligibility rulings — slow, unglamorous data a weekend clone won't build.</span></div>
       <div class="moat"><span class="mi">02</span><b>Trust is architectural, not a prompt</b><span>Rules decide eligibility; Claude never authors a funding fact. A "wrap an LLM" clone hallucinates a deadline — ours structurally can't.</span></div>
-      <div class="moat"><span class="mi">03</span><b>It compounds with use</b><span>Every profile precomputes reasoning; the corpus and reasoning cache deepen over time.</span></div>
+      <div class="moat"><span class="mi">03</span><b>A dataset that grows with use</b><span>Every eligibility ruling a user audits feeds back into the corpus — the proprietary asset a competitor can't clone <b>grows with each user</b>.</span></div>
+    </div>
+    <div class="flywheel" role="img" aria-label="Flywheel: a scientist applies, audits an eligibility ruling, the verified corpus grows, producing sharper matches for everyone.">
+      <span class="fw-node">scientist applies</span><span class="fw-arr">→</span>
+      <span class="fw-node">audits an eligibility ruling</span><span class="fw-arr">→</span>
+      <span class="fw-node hot">verified corpus grows</span><span class="fw-arr">→</span>
+      <span class="fw-node">sharper matches for everyone</span><span class="fw-arr">↻</span>
     </div>
     <div class="foundernote"><span class="fn-lab">Unfair advantage</span><span>Built by a <b>computational-oncology scientist for their own job hunt</b> — founder-market fit you can't fake.</span></div>
   </section>
@@ -287,12 +344,14 @@ b,strong{color:var(--ink);font-weight:700}
   <section class="slide" data-notes="To land it: this runs on real 2026 data — live Grants.gov, 268 curated programs web-verified to 2026-27, and real NIH RePORTER awards. Because Claude parses any CV, it generalizes beyond my niche — a neuroscientist or a plant biologist gets real matches too. The impact is simple: it turns weeks of anxious searching into minutes, and it gives scientists eligibility they can actually trust. So the one line I'd leave you with: Grantboard doesn't just find grants — it tells you whether you can win, why, and what to fix. Thank you — happy to demo it live.">
     <div class="kicker">The vision &amp; the ask</div>
     <h2 class="head">Every scientist deserves a<br/>fundraising strategist.</h2>
-    <div class="stats three">
+    <div class="stats" style="grid-template-columns:repeat(2,1fr);max-width:740px">
       <div class="stat"><div class="big">Live</div><div class="lbl">real 2026 data — Grants.gov + 268 web-verified programs + NIH RePORTER</div></div>
       <div class="stat"><div class="big">Any&nbsp;CV</div><div class="lbl">tuned for hem–onc today; generalizes to every field of science</div></div>
-      <div class="stat"><div class="big">~15¢</div><div class="lbl">a strategist for the price of a coffee — not a $500 consultant</div></div>
     </div>
-    <div class="pull" style="margin-top:2vh">Grantboard reads your record, surfaces only what you can <span class="teal">win</span>, and tells you <span class="teal">how</span>.</div>
+    <div class="cost-fig" role="img" aria-label="Grantboard costs about 15 cents per session; a grant consultant costs 300 to 500 dollars per hour.">
+      <div class="cost-row"><span class="cost-lab">Grantboard</span><span class="cost-bar cb-us" style="width:3%"></span><span class="cost-val teal">~15¢ / session</span></div>
+      <div class="cost-row"><span class="cost-lab">A grant consultant</span><span class="cost-bar cb-them" style="width:100%"></span><span class="cost-val">$300–500 / hour</span></div>
+    </div>
     <div class="closeask"><span class="ask-lab">The ask</span><span>Try the <b>live demo</b> — and I'm looking for <b>early users + a collaborator</b> to take it across every field of science. <span class="mono" style="color:var(--ink-faint)">Built with Claude Code.</span></span></div>
   </section>
 

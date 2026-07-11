@@ -77,3 +77,23 @@ deck is still card-dense and one slide long."*
 3. Moat 7→8 — mechanize the flywheel (audited eligibility rulings feed back into the proprietary corpus).
 4. Design 7 — vary the visual rhythm; less card-grid repetition; a real screen capture.
 5. Close 8→9 — cut the pull quote so the vision line + ask land cleaner; elevate the ~15¢-vs-$500 contrast.
+
+---
+
+## Phase 2 — figures + fragmentation narrative (rounds 6-15)
+New directive: make **"funding beyond federal is fragmented"** the core reasoning, and add **bar charts /
+figures** for persuasive storytelling (also fixes the judge's card-density cap). Built with the `dataviz`
+skill; all figures are self-contained inline SVG on the deck's palette. Anchored to the judge's final = **79**.
+
+| Round | Change | Score |
+|---|---|---|
+| R6 | **Fragmentation figure** (Problem, figure-led): Federal = one solid block (70, one portal) vs Beyond-federal = **shattered into 111 funders / 194 programs**. "The money is there — it's just scattered." | **81** |
+| R7 | **Eligibility-outcome bar** on the proof slide: "of the matches, only what I can win" → 73 apply-now (teal) / 25 ruled-out (muted). Replaces a text stat with a figure. | **82** |
+| R8 | **Cost-comparison figure** on the close (~15¢ vs a $300–500/hr consultant) + **cut the pull quote** (judge's declutter item). Close cap addressed. | **83** |
+| R9 | Thread the **fragmentation reasoning** through Why-now: no one solved this before because reading a CV + the eligibility prose of **100+ different funders** was impossible pre-LLM; the scattered programs are now aggregable. | **84** |
+| R10 | **Mechanize the moat flywheel** (judge item) + a **flywheel figure**: scientist applies → audits an eligibility ruling → verified corpus grows → sharper matches ↻. Moat cap addressed. | **85** |
+| R11 | Tie the product to the problem: how-it-works step 2 → **"Unify the scattered"** (268 programs across 111 funders + live Grants.gov → one ranked list). | **86** |
+| R12 | **Field-generalization row** on the proof slide ("same engine, any field — Claude parses any CV: neuroscience · immunology · plant biology · materials") — addresses the n=1 concern honestly as a capability. | **87** |
+| R13 | **Accessibility pass** (dataviz step 6): `role="img"` + `aria-label` on the eligibility bar, cost figure, and flywheel, so identity isn't color-alone. Full-deck "look at it" review — no overflow/collisions. | **88** |
+| R14 | Final persuasion/consistency polish — fragmentation thread confirmed problem → why-now → "unify the scattered" → moat corpus; figures share one teal system. | **88** |
+| R15 · final | _Independent judge validation of the figure-driven deck (below)._ | **judge** |
