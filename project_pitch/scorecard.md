@@ -112,3 +112,12 @@ result from a second field, or one external user (chips assert generalization, d
 reframed as an honest roadmap); (2) tighten to 6–7 slides / shed one cluster per slide (proof, moat, close
 each carry 3–4 elements); (3) a real screen capture or 3-sec GIF of the running app (Product 8→9); (4) the
 flywheel is well-designed but prospective — no users auditing rulings yet.
+
+### Post-phase-2 refinement — condensed 8 → 6 slides
+Per the judge's remaining ceiling item #2 ("tighten to 6–7 slides"), condensed the deck to **6 slides**:
+- **Why-now** folded into a compact "Why now" bridge line on the Problem slide (kept the insight, dropped the slide).
+- **Why-Claude** folded into **How-it-works** — the 5-step loop already shows Claude's steps (read CV → JSON,
+  re-rank + cite, read the fine print), so its 3 feature cards were redundant; its trust strip moved to the
+  How slide and the kicker now carries "Claude is the engine, not a chatbot."
+Final 6-slide arc: **Title · Problem/fragmentation · How-it-works (Claude engine) · Proof · Moat · Vision+ask.**
+All 4 figures retained. Verified in-browser: no overcrowding on the two merged slides.

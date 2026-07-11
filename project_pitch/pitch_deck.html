@@ -83,6 +83,9 @@ b,strong{color:var(--ink);font-weight:700}
 .fragline{font-size:clamp(15px,1.7vw,23px);line-height:1.45;color:var(--ink-soft);max-width:64ch}
 .fragline b{color:var(--ink)}
 .fragline b.teal{color:var(--teal)}
+.whynow-bridge{margin-top:2.2vh;font-size:clamp(13.5px,1.45vw,19px);line-height:1.42;color:var(--ink-soft);max-width:66ch}
+.whynow-bridge .wnb-lab{font-family:var(--mono);font-size:.68em;text-transform:uppercase;letter-spacing:.1em;font-weight:600;color:var(--teal);margin-right:8px}
+.whynow-bridge b{color:var(--ink)}
 
 /* product proof (recreated result card) */
 .proof-wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:2.4vw;align-items:start;margin-top:1vh}
@@ -238,26 +241,12 @@ b,strong{color:var(--ink);font-weight:700}
       <text x="644" y="149" class="csub">111 funders</text>
     </svg>
     <p class="fragline"><b>$50B+/year</b> in U.S. research funding — but most of what a scientist can actually apply to <b>isn't federal</b>. It's <b class="teal">111 separate foundations and societies</b>, each its own site, deadline, and eligibility. One portal covers the government. <b>Nothing covers the rest.</b></p>
+    <div class="whynow-bridge"><span class="wnb-lab">Why now</span> Claude can finally read this fragmented fine print — a CV <b>and</b> the eligibility rules of 100+ funders — and the funding APIs just opened. <b>Impossible 18 months ago.</b></div>
   </section>
 
-  <!-- ============ SLIDE — WHY NOW ============ -->
-  <section class="slide" data-notes="Why now — because this was impossible eighteen months ago. Two things just changed. One: language models finally got good enough to read a messy two-column CV and a forty-page federal funding announcement in the same breath — that's exactly the unstructured-text problem that killed every prior grant tool. Two: the data opened up — Grants.gov and NIH RePORTER both expose APIs now, so live opportunities and real awards are queryable. That timing unlocks the core idea: let deterministic rules decide eligibility — auditable, impossible to hallucinate — and let Claude do the judgment. Rules plus Claude. That split is the whole product, and it only became possible now.">
-    <div class="kicker">Why now</div>
-    <h2 class="head">Impossible 18 months ago.</h2>
-    <div class="whynow">
-      <div class="wn"><span class="wnn">01</span><span><b>Claude can finally read the fragmented fine print</b> — a two-column CV, and the eligibility prose of <b>100+ different funders</b>, each written its own way. That's the exact problem that broke every prior grant tool.</span></div>
-      <div class="wn"><span class="wnn">02</span><span><b>The data opened up</b> — Grants.gov and NIH RePORTER now expose APIs, so the scattered foundation, society, and private programs are finally aggregable in one place.</span></div>
-    </div>
-    <div class="insight">
-      <div class="half rules"><span class="lab">The unlock</span><b>Deterministic rules</b> decide eligibility — auditable, impossible to hallucinate.</div>
-      <div class="plus">+</div>
-      <div class="half claude"><span class="lab">Newly possible</span><b>Claude</b> reads your CV, ranks with reasons, and explains.</div>
-    </div>
-  </section>
-
-  <!-- ============ SLIDE 3 — HOW IT WORKS ============ -->
-  <section class="slide" data-notes="Here's the whole product in one loop. Step one: you drop your CV, and Claude reads it into a structured profile — research areas, methods, career stage — and the entire dashboard, including the eligibility engine, configures itself. Step two: matches render instantly from 268 verified foundation and society programs plus live Grants.gov federal results. Step three: Claude re-ranks the top matches and writes two or three sentences on why each one fits you. Step four: the deterministic engine tells you what's actually apply-able — what needs citizenship, what's a future target. And step five: for any grant, Claude drafts a pitch angle, shows the competitive landscape from real NIH-funded projects, and sketches your specific aims. The architecture underneath is a reliability win too: local results paint instantly, federal streams in, then Claude re-ranks — never a frozen screen.">
-    <div class="kicker">How it works — one loop, CV in → strategy out</div>
+  <!-- ============ SLIDE 3 — HOW IT WORKS + CLAUDE ============ -->
+  <section class="slide" data-notes="Here's the whole product in one loop. Step one: you drop your CV, and Claude reads it into a structured profile — research areas, methods, career stage — and the entire dashboard, including the eligibility engine, configures itself. Step two: matches render instantly from 268 verified foundation and society programs plus live Grants.gov federal results. Step three: Claude re-ranks the top matches and writes two or three sentences on why each one fits you. Step four: the deterministic engine tells you what's actually apply-able — what needs citizenship, what's a future target. And step five: for any grant, Claude drafts a pitch angle, shows the competitive landscape from real NIH-funded projects, and sketches your specific aims. The architecture underneath is a reliability win too: local results paint instantly, federal streams in, then Claude re-ranks — never a frozen screen. And the trust line — the whole game for a funding tool: Claude never authors a deadline, amount, or eligibility verdict; deterministic rules decide eligibility, and Claude explains.">
+    <div class="kicker">How it works — Claude is the engine, not a chatbot</div>
     <h2 class="head" style="font-size:clamp(26px,3.7vw,48px);margin-bottom:2vh">CV in → strategy out.</h2>
     <div class="steps">
       <div class="step"><span class="claudeflag">✦ Claude</span><div class="n">1</div><div class="t">Read the CV</div><div class="s">Claude extracts a structured profile — the dashboard self-configures.</div></div>
@@ -274,6 +263,12 @@ b,strong{color:var(--ink);font-weight:700}
       <b>→</b>
       <span class="chip"><span class="d" style="background:var(--teal-bright)"></span>Claude re-ranks</span>
       <span style="color:var(--ink-faint)">· never a frozen screen</span>
+    </div>
+    <div class="trust">
+      <span class="ti"><b>Eligibility</b> deterministic rules</span>
+      <span class="ti"><b>Fit</b> Claude judgment</span>
+      <span class="ti"><b>Funding facts</b> source data only</span>
+      <span style="color:var(--ink-faint);font-style:italic">Claude never authors a deadline, amount, or eligibility verdict.</span>
     </div>
   </section>
 
@@ -304,25 +299,7 @@ b,strong{color:var(--ink);font-weight:700}
     <div class="generalize"><span class="gl">Because Claude parses <b>any</b> CV, the same engine generalizes — corpus expanding beyond hem–onc to:</span><span class="gchips"><b>neuroscience</b><b>immunology</b><b>plant biology</b><b>materials</b></span></div>
   </section>
 
-  <!-- ============ SLIDE 4 — WHY BUILT-WITH-CLAUDE ============ -->
-  <section class="slide" data-notes="This is where it earns 'Built with Claude.' We use Claude for structured reasoning, not a chatbot. It turns a CV into strict JSON. It re-ranks grants and cites your actual work against the grant's actual text. It reads messy federal eligibility prose and quotes the clause it relied on. It pulls the competitive landscape from real NIH-funded awards — and the collaborators it suggests are real principal investigators from those awards, never invented. Now the trust line, which is the whole game for a funding tool: Claude never authors a deadline, an amount, or an eligibility verdict — those always come from source data. Rules decide eligibility; Claude explains. And on the plumbing: it's a single static HTML file plus a fifty-line Cloudflare Worker — or it runs entirely on your Claude subscription through Claude Code. We even precompute the reasoning so the demo is instant.">
-    <div class="kicker">Why it's a Built-with-Claude project</div>
-    <h2 class="head" style="font-size:clamp(28px,3.9vw,52px);margin-bottom:2vh">Claude as the engine,<br/>not a chatbot.</h2>
-    <div class="fgrid">
-      <div class="feat"><div class="fh"><span class="m">✦</span>Reads any CV → JSON</div><div class="fs">Turns a messy CV into a strict structured profile that configures the entire dashboard.</div></div>
-      <div class="feat"><div class="fh"><span class="m">✦</span>Ranks with citations</div><div class="fs">Every match cites your CV against the grant — and never invents a grant, deadline, or amount.</div></div>
-      <div class="feat"><div class="fh"><span class="m">✦</span>Reads the fine print</div><div class="fs">"Can I apply?" — a verdict plus the exact eligibility clause it quoted from the 40-page FOA.</div></div>
-    </div>
-    <div class="andmore">…and a <b>competitive landscape</b> from real NIH-funded awards, plus a drafted <b>specific-aims skeleton</b>.</div>
-    <div class="trust">
-      <span class="ti"><b>Eligibility</b> deterministic rules</span>
-      <span class="ti"><b>Fit</b> Claude judgment</span>
-      <span class="ti"><b>Funding facts</b> source data only</span>
-      <span style="color:var(--ink-faint);font-style:italic">Claude never authors a deadline, amount, or eligibility verdict.</span>
-    </div>
-  </section>
-
-  <!-- ============ SLIDE — MOAT ============ -->
+  <!-- ============ SLIDE 4 — MOAT ============ -->
   <section class="slide" data-notes="Why is this hard to copy? Three things. First, the moat is the verified corpus — 268 foundation and society programs web-verified to 2026-27, plus 165 audited eligibility rulings. That's slow, unglamorous data work a weekend clone won't do. Second, trust is architectural, not a prompt: deterministic rules decide eligibility and Claude never authors a funding fact — a 'just wrap an LLM' competitor will hallucinate a deadline; ours structurally can't. Third, it compounds — every profile precomputes reasoning, and the corpus and cache only deepen with use. And the unfair advantage: I'm a computational-oncology scientist building the tool I need — founder-market fit you can't fake.">
     <div class="kicker">Why it's hard to copy</div>
     <h2 class="head">The moat is the verified corpus.</h2>
