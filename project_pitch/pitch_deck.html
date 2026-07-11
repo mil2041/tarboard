@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Grantboard — Pitch · Built with Claude: Life Sciences</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --paper:#f4f0e7; --paper-2:#faf7f0; --card:#fffdf8; --ink:#1b1a16; --ink-soft:#514d43; --ink-faint:#8a8477;
+  --line:#e2dccc; --line-strong:#cfc7b2; --teal:#0f5f5c; --teal-bright:#12817b; --teal-wash:#e6efec;
+  --crimson:#a4243b; --crimson-wash:#f6e7e6; --amber:#b26a1f; --amber-wash:#f6ecd9; --green:#3f6f3a; --green-wash:#e8efdf;
+  --serif:'Fraunces',Georgia,'Times New Roman',serif; --sans:'IBM Plex Sans',system-ui,-apple-system,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,'SF Mono',Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:#141109;font-family:var(--sans);color:var(--ink);overflow:hidden}
+.deck{position:relative;width:100vw;height:100vh;overflow:hidden}
+
+.slide{position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;
+  padding:7vh 8vw 9vh;background:var(--paper);
+  background-image:radial-gradient(circle at 1px 1px, color-mix(in srgb,var(--ink) 4%,transparent) 1px, transparent 0);
+  background-size:26px 26px;}
+.slide.active{display:flex;animation:fade .45s cubic-bezier(.2,.7,.2,1) both}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+.kicker{font-family:var(--mono);font-size:clamp(11px,1.15vw,15px);letter-spacing:.3em;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:2.4vh}
+h1.brand{font-family:var(--serif);font-weight:600;font-size:clamp(46px,8.5vw,120px);line-height:.98;letter-spacing:-.02em}
+h1.brand .dot{color:var(--crimson);font-style:italic}
+h2.head{font-family:var(--serif);font-weight:600;font-size:clamp(30px,4.6vw,62px);line-height:1.04;letter-spacing:-.015em;margin-bottom:3vh}
+.sub{font-family:var(--serif);font-style:italic;font-size:clamp(18px,2.3vw,32px);color:var(--ink-soft);margin-top:1.8vh}
+.lead{font-size:clamp(16px,1.7vw,23px);line-height:1.5;color:var(--ink-soft);max-width:60ch}
+.mono{font-family:var(--mono)}
+.teal{color:var(--teal)} .crim{color:var(--crimson)}
+b,strong{color:var(--ink);font-weight:700}
+
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 1px 2px rgba(40,34,20,.05),0 18px 46px -30px rgba(40,34,20,.4)}
+.pull{border-left:5px solid var(--teal);background:linear-gradient(180deg,var(--teal-wash),color-mix(in srgb,var(--teal-wash) 30%,transparent));
+  border-radius:0 14px 14px 0;padding:3vh 3vw;font-family:var(--serif);font-weight:600;font-size:clamp(22px,3.1vw,44px);line-height:1.14;letter-spacing:-.01em}
+.chip{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-weight:600;font-size:clamp(11px,1.05vw,14px);
+  padding:7px 13px;border-radius:999px;border:1px solid var(--line-strong);background:var(--card);color:var(--ink-soft)}
+.chip .d{width:8px;height:8px;border-radius:50%}
+.row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+
+/* slide 1 */
+.title-wrap{max-width:24ch}
+.title-line{max-width:52ch;margin-top:3.2vh;font-size:clamp(17px,1.9vw,26px);line-height:1.45;color:var(--ink-soft)}
+.title-foot{position:absolute;left:8vw;right:8vw;bottom:7vh;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;font-size:clamp(13px,1.2vw,17px);color:var(--ink-faint)}
+.title-foot b{color:var(--ink-soft)}
+
+/* problem list */
+.problist{display:flex;flex-direction:column;gap:1.6vh;margin:2vh 0 3vh;max-width:56ch}
+.problist li{list-style:none;display:flex;gap:14px;font-size:clamp(16px,1.7vw,23px);line-height:1.4;color:var(--ink-soft)}
+.problist li .x{color:var(--crimson);font-family:var(--serif);font-weight:700;flex:none}
+.insight{margin-top:2.6vh;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.insight .half{flex:1 1 300px;padding:2.2vh 1.8vw;border-radius:13px;font-size:clamp(14px,1.45vw,19px);line-height:1.4}
+.insight .rules{background:var(--card);border:1px solid var(--line-strong)}
+.insight .claude{background:linear-gradient(120deg,var(--teal),var(--teal-bright));color:var(--paper-2)}
+.insight .lab{font-family:var(--mono);font-size:.72em;text-transform:uppercase;letter-spacing:.12em;font-weight:600;opacity:.8;display:block;margin-bottom:6px}
+.plus{font-family:var(--serif);font-size:clamp(26px,3vw,44px);color:var(--ink-faint);flex:none}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:1.1vw;margin-top:1.5vh}
+.step{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:2.2vh 1.1vw;position:relative;overflow:hidden}
+.step .n{font-family:var(--mono);font-weight:600;font-size:clamp(12px,1vw,14px);color:var(--paper-2);background:var(--teal);width:26px;height:26px;border-radius:8px;display:grid;place-items:center;margin-bottom:1.4vh}
+.step .t{font-weight:700;font-size:clamp(14px,1.4vw,19px);line-height:1.2;margin-bottom:8px}
+.step .s{font-size:clamp(12.5px,1.15vw,15.5px);line-height:1.4;color:var(--ink-soft)}
+.step .claudeflag{position:absolute;top:12px;right:12px;font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.04em;color:var(--teal);background:var(--teal-wash);padding:3px 7px;border-radius:6px}
+.engine{margin-top:3vh;display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-family:var(--mono);font-size:clamp(12px,1.15vw,15px);color:var(--ink-soft)}
+.engine b{color:var(--teal)}
+@media(max-width:920px){.steps{grid-template-columns:repeat(2,1fr)}}
+
+/* feature grid */
+.fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2vw;margin-top:1.5vh}
+.feat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:2.2vh 1.4vw}
+.feat .fh{display:flex;align-items:center;gap:9px;font-weight:700;font-size:clamp(14px,1.45vw,19px);margin-bottom:8px}
+.feat .fh .m{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--paper-2);background:linear-gradient(90deg,var(--teal),var(--teal-bright));padding:3px 7px;border-radius:6px;letter-spacing:.03em}
+.feat .fs{font-size:clamp(12.5px,1.2vw,16px);line-height:1.45;color:var(--ink-soft)}
+.trust{margin-top:2.6vh;display:flex;gap:10px 26px;flex-wrap:wrap;align-items:center;padding:1.6vh 1.6vw;border:1px solid var(--line);border-radius:12px;background:var(--paper-2);
+  font-size:clamp(12.5px,1.2vw,16px);color:var(--ink-soft)}
+.trust .ti{display:inline-flex;gap:8px;align-items:baseline}
+.trust .ti b{font-family:var(--mono);font-size:.72em;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-soft)}
+@media(max-width:920px){.fgrid{grid-template-columns:1fr 1fr}}
+
+/* impact stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1vw;margin:2vh 0 1vh}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:2.4vh 1.2vw;text-align:left}
+.stat .big{font-family:var(--serif);font-weight:600;font-size:clamp(30px,4vw,54px);line-height:.95;color:var(--teal)}
+.stat .lbl{font-size:clamp(12px,1.15vw,15px);color:var(--ink-soft);margin-top:9px;line-height:1.35}
+@media(max-width:920px){.stats{grid-template-columns:1fr 1fr}}
+
+/* persistent chrome */
+.chrome{position:fixed;z-index:20;pointer-events:none}
+.counter{top:4.5vh;right:6vw;font-family:var(--mono);font-size:clamp(12px,1.15vw,15px);letter-spacing:.14em;color:var(--ink-faint)}
+.counter b{color:var(--teal)}
+.brandmark{bottom:4.5vh;left:8vw;font-family:var(--serif);font-weight:600;font-size:clamp(14px,1.3vw,18px);color:var(--ink-faint)}
+.brandmark .dot{color:var(--crimson);font-style:italic}
+.dots{bottom:4.7vh;right:6vw;display:flex;gap:9px}
+.dots span{width:9px;height:9px;border-radius:50%;background:var(--line-strong);transition:.2s}
+.dots span.on{background:var(--teal);transform:scale(1.25)}
+.hint{bottom:4.6vh;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:12px;color:var(--ink-faint);letter-spacing:.08em}
+
+/* speaker notes */
+.notes{position:fixed;left:0;right:0;bottom:0;z-index:40;background:rgba(20,17,9,.96);color:#efe9db;
+  padding:22px 8vw;font-size:clamp(14px,1.35vw,18px);line-height:1.55;transform:translateY(101%);transition:.28s;max-height:52vh;overflow:auto}
+.notes.show{transform:none}
+.notes .nk{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#63e0d4;margin-bottom:8px}
+.notes b{color:#fff}
+</style>
+</head>
+<body>
+<div class="deck" id="deck">
+
+  <!-- ============ SLIDE 1 — TITLE ============ -->
+  <section class="slide" data-notes="Hi — I'm building Grantboard, a grant-fit copilot for scientists. Here's the problem I lived: as a computational-oncology postdoc at [redacted], I burned weeks hunting for funding — and half the awards I found, it turned out I wasn't even eligible for. So I built the tool I wished I had. You upload your CV and your research aim, and you get a ranked, evidence-backed grant shortlist — with eligibility checks, competitiveness signals, and an application plan. And it's built with Claude Code.">
+    <div class="title-wrap">
+      <div class="kicker">Built with Claude · Life Sciences</div>
+      <h1 class="brand">Grant<span class="dot">·</span>board</h1>
+      <div class="sub">A grant-fit copilot for scientists</div>
+    </div>
+    <p class="title-line">Upload your <b>CV</b> and your <b>research aim</b> → a ranked, evidence-backed grant shortlist with <b class="teal">eligibility checks</b>, <b class="teal">competitiveness signals</b>, and an <b class="teal">application plan</b>.</p>
+    <div class="title-foot">
+      <div><b>Development Track</b> · AI + computational oncology / blood cancer</div>
+      <div class="mono">Built with Claude Code</div>
+    </div>
+  </section>
+
+  <!-- ============ SLIDE 2 — PROBLEM & THESIS ============ -->
+  <section class="slide" data-notes="Scientists lose weeks to this, and it's high-stakes — miss a deadline or misjudge eligibility and you wait a whole year. The core issue: a search engine can't read your CV, and it definitely can't read a dense federal eligibility clause. Most grant tools stop at 'here's a list.' Our thesis is different: don't just find grants — tell a scientist whether they're competitive, why, and what to fix. And the way we do that safely is the architecture insight at the bottom: deterministic rules decide eligibility — auditable, and impossible to hallucinate — while Claude provides the judgment on top.">
+    <div class="kicker">The problem</div>
+    <h2 class="head">Finding funding shouldn't<br/>take weeks.</h2>
+    <ul class="problist">
+      <li><span class="x">✕</span><span>Scientists burn <b>weeks</b> hunting grants — many they turn out to be <b>ineligible</b> for.</span></li>
+      <li><span class="x">✕</span><span>Search engines <b>can't read a CV</b> — or a dense federal <b>eligibility clause</b>.</span></li>
+      <li><span class="x">✕</span><span>Most tools <b>stop at "search."</b> They don't tell you if you can actually win.</span></li>
+    </ul>
+    <div class="pull">Don't just <span class="crim">find</span> grants — tell a scientist whether they're <span class="teal">competitive</span>, why, and what to fix.</div>
+    <div class="insight">
+      <div class="half rules"><span class="lab">Eligibility</span><b>Deterministic rules</b> — auditable, and impossible to hallucinate.</div>
+      <div class="plus">+</div>
+      <div class="half claude"><span class="lab">Fit &amp; strategy</span><b>Claude</b> — reads your CV, ranks with reasons, and explains.</div>
+    </div>
+  </section>
+
+  <!-- ============ SLIDE 3 — HOW IT WORKS ============ -->
+  <section class="slide" data-notes="Here's the whole product in one loop. Step one: you drop your CV, and Claude reads it into a structured profile — research areas, methods, career stage — and the entire dashboard, including the eligibility engine, configures itself. Step two: matches render instantly from 268 verified foundation and society programs plus live Grants.gov federal results. Step three: Claude re-ranks the top matches and writes two or three sentences on why each one fits you. Step four: the deterministic engine tells you what's actually apply-able — what needs citizenship, what's a future target. And step five: for any grant, Claude drafts a pitch angle, shows the competitive landscape from real NIH-funded projects, and sketches your specific aims. The architecture underneath is a reliability win too: local results paint instantly, federal streams in, then Claude re-ranks — never a frozen screen.">
+    <div class="kicker">How it works — one loop, CV in → strategy out</div>
+    <h2 class="head" style="font-size:clamp(26px,3.7vw,48px);margin-bottom:2vh">CV in → strategy out.</h2>
+    <div class="steps">
+      <div class="step"><span class="claudeflag">✦ Claude</span><div class="n">1</div><div class="t">Read the CV</div><div class="s">Claude extracts a structured profile — the dashboard self-configures.</div></div>
+      <div class="step"><div class="n">2</div><div class="t">Match instantly</div><div class="s">268 verified foundation/society programs + live Grants.gov federal.</div></div>
+      <div class="step"><span class="claudeflag">✦ Claude</span><div class="n">3</div><div class="t">Re-rank + reason</div><div class="s">A 2-3 sentence "why this suits you" on every top match.</div></div>
+      <div class="step"><div class="n">4</div><div class="t">Check eligibility</div><div class="s">Deterministic rules: open now, future target, or needs citizenship.</div></div>
+      <div class="step"><span class="claudeflag">✦ Claude</span><div class="n">5</div><div class="t">Plan the ask</div><div class="s">Pitch angle, competitive landscape (NIH RePORTER), aims skeleton.</div></div>
+    </div>
+    <div class="engine">
+      <span>Two-stage engine:</span>
+      <span class="chip"><span class="d" style="background:var(--amber)"></span>local paints instantly</span>
+      <b>→</b>
+      <span class="chip"><span class="d" style="background:var(--teal)"></span>federal streams in</span>
+      <b>→</b>
+      <span class="chip"><span class="d" style="background:var(--teal-bright)"></span>Claude re-ranks</span>
+      <span style="color:var(--ink-faint)">· never a frozen screen</span>
+    </div>
+  </section>
+
+  <!-- ============ SLIDE 4 — WHY BUILT-WITH-CLAUDE ============ -->
+  <section class="slide" data-notes="This is where it earns 'Built with Claude.' We use Claude for structured reasoning, not a chatbot. It turns a CV into strict JSON. It re-ranks grants and cites your actual work against the grant's actual text. It reads messy federal eligibility prose and quotes the clause it relied on. It pulls the competitive landscape from real NIH-funded awards — and the collaborators it suggests are real principal investigators from those awards, never invented. Now the trust line, which is the whole game for a funding tool: Claude never authors a deadline, an amount, or an eligibility verdict — those always come from source data. Rules decide eligibility; Claude explains. And on the plumbing: it's a single static HTML file plus a fifty-line Cloudflare Worker — or it runs entirely on your Claude subscription through Claude Code. We even precompute the reasoning so the demo is instant.">
+    <div class="kicker">Why it's a Built-with-Claude project</div>
+    <h2 class="head" style="font-size:clamp(28px,3.9vw,52px);margin-bottom:2vh">Claude as the engine,<br/>not a chatbot.</h2>
+    <div class="fgrid">
+      <div class="feat"><div class="fh"><span class="m">✦</span>CV → structured profile</div><div class="fs">Any field's CV becomes strict JSON — research areas, methods, career stage, eligibility signals.</div></div>
+      <div class="feat"><div class="fh"><span class="m">✦</span>Grounded re-ranking</div><div class="fs">Cites your CV against the grant text. Never invents a grant, deadline, or amount.</div></div>
+      <div class="feat"><div class="fh"><span class="m">✦</span>Reads eligibility prose</div><div class="fs">"Can I apply?" — a verdict plus the exact clause it quoted from the FOA.</div></div>
+      <div class="feat"><div class="fh"><span class="m">✦</span>Competitive landscape</div><div class="fs">Real NIH-funded projects (RePORTER) — collaborators are real PIs, not invented.</div></div>
+      <div class="feat"><div class="fh"><span class="m">✦</span>Application strategy</div><div class="fs">Streamed pitch angle and a specific-aims skeleton grounded in your own record.</div></div>
+      <div class="feat"><div class="fh"><span class="m mono" style="background:var(--ink)">⚙</span>Ships anywhere</div><div class="fs">One static file + a ~50-line Worker — or runs on your Claude subscription via Claude Code.</div></div>
+    </div>
+    <div class="trust">
+      <span class="ti"><b>Eligibility</b> deterministic rules</span>
+      <span class="ti"><b>Fit</b> Claude judgment</span>
+      <span class="ti"><b>Funding facts</b> source data only</span>
+      <span style="color:var(--ink-faint);font-style:italic">Claude never authors a deadline, amount, or eligibility verdict.</span>
+    </div>
+  </section>
+
+  <!-- ============ SLIDE 5 — IMPACT & CLOSE ============ -->
+  <section class="slide" data-notes="To land it: this runs on real 2026 data — live Grants.gov, 268 curated programs web-verified to 2026-27, and real NIH RePORTER awards. Because Claude parses any CV, it generalizes beyond my niche — a neuroscientist or a plant biologist gets real matches too. The impact is simple: it turns weeks of anxious searching into minutes, and it gives scientists eligibility they can actually trust. So the one line I'd leave you with: Grantboard doesn't just find grants — it tells you whether you can win, why, and what to fix. Thank you — happy to demo it live.">
+    <div class="kicker">Impact</div>
+    <h2 class="head" style="font-size:clamp(28px,4vw,54px)">Trustworthy funding intelligence —<br/>for any scientist.</h2>
+    <div class="stats">
+      <div class="stat"><div class="big">Live</div><div class="lbl">Grants.gov federal, queried in real time (NIH · NSF · DOD · ARPA-H)</div></div>
+      <div class="stat"><div class="big">268</div><div class="lbl">curated foundation / society programs, web-verified to 2026-27</div></div>
+      <div class="stat"><div class="big">Any&nbsp;CV</div><div class="lbl">Claude parses any field — not just oncology</div></div>
+      <div class="stat"><div class="big">Weeks<span style="font-size:.5em;color:var(--ink-faint)"> → </span>min</div><div class="lbl">and eligibility you can actually trust</div></div>
+    </div>
+    <div class="pull" style="margin-top:2vh">It doesn't just <span class="crim">find</span> grants — it tells you whether you can <span class="teal">win</span>, why, and what to fix.</div>
+    <div class="row" style="margin-top:3vh">
+      <span class="chip"><span class="d" style="background:var(--teal)"></span>Built with Claude Code</span>
+      <span class="chip"><span class="d" style="background:var(--amber)"></span>Deterministic guardrails + Claude judgment</span>
+      <span class="chip"><span class="d" style="background:var(--crimson)"></span>Grounded — no hallucinated funding facts</span>
+    </div>
+  </section>
+
+</div>
+
+<!-- persistent chrome -->
+<div class="chrome counter" id="counter"><b>01</b> / 05</div>
+<div class="chrome brandmark">Grant<span class="dot">·</span>board</div>
+<div class="chrome dots" id="dots"></div>
+<div class="chrome hint" id="hint">← / → to move · S for script</div>
+
+<!-- speaker notes -->
+<div class="notes" id="notes"><div class="nk" id="notesK">Slide 1 · script</div><div id="notesBody"></div></div>
+
+<script>
+const slides=[...document.querySelectorAll('.slide')];
+const dots=document.getElementById('dots');
+const counter=document.getElementById('counter');
+const notes=document.getElementById('notes'), notesBody=document.getElementById('notesBody'), notesK=document.getElementById('notesK');
+const hint=document.getElementById('hint');
+let i=0, notesOn=false;
+slides.forEach((_,n)=>{const s=document.createElement('span');if(n===0)s.className='on';s.onclick=()=>go(n);dots.appendChild(s);});
+const pad=n=>String(n+1).padStart(2,'0');
+function render(){
+  slides.forEach((s,n)=>s.classList.toggle('active',n===i));
+  [...dots.children].forEach((d,n)=>d.classList.toggle('on',n===i));
+  counter.innerHTML=`<b>${pad(i)}</b> / ${pad(slides.length-1)}`;
+  notesK.textContent=`Slide ${i+1} · script`;
+  notesBody.textContent=slides[i].dataset.notes||'';
+  if(i>0) hint.style.opacity=notesOn?'0':'.5';
+}
+function go(n){i=Math.max(0,Math.min(slides.length-1,n));render();}
+function next(){go(i+1);} function prev(){go(i-1);}
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' ')  {e.preventDefault();next();}
+  else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();prev();}
+  else if(e.key==='Home'){go(0);} else if(e.key==='End'){go(slides.length-1);}
+  else if(e.key==='s'||e.key==='S'){notesOn=!notesOn;notes.classList.toggle('show',notesOn);render();}
+  else if(e.key==='f'||e.key==='F'){if(!document.fullscreenElement)document.documentElement.requestFullscreen();else document.exitFullscreen();}
+});
+document.getElementById('deck').addEventListener('click',e=>{ if(e.clientX < window.innerWidth*0.28) prev(); else next(); });
+render();
+</script>
+</body>
+</html>
