@@ -731,7 +731,7 @@ const PROFILE_SCHEMA={type:"object",additionalProperties:false,
     searchQueries:{type:"array",items:{type:"string"}}
   }};
 const CV_SYSTEM="You are an expert research-development analyst extracting a structured funding profile from a scientist's CV. Use only information supported by the CV text; never invent publications, grants, or credentials. Return via the emit tool.";
-function CV_PROMPT(text){return "CV text:\n<cv>\n"+String(text).slice(0,12000)+"\n</cv>\n\nExtract the profile. focusAreas ONLY from: "+FOCUS_AREAS.join("; ")+". diseaseSubtypes ONLY from: "+Object.keys(SUBTYPES).join("; ")+" (empty if none). careerStage one of: "+CAREER_STAGES.join("; ")+". phdYear = 4-digit year PhD completed (0 if not stated). field = the applicant's primary scientific field in a few words. searchQueries = 4-6 short keyword phrases to find matching US federal grants on Grants.gov, tuned to their ACTUAL research.";}
+function CV_PROMPT(text){return "CV text:\n<cv>\n"+String(text).slice(0,12000)+"\n</cv>\n\nExtract the profile. focusAreas ONLY from: "+FOCUS_AREAS.join("; ")+". diseaseSubtypes ONLY from: "+Object.keys(SUBTYPES).join("; ")+" (empty if none). careerStage one of: "+CAREER_STAGES.join("; ")+". phdYear = 4-digit year PhD completed (0 if not stated). field = the applicant's primary scientific field in a few words. techniques = up to 15 SHORT method/technique labels of 2-3 words each (no parentheses, no long descriptions; e.g. 'single-cell RNA-seq', 'ATAC-seq', 'survival modeling'). searchQueries = 4-6 short keyword phrases to find matching US federal grants on Grants.gov, tuned to their ACTUAL research.";}
 
 const RERANK_SCHEMA={type:"object",additionalProperties:false,required:["rankings"],properties:{
   rankings:{type:"array",items:{type:"object",additionalProperties:false,required:["id","fitScore","why"],
@@ -781,7 +781,7 @@ async function ingestCVSmart(text,label){
   }catch(e){ ingestCV(text,label); }
 }
 function applyClaudeProfile(prof,label){
-  const kws=[...new Set([...(prof.techniques||[]),...(prof.researchAreas||[])].map(s=>String(s).trim().toLowerCase()).filter(Boolean))].slice(0,24);
+  const kws=[...new Set([...(prof.techniques||[]),...(prof.researchAreas||[])].map(s=>shortKw(String(s).toLowerCase())).filter(Boolean))].slice(0,15);
   state.cvKeywords=kws;
   (prof.focusAreas||[]).forEach(f=>{ if(FOCUS_AREAS.includes(f)) state.focus.add(f); });
   (prof.diseaseSubtypes||[]).forEach(s=>{ if(SUBTYPES[s]) state.subtypes.add(s); });
@@ -971,11 +971,14 @@ function ingestCV(text,label){
   renderCvKeywords();
   saveProfile();
 }
+// short 2-3 word chip label — strip parentheticals/long tails so "Detected expertise" chips stay compact
+function shortKw(s){return String(s||"").replace(/\s*\([^)]*\)/g,"").replace(/\s+/g," ").trim().split(/\s+/).slice(0,3).join(" ");}
 function renderCvKeywords(){
   const el=$("#cvKw");
   if(!state.cvKeywords.length){el.innerHTML="";return;}
+  const chips=[...new Set(state.cvKeywords.map(shortKw).filter(Boolean))].slice(0,15);
   el.innerHTML=`<div class="suglabel">Detected expertise</div><div class="chips">`+
-    state.cvKeywords.map(k=>`<span class="chip on" style="font-size:13px">${esc(k)}</span>`).join("")+`</div>`;
+    chips.map(k=>`<span class="chip on" style="font-size:13px">${esc(k)}</span>`).join("")+`</div>`;
 }
 // Persist the applicant profile so shortlist fit-tips + inputs survive a page reload.
 function saveProfile(){
