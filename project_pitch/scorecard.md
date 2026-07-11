@@ -96,4 +96,19 @@ skill; all figures are self-contained inline SVG on the deck's palette. Anchored
 | R12 | **Field-generalization row** on the proof slide ("same engine, any field — Claude parses any CV: neuroscience · immunology · plant biology · materials") — addresses the n=1 concern honestly as a capability. | **87** |
 | R13 | **Accessibility pass** (dataviz step 6): `role="img"` + `aria-label` on the eligibility bar, cost figure, and flywheel, so identity isn't color-alone. Full-deck "look at it" review — no overflow/collisions. | **88** |
 | R14 | Final persuasion/consistency polish — fragmentation thread confirmed problem → why-now → "unify the scattered" → moat corpus; figures share one teal system. | **88** |
-| R15 · final | _Independent judge validation of the figure-driven deck (below)._ | **judge** |
+| R15 · final | _Independent judge validation of the figure-driven deck (below)._ + honesty fix: field-generalization row reframed from implied results to capability + roadmap. | **83 (judge)** |
+
+### Judge validation — phase 2 (figure-driven deck)
+**Judge-validated: 83/100** (+4 over the phase-1 final 79, +22 over baseline 61). The +4 maps cleanly to the
+four figures: fragmentation figure → **Problem 8→9**, flywheel figure/pillar → **Moat 7→8**, four-figure
+system → **Design 7→8**, cost figure + declutter → **Close 8→9**. Per dimension: Hook 8 · Problem 9 ·
+Solution 8 · WhyNow 8 · Product 8 · Evidence 8 · Moat 8 · Narrative 9 · Design 8 · Close 9.
+
+As in phase 1, my per-round self-estimates (peaked ~88) ran optimistic vs the judge's stricter 83 — **the
+judge's number is authoritative**. Judge-validated arc across both phases: **61 → 79 → 83**.
+
+**Remaining ceiling to the 90s (judge):** (1) Evidence is still n=1 — the single biggest lever is one real
+result from a second field, or one external user (chips assert generalization, don't demonstrate it — now
+reframed as an honest roadmap); (2) tighten to 6–7 slides / shed one cluster per slide (proof, moat, close
+each carry 3–4 elements); (3) a real screen capture or 3-sec GIF of the running app (Product 8→9); (4) the
+flywheel is well-designed but prospective — no users auditing rulings yet.
