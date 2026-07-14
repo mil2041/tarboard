@@ -11,21 +11,17 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 os.chdir(ROOT)
 
 def cv_excerpt():
-    pdfs = glob.glob("user_profile/*.pdf")
-    if not pdfs:
-        return ""
-    txt = subprocess.run(["pdftotext", "-layout", pdfs[0], "-"],
-                         capture_output=True, text=True).stdout
-    i = txt.find("RELATED EXPERIENCE")
-    j = txt.find("Selected PUBLICATIONS", i + 1)
-    exp = txt[i:j] if i >= 0 and j >= 0 else txt[:3000]
-    exp = re.sub(r'[ \t]+', ' ', exp)
-    exp = re.sub(r'\n{2,}', '\n', exp).strip()
-    return exp[:2600]
+    # The shipped demo profile is FICTIONAL (data/demo_cv.txt — tracked, so the build is
+    # reproducible from a clean clone). NEVER read a real CV out of user_profile/ (gitignored,
+    # holds PII): index.html is published, so anything inlined here becomes public.
+    txt = open("data/demo_cv.txt", encoding="utf-8").read()
+    txt = re.sub(r'[ \t]+', ' ', txt)
+    txt = re.sub(r'\n{2,}', '\n', txt).strip()
+    return txt[:2600]
 
 demo = {
-    "name": "Eric Minwei Liu", "careerStage": "postdoc",
-    "citizenship": "pending", "phdYear": 2019, "prMonth":"[redacted]", "nationality":"[redacted]",
+    "name": "Jordan Bennett", "careerStage": "postdoc",
+    "citizenship": "us", "phdYear": 2019, "prMonth": "", "nationality": "",
     "topics": ["Computational oncology", "Machine learning", "Cancer genomics",
                "Single-cell RNA-seq", "T-cell lymphoma", "Immunotherapy",
                "Risk stratification", "Multi-omics integration"],
@@ -101,6 +97,38 @@ for marker, val in [("DEMO", demo), ("CURATED", curated), ("JHU", jhu), ("FEDSEE
 # (The literal placeholder "sk-ant-…" in the connect-modal input is fine; match only key-shaped tokens.)
 if re.search(r'sk-ant-[A-Za-z0-9_-]{20,}', html):
     raise SystemExit("REFUSING TO BUILD: a real 'sk-ant-' key is present in the output. Keys belong on the Worker, never in index.html.")
+
+# Safety: index.html is PUBLISHED. The demo personas are fictional; the real author's identity
+# (name, nationality, immigration status, employer) must never reach the shipped artifact.
+# Patterns live in .identity_denylist, which is GITIGNORED — this repo is public, so committing
+# the denylist would publish the very names it protects. Two scopes:
+#   [global]  never anywhere in index.html
+#   [profile] never in the applicant-describing payloads (demo profile + Claude cache). The same
+#             tokens are legitimate in grant data (facts about a funder) and in the eligibility
+#             code (where "green card" is a rule being matched), so they are NOT banned globally.
+def _denylist(path=".identity_denylist"):
+    scopes, cur = {"global": [], "profile": []}, None
+    if not os.path.exists(path):
+        print("WARNING: .identity_denylist missing — skipping the real-identity guard.")
+        return scopes
+    for line in open(path, encoding="utf-8"):
+        line = line.strip()
+        if not line or line.startswith("#"):
+            continue
+        if line.startswith("[") and line.endswith("]"):
+            cur = line[1:-1]
+        elif cur in scopes:
+            scopes[cur].append(line)
+    return scopes
+
+_scopes = _denylist()
+_profile_blob = json.dumps([demo, claude_cache], ensure_ascii=False)
+for _scope, _hay, _where in (("global", html, "index.html"),
+                             ("profile", _profile_blob, "the demo profile / Claude cache")):
+    _hits = sorted({m.group(0) for p in _scopes[_scope] for m in re.finditer(p, _hay, re.I)})
+    if _hits:
+        raise SystemExit("REFUSING TO BUILD: real-identity tokens found in %s: %s\n"
+                         "The demo personas must stay fictional (see user_profile/demo_cv.txt)." % (_where, _hits))
 
 import sys
 if "--check" in sys.argv:

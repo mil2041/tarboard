@@ -1,5 +1,4 @@
-# Grantboard — Career Development Grant Finder
-
+# TARBoard — Targeted Award Radar for Biomedical Oncology Research
 A single-file web dashboard that matches a researcher's **CV + research topics** against **U.S. funding opportunities** in AI / computational oncology / blood cancer, and ranks them by fit. Built for a senior postdoc planning the transition to independence.
 
 **Two-stage engine:** deterministic rules decide **eligibility** (citizenship / PR, post-PhD window, MD-only, nationality — auditable and never hallucinated), and **Claude** provides the judgment on top — it reads your CV into a structured profile, re-ranks the matches with a reason for each, reads federal eligibility prose, and drafts a CV-grounded pitch angle for any grant. Every Claude output is grounded strictly on the retrieved data (it never invents a grant, deadline, or amount), and the whole app **degrades gracefully to lexical matching when Claude isn't connected**. Built with Claude Code.
@@ -16,7 +15,7 @@ Just open **`index.html`** in a browser (double-click, or `open index.html`). No
 
 ## What it does
 
-- **Upload a CV** (PDF or text) or paste it — keywords are extracted client-side. Click **★ Load example — Eric Liu ([redacted])** to try it with a real profile.
+- **Upload a CV** (PDF or text) or paste it — keywords are extracted client-side. Click **★ Load example — Jordan Bennett** to try it with an example profile.
 - **Add research topics** (blood-cancer subtypes, AI methods) as chips.
 - **Search** returns opportunities ranked by a match score, each showing award size, deadline (with day-countdown), eligibility, career stage, U.S.-citizen flags, and *why* it matched.
 - **Save** opportunities to a shortlist (persisted in your browser) and **export** to CSV/JSON.
@@ -48,7 +47,7 @@ Without either, the app still runs fully on the deterministic/lexical path. Mode
 | **Curated foundations/societies/industry** | 187 | `data/curated_opportunities.json` — see `FOUNDATIONS.md` |
 | **JHU list (refreshed 2026)** | 81 | Seeded from the JHU `data/JHU_*.xlsx` files, then every program's deadline/amount/eligibility was **web-verified to 2026-2027** (`data/jhu_updated.json`); discontinued programs dropped |
 
-**Eligibility & sorting:** the top bar takes **PhD year** and **citizenship** into account. Results default to **soonest-deadline** order (upcoming first; closed ones sink to the bottom), match your **career stage**, and — because you don't have a [redacted] yet — **hide awards requiring U.S. citizenship/PR** (counted separately; reveal with "Show citizenship-locked"). Awards past a hard post-PhD window (e.g. K99's 4-year limit) are flagged.
+**Eligibility & sorting:** the top bar takes **PhD year** and **citizenship** into account. Results default to **soonest-deadline** order (upcoming first; closed ones sink to the bottom), match your **career stage**, and — for profiles without U.S. citizenship/permanent residence — **hide awards that require it** (counted separately; reveal with "Show citizenship-locked"). Awards past a hard post-PhD window (e.g. K99's 4-year limit) are flagged.
 
 `FOUNDATIONS.md` is the human-readable catalog of the curated non-federal funders (computational / blood cancer / rare disease), grouped by theme with senior-postdoc guidance. It and the dashboard's "Curated foundations" source are the same dataset.
 

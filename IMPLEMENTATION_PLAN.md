@@ -165,7 +165,7 @@ deterministic version — it destroys the HHH axis that is weighted most. Theref
 ### T8 — Claude eligibility second opinion on federal expand (~3h) — cut first if time collapses
 - In `toggleExpand` federal branch (`:1252`) after `fetchFederalDetail` returns `applicantEligibilityDesc`:
   **"Ask Claude: can I apply?"** → schema `{verdict ∈ [eligible, gated_until_PR, ineligible, unclear],
-  quotedClause, note}`, applicant facts ([redacted], [redacted] ~[redacted], PhD 2019) passed in. Render verdict
+  quotedClause, note}`, applicant facts (career stage, citizenship, PhD year) passed in. Render verdict
   + exact quoted sentence beside the regex chips, labeled "rule-based" vs "Claude read the synopsis".
 - Also: stop hard-hiding regex-blocked grants in `eligFilter` (`:1021`) — render greyed with the reason chip
   (auditable, not vanished).
@@ -207,7 +207,7 @@ screen capture the night before.**
 
 ## 3-minute demo script
 1. **0:00–0:20** Problem: postdocs burn weeks on grants they're ineligible for; search can't read a CV or an
-   eligibility clause. "Built for my own job: AI + blood cancer at [redacted], [redacted] pending."
+   eligibility clause. "Built for a real job search: AI + blood cancer, with eligibility decided by rules."
 2. **0:20–0:50** Drop the real CV → staged "Claude is reading your CV…"; topics/focus/PhD-year 2019/stage
    self-fill. "The eligibility engine just configured itself from my CV." Contrast: v1 did substring matching
    against a hardcoded lexicon.
@@ -216,7 +216,7 @@ screen capture the night before.**
    hand-excluding a prostate grant next to Claude demoting it live with a reason. "That comment was my
    confession. Claude is the fix."
 4. **1:30–2:10** Expand a live federal opp: deterministic chips ("14 open to me, 9 citizenship-locked, 3
-   unlock when my [redacted] arrives 2027" — auditable, never hallucinated). Click "Ask Claude: can I apply?"
+   unlock when permanent residence arrives" — auditable, never hallucinated). Click "Ask Claude: can I apply?"
    → verdict + the exact quoted clause, beside the rule-based chips.
 5. **2:10–2:40** Shortlist a foundation grant → "Draft my pitch angle" streams a memo citing a real CV
    project against the funder's priorities + one honest gap, labeled AI-generated.

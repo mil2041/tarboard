@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>GRANTBOARD — Career Development Grant Finder</title>
+<title>TARBOARD — Career Development Grant Finder</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -354,7 +354,7 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
   <div class="masthead-inner">
     <div class="brand">
       <span class="kicker">Eligibility-first funding copilot · hematology–oncology</span>
-      <h1>Grant<span class="amp">·</span>board</h1>
+      <h1>Tar<span class="amp">·</span>board</h1>
       <span class="tag">Only the grants you can actually win — eligibility decided by rules, fit judged by Claude</span>
     </div>
     <div class="masthead-spacer"></div>
@@ -422,7 +422,7 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
         </div>
         <div class="cvstat" id="cvStat"></div>
         <div style="display:flex;justify-content:space-between;margin-top:10px;align-items:center">
-          <button class="mini-link" id="loadExample">★ Load example — Eric Liu ([redacted])</button>
+          <button class="mini-link" id="loadExample">★ Load example — Jordan Bennett</button>
           <button class="mini-link" id="pasteToggle" style="color:var(--ink-faint)">paste text</button>
         </div>
         <textarea id="cvPaste" placeholder="…or paste your CV / research statement text here" style="display:none;margin-top:10px"></textarea>
@@ -525,16 +525,16 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
 </div>
 
 <footer class="foot">
-  <p><b>Grantboard</b> matches your CV and research topics against U.S. funding opportunities. Federal opportunities (NIH, NSF, DOD/CDMRP, ARPA-H) are searched <b>live from the official Grants.gov API</b>. Foundation, society &amp; industry programs come from a curated database plus the <b>Johns Hopkins Research Development</b> cancer/oncology opportunity lists. <b>Always verify current deadlines, amounts &amp; eligibility on the funder's own page before applying</b> — figures shown are best-effort and change frequently. Not affiliated with any funder. Data snapshot compiled 2026.</p>
+  <p><b>Tarboard</b> matches your CV and research topics against U.S. funding opportunities. Federal opportunities (NIH, NSF, DOD/CDMRP, ARPA-H) are searched <b>live from the official Grants.gov API</b>. Foundation, society &amp; industry programs come from a curated database plus the <b>Johns Hopkins Research Development</b> cancer/oncology opportunity lists. <b>Always verify current deadlines, amounts &amp; eligibility on the funder's own page before applying</b> — figures shown are best-effort and change frequently. Not affiliated with any funder. Data snapshot compiled 2026.</p>
   <p style="margin-top:7px"><b>How it works:</b> a deterministic engine decides eligibility (rules — free, auditable, can't hallucinate a deadline or amount); <b>Claude</b> reads your CV, re-ranks matches with reasons, and drafts fit briefs. For the <b>example profiles</b>, Claude's per-grant re-ranking is <b>precomputed &amp; cached</b> (<span id="cacheCount">real reasoning</span>) so the demo is instant and works offline — <b>upload your own CV to run it live</b> (~15–25¢/session). The moat is the two-stage design: a <b>165-verdict rule-derived eligibility corpus</b> re-applied to <em>your</em> profile, with Claude's judgment on top. Connect Claude with the ⚙ button. Built with Claude Code.</p>
 </footer>
 
 <div class="cfg-modal" id="cfgModal" hidden>
   <div class="cfg-card">
     <h3>Connect Claude</h3>
-    <p>Grantboard reads your CV, re-ranks matches and drafts fit briefs with <b>Claude</b>. Point it at your Cloudflare Worker proxy (recommended — see <span class="mono">worker/README.md</span>), or paste an API key for local testing only.</p>
+    <p>Tarboard reads your CV, re-ranks matches and drafts fit briefs with <b>Claude</b>. Point it at your Cloudflare Worker proxy (recommended — see <span class="mono">worker/README.md</span>), or paste an API key for local testing only.</p>
     <label>Worker URL</label>
-    <input type="text" id="cfgWorker" placeholder="https://grantboard-claude.you.workers.dev" autocomplete="off" spellcheck="false" />
+    <input type="text" id="cfgWorker" placeholder="https://tarboard-claude.you.workers.dev" autocomplete="off" spellcheck="false" />
     <label>Demo token (optional)</label>
     <input type="text" id="cfgToken" placeholder="x-demo-token, if you set one" autocomplete="off" spellcheck="false" />
     <div class="cfg-or">— or, local dev only —</div>
@@ -1888,7 +1888,7 @@ function exportCSV(){
   const rows=[["Name","Funder","Type","Award","Deadline","Focus areas","URL"]];
   state.saved.forEach(s=>rows.push([s.name,s.funder,s.funderType,s.awardAmount,s.deadlineInfo,(s.focusAreas||[]).join("; "),s.applyUrl]));
   const csv=rows.map(r=>r.map(c=>`"${String(c==null?"":c).replace(/"/g,'""')}"`).join(",")).join("\n");
-  download("grantboard-shortlist.csv",csv,"text/csv");toast("Exported CSV");
+  download("tarboard-shortlist.csv",csv,"text/csv");toast("Exported CSV");
 }
 
 /* ============================================================
@@ -1896,21 +1896,21 @@ function exportCSV(){
    Same 268 grants; a different applicant → a different eligible set. That's the moat, made visible.
    ============================================================ */
 const EXAMPLES = [
-  { key:"eric", label:"Eric · PhD, senior postdoc", get:()=>({ ...DEMO_PROFILE, isDemo:true, cacheKey:"eric" }) },
-  { key:"md", label:"Dr. Chen · MD physician-scientist", get:()=>({
+  { key:"jordan", label:"Jordan · PhD, senior postdoc", get:()=>({ ...DEMO_PROFILE, isDemo:true, cacheKey:"jordan" }) },
+  { key:"md", label:"Dr. Mitchell · MD physician-scientist", get:()=>({
       isDemo:true, cacheKey:"md",
-      name:"Maria Chen, MD", careerStage:"physician-scientist", citizenship:"us", phdYear:2016, prMonth:"", nationality:"",
+      name:"Sarah Mitchell, MD", careerStage:"physician-scientist", citizenship:"us", phdYear:2016, prMonth:"", nationality:"",
       topics:["Lymphoma","CAR-T therapy","Immunotherapy","Clinical trials"],
       focus:["blood cancer/hematology","cancer immunology","clinical/translational","oncology"],
       subtypes:["B-cell lymphoma"],
-      cvText:"Maria Chen, MD. Instructor / Assistant Professor, Division of Hematology-Oncology. MD 2016; Internal Medicine residency 2016-2019; Hematology & Medical Oncology clinical fellowship 2019-2022, ABIM board-eligible. Physician-scientist: 80% research effort plus clinical service in a lymphoma clinic. Research on CAR-T cell therapy and immunotherapy resistance in diffuse large B-cell lymphoma (DLBCL); correlative studies from investigator-initiated clinical trials." }) },
-  { key:"junior", label:"Dr. Park · PhD, 2nd-yr postdoc", get:()=>({
+      cvText:"Sarah Mitchell, MD. Instructor / Assistant Professor, Division of Hematology-Oncology. MD 2016; Internal Medicine residency 2016-2019; Hematology & Medical Oncology clinical fellowship 2019-2022, ABIM board-eligible. Physician-scientist: 80% research effort plus clinical service in a lymphoma clinic. Research on CAR-T cell therapy and immunotherapy resistance in diffuse large B-cell lymphoma (DLBCL); correlative studies from investigator-initiated clinical trials." }) },
+  { key:"junior", label:"Dr. Walker · PhD, 2nd-yr postdoc", get:()=>({
       isDemo:true, cacheKey:"junior",
-      name:"Jun Park", careerStage:"postdoc", citizenship:"pending", phdYear:2024, prMonth:"[redacted]", nationality:"",
+      name:"Ryan Walker", careerStage:"postdoc", citizenship:"pending", phdYear:2024, prMonth:"2028-06", nationality:"",
       topics:["Acute myeloid leukemia (AML)","Machine learning","Single-cell RNA-seq","Deep learning"],
       focus:["blood cancer/hematology","AI/computational","genomics/omics","oncology"],
       subtypes:["AML (acute myeloid)"],
-      cvText:"Jun Park. Postdoctoral researcher (2nd year). PhD in Computer Science conferred 2024. Develops machine-learning and deep-learning methods, applied to single-cell RNA-seq of acute myeloid leukemia (AML). Skills: Python, PyTorch, deep learning, genomics, statistical modeling." }) },
+      cvText:"Ryan Walker. Postdoctoral researcher (2nd year). PhD in Computer Science conferred 2024. Develops machine-learning and deep-learning methods, applied to single-cell RNA-seq of acute myeloid leukemia (AML). Skills: Python, PyTorch, deep learning, genomics, statistical modeling." }) },
 ];
 function applyProfile(p, autorun){
   $("#applicantName").value=p.name||"";
@@ -2011,12 +2011,12 @@ function wireUI(){
     state.nationality=DEMO_PROFILE.nationality||"";
     syncElig();
     // when Claude is connected, the example exercises the real CV-reading path (judges see "Claude is reading your CV…")
-    state.isDemo=true; state.cacheKey="eric";   // example profile → the precomputed Claude reasoning cache applies
+    state.isDemo=true; state.cacheKey="jordan";   // example profile → the precomputed Claude reasoning cache applies
     (claudeReady()?ingestCVSmart:ingestCV)(DEMO_PROFILE.cvText||"","Example CV — "+(DEMO_PROFILE.name||""));
     state.topics=[...(DEMO_PROFILE.topics||[])];renderTopicChips();
     (DEMO_PROFILE.focus||[]).forEach(f=>state.focus.add(f));renderFocusFilters();
     saveProfile();
-    toast("Loaded Eric Liu's profile — hit Search");
+    toast("Loaded Jordan Bennett's profile — hit Search");
     window.scrollTo({top:0,behavior:"smooth"});
   };
   // topics
@@ -2039,7 +2039,7 @@ function wireUI(){
   $("#searchBtn").onclick=runSearch;
   // export
   $("#expCsv").onclick=exportCSV;
-  $("#expJson").onclick=()=>{download("grantboard-shortlist.json",JSON.stringify(state.saved,null,2),"application/json");toast("Exported JSON");};
+  $("#expJson").onclick=()=>{download("tarboard-shortlist.json",JSON.stringify(state.saved,null,2),"application/json");toast("Exported JSON");};
   $("#clearSaved").onclick=()=>{if(confirm("Clear your entire shortlist?")){state.saved=[];localStorage.setItem("gb_saved","[]");$("#savedCount").textContent=0;render();}};
 
   // prefill the eligibility bar from the dashboard's default applicant profile

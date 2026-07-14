@@ -246,7 +246,7 @@ A senior postdoc with a strong record in computational oncology / blood cancer s
 - **Eligibility:** PhD in chemistry, CS, economics, math, neuroscience, earth system science, physics or related field; tenure-track but untenured faculty at a US/Canadian degree-granting institution with a regular teaching obligation; nominated by department head/senior researcher (max 3 nominees per department per field)
 - **Focus:** AI/computational, oncology
 - **What it funds:** Early-career honorific fellowship providing flexible research funds to the most promising untenured faculty in eight STEM fields.
-- **Why it fits:** An [redacted] statistics/ML researcher would be nominated in Computer Science or Mathematics; ML methodology with applications to computational oncology is well within scope (fellows are judged on methodological/scientific promise, and health applications do not disqualify). Only relevant once in a tenure-track faculty position.
+- **Why it fits:** A statistics/ML researcher would be nominated in Computer Science or Mathematics; ML methodology with applications to computational oncology is well within scope (fellows are judged on methodological/scientific promise, and health applications do not disqualify). Only relevant once in a tenure-track faculty position.
 - **Apply / details:** <https://sloan.org/fellowships/apply-2>
 
 ### Amazon Research Awards (ARA)
@@ -270,7 +270,7 @@ A senior postdoc with a strong record in computational oncology / blood cancer s
 - **Eligibility:** PIs and Co-PIs must hold faculty or equivalent independent-investigator status at US-based nonprofit institutions (universities, hospitals, independent labs, government). For-profit entities ineligible.
 - **Focus:** AI/computational, genomics/omics, oncology
 - **What it funds:** Provides large-scale GPU compute (not obtainable with typical university resources) to train foundation models for biology, aligned with CZI's Virtual Cell initiative.
-- **Why it fits:** Ideal for an ML lab building large biological foundation models - directly supports training compute for AI-on-cells / virtual-cell work that could be applied to hematopoietic single-cell and cancer datasets. US-faculty eligibility fits an [redacted] PI.
+- **Why it fits:** Ideal for an ML lab building large biological foundation models - directly supports training compute for AI-on-cells / virtual-cell work that could be applied to hematopoietic single-cell and cancer datasets. US-faculty eligibility fits a university PI.
 - **Apply / details:** <https://chanzuckerberg.com/rfa/ai-computing-gpu/>
 
 ### Klingenstein-Simons Fellowship Awards in the Neurosciences
@@ -372,7 +372,7 @@ A senior postdoc with a strong record in computational oncology / blood cancer s
 - **Eligibility:** For emerging hematology researchers based OUTSIDE the U.S. and Canada, between completion of training and establishment of an independent career. Must be an ASH member in good standing and hold an MD, PhD, MD-PhD, or equivalent degree.
 - **Focus:** blood cancer/hematology, AI/computational, oncology, general biomedical
 - **What it funds:** Supports independent projects of early-career hematology researchers outside the U.S. and Canada to foster global research collaboration.
-- **Why it fits:** Low relevance / likely ineligible: this award is explicitly restricted to researchers BASED OUTSIDE the U.S. and Canada. A U.S.-based [redacted] researcher would not qualify. Included for completeness of the ASH cluster; the U.S.-eligible analogue is the Scholar Award.
+- **Why it fits:** Low relevance / likely ineligible: this award is explicitly restricted to researchers BASED OUTSIDE the U.S. and Canada. A U.S.-based researcher would not qualify. Included for completeness of the ASH cluster; the U.S.-eligible analogue is the Scholar Award.
 - **Apply / details:** <https://www.hematology.org/awards/career-enhancement-and-training/global-research-award/apply>
 
 ### ⭐ 🎓 ASH Scholar Award (Fellow Scholar and Junior Faculty Scholar levels)
@@ -516,7 +516,7 @@ A senior postdoc with a strong record in computational oncology / blood cancer s
 - **Eligibility:** Independent, self-directed investigators at a US academic institution or eligible non-profit who were first appointed as independent full-time faculty (or equivalent) 8 or fewer years ago (tightened from prior 10-year window as of Summer 2026). Must be PI on no more than one R01 or R01-equivalent grant at time of application. Prior RSG grantees cannot reapply except via special RFAs. Applicants may submit to only ONE of RSG/CSDG/Mission Boost/Postdoctoral Fellowship per cycle.
 - **Focus:** blood cancer/hematology, AI/computational, oncology, general biomedical
 - **What it funds:** ACS's flagship independent-investigator award for early-career faculty, supporting investigator-initiated projects across the cancer research continuum within ACS priority areas. AI/ML and computational methodologies are explicitly eligible.
-- **Why it fits:** The primary ACS grant for an early-career faculty member (e.g., a newly appointed assistant professor at [redacted]). A computational/AI project on hematologic malignancies fits within ACS priority areas; no citizenship restriction beyond working at a US institution.
+- **Why it fits:** The primary ACS grant for an early-career faculty member (e.g., a newly appointed assistant professor). A computational/AI project on hematologic malignancies fits within ACS priority areas; no citizenship restriction beyond working at a US institution.
 - **Apply / details:** <https://www.cancer.org/research/we-fund-cancer-research/apply-research-grant/grant-types/research-scholar-grants.html>
 
 ### ⭐ Clinician Scientist Development Grant (CSDG)
@@ -552,7 +552,7 @@ A senior postdoc with a strong record in computational oncology / blood cancer s
 - **Eligibility:** Junior/early-career faculty (commonly within ~6 years of first independent faculty appointment) who do not currently hold and have not held a national independent research grant such as an R01 (an R00 is typically allowed). Must be at an institution that holds an ACS IRG block grant. Applied for and reviewed locally, not via ProposalCentral.
 - **Focus:** blood cancer/hematology, AI/computational, oncology, general biomedical
 - **What it funds:** ACS block grants to institutions that redistribute pilot funding to newly independent investigators to generate preliminary data for larger national grants. Computational/data-science pilots are eligible.
-- **Why it fits:** A realistic entry point for a newly appointed [redacted] faculty member: small, fast pilot funding to seed an AI/computational-oncology or blood-cancer project. Applied through the local cancer center (verify [redacted]/affiliate participation), not directly to ACS.
+- **Why it fits:** A realistic entry point for a newly appointed faculty member: small, fast pilot funding to seed an AI/computational-oncology or blood-cancer project. Applied through the local cancer center (verify your cancer center's participation), not directly to ACS.
 - **Apply / details:** <https://www.cancer.org/research/we-fund-cancer-research/apply-research-grant/grant-types/institutional-research-grants.html>
 
 ### ⭐ ASH Bridge Grant
@@ -621,10 +621,10 @@ A senior postdoc with a strong record in computational oncology / blood cancer s
 - **Award:** $875,000 total  ·  **Duration:** 5 years
 - **Deadline:** Annual. 2026 cycle: institutional letters of intent due March 15, 2026; applications due April 20, 2026; internal university pre-selection happens months earlier
 - **Career stage:** early-career faculty
-- **Eligibility:** Faculty in first 3 years of first tenure-track appointment (2026 cycle: appointment began no earlier than May 31, 2023) at one of 50 invited US institutions ([redacted] included); each president nominates up to 2 candidates; fields include CS, math, biology, engineering; clinical research and social science excluded
+- **Eligibility:** Faculty in first 3 years of first tenure-track appointment (2026 cycle: appointment began no earlier than May 31, 2023) at one of 50 invited US institutions ; each president nominates up to 2 candidates; fields include CS, math, biology, engineering; clinical research and social science excluded
 - **Focus:** blood cancer/hematology, AI/computational, oncology
 - **What it funds:** One of the largest unrestricted early-career awards in US science: 20 fellows/year receive flexible five-year funding for blue-sky research.
-- **Why it fits:** AI/ML methods for cancer biology qualifies under CS/biology/engineering as long as it is framed as basic (not clinical) research — computational modeling of leukemia/lymphoma biology is fine, clinical-trial work is not. Requires winning [redacted]'s internal nomination (2 slots).
+- **Why it fits:** AI/ML methods for cancer biology qualifies under CS/biology/engineering as long as it is framed as basic (not clinical) research — computational modeling of leukemia/lymphoma biology is fine, clinical-trial work is not. Requires winning your institution's internal nomination (2 slots).
 - **Apply / details:** <https://www.packard.org/approach/fellowships-for-science-engineering/>
 
 ### ⭐ Doris Duke Clinical Scientist Development Award (CSDA)
@@ -660,7 +660,7 @@ A senior postdoc with a strong record in computational oncology / blood cancer s
 - **Eligibility:** Pursuing an independent research career in biochemistry, cell biology, genetics, immunology, neuroscience, pharmacology, and related areas of chemistry, medicine, and the biological sciences. Must have begun a first tenure-track (or nearest-equivalent) assistant-professor appointment within the defined recent window. Restricted to nominees from participating institutions (institutional nomination required). Does not ordinarily support purely clinical research but allows programs mixing basic and clinical components.
 - **Focus:** blood cancer/hematology, AI/computational, cancer immunology, oncology, general biomedical
 - **What it funds:** Highly selective award for scientists in the first year or two of an independent faculty appointment, funding bold biomedical research with flexible support.
-- **Why it fits:** Strong fit for a first-time assistant professor doing mechanism-oriented cancer/blood-cancer biology with computational methods; the eligible fields include genetics, cell biology, and immunology, which encompass computational oncology and leukemia/lymphoma research. Requires [redacted] nomination and a very recent first faculty appointment.
+- **Why it fits:** Strong fit for a first-time assistant professor doing mechanism-oriented cancer/blood-cancer biology with computational methods; the eligible fields include genetics, cell biology, and immunology, which encompass computational oncology and leukemia/lymphoma research. Requires institutional nomination and a very recent first faculty appointment.
 - **Apply / details:** <https://searlescholars.org/application-information/award-information/process-and-eligibility/>
 
 ### ⭐ LRF Clinical Investigator Career Development Award (CDA)
@@ -684,7 +684,7 @@ A senior postdoc with a strong record in computational oncology / blood cancer s
 - **Eligibility:** PI must hold an MD, PhD, or MD-PhD (or equivalent) and a faculty appointment at the Assistant or Associate Professor level (or equivalent) at a US academic research institution. Must have run their own independent lab for at least 2 years and no more than 6 years by the award start date. Cancer-research background is NOT required, but the setting must be capable of high-quality cancer research. Non-US citizens must confirm their visa allows completing the project in the US. Applicants may apply at most twice total.
 - **Focus:** blood cancer/hematology, AI/computational, cancer immunology, clinical/translational, oncology, general biomedical
 - **What it funds:** A prize for rising-star early-career faculty pursuing bold, innovative cancer research. Research areas may include basic research and technological/computational applications, with no requirement for a prior cancer-research background.
-- **Why it fits:** Highly relevant and newly accessible: as of the 2026/2027 cycle the prize expanded from the NYC metro area to ALL US institutions, so an [redacted] statistics/ML faculty member now qualifies. It explicitly welcomes technological and methods-driven applications (AI/ML), does not require a cancer-research pedigree, and would fund computational-oncology work on leukemia/lymphoma/myeloma once the applicant is 2-6 years into an independent faculty appointment. Physician-scientists (MD-PhD) are also eligible.
+- **Why it fits:** Highly relevant and newly accessible: as of the 2026/2027 cycle the prize expanded from the NYC metro area to ALL US institutions, so an your institution statistics/ML faculty member now qualifies. It explicitly welcomes technological and methods-driven applications (AI/ML), does not require a cancer-research pedigree, and would fund computational-oncology work on leukemia/lymphoma/myeloma once the applicant is 2-6 years into an independent faculty appointment. Physician-scientists (MD-PhD) are also eligible.
 - **Apply / details:** <https://pershingsquarephilanthropies.org/initiatives/programs/PSSCRA/page/application-guidelines>
 
 ### ⭐ Rita Allen Foundation Scholars
@@ -756,7 +756,7 @@ A senior postdoc with a strong record in computational oncology / blood cancer s
 - **Eligibility:** Tenure-track (or tenured) Assistant Professor within first 5 years of first appointment, not yet promoted to Associate; US citizen or lawful permanent resident (also invited Canadian institutions); >=2 years postdoctoral (MD/PhD) training (1 yr acceptable for some MD specialties). Excluded if prior V Scholar, or if holding an R01/R01-equivalent, or any non-mentored single grant >=$750K or aggregate non-mentored funding >$1M. Adult cancers only (excludes pediatric, epidemiology, behavioral, health-services research).
 - **Focus:** blood cancer/hematology, AI/computational, clinical/translational, oncology
 - **What it funds:** Early-career-faculty grant to launch independent adult-cancer research programs (fundamental or translational). A detailed biostatistics/bioinformatics plan is mandatory for every proposal.
-- **Why it fits:** Well-suited to a computationally driven blood-cancer program: any adult cancer type qualifies (leukemia, lymphoma, myeloma, MDS) and a bioinformatics/biostatistics plan is explicitly required, so ML/statistical methods are welcomed. Key constraints: must be a tenure-track Assistant Professor at an invited institution ([redacted]-type institutions are typically eligible but must be invited) and a US citizen/permanent resident; not for postdocs or trainees.
+- **Why it fits:** Well-suited to a computationally driven blood-cancer program: any adult cancer type qualifies (leukemia, lymphoma, myeloma, MDS) and a bioinformatics/biostatistics plan is explicitly required, so ML/statistical methods are welcomed. Key constraints: must be a tenure-track Assistant Professor at an invited institution (major research universities are typically eligible but must be invited) and a US citizen/permanent resident; not for postdocs or trainees.
 - **Apply / details:** <https://www.v.org/research-overview/applicants/>
 
 ### ⭐ Wellcome Leap — Health Breakthrough Programs (performer funding)
@@ -837,10 +837,10 @@ A senior postdoc with a strong record in computational oncology / blood cancer s
 - **Award:** Varies; funding flows to institutional teams (initial commitment ~$50M across projects). No published per-investigator open-application amount.  ·  **Duration:** Multi-year team projects (varies)
 - **Deadline:** No open public application. Projects are assembled by the foundation with its five member institutions. Engage via your institution. See site / contact info@breakthroughcancer.org.
 - **Career stage:** any, postdoc, early-career faculty, established investigator
-- **Eligibility:** Research is conducted through the five member institutions: [redacted], Johns Hopkins (Sidney Kimmel), Memorial [redacted], [redacted] (Koch Institute), and MD Anderson. Not an open individual-applicant grant.
+- **Eligibility:** Research is conducted through the five member institutions: Dana-Farber, Johns Hopkins (Sidney Kimmel), Memorial Sloan Kettering, MIT (Koch Institute), and MD Anderson. Not an open individual-applicant grant.
 - **Focus:** blood cancer/hematology, AI/computational, oncology
 - **What it funds:** Radical-collaboration 'TeamLab' model funding cross-institution teams. Includes an Acute Myeloid Leukemia (AML) TeamLab (blood cancer) and a dedicated Data Science Hub applying generative-AI digital pathology, spatial transcriptomics, and computational diagnostics.
-- **Why it fits:** Highly relevant thematically (AML + Data Science Hub) and the user is at [redacted], a member institution (Koch Institute) - so participation is realistically accessible through internal [redacted]/Koch channels rather than an open call. Combines blood cancer and AI/computational focus.
+- **Why it fits:** Highly relevant thematically (AML + Data Science Hub) and the applicant's institution may be, a member institution (Koch Institute) - so participation is realistically accessible through internal the member institution channels rather than an open call. Combines blood cancer and AI/computational focus.
 - **Apply / details:** <https://breakthroughcancer.org/projects/>
 
 ### 🎓 CRI Immuno-Informatics Postdoctoral Fellowship
@@ -969,10 +969,10 @@ A senior postdoc with a strong record in computational oncology / blood cancer s
 - **Award:** $110,000/year personal stipend (widely documented; not restated on official FAQ)  ·  **Duration:** 12-24 month research placement (up to 2 years)
 - **Deadline:** Annual. 2027 cohort: institutional nominations due May 15, 2026; portal opened May 19, 2026; full applications due July 13, 2026; cohort announced March 2027
 - **Career stage:** PhD student, postdoc
-- **Eligibility:** Must complete PhD (incl. defense) between May 1, 2026 and June 30, 2027 (for 2027 cohort) in natural sciences, engineering, math, or computing; must be nominated by PhD-awarding institution ([redacted] is a nominating partner); must pivot to a discipline different from the PhD; clinical-track MD-PhD not eligible
+- **Eligibility:** Must complete PhD (incl. defense) between May 1, 2026 and June 30, 2027 (for 2027 cohort) in natural sciences, engineering, math, or computing; must be nominated by PhD-awarding institution ; must pivot to a discipline different from the PhD; clinical-track MD-PhD not eligible
 - **Focus:** blood cancer/hematology, AI/computational, oncology
 - **What it funds:** Prestigious postdoctoral fellowship funding a deliberate interdisciplinary pivot away from the PhD discipline, with placement in a new lab plus a science-leadership program.
-- **Why it fits:** A textbook fit for an ML/statistics PhD pivoting into cancer biology/hematologic malignancies — the required 'interdisciplinary pivot' (e.g., ML methods PhD -> experimental/computational oncology lab) is exactly what the program rewards. Only applicable near PhD completion via [redacted] internal nomination.
+- **Why it fits:** A textbook fit for an ML/statistics PhD pivoting into cancer biology/hematologic malignancies — the required 'interdisciplinary pivot' (e.g., ML methods PhD -> experimental/computational oncology lab) is exactly what the program rewards. Only applicable near PhD completion via institutional nomination.
 - **Apply / details:** <https://schmidtsciencefellows.org/selection/how-to-apply/>
 
 ### 🎓 SU2C Convergence Research Teams / Dream Team Grants (incl. Machine Learning Convergence Research Team)
@@ -1092,7 +1092,7 @@ A senior postdoc with a strong record in computational oncology / blood cancer s
 - **Eligibility:** Invitation-only — RFP sent only to NCI-designated institutions, which nominate eligible investigators. Typically Assistant Professors (Associate Professors eligible only for integrative-medicine grants). Focus on leukemia, lymphoma, and related blood cancers translatable to clinical trials within 3–5 years. International proposals not accepted.
 - **Focus:** blood cancer/hematology, AI/computational, clinical/translational, oncology
 - **What it funds:** Early-career blood-cancer research awards emphasizing translational leukemia/lymphoma work with near-term clinical potential.
-- **Why it fits:** Directly targets leukemia/lymphoma/blood-cancer research at the assistant-professor stage; [redacted] is not NCI-designated, so the user would need to route through a nominating NCI-designated cancer center collaborator (e.g., [redacted]) — worth noting the invitation-only constraint.
+- **Why it fits:** Directly targets leukemia/lymphoma/blood-cancer research at the assistant-professor stage; if your institution is not NCI-designated, so the user would need to route through a nominating NCI-designated cancer center collaborator (e.g., Dana-Farber) — worth noting the invitation-only constraint.
 - **Apply / details:** <https://gabriellesangels.org/what-we-do/grant-info-awards/>
 
 ### Google PhD Fellowship
@@ -1104,7 +1104,7 @@ A senior postdoc with a strong record in computational oncology / blood cancer s
 - **Eligibility:** Must be nominated by the university (no direct applications; US/Canada universities nominate up to 4 students); enrolled full-time in PhD for award duration; cannot hold a comparable industry award (government/non-profit funding OK); not open to prior awardees or Google employees' households
 - **Focus:** blood cancer/hematology, AI/computational, oncology
 - **What it funds:** Recognizes outstanding PhD students in computer science and related areas with full support and a Google research mentor.
-- **Why it fits:** Health & Bioscience (medical data analysis) and Machine Intelligence are explicit award tracks — ML for computational oncology/blood cancers fits squarely. Requires winning [redacted]'s internal nomination (up to 4 slots), so start with the department early in the year.
+- **Why it fits:** Health & Bioscience (medical data analysis) and Machine Intelligence are explicit award tracks — ML for computational oncology/blood cancers fits squarely. Requires winning your institution's internal nomination (up to 4 slots), so start with the department early in the year.
 - **Apply / details:** <https://research.google/programs-and-events/phd-fellowship/>
 
 ### IMS and Paula and Rodger Riney Foundation Translational Research Grant (IMS Translational Research Award)
@@ -1122,7 +1122,7 @@ A senior postdoc with a strong record in computational oncology / blood cancer s
 ### Paula and Rodger Riney Foundation Direct / Investigator-Initiated Multiple Myeloma Grants
 **Paula and Rodger Riney Foundation**  ·  _confidence: low_
 
-- **Award:** Varies — the Foundation makes direct grants and gifts ranging from ~$1M to $40M to institutions and programs (e.g., $40M to [redacted], $5.9M to Medical College of Wisconsin, $1M to Blood Cancer United); no fixed per-investigator amount published  ·  **Duration:** Varies / see site
+- **Award:** Varies — the Foundation makes direct grants and gifts ranging from ~$1M to $40M to institutions and programs (e.g., $40M to Dana-Farber, $5.9M to Medical College of Wisconsin, $1M to Blood Cancer United); no fixed per-investigator amount published  ·  **Duration:** Varies / see site
 - **Deadline:** No published open application cycle or deadline; proposals are reviewed on a rolling basis by direct contact with the Foundation
 - **Career stage:** established investigator
 - **Eligibility:** Open to multiple myeloma researchers and medical institutions; the Foundation 'carefully reviews and provides grants and gifts directly to worthy programs and projects proposed by multiple myeloma researchers and institutions.' No public eligibility rubric — typically routed through an institution or cancer-center development office.
@@ -1578,7 +1578,7 @@ A senior postdoc with a strong record in computational oncology / blood cancer s
 - **Eligibility:** Doctorate (PhD, MD, or equivalent) in biomedical sciences, medicine, or a related field including engineering or the physical sciences. As of the application cutoff (Sep 3, 2025 for the 2026 class) must hold a full-time, tenure-track assistant professor appointment and run an independent lab; research/adjunct/visiting/instructor titles are ineligible. One nominee per invited institution (institutional nomination required); may apply a maximum of two times. Does not fund clinical trials.
 - **Focus:** AI/computational, oncology, general biomedical
 - **What it funds:** Prestigious unrestricted early-career award for newly independent assistant professors doing innovative biomedical research; flexible funds support high-risk, creative science.
-- **Why it fits:** Well suited for a newly-appointed assistant professor; the physical-sciences/engineering pathway means computational and ML-driven biomedical research (including computational oncology) is eligible. Unrestricted funds are ideal for methods-focused labs. Requires institutional nomination ([redacted] would nominate one candidate).
+- **Why it fits:** Well suited for a newly-appointed assistant professor; the physical-sciences/engineering pathway means computational and ML-driven biomedical research (including computational oncology) is eligible. Unrestricted funds are ideal for methods-focused labs. Requires institutional nomination (your institution would nominate one candidate).
 - **Apply / details:** <https://www.pewtrusts.org/en/projects/pew-biomedical-scholars>
 
 ### 🎓 Damon Runyon Quantitative Biology Fellowship
@@ -1674,7 +1674,7 @@ A senior postdoc with a strong record in computational oncology / blood cancer s
 - **Eligibility:** Early-career faculty who have led an independent lab for no more than 7 years (as of Dec 15, 2026) at an HHMI-eligible host institution. Any area of basic biomedical research; emphasis on scientific excellence and inclusive lab leadership.
 - **Focus:** AI/computational, oncology, general biomedical
 - **What it funds:** A long-horizon (up to 10-year, up to $8.6M) appointment supporting outstanding early-career faculty as full HHMI-style investigators, funding people rather than specific projects.
-- **Why it fits:** Directly applicable for a new [redacted]-style computational-oncology faculty PI within their first 7 years of running a lab; field-agnostic so AI/ML + blood-cancer work is fully in scope. This is the highest-dollar mechanism in this cluster.
+- **Why it fits:** Directly applicable for a new computational-oncology faculty PI within their first 7 years of running a lab; field-agnostic so AI/ML + blood-cancer work is fully in scope. This is the highest-dollar mechanism in this cluster.
 - **Apply / details:** <https://www.hhmi.org/programs/freeman-hrabowski-scholars>
 
 ### Melanoma Research Alliance (MRA) Grant Program (Young Investigator, Established Investigator, Pilot, Team Science, Dermatology CDA)
@@ -1710,7 +1710,7 @@ A senior postdoc with a strong record in computational oncology / blood cancer s
 - **Eligibility:** Applications must be submitted by the institution's designated Keck liaison (a limited/institutional submission), not by individuals. U.S. nonprofit institutions with 3+ years of audited financials. Funds high-risk, early-stage, paradigm-challenging fundamental research; does NOT fund disease-specific, clinical, applied, translational, or drug-development work.
 - **Focus:** AI/computational, oncology
 - **What it funds:** A large-grant program for transformative, high-risk fundamental science and novel methods/instrumentation, routed through the applicant's institution rather than open individual application.
-- **Why it fits:** A fit only if the user frames a genuinely novel AI/ML method, algorithm, or measurement platform as fundamental science (not a disease-specific blood-cancer study, which Keck explicitly won't fund). Must go through [redacted]'s designated Keck liaison. High reward but narrow, non-disease-specific scope.
+- **Why it fits:** A fit only if the user frames a genuinely novel AI/ML method, algorithm, or measurement platform as fundamental science (not a disease-specific blood-cancer study, which Keck explicitly won't fund). Must go through your institution's designated Keck liaison. High reward but narrow, non-disease-specific scope.
 - **Apply / details:** <https://www.wmkeck.org/research-overview/>
 
 ---
@@ -1746,7 +1746,7 @@ A senior postdoc with a strong record in computational oncology / blood cancer s
 | Ruth L. Kirschstein NRSA Individual Postdoctor | NIH (NCI and most Institut | $62,232  | postdoc | Standard fellowship due dates Apr 8 / Au |
 | Ruth L. Kirschstein NRSA Individual Predoctora | NIH (NCI and most other In | $29,364 | PhD student | Standard fellowship due dates: new appli |
 
-> **Citizenship note:** most NIH F/K fellowships (F32, K99 first phase, etc.) **require U.S. citizenship OR permanent residency** — a **[redacted] satisfies these** (you do not need to be a citizen). ARPA-H, R01/R21, and most foundation awards have no citizenship requirement at all. Verify per program.
+> **Citizenship note:** most NIH F/K fellowships (F32, K99 first phase, etc.) **require U.S. citizenship OR permanent residency** — a **green card satisfies these** (you do not need to be a citizen). ARPA-H, R01/R21, and most foundation awards have no citizenship requirement at all. Verify per program.
 >
 > **Years-post-PhD note:** several early-career mechanisms have hard windows measured from the PhD/terminal degree or postdoc start — e.g. **K99/R00 requires ≤ 4 years of postdoctoral experience** (so a 2019 PhD now past ~6 postdoc years is ineligible), DP5 Early Independence ≈ within 1 year of the degree. The dashboard flags these automatically from your PhD year. Independent postdoctoral fellowships and most foundation transition awards have longer or no windows.
 

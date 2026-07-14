@@ -64,7 +64,7 @@
   "eligibility": "Doctorate (PhD, MD, or equivalent) in biomedical sciences, medicine, or a related field including engineering or the physical sciences. As of the application cutoff (Sep 3, 2025 for the 2026 class) must hold a full-time, tenure-track assistant professor appointment and run an independent lab; research/adjunct/visiting/instructor titles are ineligible. One nominee per invited institution (institutional nomination required); may apply a maximum of two times. Does not fund clinical trials.",
   "applyUrl": "https://www.pewtrusts.org/en/projects/pew-biomedical-scholars",
   "description": "Prestigious unrestricted early-career award for newly independent assistant professors doing innovative biomedical research; flexible funds support high-risk, creative science.",
-  "relevanceToUser": "Well suited for a newly-appointed assistant professor; the physical-sciences/engineering pathway means computational and ML-driven biomedical research (including computational oncology) is eligible. Unrestricted funds are ideal for methods-focused labs. Requires institutional nomination ([redacted] would nominate one candidate).",
+  "relevanceToUser": "Well suited for a newly-appointed assistant professor; the physical-sciences/engineering pathway means computational and ML-driven biomedical research (including computational oncology) is eligible. Unrestricted funds are ideal for methods-focused labs. Requires institutional nomination (your institution would nominate one candidate).",
   "sourceUrl": "https://www.pewtrusts.org/en/projects/pew-biomedical-scholars",
   "confidence": "high",
   "source": "curated"
@@ -89,7 +89,7 @@
   "eligibility": "Pursuing an independent research career in biochemistry, cell biology, genetics, immunology, neuroscience, pharmacology, and related areas of chemistry, medicine, and the biological sciences. Must have begun a first tenure-track (or nearest-equivalent) assistant-professor appointment within the defined recent window. Restricted to nominees from participating institutions (institutional nomination required). Does not ordinarily support purely clinical research but allows programs mixing basic and clinical components.",
   "applyUrl": "https://searlescholars.org/application-information/award-information/process-and-eligibility/",
   "description": "Highly selective award for scientists in the first year or two of an independent faculty appointment, funding bold biomedical research with flexible support.",
-  "relevanceToUser": "Strong fit for a first-time assistant professor doing mechanism-oriented cancer/blood-cancer biology with computational methods; the eligible fields include genetics, cell biology, and immunology, which encompass computational oncology and leukemia/lymphoma research. Requires [redacted] nomination and a very recent first faculty appointment.",
+  "relevanceToUser": "Strong fit for a first-time assistant professor doing mechanism-oriented cancer/blood-cancer biology with computational methods; the eligible fields include genetics, cell biology, and immunology, which encompass computational oncology and leukemia/lymphoma research. Requires institutional nomination and a very recent first faculty appointment.",
   "sourceUrl": "https://searlescholars.org/application-information/award-information/process-and-eligibility/",
   "confidence": "high",
   "source": "curated"
@@ -260,7 +260,7 @@
   "eligibility": "Must, as of the deadline, hold a doctoral degree in an NSF-supported field, hold at least a 50% tenure-track (or equivalent) assistant-professor position, be untenured, and not have previously received a CAREER award. One proposal per PI per competition; no co-PIs.",
   "applyUrl": "https://www.nsf.gov/funding/opportunities/career-faculty-early-career-development-program",
   "description": "NSF's flagship early-career award for tenure-track faculty integrating an ambitious research program with education/outreach; submitted to a specific NSF program (e.g., a CISE/IIS or Smart Health program).",
-  "relevanceToUser": "Premier funding for a newly-independent [redacted]-track ML/statistics faculty member. A CAREER submitted to CISE (Robust Intelligence) or Smart Health can build a 5-year agenda on AI methods for hematologic-malignancy data.",
+  "relevanceToUser": "Premier funding for a newly-independent tenure-track ML/statistics faculty member. A CAREER submitted to CISE (Robust Intelligence) or Smart Health can build a 5-year agenda on AI methods for hematologic-malignancy data.",
   "sourceUrl": "https://www.nsf.gov/funding/opportunities/career-faculty-early-career-development-program/nsf22-586/solicitation",
   "confidence": "high",
   "source": "curated"
@@ -420,7 +420,7 @@
   "eligibility": "Independent, self-directed investigators at a US academic institution or eligible non-profit who were first appointed as independent full-time faculty (or equivalent) 8 or fewer years ago (tightened from prior 10-year window as of Summer 2026). Must be PI on no more than one R01 or R01-equivalent grant at time of application. Prior RSG grantees cannot reapply except via special RFAs. Applicants may submit to only ONE of RSG/CSDG/Mission Boost/Postdoctoral Fellowship per cycle.",
   "applyUrl": "https://www.cancer.org/research/we-fund-cancer-research/apply-research-grant/grant-types/research-scholar-grants.html",
   "description": "ACS's flagship independent-investigator award for early-career faculty, supporting investigator-initiated projects across the cancer research continuum within ACS priority areas. AI/ML and computational methodologies are explicitly eligible.",
-  "relevanceToUser": "The primary ACS grant for an early-career faculty member (e.g., a newly appointed assistant professor at [redacted]). A computational/AI project on hematologic malignancies fits within ACS priority areas; no citizenship restriction beyond working at a US institution.",
+  "relevanceToUser": "The primary ACS grant for an early-career faculty member (e.g., a newly appointed assistant professor). A computational/AI project on hematologic malignancies fits within ACS priority areas; no citizenship restriction beyond working at a US institution.",
   "sourceUrl": "https://www.cancer.org/research/we-fund-cancer-research/apply-research-grant/grant-types/research-scholar-grants.html",
   "confidence": "high",
   "source": "curated"
@@ -523,7 +523,7 @@
   "eligibility": "Junior/early-career faculty (commonly within ~6 years of first independent faculty appointment) who do not currently hold and have not held a national independent research grant such as an R01 (an R00 is typically allowed). Must be at an institution that holds an ACS IRG block grant. Applied for and reviewed locally, not via ProposalCentral.",
   "applyUrl": "https://www.cancer.org/research/we-fund-cancer-research/apply-research-grant/grant-types/institutional-research-grants.html",
   "description": "ACS block grants to institutions that redistribute pilot funding to newly independent investigators to generate preliminary data for larger national grants. Computational/data-science pilots are eligible.",
-  "relevanceToUser": "A realistic entry point for a newly appointed [redacted] faculty member: small, fast pilot funding to seed an AI/computational-oncology or blood-cancer project. Applied through the local cancer center (verify [redacted]/affiliate participation), not directly to ACS.",
+  "relevanceToUser": "A realistic entry point for a newly appointed faculty member: small, fast pilot funding to seed an AI/computational-oncology or blood-cancer project. Applied through the local cancer center (verify your cancer center's participation), not directly to ACS.",
   "sourceUrl": "https://www.cancer.org/research/we-fund-cancer-research/apply-research-grant/grant-types/institutional-research-grants.html",
   "confidence": "medium",
   "source": "curated"
@@ -722,7 +722,7 @@
   "eligibility": "Must be in a mentored postdoctoral position at time of award (independence before the K99 is made voids the award). Postdoc experience limit is normally no more than 4 years at submission (NCI's page lists up to 6 years reflecting temporary extensions — verify the current notice, e.g., NOT-OD-26-021). NOTABLE: no U.S. citizenship requirement for K99 — non-U.S. citizens with appropriate visa status are eligible.",
   "applyUrl": "https://www.cancer.gov/grants-training/training/funding/k99",
   "description": "Flagship postdoc-to-faculty transition award: a mentored K99 phase followed by an independent R00 phase that activates when the awardee starts a tenure-track (or equivalent) faculty position.",
-  "relevanceToUser": "Excellent fit for a postdoc in an AI/ML/computational-oncology lab targeting an independent faculty position. A major advantage over F32/NRSA and K25/K01 for this user: K99/R00 has NO citizenship requirement, so international postdocs at [redacted] can apply. Apply by the 2nd-3rd postdoc year for best benefit.",
+  "relevanceToUser": "Excellent fit for a postdoc in an AI/ML/computational-oncology lab targeting an independent faculty position. A major advantage over F32/NRSA and K25/K01 for this user: K99/R00 has NO citizenship requirement, so international postdocs at U.S. institutions can apply. Apply by the 2nd-3rd postdoc year for best benefit.",
   "sourceUrl": "https://grants.nih.gov/grants/guide/pa-files/PA-24-194.html",
   "confidence": "high",
   "source": "curated"
@@ -848,7 +848,7 @@
   "eligibility": "Trainees must be U.S. citizens, non-citizen nationals, or permanent residents at appointment (statutory NRSA requirement). Must be enrolled in a research doctoral program or in postdoctoral training at the institution holding the T32. The grant itself is applied for by the institution/program director.",
   "applyUrl": "https://grants.nih.gov/grants/guide/pa-files/PA-25-168.html",
   "description": "Institutional training grants that fund cohorts of predoctoral and postdoctoral trainees in a defined area. An individual does not apply directly to NIH — they get appointed to a slot on a program their institution already holds.",
-  "relevanceToUser": "A practical funding route for a U.S. citizen/permanent-resident PhD student or postdoc: look for T32 programs at [redacted]/Harvard/Broad in bioinformatics, computational biology, data science, cancer biology, or hematology and ask to be appointed. Provides NRSA stipend support plus structured training. Not open to international trainees.",
+  "relevanceToUser": "A practical funding route for a U.S. citizen/permanent-resident PhD student or postdoc: look for T32 programs at your institution and nearby research centers in bioinformatics, computational biology, data science, cancer biology, or hematology and ask to be appointed. Provides NRSA stipend support plus structured training. Not open to international trainees.",
   "sourceUrl": "https://grants.nih.gov/funding/activity-codes/T32",
   "confidence": "high",
   "source": "curated"
@@ -1197,7 +1197,7 @@
   "eligibility": "For emerging hematology researchers based OUTSIDE the U.S. and Canada, between completion of training and establishment of an independent career. Must be an ASH member in good standing and hold an MD, PhD, MD-PhD, or equivalent degree.",
   "applyUrl": "https://www.hematology.org/awards/career-enhancement-and-training/global-research-award/apply",
   "description": "Supports independent projects of early-career hematology researchers outside the U.S. and Canada to foster global research collaboration.",
-  "relevanceToUser": "Low relevance / likely ineligible: this award is explicitly restricted to researchers BASED OUTSIDE the U.S. and Canada. A U.S.-based [redacted] researcher would not qualify. Included for completeness of the ASH cluster; the U.S.-eligible analogue is the Scholar Award.",
+  "relevanceToUser": "Low relevance / likely ineligible: this award is explicitly restricted to researchers BASED OUTSIDE the U.S. and Canada. A U.S.-based researcher would not qualify. Included for completeness of the ASH cluster; the U.S.-eligible analogue is the Scholar Award.",
   "sourceUrl": "https://www.hematology.org/awards/career-enhancement-and-training/global-research-award",
   "confidence": "medium",
   "source": "curated"
@@ -1319,10 +1319,10 @@
   "awardAmount": "Varies; funding flows to institutional teams (initial commitment ~$50M across projects). No published per-investigator open-application amount.",
   "duration": "Multi-year team projects (varies)",
   "deadlineInfo": "No open public application. Projects are assembled by the foundation with its five member institutions. Engage via your institution. See site / contact info@breakthroughcancer.org.",
-  "eligibility": "Research is conducted through the five member institutions: [redacted], Johns Hopkins (Sidney Kimmel), Memorial [redacted], [redacted] (Koch Institute), and MD Anderson. Not an open individual-applicant grant.",
+  "eligibility": "Research is conducted through the five member institutions: Dana-Farber, Johns Hopkins (Sidney Kimmel), Memorial Sloan Kettering, MIT (Koch Institute), and MD Anderson. Not an open individual-applicant grant.",
   "applyUrl": "https://breakthroughcancer.org/projects/",
   "description": "Radical-collaboration 'TeamLab' model funding cross-institution teams. Includes an Acute Myeloid Leukemia (AML) TeamLab (blood cancer) and a dedicated Data Science Hub applying generative-AI digital pathology, spatial transcriptomics, and computational diagnostics.",
-  "relevanceToUser": "Highly relevant thematically (AML + Data Science Hub) and the user is at [redacted], a member institution (Koch Institute) - so participation is realistically accessible through internal [redacted]/Koch channels rather than an open call. Combines blood cancer and AI/computational focus.",
+  "relevanceToUser": "Highly relevant thematically (AML + Data Science Hub) and participation runs through the consortium's member institutions rather than an open call, so it is only accessible if your institution is one of them. Combines blood cancer and AI/computational focus.",
   "sourceUrl": "https://breakthroughcancer.org/projects/",
   "confidence": "medium",
   "source": "curated"
@@ -1346,7 +1346,7 @@
   "eligibility": "PIs and Co-PIs must hold faculty or equivalent independent-investigator status at US-based nonprofit institutions (universities, hospitals, independent labs, government). For-profit entities ineligible.",
   "applyUrl": "https://chanzuckerberg.com/rfa/ai-computing-gpu/",
   "description": "Provides large-scale GPU compute (not obtainable with typical university resources) to train foundation models for biology, aligned with CZI's Virtual Cell initiative.",
-  "relevanceToUser": "Ideal for an ML lab building large biological foundation models - directly supports training compute for AI-on-cells / virtual-cell work that could be applied to hematopoietic single-cell and cancer datasets. US-faculty eligibility fits an [redacted] PI.",
+  "relevanceToUser": "Ideal for an ML lab building large biological foundation models - directly supports training compute for AI-on-cells / virtual-cell work that could be applied to hematopoietic single-cell and cancer datasets. US-faculty eligibility fits a university PI.",
   "sourceUrl": "https://chanzuckerberg.com/rfa/ai-computing-gpu/",
   "confidence": "medium",
   "source": "curated"
@@ -1570,7 +1570,7 @@
   "eligibility": "Early-career faculty who have led an independent lab for no more than 7 years (as of Dec 15, 2026) at an HHMI-eligible host institution. Any area of basic biomedical research; emphasis on scientific excellence and inclusive lab leadership.",
   "applyUrl": "https://www.hhmi.org/programs/freeman-hrabowski-scholars",
   "description": "A long-horizon (up to 10-year, up to $8.6M) appointment supporting outstanding early-career faculty as full HHMI-style investigators, funding people rather than specific projects.",
-  "relevanceToUser": "Directly applicable for a new [redacted]-style computational-oncology faculty PI within their first 7 years of running a lab; field-agnostic so AI/ML + blood-cancer work is fully in scope. This is the highest-dollar mechanism in this cluster.",
+  "relevanceToUser": "Directly applicable for a new computational-oncology faculty PI within their first 7 years of running a lab; field-agnostic so AI/ML + blood-cancer work is fully in scope. This is the highest-dollar mechanism in this cluster.",
   "sourceUrl": "https://www.hhmi.org/programs/freeman-hrabowski-scholars",
   "confidence": "high",
   "source": "curated"
@@ -1764,7 +1764,7 @@
   "eligibility": "Applications must be submitted by the institution's designated Keck liaison (a limited/institutional submission), not by individuals. U.S. nonprofit institutions with 3+ years of audited financials. Funds high-risk, early-stage, paradigm-challenging fundamental research; does NOT fund disease-specific, clinical, applied, translational, or drug-development work.",
   "applyUrl": "https://www.wmkeck.org/research-overview/",
   "description": "A large-grant program for transformative, high-risk fundamental science and novel methods/instrumentation, routed through the applicant's institution rather than open individual application.",
-  "relevanceToUser": "A fit only if the user frames a genuinely novel AI/ML method, algorithm, or measurement platform as fundamental science (not a disease-specific blood-cancer study, which Keck explicitly won't fund). Must go through [redacted]'s designated Keck liaison. High reward but narrow, non-disease-specific scope.",
+  "relevanceToUser": "A fit only if the user frames a genuinely novel AI/ML method, algorithm, or measurement platform as fundamental science (not a disease-specific blood-cancer study, which Keck explicitly won't fund). Must go through your institution's designated Keck liaison. High reward but narrow, non-disease-specific scope.",
   "sourceUrl": "https://www.wmkeck.org/research-faq/",
   "confidence": "medium",
   "source": "curated"
@@ -1991,7 +1991,7 @@
   "eligibility": "Invitation-only — RFP sent only to NCI-designated institutions, which nominate eligible investigators. Typically Assistant Professors (Associate Professors eligible only for integrative-medicine grants). Focus on leukemia, lymphoma, and related blood cancers translatable to clinical trials within 3–5 years. International proposals not accepted.",
   "applyUrl": "https://gabriellesangels.org/what-we-do/grant-info-awards/",
   "description": "Early-career blood-cancer research awards emphasizing translational leukemia/lymphoma work with near-term clinical potential.",
-  "relevanceToUser": "Directly targets leukemia/lymphoma/blood-cancer research at the assistant-professor stage; [redacted] is not NCI-designated, so the user would need to route through a nominating NCI-designated cancer center collaborator (e.g., [redacted]) — worth noting the invitation-only constraint.",
+  "relevanceToUser": "Directly targets leukemia/lymphoma/blood-cancer research at the assistant-professor stage; if your institution is not NCI-designated, you would need to route through a nominating NCI-designated cancer center collaborator (e.g., Dana-Farber) — worth noting the invitation-only constraint.",
   "sourceUrl": "https://gabriellesangels.org/what-we-do/grant-info-awards/",
   "confidence": "high",
   "source": "curated"
@@ -2296,7 +2296,7 @@
   "eligibility": "Open to two PI tracks: Established Investigators (independent, Associate Professor or above, or Assistant Prof >10 yrs) and Early-Career Investigators (independent, Assistant Professor level, <10 years from that appointment — this is the 'New Investigator' path). U.S. citizenship NOT required; foreign/domestic non-profit, for-profit, and academic organizations eligible.",
   "applyUrl": "https://cdmrp.health.mil/funding/bmfrp",
   "description": "Supports innovative, high-impact ideas (with or without preliminary data) to understand and cure inherited and acquired bone marrow failure diseases — aplastic anemia, MDS, Fanconi anemia, and related disorders. The ECI track lowers the bar for newly independent faculty.",
-  "relevanceToUser": "Directly targets the user's MDS/bone marrow failure interest. Preliminary data is not required, so a novel AI/ML or computational-biology approach to BMF disease mechanisms, risk prediction, or clonal-evolution modeling fits well. The Early-Career Investigator track suits a new [redacted] faculty member.",
+  "relevanceToUser": "Directly targets the user's MDS/bone marrow failure interest. Preliminary data is not required, so a novel AI/ML or computational-biology approach to BMF disease mechanisms, risk prediction, or clonal-evolution modeling fits well. The Early-Career Investigator track suits a new faculty member.",
   "sourceUrl": "https://ebrap.org/eBRAP/public/ViewFile.htm?fileId=25045292&fileType=pdf",
   "confidence": "high",
   "source": "curated"
@@ -2476,7 +2476,7 @@
   "eligibility": "Domestic and foreign institutions; independent investigators in an eligible faculty/PI appointment. No PI citizenship requirement. CT Not Allowed = PA-25-301; CT Required = PA-25-305.",
   "applyUrl": "https://grants.nih.gov/grants/guide/pa-files/PA-25-301.html",
   "description": "The flagship investigator-initiated research project grant funding a discrete, hypothesis-driven project. NCI, NHLBI, and NIDDK all participate, so the same mechanism serves cancer, blood-cancer, and blood-disease research.",
-  "relevanceToUser": "The primary vehicle for an independent [redacted] faculty member to fund an AI/ML-driven computational oncology or hematologic-malignancy research program. Route to NCI for leukemia/lymphoma/myeloma/MDS work; to NHLBI/NIDDK for non-malignant blood/marrow-failure work.",
+  "relevanceToUser": "The primary vehicle for an independent faculty member to fund an AI/ML-driven computational oncology or hematologic-malignancy research program. Route to NCI for leukemia/lymphoma/myeloma/MDS work; to NHLBI/NIDDK for non-malignant blood/marrow-failure work.",
   "sourceUrl": "https://grants.nih.gov/funding/explore-nih-opportunities/parent-announcements",
   "confidence": "high",
   "source": "curated"
@@ -2525,7 +2525,7 @@
   "eligibility": "Early Stage Investigators (ESI) — within 10 years of terminal degree/clinical training and no prior substantial NIH independent research award — whose R01 falls within the NCI payline. All project leaders must retain ESI status at award.",
   "applyUrl": "https://www.cancer.gov/grants-training/grants-funding/funding-opportunities/merit",
   "description": "An NCI honorific extension of the R01 that gives high-scoring early-stage investigators longer, more flexible funding. Cannot be applied for directly — it is a conversion of a competitive ESI R01.",
-  "relevanceToUser": "If a first R01 on AI-for-oncology scores within the NCI ESI payline, it can convert to up to 7 years of stable funding — valuable for a new [redacted] faculty member building a computational cancer program.",
+  "relevanceToUser": "If a first R01 on AI-for-oncology scores within the NCI ESI payline, it can convert to up to 7 years of stable funding — valuable for a new faculty member building a computational cancer program.",
   "sourceUrl": "https://grants.nih.gov/funding/activity-codes/R37",
   "confidence": "high",
   "source": "curated"
@@ -2817,10 +2817,10 @@
   "awardAmount": "$110,000/year personal stipend (widely documented; not restated on official FAQ)",
   "duration": "12-24 month research placement (up to 2 years)",
   "deadlineInfo": "Annual. 2027 cohort: institutional nominations due May 15, 2026; portal opened May 19, 2026; full applications due July 13, 2026; cohort announced March 2027",
-  "eligibility": "Must complete PhD (incl. defense) between May 1, 2026 and June 30, 2027 (for 2027 cohort) in natural sciences, engineering, math, or computing; must be nominated by PhD-awarding institution ([redacted] is a nominating partner); must pivot to a discipline different from the PhD; clinical-track MD-PhD not eligible",
+  "eligibility": "Must complete PhD (incl. defense) between May 1, 2026 and June 30, 2027 (for 2027 cohort) in natural sciences, engineering, math, or computing; must be nominated by PhD-awarding institution; must pivot to a discipline different from the PhD; clinical-track MD-PhD not eligible",
   "applyUrl": "https://schmidtsciencefellows.org/selection/how-to-apply/",
   "description": "Prestigious postdoctoral fellowship funding a deliberate interdisciplinary pivot away from the PhD discipline, with placement in a new lab plus a science-leadership program.",
-  "relevanceToUser": "A textbook fit for an ML/statistics PhD pivoting into cancer biology/hematologic malignancies — the required 'interdisciplinary pivot' (e.g., ML methods PhD -> experimental/computational oncology lab) is exactly what the program rewards. Only applicable near PhD completion via [redacted] internal nomination.",
+  "relevanceToUser": "A textbook fit for an ML/statistics PhD pivoting into cancer biology/hematologic malignancies — the required 'interdisciplinary pivot' (e.g., ML methods PhD -> experimental/computational oncology lab) is exactly what the program rewards. Only applicable near PhD completion via institutional nomination.",
   "sourceUrl": "https://schmidtsciencefellows.org/selection/who-can-apply/",
   "confidence": "medium",
   "source": "curated"
@@ -2843,7 +2843,7 @@
   "eligibility": "PhD in chemistry, CS, economics, math, neuroscience, earth system science, physics or related field; tenure-track but untenured faculty at a US/Canadian degree-granting institution with a regular teaching obligation; nominated by department head/senior researcher (max 3 nominees per department per field)",
   "applyUrl": "https://sloan.org/fellowships/apply-2",
   "description": "Early-career honorific fellowship providing flexible research funds to the most promising untenured faculty in eight STEM fields.",
-  "relevanceToUser": "An [redacted] statistics/ML researcher would be nominated in Computer Science or Mathematics; ML methodology with applications to computational oncology is well within scope (fellows are judged on methodological/scientific promise, and health applications do not disqualify). Only relevant once in a tenure-track faculty position.",
+  "relevanceToUser": "A statistics/ML researcher would be nominated in Computer Science or Mathematics; ML methodology with applications to computational oncology is well within scope (fellows are judged on methodological/scientific promise, and health applications do not disqualify). Only relevant once in a tenure-track faculty position.",
   "sourceUrl": "https://sloan.org/fellowships/",
   "confidence": "high",
   "source": "curated"
@@ -2863,10 +2863,10 @@
   "awardAmount": "$875,000 total",
   "duration": "5 years",
   "deadlineInfo": "Annual. 2026 cycle: institutional letters of intent due March 15, 2026; applications due April 20, 2026; internal university pre-selection happens months earlier",
-  "eligibility": "Faculty in first 3 years of first tenure-track appointment (2026 cycle: appointment began no earlier than May 31, 2023) at one of 50 invited US institutions ([redacted] included); each president nominates up to 2 candidates; fields include CS, math, biology, engineering; clinical research and social science excluded",
+  "eligibility": "Faculty in first 3 years of first tenure-track appointment (2026 cycle: appointment began no earlier than May 31, 2023) at one of 50 invited US institutions; each president nominates up to 2 candidates; fields include CS, math, biology, engineering; clinical research and social science excluded",
   "applyUrl": "https://www.packard.org/approach/fellowships-for-science-engineering/",
   "description": "One of the largest unrestricted early-career awards in US science: 20 fellows/year receive flexible five-year funding for blue-sky research.",
-  "relevanceToUser": "AI/ML methods for cancer biology qualifies under CS/biology/engineering as long as it is framed as basic (not clinical) research — computational modeling of leukemia/lymphoma biology is fine, clinical-trial work is not. Requires winning [redacted]'s internal nomination (2 slots).",
+  "relevanceToUser": "AI/ML methods for cancer biology qualifies under CS/biology/engineering as long as it is framed as basic (not clinical) research — computational modeling of leukemia/lymphoma biology is fine, clinical-trial work is not. Requires winning your institution's internal nomination (2 slots).",
   "sourceUrl": "https://www.packard.org/approach/fellowships-for-science-engineering/eligibility/",
   "confidence": "high",
   "source": "curated"
@@ -2912,7 +2912,7 @@
   "eligibility": "Must be nominated by the university (no direct applications; US/Canada universities nominate up to 4 students); enrolled full-time in PhD for award duration; cannot hold a comparable industry award (government/non-profit funding OK); not open to prior awardees or Google employees' households",
   "applyUrl": "https://research.google/programs-and-events/phd-fellowship/",
   "description": "Recognizes outstanding PhD students in computer science and related areas with full support and a Google research mentor.",
-  "relevanceToUser": "Health & Bioscience (medical data analysis) and Machine Intelligence are explicit award tracks — ML for computational oncology/blood cancers fits squarely. Requires winning [redacted]'s internal nomination (up to 4 slots), so start with the department early in the year.",
+  "relevanceToUser": "Health & Bioscience (medical data analysis) and Machine Intelligence are explicit award tracks — ML for computational oncology/blood cancers fits squarely. Requires winning your institution's internal nomination (up to 4 slots), so start with the department early in the year.",
   "sourceUrl": "https://research.google/programs-and-events/phd-fellowship/",
   "confidence": "high",
   "source": "curated"
@@ -3142,7 +3142,7 @@
   "eligibility": "US small businesses (<=500 employees), majority US-citizen/US-small-business owned, with all work performed in the US. Academic labs participate as subawardees/partners, not primes. Supports Phase I, Direct-to-Phase II, and Fast Track.",
   "applyUrl": "https://arpa-h.gov/explore-funding/open-funding-opportunities",
   "description": "Non-dilutive small-business R&D funding across ~7 rotating health-innovation topics, including AI/predictive-model and computational-health themes. Two-phase structure with milestone-based contracts.",
-  "relevanceToUser": "Only directly applicable if the researcher spins out or partners with a startup — a common path to commercialize AI/ML oncology tools. As an academic at [redacted] you would typically join as a subcontractor/PI-partner. Include as an option if there is a company vehicle; this cycle's window has closed, so aim at the next release.",
+  "relevanceToUser": "Only directly applicable if the researcher spins out or partners with a startup — a common path to commercialize AI/ML oncology tools. As an academic at a research university you would typically join as a subcontractor/PI-partner. Include as an option if there is a company vehicle; this cycle's window has closed, so aim at the next release.",
   "sourceUrl": "https://arpa-h.gov/explore-funding/open-funding-opportunities",
   "confidence": "medium",
   "source": "curated"
@@ -3513,7 +3513,7 @@
   "eligibility": "Tenure-track (or tenured) Assistant Professor within first 5 years of first appointment, not yet promoted to Associate; US citizen or lawful permanent resident (also invited Canadian institutions); >=2 years postdoctoral (MD/PhD) training (1 yr acceptable for some MD specialties). Excluded if prior V Scholar, or if holding an R01/R01-equivalent, or any non-mentored single grant >=$750K or aggregate non-mentored funding >$1M. Adult cancers only (excludes pediatric, epidemiology, behavioral, health-services research).",
   "applyUrl": "https://www.v.org/research-overview/applicants/",
   "description": "Early-career-faculty grant to launch independent adult-cancer research programs (fundamental or translational). A detailed biostatistics/bioinformatics plan is mandatory for every proposal.",
-  "relevanceToUser": "Well-suited to a computationally driven blood-cancer program: any adult cancer type qualifies (leukemia, lymphoma, myeloma, MDS) and a bioinformatics/biostatistics plan is explicitly required, so ML/statistical methods are welcomed. Key constraints: must be a tenure-track Assistant Professor at an invited institution ([redacted]-type institutions are typically eligible but must be invited) and a US citizen/permanent resident; not for postdocs or trainees.",
+  "relevanceToUser": "Well-suited to a computationally driven blood-cancer program: any adult cancer type qualifies (leukemia, lymphoma, myeloma, MDS) and a bioinformatics/biostatistics plan is explicitly required, so ML/statistical methods are welcomed. Key constraints: must be a tenure-track Assistant Professor at an invited institution (major research universities are typically eligible, but must be invited) and a US citizen/permanent resident; not for postdocs or trainees.",
   "sourceUrl": "https://winshipcancer.emory.edu/research/funding-opportunities/_files/2026_v-foundation-v-scholar-rfa.pdf",
   "confidence": "high",
   "source": "curated"
@@ -3658,7 +3658,7 @@
   "careerStages": [
    "established investigator"
   ],
-  "awardAmount": "Varies — the Foundation makes direct grants and gifts ranging from ~$1M to $40M to institutions and programs (e.g., $40M to [redacted], $5.9M to Medical College of Wisconsin, $1M to Blood Cancer United); no fixed per-investigator amount published",
+  "awardAmount": "Varies — the Foundation makes direct grants and gifts ranging from ~$1M to $40M to institutions and programs (e.g., $40M to Dana-Farber, $5.9M to Medical College of Wisconsin, $1M to Blood Cancer United); no fixed per-investigator amount published",
   "duration": "Varies / see site",
   "deadlineInfo": "No published open application cycle or deadline; proposals are reviewed on a rolling basis by direct contact with the Foundation",
   "eligibility": "Open to multiple myeloma researchers and medical institutions; the Foundation 'carefully reviews and provides grants and gifts directly to worthy programs and projects proposed by multiple myeloma researchers and institutions.' No public eligibility rubric — typically routed through an institution or cancer-center development office.",
@@ -3815,7 +3815,7 @@
   "eligibility": "PI must hold an MD, PhD, or MD-PhD (or equivalent) and a faculty appointment at the Assistant or Associate Professor level (or equivalent) at a US academic research institution. Must have run their own independent lab for at least 2 years and no more than 6 years by the award start date. Cancer-research background is NOT required, but the setting must be capable of high-quality cancer research. Non-US citizens must confirm their visa allows completing the project in the US. Applicants may apply at most twice total.",
   "applyUrl": "https://pershingsquarephilanthropies.org/initiatives/programs/PSSCRA/page/application-guidelines",
   "description": "A prize for rising-star early-career faculty pursuing bold, innovative cancer research. Research areas may include basic research and technological/computational applications, with no requirement for a prior cancer-research background.",
-  "relevanceToUser": "Highly relevant and newly accessible: as of the 2026/2027 cycle the prize expanded from the NYC metro area to ALL US institutions, so an [redacted] statistics/ML faculty member now qualifies. It explicitly welcomes technological and methods-driven applications (AI/ML), does not require a cancer-research pedigree, and would fund computational-oncology work on leukemia/lymphoma/myeloma once the applicant is 2-6 years into an independent faculty appointment. Physician-scientists (MD-PhD) are also eligible.",
+  "relevanceToUser": "Highly relevant and newly accessible: as of the 2026/2027 cycle the prize expanded from the NYC metro area to ALL US institutions, so a statistics/ML faculty member now qualifies. It explicitly welcomes technological and methods-driven applications (AI/ML), does not require a cancer-research pedigree, and would fund computational-oncology work on leukemia/lymphoma/myeloma once the applicant is 2-6 years into an independent faculty appointment. Physician-scientists (MD-PhD) are also eligible.",
   "sourceUrl": "https://pershingsquarephilanthropies.org/initiatives/programs/PSSCRA",
   "confidence": "high",
   "source": "curated"
@@ -4476,8 +4476,8 @@
   "deadlineInfo": "RFA-LM-26-004 issued Feb 2026; estimated application due date ~Sept 25, 2026 (one-time RFA cycle; earliest project start ~July 2027). Verify exact date on the RFA.",
   "eligibility": "Awarded to institutions, not individuals — a researcher benefits by being a trainee (predoc/postdoc) in a funded program, or a faculty member can serve as program director/faculty. Appointed trainees must be U.S. citizens or permanent residents.",
   "applyUrl": "https://www.nlm.nih.gov/ep/GrantTrainInstitute.html",
-  "description": "NLM's institutional training program (T15) supporting predoctoral and postdoctoral trainees in biomedical informatics, data science, and AI/ML across ~20 U.S. universities (e.g., Harvard/[redacted], Stanford, Johns Hopkins, Utah). The 2026 reissue explicitly adds AI/ML to the scope.",
-  "relevanceToUser": "For a PhD student or postdoc, the practical path is to be appointed as a trainee on an existing NLM T15 slot ([redacted]-area programs include Harvard/[redacted] and Boston-area institutions) — funding plus a formal informatics/data-science/AI curriculum. Faculty could join or lead a T15 program. Note the U.S. citizen/permanent-resident requirement for trainee appointments.",
+  "description": "NLM's institutional training program (T15) supporting predoctoral and postdoctoral trainees in biomedical informatics, data science, and AI/ML across ~20 U.S. universities (e.g., Harvard, Stanford, Johns Hopkins, Utah). The 2026 reissue explicitly adds AI/ML to the scope.",
+  "relevanceToUser": "For a PhD student or postdoc, the practical path is to be appointed as a trainee on an existing NLM T15 slot (programs are hosted at major biomedical-informatics institutions) — funding plus a formal informatics/data-science/AI curriculum. Faculty could join or lead a T15 program. Note the U.S. citizen/permanent-resident requirement for trainee appointments.",
   "sourceUrl": "https://simpler.grants.gov/opportunity/1c1ad215-73b3-44cf-afef-a386915e2f7f",
   "confidence": "medium",
   "source": "curated"

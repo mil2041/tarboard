@@ -1,0 +1,38 @@
+RELATED EXPERIENCE
+
+Jordan Bennett, PhD — U.S. citizen
+Senior Postdoctoral Associate, Computational Oncology
+Northgate University, Boston, MA (2020 - present)
+Joint appointment, Bayview Cancer Institute, Boston, MA
+
+Computational oncology and cancer genomics. Builds machine-learning methods on
+single-cell and multi-omic data to explain therapy resistance and to stratify
+patient risk in blood cancers, with a focus on T-cell lymphoma.
+
+- T-cell lymphoma genomics. Developed end-to-end pipelines for WES/WGS, bulk and
+  single-cell RNA-seq, ATAC-seq, and CUT&RUN across peripheral T-cell lymphoma
+  (PTCL) and cutaneous T-cell lymphoma (CTCL) cohorts. Identified transcriptional
+  programs separating responders from non-responders to front-line therapy.
+
+- Single-cell immune profiling. Paired scRNA-seq with single-cell TCR-seq to track
+  clonal T-cell dynamics under immunotherapy, quantifying exhaustion trajectories
+  and clonal replacement in the tumor microenvironment.
+
+- Machine learning for risk stratification. Trained and validated survival models
+  (regularized Cox, gradient boosting, deep representation learning) integrating
+  genomic, transcriptomic, and clinical features; produced calibrated risk scores
+  that outperformed standard clinical indices on held-out cohorts.
+
+- Multi-omics integration. Methods for joint embedding of transcriptomic, epigenomic,
+  and spatial assays, including spatial metabolomics (MALDI-MSI) and multiplexed
+  imaging, to map immune architecture onto molecular subtype.
+
+- Immunotherapy resistance. Correlative analyses from investigator-initiated trials
+  characterizing anti-KLRG1 and checkpoint-blockade response in T/NK-cell malignancies.
+
+PhD in Computational Biology, conferred August 2019, Northgate University.
+Postdoctoral training begun 2020; ~7 years post-PhD as of 2026.
+
+Skills: Python, PyTorch, R/Bioconductor, Nextflow, single-cell RNA-seq, ATAC-seq,
+TCR-seq, spatial metabolomics, multiplexed imaging, machine learning, multi-omics
+integration, survival modeling, statistical genomics.

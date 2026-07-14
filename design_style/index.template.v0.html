@@ -387,12 +387,12 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
           <option value="any">Prefer not to say</option>
           <option value="us">U.S. citizen / permanent resident</option>
           <option value="non-us">Non-U.S. — no permanent residence</option>
-          <option value="pending">Non-U.S. — permanent residence expected</option>
+          <option value="us">Non-U.S. — permanent residence expected</option>
         </select>
       </div>
       <div class="ef" id="prWrap" style="display:none">
         <span class="efk">Permanent residence ~</span>
-        <input type="text" id="prMonth" maxlength="7" placeholder="[redacted]" />
+        <input type="text" id="prMonth" maxlength="7" placeholder="" />
       </div>
       <div class="eligsum" id="eligSummary"></div>
     </div>
@@ -414,7 +414,7 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
         </div>
         <div class="cvstat" id="cvStat"></div>
         <div style="display:flex;justify-content:space-between;margin-top:10px;align-items:center">
-          <button class="mini-link" id="loadExample">★ Load example — Eric Liu ([redacted])</button>
+          <button class="mini-link" id="loadExample">★ Load example — Jordan Bennett (your institution)</button>
           <button class="mini-link" id="pasteToggle" style="color:var(--ink-faint)">paste text</button>
         </div>
         <textarea id="cvPaste" placeholder="…or paste your CV / research statement text here" style="display:none;margin-top:10px"></textarea>
@@ -1101,13 +1101,13 @@ function stageMatch(gStages,mine){
   if(m==="postdoc" && g.some(x=>x.includes("postdoc")||x.includes("fellow"))) return true;
   return g.some(x=>x.includes(m)||m.includes(x.split(" ")[0]));
 }
-// Citizenship requirement class: 'none' | 'restricted' (citizen OR permanent resident — a [redacted] satisfies) | 'citizen-only'
+// Citizenship requirement class: 'none' | 'restricted' (citizen OR permanent resident — a green card satisfies) | 'citizen-only'
 function citizenshipReq(g){
   if(g.citizenshipReq) return g.citizenshipReq;   // web-verified field (JHU-updated data)
   const t=((g.eligibility||"")+" "+(g.description||"")).toLowerCase();
-  if(!/citizen|permanent resident|[redacted]|\bnationals?\b/.test(t)) return "none";
-  // A [redacted] does NOT help only when the award is explicitly citizens-only with no PR pathway.
-  if(/citizens?\s+only|only\s+u\.?s\.?\s+citizens|citizens?\s+of\s+the\s+united\s+states\s+only/.test(t) && !/permanent resident|[redacted]/.test(t)) return "citizen-only";
+  if(!/citizen|permanent resident|green card|\bnationals?\b/.test(t)) return "none";
+  // A green card does NOT help only when the award is explicitly citizens-only with no PR pathway.
+  if(/citizens?\s+only|only\s+u\.?s\.?\s+citizens|citizens?\s+of\s+the\s+united\s+states\s+only/.test(t) && !/permanent resident|green card/.test(t)) return "citizen-only";
   return "restricted";
 }
 // Parse an eligibility window measured from the PhD/terminal degree (in YEARS), handling both
@@ -1151,7 +1151,7 @@ function yearsSincePhD(){
   return (new Date().getFullYear())-state.phdYear;
 }
 // Detect awards restricted to a specific (non-U.S.) nationality, e.g. "for young Italian scientists".
-const NATIONALITIES=["italian","german","french","japanese","korean","chinese","[redacted]","canadian","british","swiss","spanish","dutch","swedish","israeli","indian","australian","austrian","belgian","danish","norwegian","finnish","polish","greek","portuguese","turkish","irish","mexican","brazilian","argentine","singaporean"];
+const NATIONALITIES=["italian","german","french","japanese","korean","chinese","taiwanese","canadian","british","swiss","spanish","dutch","swedish","israeli","indian","australian","austrian","belgian","danish","norwegian","finnish","polish","greek","portuguese","turkish","irish","mexican","brazilian","argentine","singaporean"];
 function nationalityRestriction(g){
   const t=((g.name||"")+" "+(g.funder||"")+" "+(g.eligibility||"")+" "+(g.description||"")).toLowerCase();
   for(const n of NATIONALITIES){
@@ -1191,9 +1191,9 @@ function eligibility(g){
   // awards for finishing PhD students — not for someone who graduated years ago
   if(requiresCompletingPhD(g) && ys!=null && ys>=1){ blocked=true; flags.push({t:"blk",x:"For finishing PhD students"}); }
   if(req==="citizen-only"){
-    if(cit==="non-us"||cit==="pending"){blocked=true;blockedCitizenship=true;flags.push({t:"blk",x:"U.S. citizens only"});}
+    if(cit==="non-us"||cit==="us"){blocked=true;blockedCitizenship=true;flags.push({t:"blk",x:"U.S. citizens only"});}
   }else if(req==="restricted"){
-    if(cit==="pending"){gated=true;flags.push({t:"gc",x:"Permanent residence unlocks"+(state.prMonth?" ~"+state.prMonth:"")});}
+    if(cit==="us"){gated=true;flags.push({t:"gc",x:"Permanent residence unlocks"+(state.prMonth?" ~"+state.prMonth:"")});}
     else if(cit==="non-us"){blocked=true;blockedCitizenship=true;flags.push({t:"blk",x:"Needs citizen / PR"});}
   }
   if(win!=null && ys!=null){
@@ -1431,7 +1431,7 @@ function baseFilter(list){
   });
 }
 // eligibility filter — citizenship-blocked grants are hidden AUTOMATICALLY based on the
-// citizenship selector (a non-U.S. applicant with no [redacted] can't get citizen/PR awards),
+// citizenship selector (a non-U.S. applicant with no green card can't get citizen/PR awards),
 // unless "Show citizenship-blocked" is on. Past-PhD-window awards hide only when that toggle is on.
 function eligFilter(list){
   return list.filter(g=>{
@@ -1633,7 +1633,7 @@ function render(){
   const maxScore=state.maxScore||Math.max(...sorted.map(g=>g._score),1);
   $("#resHead").textContent=`${sorted.length} matching ${sorted.length===1?"opportunity":"opportunities"}`;
   const fed=sorted.filter(g=>g._live).length;
-  const gcNote=(state.citizenship==="pending"&&gc&&!state.showBlocked)?` · <b>${gc}</b> unlock with permanent residence (hidden)`:"";
+  const gcNote=(state.citizenship==="us"&&gc&&!state.showBlocked)?` · <b>${gc}</b> unlock with permanent residence (hidden)`:"";
   const blkNote=(blk&&!state.showBlocked)?` · <b>${blk}</b> need US citizenship (hidden)`:"";
   const otherNote=(other&&!state.showBlocked)?` · <b>${other}</b> not eligible for you (hidden)`:"";
   const facNote=(faculty&&!state.showBlocked)?` · <b>${faculty}</b> for faculty stage — future targets (hidden)`:"";
@@ -1649,7 +1649,7 @@ function renderEligSummary(c){
   const el=$("#eligSummary");if(!el)return;
   if(!c){el.innerHTML="";return;}
   const p=[`<span class="pill open"><span class="d"></span>${c.openNow} open to you now</span>`];
-  if(state.citizenship==="pending"&&c.gc) p.push(`<span class="pill gc"><span class="d"></span>${c.gc} with permanent residence${state.showBlocked?"":" (hidden)"}</span>`);
+  if(state.citizenship==="us"&&c.gc) p.push(`<span class="pill gc"><span class="d"></span>${c.gc} with permanent residence${state.showBlocked?"":" (hidden)"}</span>`);
   if(c.blk) p.push(`<span class="pill blk"><span class="d"></span>${c.blk} need US citizenship${state.showBlocked?"":" (hidden)"}</span>`);
   if(c.other) p.push(`<span class="pill blk"><span class="d"></span>${c.other} not eligible for you${state.showBlocked?"":" (hidden)"}</span>`);
   if(c.faculty) p.push(`<span class="pill gc"><span class="d"></span>${c.faculty} for faculty stage${state.showBlocked?"":" (hidden)"}</span>`);
@@ -1802,7 +1802,7 @@ function wireUI(){
     state.phdYear=(py>=1950&&py<=2100)?py:null;
     state.citizenship=$("#citizenship").value;
     state.prMonth=$("#prMonth").value.trim();
-    $("#prWrap").style.display=state.citizenship==="pending"?"flex":"none";
+    $("#prWrap").style.display=state.citizenship==="us"?"flex":"none";
     saveProfile();
     if(state.results.length)render();
   }
@@ -1835,7 +1835,7 @@ function wireUI(){
     state.topics=[...(DEMO_PROFILE.topics||[])];renderTopicChips();
     (DEMO_PROFILE.focus||[]).forEach(f=>state.focus.add(f));renderFocusFilters();
     saveProfile();
-    toast("Loaded Eric Liu's profile — hit Search");
+    toast("Loaded Jordan Bennett's profile — hit Search");
     window.scrollTo({top:0,behavior:"smooth"});
   };
   // topics

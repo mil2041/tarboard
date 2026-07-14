@@ -12,7 +12,7 @@ these speaker notes on-screen (they mirror this file). Aim ~30s per slide.
 
 ## Slide 1 — Title  (~25s)
 > "Hi — I'm building **Grantboard**, a grant-fit copilot for scientists. As a computational-oncology postdoc
-> at [redacted], I spent **100+ hours** on proposals — and routinely chased grants I turned out to be **ineligible**
+> as a postdoc, I spent **100+ hours** on proposals — and routinely chased grants I turned out to be **ineligible**
 > for. So I built the tool I wished I had: it reads your **CV** and returns a calm, evidence-backed shortlist
 > of funding worth your **time** — ranked, reasoned, and ready to check. Built with Claude Code."
 

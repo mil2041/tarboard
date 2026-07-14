@@ -388,7 +388,7 @@
   "name": "ASH Global Research Award",
   "funder": "American Society of Hematology (ASH)",
   "reasonCode": "other",
-  "reason": "Open only to emerging hematology researchers based OUTSIDE the U.S. and Canada, but the applicant is a postdoc based at [redacted] in the U.S.",
+  "reason": "Open only to emerging hematology researchers based OUTSIDE the U.S. and Canada, but the applicant is a postdoc based in the U.S.",
   "confidence": "medium"
  },
  {
@@ -710,7 +710,7 @@
   "name": "ASH Fellow-to-Faculty Scholar Award",
   "funder": "American Society of Hematology (ASH)",
   "reasonCode": "us_citizen_only",
-  "reason": "The award is restricted to postdoctoral researchers who are citizens of the USA or Canada, which a [redacted] national holding only a U.S. [redacted] cannot satisfy.",
+  "reason": "The award is restricted to postdoctoral researchers who are citizens of the USA or Canada, so an applicant without that citizenship cannot satisfy it.",
   "confidence": "high"
  },
  {
@@ -766,7 +766,7 @@
   "name": "International Research Fellowship Program",
   "funder": "American-Italian Cancer Foundation",
   "reasonCode": "nationality_restricted",
-  "reason": "The program is for young Italian scientists (applicant is [redacted]) and also caps eligibility at 3 years past the advanced degree, which he exceeds.",
+  "reason": "The program is for young Italian scientists, and it also caps eligibility at 3 years past the advanced degree, which the applicant exceeds.",
   "confidence": "high"
  },
  {
