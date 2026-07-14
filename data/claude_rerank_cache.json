@@ -751,6 +751,558 @@
 "cur-targeted-grants-in-mathematics-and-physical-scie": {
 "fitScore": 6,
 "why": "Simons' Targeted Grants in Mathematics and Physical Sciences fund high-risk theoretical math, physics, and computer science projects, a different discipline than the applied cancer genomics and single-cell immuno-oncology work Jordan does. Little in his current research program would naturally fit this program's scope, even given his computational and ML methods."
+},
+"cur-kavli-foundation-funding-programs-incl-ai-for-sc": {
+"fitScore": 47,
+"why": "Jordan's work sits squarely at the intersection of machine learning and cancer genomics, which is the kind of computational science the AI-for-Science Postdoctoral Fellowship with FutureHouse is designed to support at his career stage as a mentored postdoc. That said, Kavli's broader portfolio is centered on astrophysics, nanoscience, and neuroscience rather than oncology, so this is a stretch fit that depends heavily on whether the AI fellowship specifically welcomes a computational oncology pr"
+},
+"jhu-damon-runyon-rachleff-innovation-award-damon-run": {
+"fitScore": 18,
+"why": "The high-risk/high-reward cancer research mission would resonate with Jordan's multi-omics and machine-learning approach to T-cell lymphoma, but the Rachleff Innovation Award is built for scientists who already hold an independent faculty appointment, which Jordan does not yet have as a mentored senior postdoc. On top of that career-stage mismatch, the FY2026 deadline of July 1 has already passed, with the next cycle not expected until around July 2027."
+},
+"jhu-damon-runyon-physician-scientist-training-award-": {
+"fitScore": 4,
+"why": "This award is restricted to U.S. Specialty Board-eligible physicians (MD/DO) transitioning into cancer research, and Jordan holds a PhD rather than a clinical medical degree, so he is not eligible regardless of how well his lymphoma and immunotherapy research aligns with Damon Runyon's mission. The physician-track eligibility bar makes this a non-starter for his profile."
+},
+"cur-su2c-phillip-a-sharp-innovation-in-collaboration": {
+"fitScore": 15,
+"why": "The collaborative, cross-team spirit of this award could theoretically suit Jordan's multi-omics integration work, but it is explicitly reserved for scientists already embedded within an active Stand Up To Cancer research team, and there's no open public application cycle described. Without an existing SU2C team affiliation noted for Jordan, this opportunity isn't realistically actionable right now."
+},
+"cur-sidney-kimmel-foundation-kimmel-scholar-award-di": {
+"fitScore": 2,
+"why": "The Kimmel Scholar Award stopped accepting applications after its final 2017 class and the foundation has redirected its funds elsewhere, so there is no live opportunity here for Jordan to pursue no matter how well his cancer genomics work would have fit historically. This listing is included only for completeness and should not be pursued."
+},
+"cur-nlm-institutional-grants-for-research-training-i": {
+"fitScore": 26,
+"why": "Jordan's expertise in single-cell RNA-seq, multi-omics integration, and machine learning is exactly the kind of biomedical informatics and AI training NLM's T15 program supports, but this is an institutional grant awarded to a university to run a training program for predoctoral and postdoctoral trainees, not a mechanism an individual senior postdoc applies to directly. He'd be a great mentor or participant in such a program rather than a principal applicant, which limits direct fit for him pers"
+},
+"jhu-aacr-gertrude-b-elion-cancer-research-award-amer": {
+"fitScore": 24,
+"why": "The cancer research focus and career-development intent of this AACR award align well with Jordan's computational oncology background, but eligibility is limited to scientists in their first six years of an independent faculty position, and Jordan is currently a mentored senior postdoc without his own lab. This structural mismatch outweighs the otherwise strong topical fit, at least until he transitions to an independent role."
+},
+"jhu-young-investigator-awards-prostate-cancer-founda": {
+"fitScore": 8,
+"why": "While the mentored early-career structure of PCF's Young Investigator Award matches Jordan's current postdoc stage well, the award is dedicated specifically to prostate cancer research, and Jordan's work centers on T-cell lymphoma and blood cancer rather than prostate cancer. The disease-area mismatch makes this a poor fit despite the compatible career mechanism."
+},
+"jhu-distinguished-scientist-awards-sontag-foundation": {
+"fitScore": 8,
+"why": "The Sontag Foundation's generous, person-focused funding model would be appealing for an investigator like Jordan, but this award is earmarked for early-career brain cancer researchers specifically, not hematologic malignancies like T-cell lymphoma. Since his research doesn't touch brain cancer, this opportunity isn't a scientific match even though the funding philosophy is attractive."
+},
+"jhu-collaborative-research-development-grant-ovarian": {
+"fitScore": 6,
+"why": "This OCRA grant funds collaborative research specifically in ovarian and gynecologic cancers, which is well outside Jordan's blood cancer and T-cell lymphoma focus. Despite his strong multi-omics and computational skill set, the disease-area requirement makes this a mismatch regardless of methodological overlap."
+},
+"jhu-prostate-cancer-research-program-pcrp-early-inve": {
+"fitScore": 11,
+"why": "The DoD PCRP Early Investigator Award's mentored, early-independent-career structure could otherwise suit a senior postdoc like Jordan, and his machine-learning and genomics expertise is transferable across cancer types. However, the program requires proposals to address an FY26 prostate cancer challenge, and prostate cancer is not part of Jordan's research program in T-cell lymphoma and blood cancer."
+},
+"jhu-prostate-cancer-research-program-pcrp-physician-": {
+"fitScore": 3,
+"why": "This award is designed for physicians with clinical duties moving into prostate cancer research, and Jordan is a PhD computational scientist rather than a physician, which alone rules him out. The prostate cancer topic requirement compounds the mismatch, as his work is centered on T-cell lymphoma and blood cancer."
+},
+"jhu-young-investigator-award-conquer-cancer-the-asco": {
+"fitScore": 8,
+"why": "This award is built specifically for physicians moving from a clinical fellowship into a faculty appointment, and Jordan is a PhD computational scientist in a mentored postdoc role rather than a physician on that clinical track. Even though the funder is oncology-focused, the eligibility structure just doesn't match Jordan's training path, so this isn't a realistic target right now."
+},
+"jhu-aacr-conquer-cancer-foundation-of-asco-young-inv": {
+"fitScore": 8,
+"why": "Like its sister award, this AACR-Conquer Cancer mechanism is reserved for physician-scientists transitioning from fellowship to a faculty position, which doesn't line up with Jordan's PhD-postdoc career path. Jordan's strengths in single-cell and multi-omics analysis of T-cell lymphoma are a great scientific match for translational cancer research broadly, but the physician-track eligibility rule keeps this out of reach."
+},
+"jhu-fellowship-jane-coffin-childs-memorial-fund-for-": {
+"fitScore": 12,
+"why": "Jane Coffin Childs funds independent postdoctoral fellowships aimed at scientists at the very start of their postdoctoral training, and Jordan is roughly seven years past the PhD with a well-established mentored research program, well past that entry window. The broad, non-cancer-specific remit doesn't change the fact that this fellowship is designed for a much earlier career stage than Jordan's."
+},
+"jhu-young-investigator-award-bladder-cancer-advocacy": {
+"fitScore": 5,
+"why": "BCAN's award is dedicated to bladder cancer research, which is a different disease area from the T-cell lymphoma and blood cancer biology Jordan focuses on. Jordan's computational and multi-omics expertise would transfer methodologically, but the funder's disease mandate makes this a poor topical match regardless of career stage."
+},
+"jhu-international-research-fellowship-program-americ": {
+"fitScore": 2,
+"why": "The American-Italian Cancer Foundation fellowship is designed for young Italian scientists doing cancer research in U.S. labs, and Jordan is a U.S. citizen, so the core eligibility requirement isn't met. This one should be set aside regardless of how well the oncology focus otherwise fits Jordan's work."
+},
+"jhu-young-investigator-grant-alex-s-lemonade-stand-f": {
+"fitScore": 15,
+"why": "ALSF funds childhood cancer research, and while Jordan's fellow/instructor-level career stage fits the award's target, Jordan's work centers on T-cell lymphoma and blood cancer more broadly rather than pediatric oncology specifically. Unless Jordan's lymphoma work has a clear pediatric angle, the disease-population mismatch makes this a weak fit."
+},
+"jhu-scholar-in-training-awards-annual-meeting-americ": {
+"fitScore": 58,
+"why": "This AACR travel award recognizes young investigators presenting original research at the Annual Meeting, and Jordan's computational oncology and single-cell/multi-omics work on T-cell lymphoma would make for a strong abstract in that setting. It's not a research grant, but as a mechanism to get Jordan's work in front of the broader oncology community and offset meeting costs, it's a solid and attainable fit for a senior postdoc."
+},
+"jhu-nci-pathway-to-independence-award-for-outstandin": {
+"fitScore": 45,
+"why": "Scientifically this is an excellent match: the K99/R00 is built exactly for a strong postdoc like Jordan to launch an independent program in computational, translational cancer research using genomics and machine learning. The catch is that K99 eligibility is generally capped at a few years of postdoctoral experience, and at roughly seven years out from the PhD, Jordan should confirm with program staff whether an extension applies before investing in an application."
+},
+"jhu-postdoctoral-fellowships-american-cancer-society": {
+"fitScore": 30,
+"why": "ACS's postdoctoral fellowship supports cancer research broadly, which fits Jordan's computational oncology and T-cell lymphoma work well on paper. However, this mechanism is aimed at early-stage postdocs, and Jordan's seven years of mentored postdoctoral experience likely places him past the stage ACS typically targets, so eligibility should be double-checked before applying."
+},
+"jhu-pancreatic-cancer-research-program-pcarp-idea-de": {
+"fitScore": 4,
+"why": "This DoD program is dedicated to pancreatic cancer research, which is unrelated to Jordan's focus on T-cell lymphoma and hematologic malignancies. The large award size is attractive, but the disease-specific mandate means it isn't a genuine fit for Jordan's current research program."
+},
+"jhu-ovarian-cancer-research-program-ocrp-pilot-award": {
+"fitScore": 4,
+"why": "This DoD Pilot Award is dedicated entirely to ovarian cancer, which is outside Jordan's research program in T-cell lymphoma, computational oncology, and blood-cancer genomics. Even though Jordan brings strong single-cell and machine-learning expertise, the funder requires the science itself to center on ovarian cancer biology, so this mechanism isn't a fit for his current focus."
+},
+"jhu-cancer-research-grants-program-elsa-u-pardee-fou": {
+"fitScore": 42,
+"why": "The Pardee Foundation's Cancer Research Grants Program is disease-agnostic and funds new approaches to discovering cancer treatments, which could in principle accommodate Jordan's computational and multi-omics work on T-cell lymphoma. That said, the program is generally geared toward investigators driving an independent project, and as a mentored senior postdoc without his own lab, Jordan would likely need institutional backing or a PI arrangement to be competitive."
+},
+"jhu-pilot-study-program-the-rivkin-center-for-ovaria": {
+"fitScore": 4,
+"why": "The Rivkin (now OCRA) Pilot Study Program is focused specifically on ovarian cancer research, which doesn't overlap with Jordan's work on T-cell lymphoma and hematologic malignancies. His computational and genomics skill set is strong, but the disease focus here simply isn't where his research lives."
+},
+"jhu-pcf-pfizer-challenge-awards-prostate-cancer-foun": {
+"fitScore": 4,
+"why": "The PCF-Pfizer Challenge Awards are dedicated to prostate cancer research, a disease area Jordan does not work in despite his strong AI and genomics background. His T-cell lymphoma and blood-cancer focus doesn't align with the funder's mission, so this isn't a realistic target."
+},
+"jhu-a-award-alex-s-lemonade-stand-foundation": {
+"fitScore": 14,
+"why": "The 'A' Award is built for early independent-career scientists launching a new pediatric oncology research program, and Jordan's status as a mentored senior postdoc without his own lab doesn't match that independence requirement. His single-cell and multi-omics expertise in T-cell lymphoma is methodologically relevant to pediatric hematologic cancers, but the funder's emphasis on an independent PI makes this a stretch at his current career stage."
+},
+"jhu-research-grants-prevent-cancer-foundation": {
+"fitScore": 32,
+"why": "Prevent Cancer Foundation's Research Grants program emphasizes cancer prevention and early detection, which touches on Jordan's work in risk stratification and multi-omics biomarker discovery for T-cell lymphoma. It's not a tight disease-specific match since the foundation funds broadly across cancer types rather than hematologic malignancies in particular, but Jordan's computational risk-modeling skills could be pitched toward an early-detection angle."
+},
+"jhu-rare-cancers-research-program-idea-development-a": {
+"fitScore": 58,
+"why": "T-cell lymphoma falls among the less-common malignancies this DoD program is built to support, making it one of the stronger topical matches here for Jordan's cancer genomics and machine-learning approach to a rare hematologic cancer. As a mentored senior postdoc without an independent lab, he would likely need a faculty PI or institutional backing to satisfy CDMRP's investigator requirements, but the underlying science — computational, multi-omics work on rare-cancer biology — fits his expertis"
+},
+"jhu-young-investigator-award-yia-american-society-fo": {
+"fitScore": 10,
+"why": "The Conquer Cancer Young Investigator Award targets early-career physician-investigators in clinical oncology, and Jordan's PhD-based computational research track doesn't match that physician-scientist eligibility. His oncology research is strong, but this mechanism is structured around clinical training pathways rather than PhD computational scientists like Jordan."
+},
+"jhu-ovarian-cancer-research-program-ovarian-cancer-a": {
+"fitScore": 4,
+"why": "This DoD OCRP mechanism pairs funding with a career-development academy, but it is exclusively for ovarian cancer investigators, which is not Jordan's research area. His T-cell lymphoma and blood-cancer genomics work doesn't align with the funder's disease focus regardless of his computational strengths."
+},
+"jhu-kidney-cancer-research-program-academy-of-kidney": {
+"fitScore": 4,
+"why": "The Academy of Kidney Cancer Investigators award is built specifically for kidney cancer research, which falls outside Jordan's focus on T-cell lymphoma and hematologic malignancies. Even with his strong multi-omics and machine-learning background, the disease-specific eligibility here doesn't match his current program."
+},
+"jhu-aga-caroline-craig-augustyn-damian-augustyn-awar": {
+"fitScore": 4,
+"why": "This AGA supplemental award is earmarked for digestive cancer pathogenesis research and requires recipients to already hold a career-development award, neither of which lines up with Jordan's work on T-cell lymphoma and blood cancer genomics. His single-cell and multi-omics expertise is applied to hematologic malignancies, not GI cancers, so the scientific fit just isn't there. This one is best skipped in favor of blood cancer or postdoc-stage opportunities."
+},
+"jhu-career-development-award-american-society-for-cl": {
+"fitScore": 7,
+"why": "This ASCO award is reserved for clinical investigators who have just secured their first faculty appointment and are launching an independent clinical cancer research program, which doesn't match Jordan's current status as a mentored senior postdoc without his own lab. Even though the oncology umbrella is broad, the faculty-appointment and clinical-investigator requirements are hard structural barriers here. He'd be better served by postdoc-focused funding until he transitions into a faculty rol"
+},
+"jhu-lustgarten-foundation-aacr-career-development-aw": {
+"fitScore": 4,
+"why": "This career development award funds early-career faculty studying pancreatic cancer, a disease area well outside Jordan's focus on T-cell lymphoma and blood cancer immunology. Beyond the topic mismatch, the required faculty appointment also doesn't fit his current mentored-postdoc status. It isn't a fit despite the shared cancer-research framing, and the 2026 deadline has passed regardless."
+},
+"jhu-clinician-scientist-development-grant-csdg-ameri": {
+"fitScore": 5,
+"why": "This ACS grant supports full-time clinical faculty balancing patient care with a research program, but Jordan is a PhD computational scientist in a mentored postdoc role rather than a clinician transitioning to faculty. The clinical-practice and faculty-appointment requirements make this a poor structural fit regardless of his strong oncology background. Postdoc-stage or computational-scientist awards would serve him better."
+},
+"jhu-research-scholar-grants-rsg-american-cancer-soci": {
+"fitScore": 16,
+"why": "ACS's flagship Research Scholar Grant is built for early-career independent faculty within eight years of their first faculty appointment, and Jordan hasn't made that transition yet — he remains a mentored senior postdoc without his own lab. If he were faculty, the broad 'any area of cancer research' scope would comfortably cover his T-cell lymphoma and multi-omics work, so this is one worth revisiting once he lands an independent position. For now, the eligibility gate rules him out."
+},
+"jhu-pcf-challenge-awards-prostate-cancer-foundation-": {
+"fitScore": 3,
+"why": "This is a large team-science award specifically for metastatic prostate cancer research, which is far removed from Jordan's focus on T-cell lymphoma and blood cancer immunotherapy. Even with his strong computational and multi-omics skill set, the disease focus is simply the wrong match. The 2026 application cycle has also already closed."
+},
+"jhu-damon-runyon-fellowship-award-damon-runyon-cance": {
+"fitScore": 48,
+"why": "This prestigious postdoctoral fellowship supports early-career basic and physician-scientists in cancer research with no citizenship restriction, which fits Jordan's status as a U.S. citizen still working in a mentored postdoc role. His T-cell lymphoma, single-cell, and multi-omics work would fit the scientific scope well, though Damon Runyon fellowships typically target postdocs earlier in training than someone roughly seven years past their PhD, so his more senior postdoc stage may be a stretc"
+},
+"jhu-mentored-investigator-award-ovarian-cancer-resea": {
+"fitScore": 6,
+"why": "This OCRA award targets mentored postdocs and clinical fellows, which matches Jordan's career stage well, but the funded research must be ovarian cancer, a disease entirely outside his T-cell lymphoma and blood cancer focus. Good career-stage alignment can't overcome that fundamental topic mismatch. This is best left to investigators actually working on ovarian cancer."
+},
+"jhu-research-grant-awards-skin-cancer-foundation": {
+"fitScore": 3,
+"why": "These seed grants fund early-career skin cancer research conducted within a U.S. dermatology department, neither of which describes Jordan's hematology-focused computational oncology work. Both the disease area and the departmental setting diverge sharply from his T-cell lymphoma and immunotherapy research. This isn't a realistic match for his program."
+},
+"jhu-career-transition-award-susan-g-komen-breast-can": {
+"fitScore": 13,
+"why": "This Komen award is thoughtfully designed for senior postdocs like Jordan, bridging mentored training into an independent research career, so the career-stage structure fits nicely. However, the funded research must be breast cancer, and Jordan's work centers on T-cell lymphoma and blood cancer genomics, so the disease focus doesn't line up despite the appealing career-transition design. He would need a breast cancer-specific project to be competitive here."
+},
+"jhu-individual-rising-star-grant-the-honorable-tina-": {
+"fitScore": 3,
+"why": "This grant supports early-career investigators pursuing early detection or prevention of ovarian cancer, which doesn't overlap with Jordan's T-cell lymphoma and blood cancer research. The topic mismatch alone makes this a weak fit, and the current cycle is also closed to new applications. Not a good use of his time right now."
+},
+"jhu-heart-disease-cancer-and-aids-research-program-w": {
+"fitScore": 5,
+"why": "While cancer is one of three eligible focus areas for this trust, the program carries a geographic restriction on eligible institutions that likely excludes a researcher based in Boston like Jordan. Even setting geography aside, the program isn't specific to blood cancers, so it wouldn't particularly showcase his T-cell lymphoma expertise. Given the eligibility uncertainty, this is a lower-priority option for him."
+},
+"jhu-lung-cancer-research-program-career-development-": {
+"fitScore": 3,
+"why": "This Career Development Award mechanism isn't even being offered in the FY26 LCRP portfolio, so there's nothing for Jordan to apply to right now. Even setting that aside, the program is dedicated to lung cancer, which doesn't overlap with his T-cell lymphoma and blood cancer research program."
+},
+"jhu-lung-cancer-research-program-idea-development-aw": {
+"fitScore": 10,
+"why": "This Idea Development Award is active and well-funded, and its openness to non-early-career applicants would suit Jordan's senior postdoc stage, but it is squarely a lung cancer program. Since Jordan's work centers on T-cell lymphoma, computational oncology, and blood cancer genomics rather than lung malignancies, the disease-area mismatch outweighs the mechanism's flexibility."
+},
+"jhu-aacr-sontag-foundation-brain-cancer-research-fel": {
+"fitScore": 14,
+"why": "This two-year mentored fellowship structure is exactly the career stage Jordan is in, and AACR fellowships are a natural venue for computational oncology postdocs. The catch is that it is earmarked for brain cancer research, which sits outside Jordan's T-cell lymphoma and blood cancer focus, and the LOI window for this cycle has already passed."
+},
+"jhu-aacr-career-development-awards-for-translational": {
+"fitScore": 6,
+"why": "This award funds translational breast cancer research specifically, which has no connection to Jordan's work on T-cell lymphoma, immunotherapy, and blood cancer genomics. Beyond the disease mismatch, the 2026 application window has already closed, leaving little practical reason for Jordan to pursue it."
+},
+"jhu-lcrf-minority-career-development-award-cda-in-lu": {
+"fitScore": 6,
+"why": "This LCRF award is targeted at lung cancer researchers from underrepresented groups, and Jordan's work is centered on T-cell lymphoma and blood cancer rather than lung cancer. Nothing in his profile indicates eligibility for the underrepresented-groups criterion either, so this program doesn't line up with his research focus or likely eligibility."
+},
+"cur-google-research-scholar-program-status-uncertain": {
+"fitScore": 5,
+"why": "This program is oriented toward early-career faculty launching independent labs, whereas Jordan is a mentored senior postdoc without his own lab, so the career-stage fit is off. On top of that, the 2026 cycle of the successor program is reportedly limited to quantum computing topics, which has nothing to do with his cancer genomics and immunotherapy research."
+},
+"cur-microsoft-research-fellowship-successor-to-the-m": {
+"fitScore": 3,
+"why": "This is a PhD student fellowship tied to Microsoft Research's challenge areas, not a postdoctoral award, and Jordan is seven years past his PhD with an established mentored research program. The career-stage mismatch alone rules it out, and the 2026 application window has already closed as well."
+},
+"jhu-research-grant-desmoid-tumor-research-foundation": {
+"fitScore": 6,
+"why": "DTRF's research grant is dedicated to desmoid tumors, a rare soft-tissue condition entirely outside Jordan's T-cell lymphoma and blood cancer research program. The 2026 cycle is also closed, so there's neither a topical nor a practical reason for Jordan to pursue this one."
+},
+"jhu-young-investigator-award-yia-children-s-tumor-fo": {
+"fitScore": 8,
+"why": "This CTF award is earmarked for scientists building an independent research program in neurofibromatosis, a disease area Jordan's work on T-cell lymphoma and computational oncology doesn't touch. Even though Jordan's single-cell and machine-learning toolkit is broadly transferable, funders in this space expect NF-focused aims, so the topical mismatch outweighs the methodological overlap."
+},
+"jhu-basic-research-fellowship-program-american-brain": {
+"fitScore": 12,
+"why": "The ABTA fellowship's two-year mentored postdoctoral structure would otherwise suit Jordan's senior-postdoc, non-independent status well, but the award is specifically for brain-tumor research and Jordan's expertise centers on T-cell lymphoma and blood cancer genomics. Without a brain-tumor angle to his single-cell or multi-omics work, this is a weak scientific match despite the career-stage fit."
+},
+"jhu-career-development-program-sarcoma-alliance-for-": {
+"fitScore": 5,
+"why": "SARC's award targets sarcoma investigators, a solid-tumor area unrelated to Jordan's T-cell lymphoma and blood cancer genomics work, and the program is currently paused with no open 2026-2027 cycle. Both the disease mismatch and the lack of an active application window make this a poor prospect for Jordan right now."
+},
+"jhu-research-grant-funding-oncology-nursing-society-": {
+"fitScore": 5,
+"why": "This Oncology Nursing Foundation mechanism is designed for nursing research grants, not for a PhD computational oncologist running single-cell and multi-omics analyses like Jordan. The disciplinary focus and likely applicant pool don't align with his training or research questions, so this is not a realistic fit."
+},
+"jhu-team-science-awards-melanoma-research-alliance-m": {
+"fitScore": 10,
+"why": "MRA's Team Science Award funds large collaborative melanoma research teams, and while Jordan's computational and multi-omics skill set is the kind MRA teams often recruit, his own research program centers on T-cell lymphoma rather than melanoma. As a mentored senior postdoc without an independent lab, he'd also be better positioned as a team collaborator than a lead applicant on a multi-year, multi-hundred-thousand-dollar award."
+},
+"jhu-general-rfp-young-investigator-award-melanoma-re": {
+"fitScore": 6,
+"why": "This MRA Young Investigator mechanism is restricted to independent faculty within five years of their first appointment, but Jordan is a mentored senior postdoc without his own lab, so he isn't yet eligible. The melanoma disease focus also doesn't overlap with his T-cell lymphoma and blood cancer research program."
+},
+"jhu-endocrine-section-pilot-grants-american-head-and": {
+"fitScore": 6,
+"why": "These AHNS Endocrine Section awards support thyroid and endocrine head-and-neck cancer pilot work, which has no connection to Jordan's T-cell lymphoma, immunotherapy, and computational genomics research. His skills in single-cell and multi-omics integration aren't disease-matched to what this funder supports."
+},
+"jhu-residents-fellows-in-radiation-oncology-research": {
+"fitScore": 5,
+"why": "This ASTRO seed grant is reserved for residents and fellows enrolled in US radiation oncology training programs, a clinical training track that doesn't describe Jordan's position as a computational oncology postdoc in the Devavrat Shah lab. Neither his career track nor his research focus on T-cell lymphoma genomics and immunotherapy aligns with radiation oncology's scope."
+},
+"cur-mission-boost-grant-mbg-american-cancer-society": {
+"fitScore": 52,
+"why": "Jordan's computational work on T-cell lymphoma, risk stratification, and immunotherapy fits squarely within ACS's blood-cancer and translational focus, and the Mission Boost Grant's de-risking, toward-the-clinic model is a natural stage for his multi-omics findings. The catch is that this mechanism generally expects the applicant to serve as an independent PI, so as a mentored senior postdoc without his own lab, Jordan would likely need a faculty co-investigator or a clearer path to independent "
+},
+"cur-nci-cancer-moonshot-scholars-program-r01-nationa": {
+"fitScore": 74,
+"why": "This mechanism is built for scientists exactly like Jordan: PhD-trained researchers applying computational and AI methods to cancer who are ready to launch their own research program, and his single-cell, TCR-seq, and multi-omics work on T-cell lymphoma and immunotherapy would read as a strong scientific match. At roughly seven years post-PhD he should confirm he still falls within any early-stage-investigator window and watch closely for a reissued NOFO, since the prior cycle has expired and cu"
+},
+"cur-nih-director-s-pioneer-award-dp1-nih-common-fund": {
+"fitScore": 35,
+"why": "The Pioneer Award rewards bold, cross-disciplinary science from the investigator rather than requiring disease-specific alignment, so Jordan's integration of single-cell, spatial, and machine-learning approaches to blood cancer is conceptually the right flavor of ambitious. In practice, though, this award is typically pursued by investigators holding an independent research appointment, and as a mentored postdoc without his own lab, Jordan faces a real eligibility gap here."
+},
+"cur-nci-outstanding-investigator-award-r35-national-": {
+"fitScore": 15,
+"why": "The R35 is reserved for accomplished investigators with an established, well-funded independent research program and a track record of prior NCI support, which doesn't match Jordan's current standing as a mentored senior postdoc without an independent lab. His computational oncology and immunotherapy expertise is a great long-term fit for NCI's mission, but this award is realistically a goal for after he transitions into a faculty-level position."
+},
+"jhu-pcf-young-investigators-prostate-cancer-foundati": {
+"fitScore": 4,
+"why": "This award is dedicated entirely to prostate cancer research, which has no overlap with Jordan's focus on T-cell lymphoma, blood cancer, and cancer immunotherapy. His machine-learning and multi-omics skills are broadly transferable, but PCF's disease-specific mandate makes this a poor fit regardless of methodology."
+},
+"jhu-intramural-continuing-umbrella-of-research-exper": {
+"fitScore": 8,
+"why": "iCURE is an NCI intramural fellowship built for trainees from underrepresented backgrounds moving into NIH's own intramural labs, which doesn't align with Jordan's position at a private research university or with anything stated about his background. While the oncology mission overlaps with his work, the intramural placement and targeted-population design make this a mismatch as described."
+},
+"jhu-st-baldrick-s-scholars-st-baldrick-s-foundation": {
+"fitScore": 8,
+"why": "St. Baldrick's Scholars supports early-career faculty building independent pediatric-cancer research programs, and Jordan's lymphoma and blood-cancer work isn't framed as pediatric, nor does he yet hold the independent faculty appointment this award targets. It could be worth revisiting if he moves into a faculty role with a pediatric angle, but it isn't a match today."
+},
+"jhu-st-baldrick-s-international-scholars-st-baldrick": {
+"fitScore": 2,
+"why": "This award specifically supports pediatric-cancer researchers based outside the United States, and Jordan's position at a private research university in Boston places him well outside that eligibility pool. Combined with the pediatric-cancer mandate not matching his adult-focused lymphoma and immunotherapy research, this isn't a viable option."
+},
+"jhu-thrive-research-grant-hesi-health-and-environmen": {
+"fitScore": 18,
+"why": "THRIVE funds research predicting or reducing adverse events and long-term late effects of life-saving cancer therapies, which is a survivorship-focused question distinct from Jordan's core computational work on T-cell lymphoma biology, risk stratification, and immunotherapy response. Unless his multi-omics work specifically addresses treatment toxicity or late effects, this program's mandate is a stretch relative to his research."
+},
+"jhu-young-investigator-award-alex-s-lemonade-stand-f": {
+"fitScore": 20,
+"why": "ALSF funds scientists moving from training toward independence, which does line up with Jordan's senior-postdoc career stage, but the award is dedicated specifically to childhood cancer, and his lymphoma and blood-cancer research isn't described as pediatric. Without a clear pediatric angle to his work, this program's disease-specific mandate outweighs the otherwise good career-stage timing."
+},
+"jhu-investigator-initiated-research-grant-american-i": {
+"fitScore": 8,
+"why": "AICR's flagship grant supports research on how modifiable lifestyle factors like diet and physical activity influence cancer risk and outcomes, a scientific question quite different from Jordan's computational, genomic, and immunotherapy-focused work on T-cell lymphoma. His single-cell and multi-omics expertise doesn't naturally map onto AICR's lifestyle-and-cancer mission, making this a weak fit."
+},
+"cur-cise-graduate-fellowships-csgrad4us-national-sci": {
+"fitScore": 2,
+"why": "This NSF fellowship is meant for people returning to the workforce to pursue a research-based PhD, but Jordan already earned his PhD in 2019 and is several years into postdoctoral cancer research. He simply isn't in the population this program is designed to support."
+},
+"jhu-ahns-pilot-grant-american-head-neck-society-ahns": {
+"fitScore": 4,
+"why": "This AHNS Pilot Grant is dedicated to head-and-neck oncology research administered through the AAO-HNS CORE program, which sits well outside Jordan's actual focus on T-cell lymphoma, blood cancer, and computational cancer genomics. Even though Jordan brings strong machine learning, single-cell, and multi-omics expertise that could technically apply to any tumor type, funders in this space typically expect head-and-neck-specific disease relevance and often membership or clinical ties to that spec"
+}
+},
+"md": {
+"cur-cri-immuno-informatics-postdoctoral-fellowship-c": {
+"fitScore": 12,
+"why": "This fellowship is built for postdoctoral scientists pursuing dual training in immunology and data science, but Sarah is already a physician-scientist at the Instructor/Assistant Professor level, well past the postdoctoral stage this award targets since her fellowship ended in 2022. Her CAR-T and DLBCL immunotherapy-resistance work touches immunology, but the career-stage mismatch makes this a poor fit for her right now."
+},
+"cur-nlm-research-grants-advancing-bioinformatics-tra": {
+"fitScore": 28,
+"why": "This R01 mechanism is built to fund novel, generalizable computational and bioinformatics tools rather than clinical trials or correlative translational research, so it sits outside the core of Sarah's work on CAR-T therapy and DLBCL immunotherapy resistance. Unless she frames a proposal around building reusable computational methods from her correlative studies, this NLM mechanism is a stretch for her clinical/translational program."
+},
+"cur-smart-health-and-biomedical-research-in-the-era-": {
+"fitScore": 18,
+"why": "This NSF/NIH program funds high-risk, transformative AI and data-science methodology for biomedicine broadly, which is a significant departure from Sarah's clinical/translational focus on investigator-initiated CAR-T and DLBCL trials. Without a strong computational-methods component to her correlative science, this program doesn't align well with her current research direction."
+},
+"cur-leukemia-exploration-and-prevention-leap-grant-p": {
+"fitScore": 10,
+"why": "LEAP is dedicated specifically to RUNX1-FPD hematologic malignancies and AML interception/prevention, a disease focus far removed from Sarah's work on lymphoma, CAR-T therapy, and immunotherapy resistance in DLBCL. Sharing the blood-cancer umbrella isn't enough here, since the specific disease and mechanism emphasis simply don't match her research program."
+},
+"cur-su2c-convergence-research-teams-dream-team-grant": {
+"fitScore": 28,
+"why": "These large, multi-institution team awards bring together clinical, biological, and computational scientists on major cancer problems, and immunotherapy resistance in lymphoma could plausibly fit such a convergence effort. However, these grants are typically assembled by nomination as team science rather than individual application, and as an early-career Instructor/Assistant Professor Sarah is more likely to join such a team later than to lead one now."
+},
+"cur-career-development-program-cdp-scholar-the-leuke": {
+"fitScore": 88,
+"why": "This five-year LLS Career Development Program targets established-but-not-senior independent faculty in blood cancer research, which describes Sarah well as a physician-scientist who completed fellowship in 2022 and now holds an Instructor/Assistant Professor position building an independent program in CAR-T therapy and DLBCL immunotherapy resistance. The sustained salary and research support would let her grow her investigator-initiated trials and correlative studies at exactly the career infle"
+},
+"cur-discovery-grant-program-dgp-formerly-blood-cance": {
+"fitScore": 58,
+"why": "The Discovery Grant Program funds cutting-edge blood cancer research into disease properties and vulnerabilities, including genomics and correlative approaches, which overlaps reasonably with Sarah's correlative studies of immunotherapy resistance in DLBCL. It leans more toward discovery-oriented basic research than the clinical trial work that anchors her program, so it's a workable but not ideal match."
+},
+"cur-ash-graduate-hematology-award-american-society-o": {
+"fitScore": 5,
+"why": "This award explicitly targets early-stage PhD students to encourage them toward academic hematology careers, which doesn't match Sarah's profile as an MD who is already an Instructor/Assistant Professor running CAR-T and DLBCL immunotherapy-resistance trials. It simply isn't applicable to her career stage or training status."
+},
+"cur-single-cell-biology-data-insights-rfa-chan-zucke": {
+"fitScore": 12,
+"why": "This RFA funds computational and AI/ML methods for extracting insight from large single-cell datasets, a different emphasis from Sarah's clinical/translational and correlative work in CAR-T therapy and DLBCL. It is also currently closed with no confirmed successor cycle, further limiting its relevance to her right now."
+},
+"cur-nih-research-project-grant-parent-r01-nih-nation": {
+"fitScore": 82,
+"why": "The flagship, investigator-initiated Parent R01 is well suited to Sarah's independent research trajectory, allowing her to build a hypothesis-driven project around immunotherapy resistance mechanisms in DLBCL or correlative science from her CAR-T trials, with NCI as a natural home institute. As an Instructor/Assistant Professor since completing fellowship in 2022, this is a timely and appropriate vehicle for her to launch or expand her own investigator-initiated clinical/translational studies."
+},
+"cur-nci-informatics-technology-for-cancer-research-i": {
+"fitScore": 20,
+"why": "ITCR funds the development and hardening of informatics tools across the cancer research continuum, which centers on toolbuilding rather than the clinical trials and correlative immunotherapy-resistance work that defines Sarah's research. Unless she is developing a dedicated software or informatics platform alongside her DLBCL and CAR-T studies, this mechanism is only a modest fit."
+},
+"cur-damon-runyon-fellowship-award-postdoctoral-fello": {
+"fitScore": 10,
+"why": "This is a postdoctoral fellowship for early-career postdocs training in cancer research, a stage Sarah has already moved past as an MD who completed fellowship in 2022 and now holds an Instructor/Assistant Professor position. Despite strong topical overlap with cancer research generally, the career-stage mismatch makes this an unlikely fit for her."
+},
+"cur-cri-lloyd-j-old-star-program-scientists-taking-r": {
+"fitScore": 55,
+"why": "Sarah's work on CAR-T therapy and immunotherapy resistance in DLBCL sits squarely in the cancer immunotherapy space this program funds, and the flexible, unrestricted award would suit bold correlative-science questions she could pursue. That said, the STAR program targets mid-career investigators with a more established independent track record, and as an Instructor/Assistant Professor only a few years past fellowship, Sarah may be a stronger candidate in a future cycle rather than right now."
+},
+"cur-paula-and-rodger-riney-foundation-direct-investi": {
+"fitScore": 12,
+"why": "This funding is dedicated to multiple myeloma, which falls outside Sarah's focus on lymphoma, CAR-T therapy, and DLBCL immunotherapy resistance, so the disease-area alignment is weak. It's also structured as large, foundation-driven institutional gifts rather than an open investigator application, making it an impractical match for her research program."
+},
+"cur-acs-fanconi-cancer-foundation-discovery-boost-gr": {
+"fitScore": 8,
+"why": "This RFA is narrowly scoped to Fanconi anemia-related cancers and their tailored therapeutics, which has no overlap with Sarah's lymphoma and CAR-T immunotherapy research. The most recent cycle has also already closed, making it an unlikely opportunity for her regardless of topic fit."
+},
+"cur-career-development-program-cdp-fellow-the-leukem": {
+"fitScore": 25,
+"why": "This award is aimed at early postdoctoral researchers working toward independence, but Sarah has already completed fellowship and holds an Instructor/Assistant Professor appointment, putting her past the career stage this mechanism targets. Her blood-cancer focus fits the funder's mission well, but the postdoctoral eligibility framing makes it a weaker match at her current stage."
+},
+"cur-specialized-center-of-research-program-scor-the-": {
+"fitScore": 22,
+"why": "SCOR funds large, multi-investigator centers led by several established senior scientists across basic-to-translational blood cancer research, a different scale than where Sarah sits as an Instructor/Assistant Professor. Her CAR-T and DLBCL correlative work could one day plug into such a center as a project, but she isn't yet positioned to lead one of these team-science awards."
+},
+"cur-ash-scholar-award-fellow-fellow-to-faculty-and-j": {
+"fitScore": 94,
+"why": "The ASH Scholar Award is built for hematologists like Sarah moving from fellowship into independent faculty roles, and its Fellow-to-Faculty and Junior Faculty tracks map directly onto her current Instructor/Assistant Professor stage. Her investigator-initiated trials and correlative studies on CAR-T and DLBCL immunotherapy resistance are exactly the clinical/translational hematology research this flagship career-transition award exists to support."
+},
+"cur-endeavor-award-the-mark-foundation-for-cancer-re": {
+"fitScore": 33,
+"why": "Cancer immunology and translational oncology are relevant to Sarah's CAR-T and DLBCL resistance work, but the Endeavor Award funds large multidisciplinary team collaborations rather than a single early-career investigator's program. She could be a strong contributor as part of such a team, but it isn't a natural standalone fit given her current career stage."
+},
+"cur-aacr-hematologic-malignancies-research-fellowshi": {
+"fitScore": 42,
+"why": "This fellowship is dedicated exclusively to blood cancers and would resonate topically with Sarah's DLBCL and CAR-T research, but it's structured as mentored research support for trainees, and Sarah has already completed fellowship and moved into an Instructor/Assistant Professor role. The strong topical fit is offset by a mentored-trainee framing that doesn't match where she is now."
+},
+"cur-aamdsif-research-grants-program-aplastic-anemia-": {
+"fitScore": 10,
+"why": "This program funds bone marrow failure diseases such as aplastic anemia, MDS, and PNH, which are distinct from the lymphoma and CAR-T immunotherapy work that defines Sarah's research. Despite the shared hematology setting, the disease-area mismatch makes this a poor fit."
+},
+"cur-bone-marrow-failure-research-program-bmfrp-resou": {
+"fitScore": 10,
+"why": "This DOD mechanism supports shared resources and infrastructure for the bone marrow failure research community, a disease area separate from Sarah's lymphoma-focused CAR-T and immunotherapy-resistance work. It doesn't align with her scientific focus or her investigator-initiated clinical trial program."
+},
+"cur-v-scholar-cancer-research-grant-the-v-foundation": {
+"fitScore": 80,
+"why": "The V Scholar grant is explicitly designed to help early-career faculty launch independent adult-cancer research programs, matching Sarah's stage as an Instructor/Assistant Professor building out her CAR-T and DLBCL immunotherapy-resistance work. Its expectation of a rigorous biostatistics/correlative plan plays to her strength in investigator-initiated trials and correlative studies, though access runs through an institutional nomination."
+},
+"cur-pershing-square-sohn-prize-for-young-investigato": {
+"fitScore": 83,
+"why": "This prize targets rising-star early-career faculty pursuing bold, innovative cancer research, fitting Sarah's stage and her work on CAR-T therapy and immunotherapy resistance in DLBCL. The multi-year funding would support ambitious correlative and translational studies growing out of her investigator-initiated trials program."
+},
+"cur-searle-scholars-program-kinship-foundation-searl": {
+"fitScore": 58,
+"why": "Searle Scholars is meant for scientists in their first year or two of an independent faculty appointment, which matches Sarah's current Instructor/Assistant Professor stage, and the flexible funding could support her DLBCL immunotherapy-resistance work. That said, it's a nomination-only award decided by her institution rather than a direct application, and its general-biomedical scope means her CAR-T/lymphoma focus would be competing broadly rather than being specifically prioritized."
+},
+"cur-ruth-l-kirschstein-nrsa-individual-predoctoral-f": {
+"fitScore": 3,
+"why": "This fellowship is restricted to PhD students conducting mentored dissertation research, but Sarah is an MD physician-scientist who finished fellowship in 2022 and now holds a faculty appointment. There is no realistic pathway for her to qualify for a predoctoral award at this career stage."
+},
+"cur-mmrf-research-scholars-program-scholars-award-mu": {
+"fitScore": 15,
+"why": "The MMRF Scholars Award is an appealing model for an early-career independent-investigator translational grant, and its career-stage fit for someone like Sarah is good, but the program is dedicated to multiple myeloma and plasma cell disorders. Since her expertise centers on lymphoma, CAR-T therapy, and DLBCL immunotherapy resistance rather than myeloma, the disease focus is a poor match."
+},
+"cur-lrf-postdoctoral-fellowship-grant-lymphoma-resea": {
+"fitScore": 42,
+"why": "The topical alignment here is excellent: this grant funds lymphoma research and Sarah's work on DLBCL immunotherapy resistance and CAR-T therapy fits squarely within scope. However, it is structured as a postdoctoral fellowship, and since Sarah has already advanced to an Instructor/Assistant Professor faculty role beyond her 2022 fellowship completion, she may no longer meet the postdoctoral eligibility requirement."
+},
+"cur-alsf-childhood-cancer-data-lab-ccdl-data-science": {
+"fitScore": 10,
+"why": "This program centers on pediatric cancer datasets and data-science training, which doesn't align with Sarah's focus on adult DLBCL, CAR-T therapy, and immunotherapy resistance. Unless she has an unstated interest in pediatric hematologic malignancies, the disease population mismatch makes this a weak fit despite any computational overlap."
+},
+"cur-peer-reviewed-cancer-research-program-prcrp-idea": {
+"fitScore": 76,
+"why": "The PRCRP Idea Award's Blood Cancers portfolio and its new Early Career Investigator Option line up well with Sarah's stage as a recently appointed physician-scientist and her focus on lymphoma and CAR-T immunotherapy resistance. It also funds high-risk, high-reward ideas without requiring preliminary data, which suits investigator-initiated correlative and translational concepts she could be developing around DLBCL."
+},
+"cur-ims-and-paula-and-rodger-riney-foundation-transl": {
+"fitScore": 12,
+"why": "This translational award is dedicated to plasma cell disorders, specifically multiple myeloma, which falls outside Sarah's lymphoma and DLBCL-focused research program. Despite the strong match on clinical/translational format and career stage, the disease-area mismatch makes this a poor fit for her."
+},
+"cur-young-investigator-award-yia-general-competition": {
+"fitScore": 88,
+"why": "The ASCO YIA is a mentored, one-year seed grant explicitly aimed at physician-scientists at the cusp of their first faculty appointment, which describes Sarah's situation as an Instructor/Assistant Professor who completed fellowship in 2022. Its broad oncology scope readily accommodates her investigator-initiated clinical/translational work on CAR-T therapy and immunotherapy resistance in DLBCL, making it one of the strongest matches on this list."
+}
+},
+"junior": {
+"cur-cri-immuno-informatics-postdoctoral-fellowship-c": {
+"fitScore": 42,
+"why": "This CRI fellowship is built for postdocs like Ryan who want to deepen a computational background with disease-biology training, so the career stage lines up well. But the program's core mission is dual training in immunology and data science, and Ryan's work centers on AML genomics and single-cell deep learning rather than cancer immunology specifically, so the topical fit is only partial unless his AML projects have an immune-microenvironment angle."
+},
+"cur-nlm-research-grants-advancing-bioinformatics-tra": {
+"fitScore": 38,
+"why": "This NLM R01 explicitly funds generalizable AI/ML and bioinformatics methods for biomedical data, which squarely matches the PyTorch-based computational genomics work Ryan does on AML and single-cell RNA-seq. The catch is that R01s are built for independent investigators, and as a 2nd-year postdoc Ryan would typically need a faculty appointment before serving as contact PI, making this more of a future target than a current one."
+},
+"cur-smart-health-and-biomedical-research-in-the-era-": {
+"fitScore": 32,
+"why": "The Smart Health program funds exactly the kind of transformative AI-for-biomedicine work Ryan does and could accommodate deep-learning approaches to AML and single-cell data. These large NSF+NIH awards are structured for PI-led teams at the faculty level though, so Ryan would likely need to join as senior personnel under a PI rather than lead the proposal himself at this stage."
+},
+"cur-leukemia-exploration-and-prevention-leap-grant-p": {
+"fitScore": 30,
+"why": "LEAP is genuinely AML-focused, which speaks to Ryan's disease area, but its current call is narrowly aimed at RUNX1-FPD interception and prevention biology rather than the computational, single-cell discovery work he does. It is also structured as a Research Scholar or Team award for independent investigators, so it is not yet a fit for his 2nd-year postdoc stage."
+},
+"cur-su2c-convergence-research-teams-dream-team-grant": {
+"fitScore": 20,
+"why": "SU2C Dream Team and Convergence grants do fund the kind of multidisciplinary AI-plus-cancer-biology collaborations Ryan's skills could contribute to, but they are large team grants assembled by nomination among senior PIs rather than something a 2nd-year postdoc applies for directly. Ryan is better positioned as a future collaborator or team member than as an applicant right now."
+},
+"cur-career-development-program-cdp-scholar-the-leuke": {
+"fitScore": 17,
+"why": "This LLS award funds blood cancer research, which matches Ryan's AML focus, but it is explicitly designed for established-but-not-senior independent faculty rather than postdocs. Ryan would need to secure a faculty appointment before this five-year salary and research award becomes applicable to him."
+},
+"cur-discovery-grant-program-dgp-formerly-blood-cance": {
+"fitScore": 42,
+"why": "The Discovery Grant Program's emphasis on genomics- and omics-driven basic research into blood cancer vulnerabilities lines up well with Ryan's AML single-cell and deep-learning work. It typically targets independent investigators, though, so Ryan may want to flag this as a strong option to revisit once he moves from his postdoc into a faculty-level role."
+},
+"cur-ash-graduate-hematology-award-american-society-o": {
+"fitScore": 12,
+"why": "This ASH award is built to encourage PhD students early in training to pursue hematology careers, but Ryan already completed his PhD in 2024 and is now a 2nd-year postdoc. That career-stage mismatch makes it a poor fit despite the shared hematology focus."
+},
+"cur-single-cell-biology-data-insights-rfa-chan-zucke": {
+"fitScore": 48,
+"why": "Topically this is one of the closest matches on the list: it funds AI/ML computational methods for single-cell datasets, which is exactly what Ryan builds for his AML research. Unfortunately its third and reportedly final cycle has already closed, so Ryan should treat this as a model of the kind of funder to watch rather than something open today, and keep an eye out for any successor CZI call."
+},
+"cur-nih-research-project-grant-parent-r01-nih-nation": {
+"fitScore": 35,
+"why": "The Parent R01 mechanism is broad enough to cover AI/ML-driven AML genomics work through NCI or NHLBI, so the science itself would fit well with Ryan's expertise. As with other R01s, though, it is designed for independent investigators, and Ryan's 2nd-year postdoc status means he would typically need a faculty position before leading one as PI."
+},
+"cur-nci-informatics-technology-for-cancer-research-i": {
+"fitScore": 40,
+"why": "ITCR's explicit welcome of novel machine learning and deep learning tools for cancer research is a strong match for the informatics work Ryan does with single-cell AML data. The U01/U24 mechanisms are generally geared toward independent PIs building and sustaining software, so this is one to keep in mind once he has his own lab rather than to pursue immediately as a postdoc."
+},
+"cur-damon-runyon-fellowship-award-postdoctoral-fello": {
+"fitScore": 88,
+"why": "This is a strong match: the Damon Runyon Fellowship is designed precisely for early-career postdocs like Ryan doing cancer research, without requiring independent PI status. His work applying deep learning to AML and single-cell RNA-seq fits squarely within its broad scope covering theoretical and computational cancer research, and the multi-year training stipend suits exactly where he is right now as a 2nd-year postdoc building toward independence."
+},
+"cur-cri-lloyd-j-old-star-program-scientists-taking-r": {
+"fitScore": 12,
+"why": "This CRI STAR award is built for mid-career investigators pursuing high-risk cancer immunotherapy research, but Ryan is only in his second year of postdoctoral training and his work centers on machine learning for AML genomics rather than immunotherapy. The career-stage gap and topical mismatch make this an unlikely fit right now, though it could become relevant much later in his career if his research shifts toward immuno-oncology."
+},
+"cur-paula-and-rodger-riney-foundation-direct-investi": {
+"fitScore": 8,
+"why": "This is a rolling, institution-level giving program aimed at large direct gifts for multiple myeloma research, not a competitive individual-investigator mechanism. Ryan's focus is AML and single-cell/deep-learning methods rather than myeloma, and as a postdoc he isn't positioned to solicit this kind of institutional award directly."
+},
+"cur-acs-fanconi-cancer-foundation-discovery-boost-gr": {
+"fitScore": 15,
+"why": "This RFA is narrowly targeted at Fanconi anemia-related cancer biology, which doesn't overlap with Ryan's AML and computational genomics work, and the most recent application cycle has already closed. Even if reissued, the disease focus is too far afield from his research program to be a strong match."
+},
+"cur-specialized-center-of-research-program-scor-the-": {
+"fitScore": 13,
+"why": "SCOR funds large, multi-investigator team-science centers led by established, senior researchers, which isn't a fit for Ryan's current position as a second-year postdoc. His individual computational AML research would need to be folded into a much larger, faculty-led program for this mechanism to apply."
+},
+"cur-ash-scholar-award-fellow-fellow-to-faculty-and-j": {
+"fitScore": 88,
+"why": "The ASH Scholar Award's Fellow track is built precisely for hematology-focused postdocs transitioning toward independence, and its blood cancer and computational focus areas map directly onto Ryan's AML machine-learning and single-cell genomics work. With the full application due August 3, 2026, this is a near-term, well-aligned opportunity worth prioritizing."
+},
+"cur-endeavor-award-the-mark-foundation-for-cancer-re": {
+"fitScore": 13,
+"why": "The Endeavor Award funds large, multidisciplinary team collaborations at the multi-million-dollar scale, which isn't structured for an individual second-year postdoc like Ryan to apply for on his own. His AML and deep-learning expertise could someday contribute to such a team, but this isn't a standalone fellowship for someone at his stage."
+},
+"cur-aacr-hematologic-malignancies-research-fellowshi": {
+"fitScore": 90,
+"why": "This AACR fellowship is dedicated exclusively to blood cancers and supports mentored research across disciplines, making it an excellent match for Ryan's AML-focused machine learning and single-cell RNA-seq work as a postdoc. It's squarely aimed at researchers at his career stage, and the topic fit with his genomics and deep-learning expertise is strong."
+},
+"cur-aamdsif-research-grants-program-aplastic-anemia-": {
+"fitScore": 28,
+"why": "AAMDSIF's grants target bone marrow failure diseases like aplastic anemia, MDS, and PNH, which are adjacent to but distinct from Ryan's primary focus on AML, so the disease alignment is only partial. It's also pitched at new investigators establishing independent programs, which is a step beyond his current second-year postdoc position."
+},
+"cur-bone-marrow-failure-research-program-bmfrp-resou": {
+"fitScore": 25,
+"why": "This DoD award funds shared resources, datasets, and models for the bone marrow failure research community, which could theoretically draw on Ryan's Python and deep-learning skills, but the disease focus is bone marrow failure conditions rather than his core AML research. The resource-development framing also doesn't match the mentored-postdoc-fellowship shape of what he likely needs at this stage."
+},
+"cur-v-scholar-cancer-research-grant-the-v-foundation": {
+"fitScore": 18,
+"why": "The V Scholar grant is meant for early-career faculty launching independent research programs and requires an institutional nomination, neither of which fits Ryan's current status as a second-year postdoc. Its detailed bioinformatics-plan requirement does echo his computational strengths, but the faculty-level eligibility bar puts it out of reach for now."
+},
+"cur-pershing-square-sohn-prize-for-young-investigato": {
+"fitScore": 22,
+"why": "The Pershing Square Sohn Prize targets rising-star early-career faculty, and while it explicitly welcomes computational cancer research that would suit Ryan's machine learning and genomics background, he isn't yet at the faculty stage this prize expects. It's worth keeping on his radar for after he transitions into an independent faculty role."
+},
+"cur-searle-scholars-program-kinship-foundation-searl": {
+"fitScore": 15,
+"why": "The Searle Scholars Program is reserved for scientists in their first year or two of an independent, tenure-track faculty appointment, but Ryan is currently a 2nd-year postdoc and hasn't yet started such a position. His AML/ML/single-cell work would fit the biomedical scope well once he reaches that stage, but the career-stage requirement makes this a poor match right now."
+},
+"cur-ruth-l-kirschstein-nrsa-individual-predoctoral-f": {
+"fitScore": 5,
+"why": "This is a predoctoral fellowship meant to support PhD students still working on their dissertation, but Ryan already completed his PhD in Computer Science in 2024 and is now a postdoc, so he is past the eligible career stage. Despite the strong topical overlap with cancer-focused NCI funding, the fellowship mechanism simply doesn't apply to him anymore."
+},
+"cur-mmrf-research-scholars-program-scholars-award-mu": {
+"fitScore": 12,
+"why": "This MMRF award is built for independent investigators tackling multiple myeloma, but Ryan's research centers on AML rather than plasma cell disorders, and he isn't yet in an independent faculty role. Even with his strong genomics and deep-learning skill set, the disease focus and required investigator status don't line up with where he is now."
+},
+"cur-lrf-postdoctoral-fellowship-grant-lymphoma-resea": {
+"fitScore": 42,
+"why": "As a postdoctoral fellowship, this grant matches Ryan's current career stage well, and its blood-cancer and genomics/omics scope overlaps with his machine-learning and single-cell RNA-seq expertise. However, the program is specifically aimed at lymphoma research, whereas Ryan's work is centered on AML, so the disease-specific fit is only partial despite the shared hematologic-malignancy space."
+},
+"cur-alsf-childhood-cancer-data-lab-ccdl-data-science": {
+"fitScore": 58,
+"why": "The CCDL's single-cell RNA-seq training and OpenScPCA data-science opportunities are a strong technical match for Ryan's PyTorch, deep-learning, and single-cell genomics skills, and the postdoctoral training-grant angle fits his current stage. The main gap is that ALSF's focus is pediatric cancer, and Ryan's AML research isn't described as pediatric, so the disease-population alignment is only partial even though the computational fit is excellent."
+},
+"cur-peer-reviewed-cancer-research-program-prcrp-idea": {
+"fitScore": 82,
+"why": "The PRCRP's Blood Cancers portfolio explicitly includes leukemia, directly matching Ryan's AML research, and the new Early Career Investigator Option is designed for someone at his 2nd-year-postdoc stage without requiring preliminary data. Combined with his deep-learning and genomics expertise, this is one of the strongest topical and career-stage matches on the list, though he'd want to confirm his institution can support him as PI under the ECI mechanism."
+},
+"cur-ims-and-paula-and-rodger-riney-foundation-transl": {
+"fitScore": 8,
+"why": "This translational grant is dedicated to plasma cell disorders like multiple myeloma, which is a different disease area from Ryan's AML-focused research, so the topical fit is weak despite his genomics and computational strengths. It's also oriented toward investigator-initiated translational work typically expecting an independent research position, which doesn't match his current postdoc stage."
+},
+"cur-young-investigator-award-yia-general-competition": {
+"fitScore": 12,
+"why": "The ASCO YIA is designed for physician-scientists nearing their first faculty appointment in clinical oncology, but Ryan is a computational PhD scientist rather than a physician, and he's earlier in his career trajectory as a 2nd-year postdoc. While his oncology and blood-cancer focus is relevant thematically, the mentored physician-scientist framing of this award doesn't match his background or current stage."
+},
+"cur-career-development-program-cdp-fellow-the-leukem": {
+"fitScore": 94,
+"why": "Ryan's work sits squarely in AML biology combined with machine learning and single-cell RNA-seq, which is exactly the blood cancer/hematology and AI-computational research this CDP Fellow award is built to support. As a 2nd-year postdoc still building toward independence, he's an ideal candidate for a mentored, multi-year stipend designed to launch early-career researchers in leukemia and lymphoma research. The three-year salary support would give him the runway to deepen his deep-learning and g"
 }
 }
 }
