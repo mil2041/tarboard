@@ -33,7 +33,7 @@
   --shadow-lg:0 30px 70px -34px rgba(0,0,0,.85);
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
 body{
   margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
   font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;
@@ -46,7 +46,7 @@ button{font-family:inherit;cursor:pointer}
 /* ---------- Masthead ---------- */
 .masthead{
   border-bottom:1px solid var(--line);background:var(--paper-2);
-  position:sticky;top:0;z-index:40;backdrop-filter:blur(6px);
+  position:sticky;top:0;z-index:40;
 }
 .masthead-inner{max-width:1360px;margin:0 auto;padding:14px 26px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
 .brand{display:flex;flex-direction:column;line-height:1}
@@ -92,7 +92,8 @@ button{font-family:inherit;cursor:pointer}
 .echip.win{background:var(--green-wash);color:var(--green)}
 .gc-elig{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
 .gcard.inelig{opacity:.62}
-.gcard.inelig:hover{opacity:1}
+.gcard.inelig:hover,.gcard.inelig:focus-within,.gcard.inelig.expanded{opacity:1}
+@media(hover:none){.gcard.inelig{opacity:.78}}
 
 /* ---------- Layout ---------- */
 .wrap{max-width:1360px;margin:0 auto;padding:26px;display:grid;grid-template-columns:352px 1fr;gap:26px;align-items:start}
@@ -113,11 +114,11 @@ button{font-family:inherit;cursor:pointer}
 .field{margin-bottom:14px}
 .field:last-child{margin-bottom:0}
 label.lab{display:block;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:6px}
-input[type=text],textarea,select{
+input[type=text],input[type=password],textarea,select{
   width:100%;background:var(--paper-2);border:1px solid var(--line-strong);border-radius:9px;
   padding:9px 11px;font-family:var(--sans);font-size:15px;color:var(--ink);transition:.15s
 }
-input[type=text]:focus,textarea:focus,select:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px var(--teal-wash)}
+input[type=text]:focus,input[type=password]:focus,textarea:focus,select:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px var(--teal-wash)}
 textarea{resize:vertical;min-height:74px;line-height:1.45}
 select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' stroke='%238a8477' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 11px center;padding-right:30px}
 
@@ -190,6 +191,8 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
 .gcard:hover{border-color:var(--line-strong);box-shadow:var(--shadow)}
 @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 .gc-main{padding:18px 20px;display:grid;grid-template-columns:1fr auto;gap:18px}
+.gc-body{min-width:0}
+.gc-body,.gc-detail,.claude-brief{overflow-wrap:anywhere}
 .gc-title{font-family:var(--sans);font-size:17.5px;font-weight:600;line-height:1.34;letter-spacing:-.005em;margin:0 0 6px}
 .gc-title a{text-decoration:none}
 .gc-title a:hover{color:var(--teal);text-decoration:underline;text-underline-offset:3px}
@@ -271,7 +274,7 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
 .skel{height:150px;border-radius:14px;background:linear-gradient(100deg,var(--card) 30%,var(--paper-2) 50%,var(--card) 70%);background-size:200% 100%;animation:sh 1.3s infinite;border:1px solid var(--line)}
 @keyframes sh{to{background-position:-200% 0}}
 
-.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--ink);color:var(--paper-2);padding:11px 18px;border-radius:10px;font-size:15px;font-weight:500;box-shadow:var(--shadow-lg);opacity:0;pointer-events:none;transition:.25s;z-index:60;display:flex;align-items:center;gap:9px}
+.toast{position:fixed;bottom:calc(24px + env(safe-area-inset-bottom,0px));left:50%;width:max-content;max-width:calc(100vw - 32px);transform:translateX(-50%) translateY(20px);background:var(--ink);color:var(--paper-2);padding:11px 18px;border-radius:10px;font-size:15px;font-weight:500;box-shadow:var(--shadow-lg);opacity:0;pointer-events:none;transition:.25s;z-index:60;display:flex;align-items:center;gap:9px}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 .toast svg{width:15px;height:15px;color:var(--teal-bright)}
 
@@ -334,9 +337,10 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
 .echip.conf-med{background:var(--amber-wash);color:var(--amber)}
 .echip.conf-low{background:var(--paper-2);color:var(--ink-faint);border:1px solid var(--line-strong)}
 /* config modal */
-.cfg-modal{position:fixed;inset:0;background:rgba(20,17,10,.55);display:flex;align-items:center;justify-content:center;z-index:80;padding:20px}
+.cfg-modal{position:fixed;inset:0;background:rgba(20,17,10,.55);display:flex;align-items:center;justify-content:center;z-index:80;padding:20px;overflow-y:auto;overscroll-behavior:contain}
 .cfg-modal[hidden]{display:none}
-.cfg-card{background:var(--card);border:1px solid var(--line-strong);border-radius:16px;max-width:460px;width:100%;padding:22px;box-shadow:var(--shadow-lg)}
+/* margin:auto (not align-items) centers the card yet lets the overlay scroll when the card is taller than the viewport (phones with the keyboard open) */
+.cfg-card{background:var(--card);border:1px solid var(--line-strong);border-radius:16px;max-width:460px;width:100%;padding:22px;box-shadow:var(--shadow-lg);margin:auto}
 .cfg-card h3{font-family:var(--serif);font-size:22px;margin:0 0 6px}
 .cfg-card>p{font-size:14px;color:var(--ink-soft);margin:0 0 6px;line-height:1.5}
 .cfg-card label{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-faint);font-weight:600;margin:10px 0 4px}
@@ -347,6 +351,46 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
 .cfg-ghost{background:var(--paper-2);border:1px solid var(--line-strong);border-radius:9px;padding:10px 14px;color:var(--ink-soft);font-weight:600}
 .cfg-status{margin-top:10px;font-size:13px;color:var(--teal);font-weight:600;min-height:16px}
 .domain-banner{background:var(--amber-wash);color:var(--amber);border:1px solid color-mix(in srgb,var(--amber) 35%,transparent);border-radius:10px;padding:9px 12px;font-size:14px;font-weight:600;margin-bottom:14px}
+
+/* ---------- Mobile (phone) ---------- */
+@media(max-width:940px){
+  /* the masthead slides out of the way on scroll-down and returns on scroll-up (class set in JS) */
+  .masthead{transition:transform .28s ease}
+  .masthead.mh-hide{transform:translateY(-100%)}
+  /* iOS Safari auto-zooms the page when focusing any control under 16px — keep controls at 16px */
+  input[type=text],input[type=password],textarea,select,.ef input,.ef select,.sortsel{font-size:16px}
+  .results-top{scroll-margin-top:10px}
+}
+@media(max-width:720px){
+  .masthead-inner{padding:9px 16px;gap:12px;flex-wrap:nowrap}
+  .brand .kicker{display:none}
+  .brand .tag{display:none}
+  .brand h1{font-size:22px}
+  .datestamp{display:none}
+  .masthead-meta{gap:8px}
+  .iconbtn{width:44px;height:44px}
+  /* touch targets: lift dense tap surfaces toward the 44px guideline */
+  .togg,.chip{padding:8px 12px}
+  .filtgrid,.seg,.chips{gap:8px}
+  .tab{padding:9px 14px}
+  .expandbtn{padding:10px 8px;margin:-6px -8px}
+  .mini-link{padding:8px 6px;margin:-8px -6px}
+  .dl{white-space:normal}
+  .eligrow-inner{padding:9px 16px 11px;display:grid;grid-template-columns:1fr 1fr;gap:9px 10px;align-items:end}
+  .ef input,.ef.name input,.ef select{width:100%}
+  .eligsum{grid-column:1/-1;gap:7px}
+  .eligsum .pill{font-size:12.5px;padding:7px 11px}
+  /* grant cards: stack the score/actions rail under the body instead of squeezing the title */
+  .gc-main{grid-template-columns:1fr;gap:12px;padding:15px 16px}
+  .gc-side{flex-direction:row;align-items:center;justify-content:space-between;min-width:0;border-top:1px solid var(--line);padding-top:12px}
+  .score{text-align:left}
+  .score .pct{font-size:22px}
+  .gc-actions{flex-direction:row;width:auto;gap:8px}
+  .act{padding:9px 13px}
+  .gc-detail{padding:13px 16px}
+  .wrap{padding:14px;gap:16px}
+  .foot{padding:0 16px}
+}
 </style>
 </head>
 <body>
@@ -373,7 +417,7 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
     <div class="eligrow-inner">
       <div class="ef name">
         <span class="efk">Applicant</span>
-        <input type="text" id="applicantName" placeholder="Your name (optional)" />
+        <input type="text" id="applicantName" placeholder="Your name (optional)" autocomplete="name" autocapitalize="words" />
       </div>
       <div class="ef">
         <span class="efk">PhD completed</span>
@@ -400,7 +444,7 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
       </div>
       <div class="ef" id="prWrap" style="display:none">
         <span class="efk">Permanent residence ~</span>
-        <input type="text" id="prMonth" maxlength="7" placeholder="YYYY-MM" />
+        <input type="text" id="prMonth" inputmode="numeric" maxlength="7" placeholder="YYYY-MM" />
       </div>
       <div class="eligsum" id="eligSummary"></div>
     </div>
@@ -439,7 +483,7 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
       <div class="panel-h"><span class="num">2</span><h2>Research Topics</h2></div>
       <div class="panel-b">
         <div class="field" style="margin-bottom:8px">
-          <input type="text" id="topicInput" placeholder="Add a topic + Enter (e.g. AML, foundation models)" />
+          <input type="text" id="topicInput" enterkeyhint="done" placeholder="Add a topic + Enter (e.g. AML, foundation models)" />
         </div>
         <div class="chips" id="topicChips"></div>
         <div class="suglabel">Blood cancer</div>
@@ -534,7 +578,7 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
     <h3>Connect Claude</h3>
     <p>Tarboard reads your CV, re-ranks matches and drafts fit briefs with <b>Claude</b>. Point it at your Cloudflare Worker proxy (recommended — see <span class="mono">worker/README.md</span>), or paste an API key for local testing only.</p>
     <label>Worker URL</label>
-    <input type="text" id="cfgWorker" placeholder="https://tarboard-claude.you.workers.dev" autocomplete="off" spellcheck="false" />
+    <input type="text" id="cfgWorker" inputmode="url" autocapitalize="off" placeholder="https://tarboard-claude.you.workers.dev" autocomplete="off" spellcheck="false" />
     <label>Demo token (optional)</label>
     <input type="text" id="cfgToken" placeholder="x-demo-token, if you set one" autocomplete="off" spellcheck="false" />
     <div class="cfg-or">— or, local dev only —</div>
@@ -617,7 +661,7 @@ const state = {
 const $=(s,r=document)=>r.querySelector(s);
 const $$=(s,r=document)=>[...r.querySelectorAll(s)];
 const esc=s=>(s==null?"":String(s)).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-function toast(msg){const t=$("#toast");$("#toastMsg").textContent=msg;t.classList.add("show");clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove("show"),2200);}
+function toast(msg){const t=$("#toast");$("#toastMsg").textContent=msg;t.classList.add("show");clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove("show"),Math.min(6000,Math.max(2200,msg.length*30)));}
 
 const MONTHS={jan:0,feb:1,mar:2,apr:3,may:4,jun:5,jul:6,aug:7,sep:8,oct:9,nov:10,dec:11};
 function parseDeadline(s){
@@ -639,7 +683,7 @@ function deadlineChip(g){
   if(!d||isNaN(d)){
     const txt=(g.deadlineInfo||"").trim();
     if(txt && txt.length>4 && !/^see site$/i.test(txt))
-      return `<span class="dl unk" title="${esc(txt)}">↻ ${esc(txt.slice(0,30))}${txt.length>30?"…":""}</span>`;
+      return `<span class="dl unk" title="${esc(txt)}">↻ ${esc(txt.slice(0,56))}${txt.length>56?"…":""}</span>`;
     return `<span class="dl unk">◇ see site</span>`;
   }
   const days=Math.round((d-new Date())/864e5);
@@ -1427,6 +1471,8 @@ function dedupePool(pool){
 }
 async function runSearch(){
   const btn=$("#searchBtn");btn.disabled=true;
+  // commit any topic text still sitting in the input (mobile users often skip the Enter step)
+  const _ti=$("#topicInput"); if(_ti&&_ti.value.trim()){addTopic(_ti.value);_ti.value="";}
   state.searchToken=(state.searchToken||0)+1; const tok=state.searchToken;
   state.claudeRanked=false;
   $("#resHead").textContent="Searching…";
@@ -1441,6 +1487,9 @@ async function runSearch(){
   state.fedStatus={loading:state.sources.has("federal"),err:false};
   btn.disabled=false;
   render();
+  // single-column layouts: the feed renders below the sidebar, so bring the results into view
+  if(window.matchMedia("(max-width:940px)").matches)
+    setTimeout(()=>$(".results-top").scrollIntoView({behavior:"smooth",block:"start"}),60);
   // the whole curated+JHU pool is pre-reasoned for the demo, so skip the live re-rank there
   const useCache=state.isDemo && !state.forceLive && CLAUDE_CACHE && state.cacheKey && CLAUDE_CACHE[state.cacheKey] && Object.keys(CLAUDE_CACHE[state.cacheKey]).length>0;
   // 2) federal streams in asynchronously (with a cached-snapshot fallback), then Claude re-ranks
@@ -1753,8 +1802,28 @@ function render(){
   $("#resSub").innerHTML=`Sorted by <b>${sortLbl}</b> · <b>${fed}</b> live federal · <b>${sorted.length-fed}</b> curated${gcNote}${blkNote}${otherNote}${facNote}${winNote}`;
   renderSrcBar({});
   renderEligSummary({openNow,gc,blk,other,faculty,winX});
+  // Async re-renders (federal stream-in, Claude re-rank) rebuild the whole feed — don't wipe
+  // what the user is doing: keep expanded cards (incl. fetched federal detail) and hold the
+  // topmost visible card at the same screen position.
+  const openDetails={};
+  feed.querySelectorAll(".gc-detail.show").forEach(d=>{openDetails[d.dataset.detail]={html:d.dataset.loaded?d.innerHTML:null,loaded:d.dataset.loaded||"",elig:d.dataset.elig||""};});
+  let anchor=null;
+  if(window.scrollY>0){
+    const c=[...feed.querySelectorAll(".gcard")].find(el=>el.getBoundingClientRect().bottom>80);
+    if(c) anchor={id:c.dataset.id,top:c.getBoundingClientRect().top};
+  }
   feed.innerHTML=sorted.map((g,i)=>cardHTML(g,maxScore,i)).join("");
   wireCards();
+  Object.entries(openDetails).forEach(([id,st])=>{
+    const det=feed.querySelector(`.gc-detail[data-detail="${CSS.escape(id)}"]`); if(!det) return;
+    if(st.loaded){det.innerHTML=st.html;det.dataset.loaded=st.loaded;det.dataset.elig=st.elig;wireEligBtn(det);}
+    det.classList.add("show");
+    const card=det.closest(".gcard"); if(card){card.classList.add("expanded");const b=card.querySelector(".expandbtn");if(b)b.classList.add("open");}
+  });
+  if(anchor){
+    const el=feed.querySelector(`.gcard[data-id="${CSS.escape(anchor.id)}"]`);
+    if(el) window.scrollBy(0,el.getBoundingClientRect().top-anchor.top);
+  }
 }
 // keep the Filters-panel eligibility toggles visually in sync with the reveal state (pills ↔ toggles)
 function syncEligToggles(){
@@ -1813,7 +1882,15 @@ function renderSrcBar(o){
     runSearch();                                          // re-runs; useCache is now false → live claudeRerank
   };
 }
+// wire (or re-wire after a feed re-render) the "Ask Claude: can I apply?" button inside a fetched federal detail
+function wireEligBtn(det){
+  const eb=det.querySelector('button[id^="elig-"]');
+  if(!eb||!det.dataset.elig) return;
+  eb.onclick=()=>{ eb.disabled=true; eb.textContent="✦ Claude is reading the synopsis…"; claudeEligibility(det.dataset.elig, det.querySelector(".claude-elig")).finally(()=>{eb.style.display="none";}); };
+}
 function wireCards(){
+  // title= tooltips never show on touch — tapping the chip surfaces the same explanation as a toast
+  $$(".cfh-cached,.echip[title],.dl[title]").forEach(c=>{if(c.title)c.onclick=e=>{e.stopPropagation();toast(c.title);};});
   $$("[data-save]").forEach(b=>b.onclick=()=>{
     const id=b.dataset.save;
     const g=[...state.results,...state.saved].find(x=>String(x.id)===id);
@@ -1865,8 +1942,8 @@ function wireCards(){
         if(claudeReady() && d.eligibility){
           const oid=b.dataset.opp;
           det.innerHTML+=`<div style="margin-top:10px"><button class="claude-brief-btn" id="elig-${esc(oid)}">✦ Ask Claude: can I apply?</button><div class="claude-elig" id="eligout-${esc(oid)}"></div></div>`;
-          const eb=det.querySelector("#elig-"+CSS.escape(oid));
-          if(eb) eb.onclick=()=>{ eb.disabled=true; eb.textContent="✦ Claude is reading the synopsis…"; claudeEligibility(d.eligibility, det.querySelector("#eligout-"+CSS.escape(oid))).finally(()=>{eb.style.display="none";}); };
+          det.dataset.elig=d.eligibility;   // stash so the button survives a feed re-render (render() rewires it)
+          wireEligBtn(det);
         }
         det.dataset.loaded="1";
       }catch(e){det.innerHTML=`<span style="color:var(--crimson)">Couldn't load details — <a class="lk" href="https://www.grants.gov/search-results-detail/${esc(b.dataset.opp)}" target="_blank" rel="noopener">open on Grants.gov</a> instead.</span>`;}
@@ -1948,14 +2025,16 @@ function wireUI(){
   };
   // ---- Claude connection modal ----
   const cfgModal=$("#cfgModal");
+  // lock the page scroll while the modal is open (touch-drags on the backdrop otherwise pan the page behind it)
+  const cfgShow=v=>{cfgModal.hidden=!v;document.documentElement.style.overflow=v?"hidden":"";};
   $("#cfgBtn").onclick=()=>{
     const c=claudeCfg();
     $("#cfgWorker").value=c.workerUrl; $("#cfgToken").value=c.demoToken; $("#cfgKey").value=c.userKey;
     $("#cfgStatus").textContent=claudeReady()?"Connected.":"Not connected — the app still runs offline (lexical matching).";
-    cfgModal.hidden=false;
+    cfgShow(true);
   };
-  $("#cfgClose").onclick=()=>{cfgModal.hidden=true;};
-  cfgModal.onclick=e=>{if(e.target===cfgModal)cfgModal.hidden=true;};
+  $("#cfgClose").onclick=()=>cfgShow(false);
+  cfgModal.onclick=e=>{if(e.target===cfgModal)cfgShow(false);};
   $("#cfgClear").onclick=()=>{localStorage.removeItem("gb_claude_cfg");$("#cfgWorker").value="";$("#cfgToken").value="";$("#cfgKey").value="";$("#cfgStatus").textContent="Disconnected.";renderSrcBar({});};
   $("#cfgSave").onclick=async()=>{
     saveClaudeCfg({workerUrl:$("#cfgWorker").value.trim(),demoToken:$("#cfgToken").value.trim(),userKey:$("#cfgKey").value.trim()});
@@ -1974,6 +2053,17 @@ function wireUI(){
   setMastheadH();
   if(window.ResizeObserver) new ResizeObserver(setMastheadH).observe(mh);
   window.addEventListener("resize",setMastheadH);
+  // phones: slide the masthead away on scroll-down, bring it back on scroll-up
+  const mhMq=window.matchMedia("(max-width:940px)");
+  let mhY=window.scrollY;
+  window.addEventListener("scroll",()=>{
+    const y=window.scrollY;
+    if(!mhMq.matches){mh.classList.remove("mh-hide");mhY=y;return;}
+    if(mh.contains(document.activeElement)){mhY=y;return;}   // never yank the bar away mid-typing
+    if(y>mhY+6&&y>mh.offsetHeight)mh.classList.add("mh-hide");
+    else if(y<mhY-6||y<=0)mh.classList.remove("mh-hide");
+    mhY=y;
+  },{passive:true});
   // datestamp
   $("#datestamp").textContent=new Date().toLocaleDateString("en-US",{weekday:"long",year:"numeric",month:"long",day:"numeric"});
   // ---- top eligibility bar ----
@@ -1988,11 +2078,15 @@ function wireUI(){
   }
   $("#phdYear").addEventListener("input",syncElig);
   $("#citizenship").addEventListener("change",syncElig);
+  // numeric keypads have no hyphen — insert it after the year (registered BEFORE syncElig so it sees the fixed value)
+  $("#prMonth").addEventListener("input",e=>{const v=e.target.value;if(/^\d{5,6}$/.test(v))e.target.value=v.slice(0,4)+"-"+v.slice(4);});
   $("#prMonth").addEventListener("input",syncElig);
   $("#careerStage").addEventListener("change",()=>{saveProfile();if(state.results.length)render();});
   window.__syncElig=syncElig;
   // dropzone
   const drop=$("#drop"),file=$("#cvFile");
+  // touchscreens can't drag-and-drop — say what a tap actually does
+  if(window.matchMedia("(pointer:coarse)").matches) drop.querySelector(".t").textContent="Tap to upload your CV";
   drop.onclick=()=>file.click();
   file.onchange=e=>{if(e.target.files[0])handleFile(e.target.files[0]);};
   ["dragover","dragenter"].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add("over");}));
@@ -2017,7 +2111,9 @@ function wireUI(){
     (DEMO_PROFILE.focus||[]).forEach(f=>state.focus.add(f));renderFocusFilters();
     saveProfile();
     toast("Loaded Jordan Bennett's profile — hit Search");
-    window.scrollTo({top:0,behavior:"smooth"});
+    // desktop: the sticky sidebar keeps Search visible from the top; phones: scroll TO the button instead
+    if(window.matchMedia("(max-width:940px)").matches) $("#searchBtn").scrollIntoView({behavior:"smooth",block:"center"});
+    else window.scrollTo({top:0,behavior:"smooth"});
   };
   // topics
   $("#topicInput").addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();addTopic(e.target.value);e.target.value="";}});
