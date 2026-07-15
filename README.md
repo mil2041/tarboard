@@ -61,6 +61,18 @@ python3 build.py     # regenerates index.html from the template + data/*.json + 
 
 Edit `index.template.html` for app/UI changes and `data/*.json` for data changes, then re-run `build.py`.
 
+## Deploy the page
+
+The live app is a Cloudflare Pages project (`tarboard` → https://tarboard.pages.dev), deployed as a **direct upload** of the single built file — not connected to the Git repo. After `build.py`, copy `index.html` into an otherwise-empty directory and deploy that directory:
+
+```bash
+python3 build.py
+mkdir -p dist && cp index.html dist/          # dist/ holds ONLY index.html
+npx wrangler pages deploy dist --project-name tarboard --branch main
+```
+
+> ⚠️ **Never deploy the repo root.** Point `wrangler pages deploy` at a directory containing only the built `index.html`. The repo root holds `user_profile/` (real CV) and other draft material that is fine on disk but must never be published — deploying `.` would upload all of it. `main` is the production branch, so `--branch main` publishes to the `tarboard.pages.dev` apex; any other branch name creates a throwaway preview URL instead.
+
 ## Files
 
 - `index.html` — the built, self-contained app (open this)
